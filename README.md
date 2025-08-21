@@ -88,4 +88,3 @@
 ### 🚀 Track 13 · Spring + Flutter  
 **Spring API와 Flutter UI를 연결한 크로스 플랫폼 앱 개발 실습**  
 `→` [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track13-spring-flutter)
- 
