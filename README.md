@@ -17,6 +17,9 @@
 **GitHub 저장소 관리, 마크다운 문서화, AI 프롬프트 활용까지 협업의 기본기 습득**  
 `→` [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track01-github-ai)
 
+깃허브 ai 목차
+
+
 ---
 
 ### 🚀 Track 02 · HTML + CSS + JavaScript + jQuery + Bootstrap  
