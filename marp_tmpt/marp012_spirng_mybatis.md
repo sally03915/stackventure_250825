@@ -73,7 +73,7 @@ style: |
   section[class^="cover"] h2 {
     font-size: 1.6em;
     font-weight: 400;
-    color: #f0f0f0;
+    color: #333;
     margin-bottom: 10px;
   }
 
