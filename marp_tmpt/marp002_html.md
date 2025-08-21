@@ -73,7 +73,7 @@ style: |
   section[class^="cover"] h2 {
     font-size: 1.6em;
     font-weight: 400;
-    color: #f0f0f0;
+    color: #555;
     margin-bottom: 10px;
   }
 
@@ -198,7 +198,7 @@ style: |
 
 --- 
 <!-- _class: cover-html -->
-<h4  style="color:#555 ; ">목차 : Web Essentials 트랙</h4> 
+<h2 style="font-size:1.6em; color:#555 ; ">목차 : Web Essentials 트랙</h2>
 
 <div class="track-outline">
   <span>▶ Chapter 1: 웹의 역사와 구조 이해</span>
