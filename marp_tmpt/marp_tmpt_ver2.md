@@ -92,6 +92,12 @@ style: |
   }
 
   /* 과목별 cover 배경 */
+  section.cover-githubai {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364, #3a6186, #89253e, #ff6e7f);
+    color: #fefefe;
+  }
+
+
   section.cover-html         { background: linear-gradient(135deg, #ffecd2, #fcb69f, #ff9a9e, #fad0c4, #ffe0b2, #ffccbc); color: #222; }
   section.cover-java         { background: linear-gradient(135deg, #f7ff00, #db36a4, #ff6f61, #ff8a65, #ffb74d, #ffd54f); color: #fff; }
   section.cover-mysql        { background: linear-gradient(135deg, #89f7fe, #66a6ff, #4fc3f7, #29b6f6, #0288d1, #01579b); color: #fff; }
@@ -105,6 +111,55 @@ style: |
   section.cover-fullstack    { background: linear-gradient(135deg, #f7971e, #ffd200, #ffcc00, #ffb347, #ff7043, #ff5722); color: #222; }
   section.cover-springflutter{ background: linear-gradient(135deg, #a1c4fd, #c2e9fb, #d4fc79, #96e6a1, #fbc2eb, #a6c1ee); color: #222; }
 
+  /* 강조 박스: 현재 챕터 위치 표시용 */
+  .chapter-highlight {
+    background: linear-gradient(135deg, #1c1c1e, #2c2c2e, #3a3a3c);
+    color: #fefefe;
+    font-size: 0.95em;
+    padding: 12px 50px;
+    border-radius: 12px;
+    margin: 20px;
+    max-width: 120%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    text-align: left;
+  }
+
+
+  /* 목차 박스 - 밝고 깔끔한 스타일 */
+  .track-outline {
+    background: linear-gradient(135deg, #ffffff, #f7f9fc);
+    color: #333;
+    font-size: 1.05em;
+    line-height: 1.8;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 40px  10px;
+    max-width: 150% ;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .track-outline strong {
+    font-size: 1.1em;
+    color: #007acc;
+  }
+
+  .track-outline span {
+    display: block;
+    margin-bottom: 6px;
+    color: #007acc;
+  }
+
+  /* 현재 챕터 강조 */
+  .track-outline .current-chapter {
+    background: #e6f7ff;
+    border-left: 4px solid #007acc;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #005999;
+  }
+
   /* 일반 섹션 배경 */
   section.orange   { background: linear-gradient(135deg, #fca65e, #f76b1c); color: #fff; }
   section.blue     { background: linear-gradient(135deg, #6fa3ef, #4169E1); color: #ffffcc; }
@@ -116,12 +171,42 @@ style: |
   
 ---
 
-<!-- _class: cover -->
-# 🚀 Python 완전 정복  
-### 미래를 여는 첫 번째 코드
+<!-- _class: cover-githubai -->
+<h4 style="color:#6C757D;">
+  <span style="color:#ff6e7f; text-shadow: 0 0 6px rgba(255,110,127,0.6); font-weight:bold;">🚀</span>
+  CodeCraft Series · Track 01
+</h4>  
+<h1 style="color:#FF69B4;">GitHub + AI 활용</h1>  
+<h3 style="color:#FFD700;">Repo · API · Prompt · Collaboration</h3>
 
-> <span class="fragment">기술의 언어를 배우는 가장 스마트한 방법</span>  
-> <span class="fragment">당신의 가능성을 깨우는 여정이 지금 시작됩니다</span>
+<div class="chapter-highlight">
+  📍 <strong>현재 위치:</strong> Chapter 3 · <em>AI 명령 프롬프트 이해</em>
+</div>
+
+<blockquote>
+  <span class="fragment" style="color:#343A40;">AI를 코드에 연결하고 GitHub로 협업하는 실전 기술</span><br>
+  <span class="fragment" style="color:#495057;">개발자와 AI가 함께 만드는 스마트한 프로젝트 환경</span>
+</blockquote>
+
+
+---  
+<!-- _class: cover-githubai --> 
+<h2 style="font-size:1.6em; color:#555;">목차 : GitHub + AI 활용편 </h2>
+
+<div class="track-outline">
+  <span class="current-chapter">✅▶ Chapter 1: GitHub 기본 개념</span>
+  <span>▶ Chapter 2: GitHub 실전 활용</span>
+  <span>▶ Chapter 3: AI 명령 프롬프트 이해</span>
+  <span>▶ Chapter 4: GitHub + AI 연동 실습</span>
+  <span>▶ Chapter 5: 스마트 협업 환경 만들기</span>
+</div>
+
+<p style="margin-top:30px; font-size:0.95em; color:#888;">
+  이 트랙은 개발자와 AI가 함께 협업하는 <br/> 미래형 개발 환경을 실습 중심으로 안내합니다.
+</p>
+
+
+
 
 ---
 
