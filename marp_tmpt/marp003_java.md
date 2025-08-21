@@ -199,6 +199,7 @@ style: |
   <span class="current-chapter">✅▶ Chapter 2: 클래스와 객체의 이해</span>
   <span>▶ Chapter 3: 상속과 다형성</span>
   <span>▶ Chapter 4: 컬렉션 프레임워크</span>
+  <span>▶ Chapter 5: JVM과 메모리 구조</span>
 </div>
 
 <p style="margin-top:30px; font-size:0.95em; color:#888;">
