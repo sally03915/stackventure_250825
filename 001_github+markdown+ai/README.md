@@ -26,19 +26,17 @@ GitHub 기반 저장소 관리, Markdown 문서화, VS Code 환경에서의 실�
 > 개발 생산성을 높이는 방법을 실습 중심으로 안내합니다.
 
 ---
-
 ## 📌 목차  
 각 챕터는 다음 링크에서 확인 가능합니다:
 
 | 챕터 | 내용 | 링크 |
 |------|------|------|
-| Chapter 1 | GitHub 기본 명령어 배우기 | [보기](https://your-username.github.io/github-ai-track/docs/chapter1) |
-| Chapter 2 | 파일 올리고 내리기 (Push & Pull) | [보기](https://your-username.github.io/github-ai-track/docs/chapter2) |
-| Chapter 3 | Markdown 파일 만들기 | [보기](https://your-username.github.io/github-ai-track/docs/chapter3) |
-| Chapter 4 | GitHub에서 협업하기 | [보기](https://your-username.github.io/github-ai-track/docs/chapter4) |
-| Chapter 5 | AI에게 질문하며 개발하기 | [보기](https://your-username.github.io/github-ai-track/docs/chapter5) |
+| Chapter 1 | GitHub 기본 명령어 배우기 | [보기](https://sally0905.github.io/stackventure_250825/001.github-markdown/marp001_1_github_basic) |
+| Chapter 2 | 파일 올리고 내리기 (Push & Pull) | [보기](https://sally0905.github.io/stackventure_250825/001.github-markdown/marp001_2_push_pull) |
+| Chapter 3 | Markdown 파일 만들기 | [보기](https://sally0905.github.io/stackventure_250825/001.github-markdown/marp001_3_markdown_create) |
+| Chapter 4 | GitHub에서 협업하기 | [보기](https://sally0905.github.io/stackventure_250825/002.github-advanced/marp002_1_collaboration) |
+| Chapter 5 | AI에게 질문하며 개발하기 | [보기](https://sally0905.github.io/stackventure_250825/002.github-advanced/marp002_2_ai_assist) |
 
-> ※ `your-username`과 `github-ai-track`은 실제 사용자명과 저장소 이름으로 바꿔주세요.
 
 ---
 
