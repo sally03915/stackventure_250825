@@ -96,11 +96,17 @@ git push origin main
 
 ## 📌 개발자 정보
 
+
+<div align="center">
+  <img src="../docs/profile/sally.gif" alt="Sally 캐리커쳐" width="280"/>
+</div>
+
 - 이름: Sally An  
 - 이메일: sally03915@gmail.com  
-- GitHub: [github.com/sally03915](https://github.com/sally03915)  
-- 소개: **문서화와 협업 중심 사고를 기반으로, 기획부터 배포까지 책임지는 개발자입니다.**
+- GitHub: [github.com/sally03915](https://github.com/sally03915) 
 
+> **Sally An**은 디자인 감각과 개발 사고를 겸비한 풀스택 개발자로,  
+> 기획부터 구현, 문서화, 협업까지 전 과정을 주도적으로 수행합니다.
 ---
 
 ## 📌 참고 자료
