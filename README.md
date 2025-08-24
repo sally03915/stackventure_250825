@@ -101,7 +101,7 @@ git push origin main
 
 
 <div align="center">
-  <img src="./docs/profile/sally.gif" alt="Sally 캐리커쳐" width="280"/>
+  <img src="./images/sally.gif" alt="Sally 캐리커쳐" width="280"/>
 </div>
 
 - 이름: Sally An  
