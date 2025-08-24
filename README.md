@@ -1,8 +1,3 @@
-물론이죠, 사장님! 아래는 웹 개발 실습 트랙을 위의 CodeCraft 스타일 패턴에 맞춰 재구성한 README.md입니다. 실습 흐름과 기술 역량을 강조하면서도 깔끔한 문서 중심 협업 구조를 유지했습니다:
-
----
-
-```markdown
 # 🚀 CodeCraft 웹 개발 실습 트랙
 
 본 프로젝트는 **HTML/CSS/JS 기반 UI 구현**,  
@@ -121,8 +116,3 @@ git push origin main
 - [Bootstrap 가이드](https://getbootstrap.com/docs/)  
 - [Markdown 가이드](https://www.markdownguide.org/basic-syntax/)
 
-```
-
----
-
-이제 완벽하게 CodeCraft 스타일로 정리된 웹 개발 실습 README가 완성됐습니다. 다음 단계로 챕터별 실습 문서도 같은 톤으로 정리해볼까요? 원하시면 바로 도와드릴게요.
