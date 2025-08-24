@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>DBDBIG</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  window.addEventListener('load', function() {
+    document.getElementById("addEvent").onclick=function(){
+      let color = prompt("당신이 좋아하는 음료는?");
+      alert("당신이 좋아하는 음료는 " + color + "입니다.");
+    };
+  });
+  </script>
+</head>
+<body>
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<div class="p-3 bg-primary text-white ">
+  <h1>004. EVENT</h1>
+  <ol>
+    <li>알림창</li>
+    <li>EVENT 구조</li>
+    <li>EVENT mouseenter/mouseleave</li>
+  </ol>
+</div>
+<div class="container card  my-3">
+  <h3  class="card-header">004. EVENT- Step1. 알림창</h3>
+  <div class="card-body">
+    <h4>Step1. 알림창</h4>
+      <script>
+      /*  let username = prompt("당신의 이름은?" , "예)홍길동");
+        alert("당신의 이름은 " + username + "입니다.");
+
+        let answer = confirm("정말 취소하시겠어요?");
+        console.log(typeof( answer ) ); */
+      </script>
+  </div>
+  <!--     -->
+  <!--     -->
+  <hr/>
+  <div class="card-body">
+    <h4>EX</h4>
+      <script>
+        //1. 나이를 입력받으세요  (prompt)
+        //2. 나이를 알림창으로 출력해주세요 (alert)
+       /* let age=  prompt("당신의 나이는?");
+        alert("당신의 나이는 " + age + "살 입니다."); */
+      </script>
+  </div>
+
+</div>
+<!--     -->
+<!--     -->
+<!--     -->
+<div class="container card  my-3">
+  <h3  class="card-header">004. EVENT- Step2. EVENT</h3>
+  <div class="card-body">
+    <h4>Step2. EVENT</h4>
+    <input type="button" value="EVENT1"  onclick="alert('haha');"
+		title="버튼을 클릭하세요.(test)" class="btn btn-outline-primary"      />
+  </div>
+  <!--     -->
+  <!--     -->
+  <hr/>
+  <div class="card-body">
+    <h4>EX</h4>
+    <input type="button"  value="DOG-멍멍"  title="버튼1"  onclick="alert('멍멍')"  class="btn btn-success" />
+    <input type="button"  value="CAT-야옹"  title="버튼2"  onclick="alert('야옹')"  class="btn btn-success" />
+    <input type="button"  value="FIVE-COUNT"  title="버튼3"   class="btn btn-success"
+        onclick="alert('1');alert('2');alert('3');alert('4');alert('5'); "/>
+  </div>
+ </div>
+  <!--     -->
+  <!--     -->
+  <!--     -->
+  <div class="container card  my-3">
+    <h3  class="card-header">004. EVENT- Step2. EVENT mouseenter/mouseleave</h3>
+    <div class="card-body">
+      <h4>Step3. EVENT - mouseenter/mouseleave</h4>
+      <div id="box"    class="alert alert-success">
+        <strong>Success!</strong> Java script:)
+      </div>
+      <script>
+        const box = document.querySelector("#box");
+
+      //  box.addEventListener("mouseenter", ()=>{
+      //  box.addEventListener("mouseenter", function () {
+        box.addEventListener("mouseenter", e => {
+           box.style.backgroundColor = "#fff3cd";
+        });
+
+      //  box.addEventListener("mouseleave", ()=>{
+      //  box.addEventListener("mouseleave", function () {
+        box.addEventListener("mouseleave", e => {
+          box.style.backgroundColor = "#cff4fc";
+        });
+      </script>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
