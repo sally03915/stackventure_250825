@@ -31,11 +31,12 @@ GitHub 기반 저장소 관리, Markdown 문서화, VS Code 환경에서의 실�
 
 | 챕터 | 내용 | 링크 |
 |------|------|------|
-| Chapter 1 | GitHub 기본 명령어 배우기 | [보기](https://sally0905.github.io/stackventure_250825/001.github-markdown/marp001_1_github_basic) |
-| Chapter 2 | 파일 올리고 내리기 (Push & Pull) | [보기](https://sally0905.github.io/stackventure_250825/001.github-markdown/marp001_2_push_pull) |
-| Chapter 3 | Markdown 파일 만들기 | [보기](https://sally0905.github.io/stackventure_250825/001.github-markdown/marp001_3_markdown_create) |
-| Chapter 4 | GitHub에서 협업하기 | [보기](https://sally0905.github.io/stackventure_250825/002.github-advanced/marp002_1_collaboration) |
-| Chapter 5 | AI에게 질문하며 개발하기 | [보기](https://sally0905.github.io/stackventure_250825/002.github-advanced/marp002_2_ai_assist) |
+| Chapter 1 | GitHub 기본 명령어 배우기 | [보기](https://sally03915.github.io/stackventure_250825/001.github-markdown/marp001_1_github_basic) |
+| Chapter 2 | 파일 올리고 내리기 (Push & Pull) | [보기](https://sally03915.github.io/stackventure_250825/001.github-markdown/marp001_2_github_push_pull) |
+| Chapter 3 | Markdown 파일 만들기 | [보기](https://sally03915.github.io/stackventure_250825/001.github-markdown/marp001_3_github_markdown) |
+| Chapter 4 | GitHub에서 협업하기 | [보기](https://sally03915.github.io/stackventure_250825/002.github-advanced/marp001_4_github_협업) |
+| Chapter 5 | AI에게 질문하며 개발하기 | [보기](https://sally03915.github.io/stackventure_250825/002.github-advanced/marp001_5_github_ai) |
+
 
 
 ---
