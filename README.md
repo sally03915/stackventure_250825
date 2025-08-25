@@ -34,18 +34,10 @@ GitHub 기반 저장소 관리, VS Code 또는 IntelliJ 환경에서의 실시�
 <!-- _class: cover-java -->
 <h2 style="font-size:1.6em; color:#555;">📚 Java 기초 트랙 목차</h2>
 
-<div class="track-outline">
-  <span class="current-chapter">✅▶ Chapter 1: 자바란? · 개발 환경 · 출력</span>
-  <span>▶ Chapter 2: 변수 · 자료형 · 입력</span>
-  <span>▶ Chapter 3: 연산자</span>
-  <span>▶ Chapter 4: 제어문</span>
-  <span>▶ Chapter 5: 배열</span>
-  <span>▶ Chapter 6: 메서드</span>
-</div>
 
 | 챕터 | 내용 | 링크 |
 |------|------|------|
-| Chapter 1 | 자바란? · 개발 환경 · 출력 | [보기](#) |
+| Chapter 1 | 자바란? · 개발 환경 · 출력 |  [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_1_setting_println_input_java)|
 | Chapter 2 | 변수 · 자료형 · 입력 | [보기](#) |
 | Chapter 3 | 연산자 | [보기](#) |
 | Chapter 4 | 제어문 | [보기](#) |
