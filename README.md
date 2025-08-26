@@ -33,7 +33,9 @@ GitHub 기반 저장소 관리, VS Code 환경에서의 실시간 커밋,
 | 챕터 | 내용 | 링크 |
 |------|------|------|
 | Chapter 1 | 웹 개발 시작과 HTML 구조 | [보기](https://sally03915.github.io/stackventure_250825/002_html+css+js/marp002_1_html) |
-| Chapter 2 | HTML 태그 · id/class · 레이아웃 | [보기](https://sally03915.github.io/stackventure_250825/002_html+css+js/marp002_2_html_layout) |
+| Chapter 2-1 | **HTML 태그** · id/class · 레이아웃 | [보기](https://sally03915.github.io/stackventure_250825/002_html+css+js/marp002_2_tag) |
+| Chapter 2-2 | HTML 태그 · **id/class** · 레이아웃 | [보기](https://sally03915.github.io/stackventure_250825/002_html+css+js/marp002_3_id_vs_class) |
+| Chapter 2-3 | HTML 태그 · id/class · **레이아웃** | [보기](https://sally03915.github.io/stackventure_250825/002_html+css+js/marp002_4_layout) |
 | Chapter 3 | CSS 스타일 · 폰트 · Bootstrap | [보기](https://sally03915.github.io/stackventure_250825/002_html+css+js/marp002_3_css_bootstrap) |
 | Chapter 4 | JavaScript 문법 · 이벤트 · 배열 | [보기](https://sally03915.github.io/stackventure_250825/002_html+css+js/marp002_4_js_event_array) |
 | Chapter 5 | jQuery와 프레임워크 활용 | [보기](https://sally03915.github.io/stackventure_250825/002_html+css+js/marp002_5_jquery_framework) |
