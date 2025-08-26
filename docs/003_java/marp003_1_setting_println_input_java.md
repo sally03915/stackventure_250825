@@ -257,7 +257,7 @@ style: |
 <!-- _class: cover-java -->
 <h4 style="color:#6C757D;">
   <span style="color:#ff6e7f; text-shadow: 0 0 6px rgba(255,110,127,0.6); font-weight:bold;">🚀</span>
-  CodeCraft Series · Track 01
+  CodeCraft Series · Track 03
 </h4>
 <h1 style="color:#007BFF;">Java Essentials for Beginners</h1>
 <h3 style="color:#17A2B8;">기초부터 객체지향까지, 자바의 모든 것</h3>

@@ -1,3 +1,6 @@
+---
+
+<!-- _class: aqua -->
 // 과제 1: Hello World 출력하기
 public class A001 {
     public static void main(String[] args) {
@@ -5,6 +8,9 @@ public class A001 {
     }
 }
 
+---
+
+<!-- _class: aqua -->
 // 과제 2: 자기소개 출력하기
 public class A002 {
     public static void main(String[] args) {
@@ -13,6 +19,9 @@ public class A002 {
     }
 }
 
+---
+
+<!-- _class: aqua -->
 // 과제 3: 줄 바꾸기 출력하기
 public class A003 {
     public static void main(String[] args) {
@@ -20,6 +29,9 @@ public class A003 {
     }
 }
 
+---
+
+<!-- _class: aqua -->
 // 과제 4: 탭으로 정렬하기
 public class A004 {
     public static void main(String[] args) {
@@ -29,6 +41,9 @@ public class A004 {
     }
 }
 
+---
+
+<!-- _class: aqua -->
 // 과제 5: 덧셈 결과 출력하기
 public class A005 {
     public static void main(String[] args) {
@@ -36,6 +51,9 @@ public class A005 {
     }
 }
 
+---
+
+<!-- _class: aqua -->
 // 과제 6: 문자열 덧셈 실험
 public class A006 {
     public static void main(String[] args) {
@@ -43,6 +61,9 @@ public class A006 {
     }
 }
 
+---
+
+<!-- _class: aqua -->
 // 과제 7: 형식 지정 출력하기
 public class A007 {
     public static void main(String[] args) {
@@ -51,6 +72,9 @@ public class A007 {
     }
 }
 
+---
+
+<!-- _class: aqua -->
 // 과제 8: 출력 순서 실험하기
 public class A008 {
     public static void main(String[] args) {
@@ -60,6 +84,9 @@ public class A008 {
     }
 }
 
+---
+
+<!-- _class: aqua -->
 // 과제 9: 컴파일 오류 실험하기
 // ※ 아래 코드는 오류를 발생시키는 예제입니다.
 public class A009 {
@@ -69,6 +96,9 @@ public class A009 {
     }
 }
 
+---
+
+<!-- _class: aqua -->
 // 과제 10: 여러 줄 출력 연습
 public class A010 {
     public static void main(String[] args) {
