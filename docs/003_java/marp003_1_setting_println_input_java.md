@@ -646,169 +646,64 @@ System.out.println("둘째 줄");
 ---
 <!-- _class: aqua --> 
 <img src="./chapter1-2/027.png" alt="출력" width="100%" />
-
-
-
-
-
+ 
 ---
-
-
 <!-- _class: blue -->
 # 🧪 Step 2: 코드 예제
 
 ---
 
 <!-- _class: aqua -->
-## 예제 1: 기본 출력  
-자바 프로그램의 기본 구조와 출력 방법을 익혀요
+## 예제 1: 기본 출력 구조  
+자바 클래스의 기본 구조와 
+System.out.println()을 사용한 출력 방법을 익혀요
 
 <pre class="codeblock">
+package com.company.java001;
+
 public class A001 {
     public static void main(String[] args) {
-        System.out.println("자바 시작!");
-    }
-}
+        System.out.println("Hello");
+    } // end main
+} // end class
 </pre>
+
+> <span class="fragment">자바는 클래스 단위로 구성되며, 
+main() 메서드가 실행의 시작점이에요</span>
 
 ---
 
 <!-- _class: aqua -->
-## 예제 2: 여러 줄 출력  
-System.out.println()을 여러 번 사용해 여러 줄을 출력해요
+## 예제 2: 여러 줄 출력과 포맷 출력  
+여러 줄 출력, 줄바꿈 문자 \n, 
+그리고 printf 포맷 출력 방법을 실습해요
 
 <pre class="codeblock">
+package com.company.java001;
+
 public class A002 {
     public static void main(String[] args) {
-        System.out.println("안녕하세요!");
-        System.out.println("자바를 배워봅시다!");
+        System.out.println("A");
+        System.out.println("AB");
+        System.out.println("ABC"); // 여러 줄 출력
+
+        // 한 줄로 여러 줄 출력하기
+        System.out.println("A\nAB\nABC");  // 줄바꿈 문자 \n 사용
+
+        // 포맷 형식 출력: %s (문자열), %d (숫자)
+        System.out.printf("이름 : %s  나이: %d", "길동", 12);
     }
 }
 </pre>
 
----
+> <span class="fragment">**\n**은 줄을 바꾸는 특수 문자예요</span>  
+> <span class="fragment">**printf**는 형식을 지정해 출력할 수 있어요: %s, %d 등</span>
+ 
 
-<!-- _class: aqua -->
-## 예제 3: 출력 순서 실험  
-코드 작성 순서에 따라 출력 결과가 어떻게 달라지는지 확인해요
+ 
 
-<pre class="codeblock">
-public class A003 {
-    public static void main(String[] args) {
-        System.out.println("첫 번째 줄");
-        System.out.println("두 번째 줄");
-        System.out.println("세 번째 줄");
-    }
-}
-</pre>
-
-> <span class="fragment">출력 순서를 바꾸면 결과도 달라져요!</span>
-
----
-
-<!-- _class: aqua -->
-## 예제 4: 오류 실험  
-세미콜론을 생략하면 컴파일 오류가 발생하는 걸 실험해요
-
-<pre class="codeblock">
-public class A004 {
-    public static void main(String[] args) {
-        System.out.println("이 줄은 출력돼요") // ← 세미콜론 누락
-        System.out.println("이 줄은 오류나요");
-    }
-}
-</pre>
-
-> <span class="fragment">**(;)세미콜론**이 빠지면 컴파일 오류가 발생해요!</span>
-
----
-
-<!-- _class: aqua -->
-## 예제 5: 줄 바꾸기 연습  
-**\n**을 사용해 한 줄 안에서 여러 줄을 출력하는 방법을 배워요
-
-<pre class="codeblock">
-public class A005 {
-    public static void main(String[] args) {
-        System.out.println("첫 줄\n둘째 줄\n셋째 줄");
-    }
-}
-</pre>
-
-> <span class="fragment">**\n**은 줄을 바꾸는 특수 문자예요</span>
-
----
-
-<!-- _class: aqua -->
-## 예제 6: 탭으로 정렬하기  
-**\t**를 사용해 출력 내용을 정렬해요
-
-<pre class="codeblock">
-public class A006 {
-    public static void main(String[] args) {
-        System.out.println("이름\t나이\t지역");
-        System.out.println("철수\t12\t서울");
-        System.out.println("영희\t13\t부산");
-    }
-}
-</pre>
-
-> <span class="fragment">**\t**는 일정 간격으로 띄우는 특수 문자예요</span>
-
----
-
-<!-- _class: aqua -->
-## 예제 7: 줄 바꾸기 연습 (중복 제거)  
-**\n**을 사용해 한 줄 안에서 여러 줄을 출력하는 방법을 배워요
-
-<pre class="codeblock">
-public class A007 {
-    public static void main(String[] args) {
-        System.out.println("첫 줄\n둘째 줄\n셋째 줄");
-    }
-}
-</pre>
-
-> <span class="fragment">**\n**은 줄을 바꾸는 특수 문자예요</span>
-
----
-
-<!-- _class: aqua -->
-## 예제 8: 문자열과 숫자 결합  
-문자열과 숫자를 더하면 어떻게 출력될까요?
-
-<pre class="codeblock">
-public class A008 {
-    public static void main(String[] args) {
-        System.out.println("10 + 20 = " + (10 + 20));     // 숫자 덧셈
-        System.out.println("10 + 20 = " + "10" + "20");   // 문자열 연결
-    }
-}
-</pre>
-
-> <span class="fragment">괄호를 사용하면 숫자 덧셈이 먼저 계산돼요</span>
-
----
-
-<!-- _class: aqua -->
-## 예제 9: 형식 지정 출력  
-**printf**를 사용해 정렬된 출력 결과를 만들어요
-
-<pre class="codeblock">
-public class A009 {
-    public static void main(String[] args) {
-        System.out.printf("%-10s %5d\n", "Apple", 100);
-        System.out.printf("%-10s %5d\n", "Banana", 250);
-    }
-}
-</pre>
-
-> <span class="fragment">**%-10s**는 문자열을 왼쪽 정렬하고 너비를 10으로 지정해요</span>
-
-
-
----  
-<!-- _class: green -->  
+ 
+<!-- _class: green -->
 # 🛠️ Step 3: 실습 과제 (3)
 
 ---
@@ -816,142 +711,41 @@ public class A009 {
 <!-- _class: aqua -->
 ## 과제 1: Hello World 출력하기
 
-- 자바 파일을 만들고  
-- "Hello, World!"를 출력해보세요
+- **com.company.java001_ex** 패키지에  
+- **A001_ex** 클래스를 만들고  
+- **"Hello World!"** 를 출력해보세요
 
 ### 🖨️ 출력예시
 <pre class="codeblock">
-Hello, World!
+Hello World!
 </pre>
 
 ---
 
 <!-- _class: aqua -->
-## 과제 2: 자기소개 출력하기
+## 과제 2: 줄 바꾸기와 포맷 출력하기
 
-- 자신의 이름과 나이를 출력해보세요  
-- System.out.println()을 두 번 사용하세요
+- 아래 세 문장을 한 줄의 코드로 출력하세요  
+  System.out.println("X");
+  System.out.println("XY");
+  System.out.println("XYZ");
+- 줄바꿈 문자 \n을 사용하세요 
 
-### 🖨️ 출력예시
-<pre class="codeblock">
-이름: 홍길동
-나이: 20
-</pre>
+- printf를 사용해 도시 이름과 인구를 포맷 형식으로 출력하세요
 
----
-
-<!-- _class: aqua -->
-## 과제 3: 줄 바꾸기 출력하기
-
-- 한 줄의 코드로 여러 줄을 출력해보세요  
-- **\n**을 사용하세요
-
-### 🖨️ 출력예시
-<pre class="codeblock">
-첫째 줄
-둘째 줄
-셋째 줄
-</pre>
 
 ---
 
 <!-- _class: aqua -->
-## 과제 4: 탭으로 정렬하기
-
-- **\t**를 사용해 정보를 정렬해보세요  
-- 이름, 나이, 지역을 출력하세요
-
 ### 🖨️ 출력예시
 <pre class="codeblock">
-이름	나이	지역
-철수	12	서울
-영희	13	부산
+X
+XY
+XYZ
+도시 : 인천  , 인구: 1000000
 </pre>
 
----
 
-<!-- _class: aqua -->
-## 과제 5: 덧셈 결과 출력하기
-
-- 숫자 10과 20을 더한 결과를 출력하세요  
-- 문자열과 숫자를 함께 출력해보세요
-
-### 🖨️ 출력예시
-<pre class="codeblock">
-10 + 20 = 30
-</pre>
-
----
-
-<!-- _class: aqua -->
-## 과제 6: 문자열 덧셈 실험
-
-- "10" + "20"을 출력해보세요  
-- 문자열 결합 결과를 확인하세요
-
-### 🖨️ 출력예시
-<pre class="codeblock">
-10 + 20 = 1020
-</pre>
-
----
-
-<!-- _class: aqua -->
-## 과제 7: 형식 지정 출력하기
-
-- printf를 사용해 과일 이름과 가격을 정렬해 출력하세요  
-- %-10s와 %5d를 사용하세요
-
-### 🖨️ 출력예시
-<pre class="codeblock">
-Apple      100
-Banana     250
-</pre>
-
----
-
-<!-- _class: aqua -->
-## 과제 8: 출력 순서 실험하기
-
-- 세 문장을 출력하는 코드를 작성하세요  
-- 출력 순서를 바꿔보며 결과를 비교해보세요
-
-### 🖨️ 출력예시
-<pre class="codeblock">
-첫 번째 줄
-두 번째 줄
-세 번째 줄
-</pre>
-
----
-
-<!-- _class: aqua -->
-## 과제 9: 컴파일 오류 실험하기
-
-- 세미콜론을 일부러 생략한 코드를 작성해보세요  
-- 어떤 오류 메시지가 나오는지 확인하세요
-
-### 🖨️ 출력예시
-<pre class="codeblock">
-오류: ';' expected
-</pre>
-
----
-
-<!-- _class: aqua -->
-## 과제 10: 여러 줄 출력 연습
-
-- System.out.println()을 여러 번 사용해  
-- 인사말을 세 줄로 출력해보세요
-
-### 🖨️ 출력예시
-<pre class="codeblock">
-안녕하세요!
-자바를 시작합니다.
-열심히 해봐요!
-</pre>
-
----
 
 ---  
 <!-- _class: purple -->  

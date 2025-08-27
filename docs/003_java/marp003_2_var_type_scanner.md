@@ -288,6 +288,14 @@ style: |
 </p>
 
 
+---
+<!-- _class: orange -->
+# 🧩 핵심개념 (1/5)  - 변수
+- 변수
+- 자료형
+- 입력
+- 형변환(1)
+- 형변환(2)
 
 ---
 <!-- _class: orange -->
@@ -378,35 +386,84 @@ style: |
 
 ---
 <!-- _class: green -->
-# 🧪 Step 1-3: 코드 예제
+# 🛠️ Step 3: 실습 과제
 
 ---
-<!-- _class: aqua --> 
-<img src="./chapter2-1/018.png" alt="변수 개념 13번" width="100%" />
+
+<!-- _class: aqua -->
+## 과제 1: 변수 선언과 출력 실습
+
+- **패키지명**: com.company.java002_ex  
+- **클래스명**: VarEx001  
+- **정수형 변수 apple을 선언하고**, 값을 대입한 뒤 출력해보세요
 
 ---
-<!-- _class: aqua --> 
-<img src="./chapter2-1/019.png" alt="변수 19번" width="100%" />
 
----
-<!-- _class: aqua --> 
-<img src="./chapter2-1/020.png" alt="변수 20번" width="100%" />
-
----
-<!-- _class: aqua --> 
-<img src="./chapter2-1/021.png" alt="변수 21번" width="100%" />
+<!-- _class: aqua -->
+### 🧪 실습 단계
+- **1.** apple이라는 변수 만들기 (int apple)
+- **2.** apple에 **1000** 대입하기
+- **3.** apple을 이용해 **"사과가격은 1000원입니다"** 출력
+- **4.** apple에 **2000** 대입하기
+- **5.** apple을 이용해 **"사과가격은 2000원입니다"** 출력
 
 
 ---
-<!-- _class: aqua --> 
-<img src="./chapter2-1/022.png" alt="변수 22번" width="100%" />
+
+<!-- _class: aqua -->
+### 🖨️ 출력예시
+<pre class="codeblock">
+사과가격은 1000원입니다  
+사과가격은 1000원입니다  
+사과가격은 2000원입니다  
+사과가격은 2000원입니다  
+</pre>
 
 ---
-<!-- _class: aqua --> 
-<img src="./chapter2-1/023.png" alt="변수 23번" width="100%" />
+
+<!-- _class: aqua -->
+## 과제 2: 사칙연산 출력하기
+
+- **패키지명**: com.company.java002_ex  
+- **클래스명**: VarEx002  
+- 정수형 변수 a, b를 선언하고  
+- 사칙연산 결과를 출력해보세요
+
+---
+
+<!-- _class: aqua -->
+### 🧪 실습 단계
+- **1.** 정수형 변수 a 선언 (int a)
+- **2.** a에 **10** 대입
+- **3.** 정수형 변수 b 선언 (int b)
+- **4.** b에 **3** 대입
+- **5.** System.out.println()을 사용 사칙연산 결과출력
+- **6.** System.out.printf()를 사용 포맷 출력 실습
+- **7.** 실수 나눗셈 결과도 출력해보세요 (%f 사용)
+
+---
+
+<!-- _class: aqua -->
+### 🖨️ 출력예시
+<pre class="codeblock">
+10 + 3 = 13  
+10 - 3 = 7  
+10 * 3 = 30  
+10 / 3 = 3  
+10 / 3 = 3.333333  
+</pre>
+ 
 
 
 
+---
+<!-- _class: orange -->
+# 🧩 핵심개념 (2/5)  - 자료형
+- 변수
+- 자료형
+- 입력
+- 형변환(1)
+- 형변환(2)
 ---
 <!-- _class: orange -->
 # 🧩 Step 2: 핵심 개념 - 자료형
@@ -453,10 +510,6 @@ style: |
 # 🧪 Step 2-2: 코드 예제
 
 
----
-<!-- _class: aqua --> 
-<img src="./chapter2-1/030.png" alt="자료형 30 번" width="100%" />
-
 
 ---
 <!-- _class: aqua --> 
@@ -471,13 +524,17 @@ style: |
 <!-- _class: aqua --> 
 <img src="./chapter2-1/032.png" alt="변수 개념 12번" width="100%" />
 
----
-<!-- _class: green -->
-# 🧪 Step 2-3: 과제 도전
----
-<!-- _class: aqua --> 
-<img src="./chapter2-1/033.png" alt="변수 33번" width="100%" />
 
+
+
+---
+<!-- _class: orange -->
+# 🧩 핵심개념 (3/5)  - 입력
+- 변수
+- 자료형
+- 입력
+- 형변환(1)
+- 형변환(2)
 
 ---
 <!-- _class: orange -->
@@ -504,9 +561,7 @@ style: |
 <!-- _class: blue -->
 # 🧪 Step 3-2: 코드 예제
 
----
-<!-- _class: aqua --> 
-<img src="./chapter2-1/036.png" alt="변수 scanner" width="100%" />
+
 
 ---
 <!-- _class: aqua --> 
@@ -520,34 +575,127 @@ style: |
 ---
 <!-- _class: green -->
 # 🛠️ Step 3-3: 실습 과제 (3)
+ 
+ 
+ 
 ---
-<!-- _class: aqua --> 
-<img src="./chapter2-1/039.png" alt="변수 scanner" width="100%" />
+<!-- _class: aqua -->
+## 😊 과제 1: 나이 입력받기
+
+- **패키지명**: com.company.java002_ex  
+- **클래스명**: DataTypeEx001  
+- Scanner를 이용해 나이를 입력받고 출력하세요
+
+ 
+ 
+---
+<!-- _class: aqua -->
+### 🧪 실습 단계
+- **1.** int 자료형으로 변수 **age** 선언  
+- **2.** Scanner로 나이 입력받기  
+- **3.** 입력받은 나이를 **println**, **printf**로 출력하기
+
+ 
+---
+<!-- _class: aqua -->
+### 🖨️ 출력예시
+<pre class="codeblock">
+당신의 나이를 입력하시오 >  
+내 나이는 20 입니다.  
+내 나이는 20 입니다.
+</pre>
 
 ---
-<!-- _class: aqua --> 
-<img src="./chapter2-1/040.png" alt="변수 scanner" width="100%" />
+<!-- _class: aqua -->
+## 😊 과제 2: 좋아하는 숫자 입력받기
+
+- **패키지명**: com.company.java002_ex  
+- **클래스명**: DataTypeEx002  
+- 좋아하는 정수를 입력받고 출력하세요
+
+ 
+---
+<!-- _class: aqua -->
+### 🧪 실습 단계
+- **1.** int 자료형으로 변수 **like** 선언  
+- **2.** Scanner로 숫자 입력받기  
+- **3.** 입력받은 숫자를 **println**, **printf**로 출력하기
+
+ 
+---
+<!-- _class: aqua -->
+### 🖨️ 출력예시
+<pre class="codeblock">
+좋아하는 수(정수) 입력하시오 >  
+좋아하는 숫자는 7 입니다.  
+좋아하는 숫자는 7 입니다.
+</pre>
 
 ---
-<!-- _class: aqua --> 
-<img src="./chapter2-1/041.png" alt="변수 scanner" width="100%" />
+
+<!-- _class: aqua -->
+## 😊과제 3: 파이값 입력받기
+
+- **패키지명**: com.company.java002_ex  
+- **클래스명**: DataTypeEx003  
+- 파이값을 입력받고 다양한 형식으로 출력하세요
 
 ---
-<!-- _class: aqua --> 
-<img src="./chapter2-1/042.png" alt="변수 scanner" width="100%" />
+<!-- _class: aqua -->
+### 🧪 실습 단계
+- **1.** float 자료형으로 변수 **pi** 선언  
+- **2.** Scanner로 파이값 입력받기  
+- **3.** 소수점 자리수를 다르게 출력하기 (**%.2f**, **%.3f** 등)
 
 ---
-<!-- _class: aqua --> 
-<img src="./chapter2-1/043.png" alt="변수 scanner" width="100%" />
+<!-- _class: aqua -->
+### 🖨️ 출력예시
+<pre class="codeblock">
+파이값을 입력하시오 >  
+파이값은 3.141592입니다.  
+파이값은 3.141592입니다.  
+파이값은 3.14입니다.  
+파이값은 3.142입니다.
+</pre>
 
 ---
-<!-- _class: aqua --> 
-<img src="./chapter2-1/044.png" alt="변수 scanner" width="100%" />
+
+<!-- _class: aqua -->
+## 😊 과제 4: 성적 입력받고 총점과 평균 출력하기
+- **패키지명**: com.company.java002_ex  
+- **클래스명**: DataTypeEx004  
+- 국어, 영어, 수학 점수를 입력받고 총점과 평균을 출력하세요
 
 ---
-<!-- _class: aqua --> 
-<img src="./chapter2-1/045.png" alt="변수 scanner" width="100%" />
+<!-- _class: aqua -->
+### 🧪 실습 단계
+- **1.** int 자료형으로 **kor**, **eng**, **math**, **total** 선언  
+- **2.** double 자료형으로 **avg** 선언  
+- **3.** Scanner로 점수 입력받기  
+- **4.** 총점 계산 후 평균 구하기  
+- **5.** 총점과 평균을 **printf**로 출력하기
 
+---
+<!-- _class: aqua -->
+### 🖨️ 출력예시
+<pre class="codeblock">
+국어점수를 입력하시오.  
+영어점수를 입력하시오.  
+수학점수를 입력하시오.  
+총점 : 299  
+평균 : 99.67
+</pre>
+
+
+
+---
+<!-- _class: orange -->
+# 🧩 핵심개념 (4/5)  - 형변환(1)
+- 변수
+- 자료형
+- 입력
+- 형변환(1)
+- 형변환(2)
 
 ---
 <!-- _class: orange -->
@@ -660,6 +808,16 @@ style: |
 <img src="./chapter2-1/056.png" alt="형변환(1)" width="100%" />
 
 
+
+
+---
+<!-- _class: orange -->
+# 🧩 핵심개념 (4/5)  - 형변환(2)
+- 변수
+- 자료형
+- 입력
+- 형변환(1)
+- 형변환(2)
 ---
 <!-- _class: orange -->
 # 🧩 Step 5: 핵심 개념 - <br/>형변환(2)
@@ -696,10 +854,6 @@ style: |
 <img src="./chapter2-2/016.png" alt="형변환(2)" width="100%" />
 
 
----
-<!-- _class: aqua --> 
-<img src="./chapter2-2/017.png" alt="형변환(2)" width="100%" />
-
 
 
 ---
@@ -718,19 +872,9 @@ style: |
 <img src="./chapter2-2/020.png" alt="형변환(20)" width="100%" />
 
 ---
-
-<!-- _class: aqua -->
-<img src="./chapter2-2/021.png" alt="형변환(21)" width="100%" />
-
----
-
 <!-- _class: aqua -->
 <img src="./chapter2-2/022.png" alt="형변환(22)" width="100%" />
 
----
-
-<!-- _class: aqua -->
-<img src="./chapter2-2/023.png" alt="형변환(23)" width="100%" />
 
 ---
 
