@@ -288,6 +288,13 @@ style: |
   id/class를 활용한 선택자 개념과 레이아웃 설계 방법을 배웁니다.
 </p>
 
+
+---
+<!-- _class: orange -->
+# 🧩 PART001 (1/2) - HTML TAG
+- HTML
+- CSS
+
 ---
 <!-- _class: orange -->
 # 🧩 Step 1: 태그란?
@@ -303,8 +310,9 @@ style: |
 - 예: **&lt;h1&gt;** 은 제목, **&lt;p&gt;** 는 문장, **&lt;img&gt;** 는 그림  
 - 태그는 **&lt;p&gt;내용&lt;/p&gt;** 처럼 **열고 닫는 구조**로 되어 있어요
 
----
+ 
 
+---
 <!-- _class: aqua -->
 ## ✅ 제목 태그: h1~h6
 
@@ -494,6 +502,168 @@ style: |
 
 
 
+
+
+---
+<!-- _class: orange -->
+# 🧩 PART001 (2/2) - CSS
+- HTML
+- CSS
+
+---
+
+<!-- _class: orange -->
+# 🧩 Step 1: CSS 핵심 개념
+
+---
+
+<!-- _class: aqua -->
+## 🧪 개념 1: CSS란?
+
+- <span class="fragment"><span class="mark">CSS</span>는 웹 페이지의 디자인을 담당합니다</span>  
+- <span class="fragment">HTML이 구조라면, CSS는 꾸미기입니다</span>  
+- <span class="fragment">색상, 여백, 글꼴, 애니메이션까지 모두 CSS로 설정</span>
+
+---
+
+<!-- _class: blue -->
+# 🧪 Step 2: CSS 속성 배우기
+
+---
+
+<!-- _class: aqua -->
+## ✅ 1단계: 박스와 여백
+
+<pre class="codeblock">
+margin: 20px;        /* 바깥 여백 */
+padding: 20px;       /* 안쪽 여백 */
+margin: 0 auto;      /* 가운데 정렬 */
+</pre>
+
+> <span class="fragment">박스 간 간격을 띄우고, 안쪽 공간을 확보합니다</span>
+
+---
+
+<!-- _class: aqua -->
+## ✅ 2단계: 글자 스타일
+
+<pre class="codeblock">
+font-family: 'Segoe UI', sans-serif;
+font-size: 16px;
+color: #333;
+text-align: center;
+text-decoration: none;
+</pre>
+
+> <span class="fragment">글꼴, 크기, 색상, 정렬, 밑줄 여부를 설정합니다</span>
+
+---
+
+<!-- _class: aqua -->
+## ✅ 3단계: 배경 꾸미기
+
+<pre class="codeblock">
+background: #fff;
+background: linear-gradient(to right, pink, orange);
+</pre>
+
+> <span class="fragment">단색 또는 그라데이션으로 배경을 꾸며요</span>
+
+---
+
+<!-- _class: aqua -->
+## ✅ 4단계: 박스 디자인
+
+<pre class="codeblock">
+width: 250px;
+border: 3px solid #e1306c;
+border-radius: 20px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+</pre>
+
+> <span class="fragment">박스 크기, 테두리, 둥근 모서리, 그림자 효과</span>
+
+---
+
+<!-- _class: aqua -->
+## ✅ 5단계: 이미지 다루기
+
+<pre class="codeblock">
+object-fit: cover;
+</pre>
+
+> <span class="fragment">이미지를 박스에 꽉 채우되 잘림 허용</span>
+
+---
+
+<!-- _class: aqua -->
+## ✅ 6단계: 마우스 효과와 애니메이션
+
+<pre class="codeblock">
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card {
+  transition: all 0.3s ease;
+}
+</pre>
+
+> <span class="fragment">마우스를 올리면 부드럽게 떠오르는 카드 효과</span>
+
+---
+
+<!-- _class: green -->
+# 🛠️ Step 3: 실습 과제
+
+---
+
+<!-- _class: aqua -->
+## 🧪 실습 1: 카드 스타일링 실습
+
+- <span class="fragment">HTML 구조를 만들고</span>  
+- <span class="fragment">CSS로 여백, 색상, 그림자, hover 효과를 적용</span>  
+- <span class="fragment">VS Code에서 직접 실습해보기</span>
+
+---
+
+<!-- _class: purple -->
+# 💡 Step 4: 사고 확장
+
+---
+
+<!-- _class: aqua -->
+## ❓ 궁금한 이야기: CSS는 왜 중요한가요?
+
+- <span class="fragment">사용자에게 <span class="mark">보는 즐거움</span>을 줍니다</span>  
+- <span class="fragment">디자인은 기능만큼 중요합니다</span>  
+- <span class="fragment">좋은 CSS는 브랜드의 인상을 좌우합니다</span>
+
+---
+
+<!-- _class: red -->
+# 🧪 Step 5: 기억 테스트
+
+---
+
+<!-- _class: aqua -->
+## ❓ 퀴즈 1: **margin**은 어떤 역할을 하나요?
+
+- <span class="fragment">A. 글자 색을 바꾼다</span>  
+- <span class="fragment">B. 안쪽 여백을 만든다</span>  
+- <span class="fragment">C. 바깥 여백을 만든다 ✅</span>
+
+---
+
+<!-- _class: aqua -->
+## ❓ 퀴즈 2: **:hover**는 언제 쓰나요?
+
+- <span class="fragment">A. 페이지 로딩 시</span>  
+- <span class="fragment">B. 마우스를 올렸을 때 ✅</span>  
+- <span class="fragment">C. 클릭했을 때</span>
+
+ 
 ---
 <!-- _class: thanks -->
 ## 👋  열심히 들어주셔서 감사합니다!
