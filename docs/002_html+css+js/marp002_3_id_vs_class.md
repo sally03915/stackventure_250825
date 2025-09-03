@@ -278,7 +278,7 @@ style: |
 <div class="track-outline">
   <span>▶ Chapter 1: 웹 개발 시작과 HTML 구조</span>
   <span class="current-chapter">✅▶ Chapter 2: HTML 태그 · id/class · 레이아웃</span>
-  <span>▶ Chapter 3: CSS 스타일 · 폰트 · Bootstrap</span>
+  <span>▶ Chapter 3:  Bootstrap</span>
   <span>▶ Chapter 4: JavaScript 문법 · 이벤트 · 배열</span>
   <span>▶ Chapter 5: jQuery와 프레임워크 활용</span>
 </div>
@@ -345,9 +345,8 @@ style: |
 ---
 <!-- _class: aqua -->
 ## 🧪 실습: id/class 선택자 연습
-- **<mark>web003_basic.html</mark>**
-- **<mark>web003-1.html</mark>**
-- **<mark>web003-2.html</mark>**
+- **<mark>web004.html</mark>**
+- **<mark>web004-1.html</mark>** 
 
 <pre class="codeblock">
 &lt;div id="main"&gt;

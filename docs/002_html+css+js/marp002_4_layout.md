@@ -41,7 +41,7 @@ style: |
     
     width: 90%;
     height: 90%;
-    background-image: url('./images/워터마크_dbdbig.png'); /* 로고 이미지 경로 */
+    background-image: url('./images_github/워터마크_dbdbig.png'); /* 로고 이미지 경로 */
     background-repeat: no-repeat;
     background-size: contain;
     opacity: 0.65; /* 은은하게 보이도록 조정 */
@@ -252,8 +252,6 @@ style: |
   section.thanks   { background-color: #FDF5E6; color: #444; }
   section.ex       { background-color: #96e6a1; color:#333; }
   
-
-
 ---
 <!-- _class: cover-html -->
 <h4 style="color:#6C757D;">
@@ -265,66 +263,47 @@ style: |
 
 <!-- 현재 챕터 강조 -->
 <div class="chapter-highlight">
-  📍 <strong>현재 위치:</strong> Chapter 1 · <em>웹 개발 시작과 HTML 구조</em>
+  📍 <strong>현재 위치:</strong> Chapter 2 · <em>HTML 태그 · id/class · 레이아웃</em>
 </div>
 
 <blockquote>
-  <span class="fragment" style="color:#343A40;">디자인과 인터랙션의 경계를 넘나드는 기술</span><br>
-  <span class="fragment" style="color:#495057;">기초부터 프레임워크까지, 웹의 모든 것을 담다</span>
+  <span class="fragment" style="color:#343A40;">태그의 의미를 이해하고 구조를 설계하는 능력</span><br>
+  <span class="fragment" style="color:#495057;">시맨틱 마크업으로 웹 접근성과 유지보수 향상</span>
 </blockquote>
 
 ---
 <!-- _class: cover-html -->
-<h2 style="font-size:1.6em; color:#555 ; ">목차 : Web Essentials 트랙</h2>
+<h2 style="font-size:1.6em; color:#555;">목차 : Web Essentials 트랙</h2>
 
 <div class="track-outline">
-  <span class="current-chapter">✅▶ Chapter 1: 웹 개발 시작과 HTML 구조</span>
-  <span>▶ Chapter 2: HTML 태그 · id/class · 레이아웃</span>
+  <span>▶ Chapter 1: 웹 개발 시작과 HTML 구조</span>
+  <span class="current-chapter">✅▶ Chapter 2: HTML 태그 · id/class · 레이아웃</span>
   <span>▶ Chapter 3: Bootstrap</span>
   <span>▶ Chapter 4: JavaScript 문법 · 이벤트 · 배열</span>
   <span>▶ Chapter 5: jQuery와 프레임워크 활용</span>
 </div>
 
 <p style="margin-top:30px; font-size:0.95em; color:#888;">
-  이 트랙은 웹 개발의 핵심 기술을 <br/> 실습 중심으로 배우며, 프론트엔드의 기초를 다집니다.
+  이 챕터에서는 HTML의 기본 태그와 구조를 이해하고,<br/>
+  id/class를 활용한 선택자 개념과 레이아웃 설계 방법을 배웁니다.
 </p>
 
+ 
 ---
+
 <!-- _class: orange -->
 # 🧩 Step 1: 핵심 개념
 
 ---
 <!-- _class: aqua -->
-## 🧪 개념 1: 웹 개발의 기본 흐름
+## 🧪 개념 2: 배치의 핵심 -
+ float, position, display, flex
 
-- <span class="fragment"><span class="mark">웹 개발</span>은 구조 → 스타일 → 동작 → 서버 흐름으로 구성</span>  
-- <span class="fragment"><span class="mark">HTML</span>은 구조, <span class="mark">CSS</span>는 꾸밈, <span class="mark">JS</span>는 동작</span>  
-- <span class="fragment"><span class="mark">VS Code</span> 설치부터 프로젝트 생성까지 실습 중심</span>
-
----
-
-<!-- _class: aqua -->
-## 🧪 개념 2: 웹 작업 순서
-
-| 순서 | 작업내용 |
-|------|----------|
-| HTML | 구조 (예: 회원가입 폼) |
-| CSS | 꾸미기 (예: 폼 스타일링) |
-| JS / jQuery / React | 동작 (예: 유효성 검사) |
-| PHP / JSP + DB | 서버 전송 + 데이터 저장 |
-
-> <span class="fragment">웹은 <span class="mark">구조 → 스타일 → 동작 → 서버</span> 흐름으로 구성됩니다</span>
-
----
-
-<!-- _class: aqua -->
-## 🧪 개념 3: HTML5 기본 구조
-
-- <span class="fragment"><span class="mark">! + Enter</span>로 HTML 기본 구조 자동완성</span>  
-- <span class="fragment"><span class="mark">&lt;!DOCTYPE html&gt;</span>: HTML5 문서 선언</span>  
-- <span class="fragment"><span class="mark">&lt;html lang="ko"&gt;</span>: 문서 루트, 언어 설정</span>  
-- <span class="fragment"><span class="mark">&lt;head&gt;</span>: 문서 정보 (메타데이터, 제목, 스타일 등)</span>  
-- <span class="fragment"><span class="mark">&lt;body&gt;</span>: 사용자에게 보여지는 콘텐츠 영역</span>
+- <span class="fragment">웹 요소의 <span class="mark">배치 방식</span>은 다양하다</span>  
+- <span class="fragment">float은 좌우 정렬, 
+- position은 절대/고정 위치 지정</span>  
+- <span class="fragment">display는 block/inline/inline-block/flex 구성</span>  
+- <span class="fragment">margin과 padding은 요소 간 <span class="mark">간격 조절</span>에 사용</span>
 
 ---
 
@@ -332,143 +311,105 @@ style: |
 # 🧪 Step 2: 코드 예제
 
 ---
-<!-- _class: aqua -->
-<pre class="codeblock">
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
 
-</body>
-</html>
+<!-- _class: aqua -->
+## ✅ 배치 예제 1: float
+
+<pre class="codeblock">
+&lt;div class=&quot;container f1&quot;&gt;
+  &lt;div class=&quot;item i1&quot;&gt;LEFT&lt;/div&gt;
+  &lt;div class=&quot;item i2&quot;&gt;RIGHT&lt;/div&gt;
+  &lt;div class=&quot;both&quot;&gt;ABCDEFCHIG&lt;/div&gt;
+&lt;/div&gt;
 </pre>
 
-> <span class="fragment">이 구조는 HTML 문서의 기본 틀입니다</span>  
-> <span class="fragment">VS Code에서 <span class="mark">! + Enter</span>로 자동완성 가능</span>
-
-
----
-
-<!-- _class: green -->
-# 🛠️ Step 3: 실습 과제
-
-
---- 
-## 🧪 실습 1:  VS Code 설치 과정
+> <span class="fragment">float은 요소를 <span class="mark">왼쪽 또는 오른쪽</span>으로 띄워 배치합니다</span>  
+> <span class="fragment">clear:both로 다음 요소의 흐름을 정리합니다</span>
 
 ---
+
 <!-- _class: aqua -->
-## 🧪 설치 Step 1
-<img src="./images/001_setting_vs_code_001.png" alt="VS Code 설치 Step1" width="100%"/>
+## ✅ 배치 예제 2: position
 
----
-<!-- _class: aqua -->
-## 🧪 설치 Step 2
-<img src="./images/001_setting_vs_code_002.png" alt="VS Code 설치 Step2" width="100%"/>
-
----
-<!-- _class: aqua -->
-## 🧪 설치 Step 3
-<img src="./images/001_setting_vs_code_003.png" alt="VS Code 설치 Step3" width="60%"/>
-
-
----
-<!-- _class: aqua -->
-## 🧪 설치 Step 4
-<img src="./images/001_setting_vs_code_004.png" alt="VS Code 설치 Step4" width="60%"/>
-
----
-<!-- _class: aqua -->
-## 🧪 설치 Step 5
-<img src="./images/001_setting_vs_code_005.png" alt="VS Code 설치 Step5" width="60%"/>
-
-
----
-<!-- _class: aqua -->
-## 🧪 설치 Step 6
-<img src="./images/001_setting_vs_code_006.png" alt="VS Code 설치 Step6" width="60%"/>
-
-
----
-<!-- _class: aqua -->
-## 🧪 설치 Step 7
-<img src="./images/001_setting_vs_code_007.png" alt="VS Code 설치 Step7" width="60%"/>
-
-
-
----
-<!-- _class: aqua -->
-## 🧪 확장플러그인 1
-<img src="./images/001_setting_vs_code_009.png" alt="VS Code 설치 Step9" width="100%"/>
-
-
----
-<!-- _class: aqua -->
-## 🧪 확장플러그인 2
-<img src="./images/001_setting_vs_code_010.png" alt="VS Code 설치 Step10" width="100%"/>
-
-
----
-<!-- _class: aqua -->
-## 🧪 확장플러그인 3
-<img src="./images/001_setting_vs_code_011.png" alt="VS Code 설치 Step11" width="100%"/>
-
-
-
----
-## 🧪 실습 2: web001.html 만들기
-
-- <span class="fragment">VS Code에서 프로젝트 생성</span>  
-- <span class="fragment">HTML 파일 만들고 기본 구조 작성</span>  
-- <span class="fragment">파일명은 반드시 <span class="mark">.html</span> 확장자 사용</span>  
-
-
----
-<!-- _class: aqua -->
 <pre class="codeblock">
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-
-</body>
-</html>
+&lt;div class=&quot;container p1&quot;&gt;
+  &lt;p class=&quot;me&quot;&gt;WHERE I AM?&lt;/p&gt;
+  &lt;p&gt;position:relative - box 자리 유지 / absolute - 유지 안됨&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;container p2&quot;&gt;
+  &lt;p class=&quot;me&quot;&gt;WHERE I AM? position:fixed 브라우저에 콕!&lt;/p&gt;
+&lt;/div&gt;
 </pre>
 
-> <span class="fragment">기본 HTML 문서를 직접 작성해보세요</span>
-
----
-<!-- _class: purple -->
-# 💡 Step 4: 사고 확장
-> 이제 우리가 배운 내용을 조금 더 생각해볼까요?
-
----
-<!-- _class: aqua -->
-## ❓ 궁금한 이야기 ①:  HTML은 시맨틱 구조를 강조할까?
-- <span class="fragment">태그는 단순한 표시가 아니라 <span class="mark">의미</span>를 담는다</span>  
-- <span class="fragment">예: <span class="mark">&lt;header&gt;</span>, <span class="mark">&lt;section&gt;</span>, <span class="mark">&lt;footer&gt;</span> 등은 역할이 명확함</span>
+> <span class="fragment">relative는 기준 위치를 잡고, absolute는 부모 기준으로 이동</span>  
+> <span class="fragment">fixed는 브라우저 기준으로 고정됩니다</span>
 
 ---
 
 <!-- _class: aqua -->
-## ❓ 궁금한 이야기 ②:  HTML의 역할?
-- <span class="fragment">정보를 표현하기 위한 <span class="mark">마크업 언어</span></span>  
-- <span class="fragment">브라우저가 해석할 수 있는 <span class="mark">구조 제공</span></span>
+## ✅ 배치 예제 3: display
+
+
+<pre class="codeblock">
+&lt;div class=&quot;container&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;APPLE&lt;/li&gt;
+    &lt;li&gt;banana&lt;/li&gt;
+    &lt;li&gt;coconut&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;hr/&gt;
+
+  &lt;ul class=&quot;d1&quot;&gt;
+    &lt;li&gt;APPLE&lt;/li&gt;
+    &lt;li&gt;banana&lt;/li&gt;
+    &lt;li&gt;coconut&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;ul class=&quot;d2&quot;&gt;
+    &lt;li&gt;APPLE&lt;/li&gt;
+    &lt;li&gt;banana&lt;/li&gt;
+    &lt;li&gt;coconut&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+
+> <span class="fragment">display:inline은 줄바꿈 없이 나열</span>  
+> <span class="fragment">inline-block은 너비/높이 지정 가능</span>
 
 ---
-<!-- _class: aqua -->
-## ❓ 궁금한 이야기 ③:  &lt;head&gt;와 &lt;body&gt;의 차이
 
-- <span class="fragment"><span class="mark">&lt;head&gt;</span>: 문서 정보</span>  
-- <span class="fragment"><span class="mark">&lt;body&gt;</span>: 사용자에게 보이는 내용</span>
+<!-- _class: aqua -->
+## ✅ 배치 예제 4: margin/padding
+
+<pre class="codeblock">
+&lt;div class=&quot;container mp&quot;&gt;
+  &lt;p class=&quot;me&quot;&gt;WHERE I AM?&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+> <span class="fragment">margin은 <span class="mark">바깥 여백</span>, 
+  padding은 <span class="mark">안쪽 여백</span></span>  
+> <span class="fragment">방향별로 top/right/bottom/left 지정 가능</span>
+
+---
+
+<!-- _class: aqua -->
+## ✅ 배치 예제 5: flex
+
+<pre class="codeblock">
+&lt;div class=&quot;container flex&quot;&gt;
+  &lt;div class=&quot;flex-box&quot;&gt;
+    &lt;div class=&quot;flex-item&quot;&gt;1&lt;/div&gt;
+    &lt;div class=&quot;flex-item&quot;&gt;2&lt;/div&gt;
+    &lt;div class=&quot;flex-item&quot;&gt;3&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;p&gt;display:flex를 사용하면 자식 요소들이 한 줄에 정렬됩니다&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+> <span class="fragment">flex는 <span class="mark">유연한 레이아웃</span>을 구성할 수 있어요</span>  
+> <span class="fragment">justify-content, align-items 등으로 정렬 방식 조절</span>
 
 ---
 
@@ -478,25 +419,27 @@ style: |
 ---
 
 <!-- _class: aqua -->
-## ❓ 퀴즈 1: HTML은 어떤 역할을 하나요?
+## ❓ 퀴즈 3: float 사용 시 주의할 점은?
 
-- <span class="fragment">A. 동작을 처리한다</span>  
-- <span class="fragment">B. 구조를 정의한다 ✅</span>  
-- <span class="fragment">C. 스타일을 적용한다</span>
+- <span class="fragment">A. padding을 꼭 줘야 한다</span>  
+- <span class="fragment">B. clear:both로 흐름을 정리한다 ✅</span>  
+- <span class="fragment">C. display:flex와 함께 써야 한다</span>
 
- 
 ---
-
 <!-- _class: aqua -->
-## ❓ 퀴즈 2: HTML 문서의 시작과 끝을 나타내는 태그는?
+## ❓ 퀴즈 4: position:fixed는 어떤 기준으로 위치를 잡나요?
 
-- <span class="fragment">A. **<body>**</span>  
-- <span class="fragment">B. **<head>**</span>  
-- <span class="fragment">C. **<html>** ✅</span>
+- <span class="fragment">A. 부모 요소 기준</span>  
+- <span class="fragment">B. 브라우저 기준 ✅</span>  
+- <span class="fragment">C. 문서 전체 기준</span>
 
 ---
 <!-- _class: thanks -->
-## 👋  열심히 들어주셔서 감사합니다!
+## 👋 열심히 들어주셔서 감사합니다!
 
+> <span class="fragment">배치 방식은 웹 디자인의 <span class="mark">핵심</span>입니다</span>  
+> <span class="fragment">다양한 방식으로 실습하며 감각을 익혀보세요!</span>
 > <span class="fragment">오늘의 한 걸음이 **내일의 가능성**이 되길 바라며,</span>  
 > <span class="fragment">그럼, 다음 이시간에 또 만나요!</span>
+
+ 
