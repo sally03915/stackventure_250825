@@ -379,7 +379,8 @@ html 코드에 미리 정의된 [클래스 선택자를 삽입]만하면 
 
 ---
 <!-- _class: orange -->
-# 🧩 Step 1: 핵심 개념 (2)    GRID-LAYOUT
+# 🧩 Step 1: 핵심 개념 (2)  
+#     GRID-LAYOUT
   1. 레이아웃시스템
   2. 레이아웃 만들어보기
  
@@ -394,42 +395,52 @@ html 코드에 미리 정의된 [클래스 선택자를 삽입]만하면 
 <!-- _class: aqua -->
 <img src="./images/web007_005.png" alt="bootstrap Step1" width="100%"/>
  
+--- 
  <!-- _class: aqua -->
- Grid system  눈여겨봐야할 순서  [1]-[2]-[3]   표-줄-칸
+ - Grid system  눈여겨봐야할 순서  
+ - [1]-[2]-[3]   표-줄-칸
+   
      [1]  .container 또는 .container-fluid
      [2] .row
      [3] .col-*-*
 
 --- 
 <!-- _class: aqua --> 
- 설명 :
-  [1]  .container 또는 .container-fluid   : 전체 가로폭을 지정
-       .container :  고정폭 레이아웃을 만들 때 사용합니다.
-       .container-fluid  : 좌우로 꽉 찬 레이아웃을 만들 때 사용합니다.
-  [2] .row  : 한줄한줄(행)
-  [3] .col-디바이스정하기-칸수 : 한칸한칸(열)
+-  [1]  .container 또는 .container-fluid   
+: 전체 가로폭을 지정
+       .container :  고정폭 레이아웃을 만들 때 사용
+       .container-fluid  : 좌우로 꽉 찬 레이아웃 사용
+-  [2] .row  : 한줄한줄(행)
+-  [3] .col-디바이스정하기-칸수 : 한칸한칸(열)
       xs (for phones)
       sm (for tablets)   : 768px이상
       md (for desktops) : 992px이상
-       lg (for larger desktops) : 가로해상도 1200px이상
+      lg (for larger desktops):가로해상도 1200px이상
  
 --- 
 <!-- _class: aqua --> 
-     1~12 :  행을 12등분하여 그 중에 몇개를 사용할지 지정
-     예1)   .container > .row >   .col-sm-10      .col-sm-2
-     예2)   .container > .row >   .col-sm-5  .col-sm-5     .col-sm-2
-     예3)   .container > .row >   .col-sm-4  .col-sm-4     .col-sm-4
-     예4)   .container > .row >   .col-sm-3  .col-sm-3     .col-sm-3   .col-sm-3
- 
+#####  1~12 :  행을 12등분하여 그 중에 몇개를 사용할지 지정
+<pre class="codeblock">
+예1) .container > .row > .col-sm-10 .col-sm-2
+예2) .container > .row > .col-sm-5  .col-sm-5  .col-sm-2
+예3) .container > .row > .col-sm-4  .col-sm-4  .col-sm-4
+예4) .container > .row > .col-sm-3  .col-sm-3  .col-sm-3   
+                                              .col-sm-3
+</pre> 
+
 ---
-<!-- _class: aqua --> 
- 
- ■2. 레이아웃 만들어보기
- 
- ![WEB PATTERN](img/web007_004.png)
- 
- >web008_bootstrap002_GRID.html
- ```html
+<!-- _class: aqua -->  
+##### ■2. 레이아웃 만들어보기
+  
+ <img src="./images/web007_004.png" alt="bootstrap Step1" width="100%"/>
+
+
+
+---
+<!-- _class: aqua -->  
+
+<pre class="codeblock">
+
  <!DOCTYPE html>
  <html lang="ko">
  <head>
@@ -460,9 +471,7 @@ html 코드에 미리 정의된 [클래스 선택자를 삽입]만하면 
       <div class="col-sm-4 alert alert-light"> 박스1</div> <!-- col END -->
       <div class="col-sm-4 alert alert-light"> 박스2</div> <!-- col END -->
       <div class="col-sm-4 alert alert-light"> 박스3</div> <!-- col END -->
-    </div>
-    <!-- end row -->
-    <!-- end row -->
+    </div> 
  
  
     <h3>[Q2] 3-3-3-?</h3>
@@ -517,39 +526,45 @@ html 코드에 미리 정의된 [클래스 선택자를 삽입]만하면 
       <div class="col-sm-2 alert alert-light"> 박스3</div>
       <div class="col-sm-2 alert alert-light"> 박스4</div>
       <div class="col-sm-4 alert alert-light"> 박스5</div>
-    </div>
-    <!-- end row -->
-    <!-- end row -->
+    </div> 
   </div><!-- main END -->
  
    </body>
  </html>
- ```
+</pre>
  
  
+- [1]  .container 또는 .container-fluid
+- [2] .row
+- [3] .col-*-*
+
  
  
+  
  
- <br/>
- <br/>
- <br/>
+---
+<!-- _class: aqua -->  
  
- ---
- 
- ### #3. 기본사용법
+ ### 3. 기본사용법
  1. CSS 읽는방법
  2. CSS 적용예제
  
+ 
+---
+<!-- _class: aqua -->  
  #### ■1. CSS 읽는방법
- [1] `버튼(Button) <a>, <dl>, <input> `등의 태그에 클래스를 추가하여 버튼 모양을 만들 수 있습니다. 
-  `<a href="#" class="btn btn-default">button</a>`
+- [1] 버튼(Button)
+   \<a>, \<dl>, \<input> 등의 태그에 클래스를 추가하여 
+   버튼 모양을 만들 수 있습니다 
+-  \<a href="#" class="btn btn-default">button</a>
   1. btn은 공통적으로 적용되는 모양을 정의하고, 
   2. btn-default는 테두리나 배경색 등을 정의합니다.
  
- [2]색(Color)
  
- 
- 
+---
+<!-- _class: aqua -->   
+- [2]색(Color)
+ <pre class="codeblock">
  .btn                     =기본[필수]에 
  .btn-default             원하는 색상 덮기
  .btn-primary
@@ -558,233 +573,259 @@ html 코드에 미리 정의된 [클래스 선택자를 삽입]만하면 
  .btn-warning
  .btn-danger
  .btn-link
+ </pre> 
+
  
- ```html
+---
+<!-- _class: aqua -->  
+
+<pre class="codeblock">
  <button type="button" class="btn">Basic</button>
- <button type="button" class="btn btn-default">Default</button>
- <button type="button" class="btn btn-primary">Primary</button>
- <button type="button" class="btn btn-success">Success</button>
- <button type="button" class="btn btn-info">Info</button>
- <button type="button" class="btn btn-warning">Warning</button>
- <button type="button" class="btn btn-danger">Danger</button>
- <button type="button" class="btn btn-link">Link</button>
- ```
+ <button type="button" 
+        class="btn btn-default">Default</button>
+ <button type="button" 
+        class="btn btn-primary">Primary</button>
+ <button type="button" 
+        class="btn btn-success">Success</button>
+ <button type="button" 
+        class="btn btn-info">Info</button>
+ <button type="button" 
+        class="btn btn-warning">Warning</button>
+ <button type="button" 
+        class="btn btn-danger">Danger</button>
+ <button type="button" 
+        class="btn btn-link">Link</button>
+</pre>
  
- [3]크기(Size) 버튼 크기를 정의하는 클래스는 btn-xs, btn-sm, btn-lg입니다. 
+  
+---
+<!-- _class: aqua -->  
+- [3]크기(Size) 버튼 크기를 정의하는 클래스는 btn-xs, btn-sm, btn-lg입니다. 
  
- [4]btn-block은 버튼을 블록 요소로 만듭니다. 
+- [4]btn-block은 버튼을 블록 요소로 만듭니다. 
  
- [5]상태(State) active를 추가하면 활성화된 상태, disabled를 추가하면 비활성화된 상태의 모양을 만듭니다. 
+- [5]상태(State) active를 추가하면 활성화된 상태, disabled를 추가하면 비활성화된 상태의 모양을 만듭니다. 
  비활성화된 상태인 경우 클릭이 되지 않습니다.
   
  
- #### ■2. CSS 적용예제
  
  
- 
- ##### # STEP1 기본사용법
- ```html
-  <div class="container   panel  panel-default">
-      <h3  class="panel-heading">[1]   button + color </h3>
-      <p   class="well">  사용방법 :  btn(콘텐츠)  btn-primary(색상)  </p>
-      <div  class="panel-body">
-        <p>  <a href="#"  class="btn  btn-default">BUTTON1 - DEFAULT</a> </p>
-        <p>  <a href="#"  class="btn  btn-primary">BUTTON2 - PRIMARY</a> </p>
-        <p>  <a href="#"  class="btn  btn-success">BUTTON3 - SUCCESS</a> </p>
-        <p>  <a href="#"  class="btn  btn-info">BUTTON4  - INFO</a> </p>
-        <p>  <a href="#"  class="btn  btn-warning">BUTTON5 - WARNING</a> </p>
-        <p>  <a href="#"  class="btn  btn-danger">BUTTON6 - DANGER</a> </p>
-        <p>  <a href="#"  class="btn  btn-link">BUTTON7 - LINK</a> </p>
-      </div>
-  </div>
- ```
+
+---
+<!-- _class: aqua -->  
+#### ■2. CSS 적용예제
+##### # STEP1 기본사용법
+
+<pre class="codeblock">
+&lt;div class="panel  panel-default"&gt;
+  &lt;h3 class="panel-heading"&gt;[1] button + color&lt;/h3&gt;
+  &lt;p class="well"&gt;사용방법 : btn(콘텐츠) btn-primary(색상)&lt;/p&gt;
+  &lt;div class="panel-body"&gt;
+    &lt;p&gt;&lt;a href="#" class="btn btn-default"&gt;BUTTON1 - DEFAULT&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href="#" class="btn btn-primary"&gt;BUTTON2 - PRIMARY&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href="#" class="btn btn-success"&gt;BUTTON3 - SUCCESS&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href="#" class="btn btn-info"&gt;BUTTON4 - INFO&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href="#" class="btn btn-warning"&gt;BUTTON5 - WARNING&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href="#" class="btn btn-danger"&gt;BUTTON6 - DANGER&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href="#" class="btn btn-link"&gt;BUTTON7 - LINK&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
   
+
+---
+<!-- _class: aqua -->   
+##### # STEP2 SIZE
+
+<pre class="codeblock">
+&lt;div class="panel panel-danger"&gt;
+  &lt;h3 class="panel-heading"&gt; [2] button + color + size&lt;/h3&gt;
+  &lt;p class="well"&gt; 사용방법 : btn(콘텐츠) btn-primary(색상) btn-lg(사이즈)&lt;/p&gt;
+  &lt;div class="panel-body"&gt;
+    &lt;p&gt; &lt;a href="#" class="btn btn-warning btn-lg"&gt; lg : large&lt;/a&gt; &lt;/p&gt;
+    &lt;p&gt; &lt;a href="#" class="btn btn-warning btn-md"&gt; md : middle&lt;/a&gt; &lt;/p&gt;
+    &lt;p&gt; &lt;a href="#" class="btn btn-warning btn-sm"&gt; sm : small&lt;/a&gt; &lt;/p&gt;
+    &lt;p&gt; &lt;a href="#" class="btn btn-warning btn-xs"&gt; xm : 엑스트라 small&lt;/a&gt; &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</pre>
   
- ##### # STEP2 SIZE
- ```html
- <div class="container   panel  panel-danger">
-  <h3  class="panel-heading"> [2] button  + color + size</h3>
-  <p   class="well">  사용방법 :  btn(콘텐츠)  btn-primary(색상)  btn-lg(사이즈)  </p>
-  <div  class="panel-body">
-      <p>  <a href="#"  class="btn  btn-warning  btn-lg">    lg : large</a> </p>
-    <p>  <a href="#"  class="btn  btn-warning  btn-md">  md : middle</a> </p>
-    <p>  <a href="#"  class="btn  btn-warning  btn-sm">  sm : small</a> </p>
-    <p>  <a href="#"  class="btn  btn-warning  btn-xs">  xm : 엑스트라 small</a> </p>
-  </div>
- </div>
- ```
+
+
+---
+<!-- _class: aqua -->  
+##### # STEP3 ACTIVE / DISABLED  
+
+<pre class="codeblock">
+&lt;div class="container panel panel-warning"&gt;
+  &lt;h3 class="panel-heading"&gt; [3] state : active , disabled&lt;/h3&gt;
+  &lt;p class="well"&gt; 사용방법 : btn(콘텐츠) btn-primary(색상) btn-lg(사이즈) active/disabled&lt;/p&gt;
+  &lt;div class="panel-body"&gt;
+    &lt;p&gt; &lt;a href="#" class="btn btn-primary btn-lg"&gt; primary - basic&lt;/a&gt; &lt;/p&gt;
+    &lt;p&gt; &lt;a href="#" class="btn btn-primary btn-lg active"&gt; primary - active&lt;/a&gt; &lt;/p&gt;
+    &lt;p&gt; &lt;a href="#" class="btn btn-primary btn-lg disabled"&gt; primary - active&lt;/a&gt; &lt;/p&gt;
+    &lt;p&gt; &lt;a href="#" class="btn btn-danger btn-lg"&gt; danger-basic&lt;/a&gt; &lt;/p&gt;
+    &lt;p&gt; &lt;a href="#" class="btn btn-danger btn-lg active"&gt; danger - active&lt;/a&gt; &lt;/p&gt;
+    &lt;p&gt; &lt;a href="#" class="btn btn-danger btn-lg disabled"&gt; danger - active&lt;/a&gt; &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</pre>
   
+   
+
+
+---
+<!-- _class: aqua -->  
+##### # STEP4 BLOCK
+
+<pre class="codeblock">
+&lt;div class="container panel panel-success"&gt;
+  &lt;h3 class="panel-heading"&gt; [4] display :block 속성&lt;/h3&gt;
+  &lt;p class="well"&gt; 사용방법 : btn(콘텐츠) btn-primary(색상) btn-lg(사이즈) active/disabled btn-block&lt;/p&gt;
+  &lt;p class="well"&gt; btn-block : 줄바꿈이 되고 parent 가로사이즈 만큼 영역이 넓어짐&lt;/p&gt;
+  &lt;div class="panel-body"&gt;
+    &lt;p&gt;
+      &lt;a href="#" class="btn btn-default btn-lg"&gt; primary - basic&lt;/a&gt;
+      &lt;a href="#" class="btn btn-default btn-lg active"&gt; primary - active&lt;/a&gt;
+      &lt;a href="#" class="btn btn-default btn-lg disabled"&gt; primary - active&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;a href="#" class="btn btn-default btn-lg"&gt; primary - basic&lt;/a&gt;
+      &lt;a href="#" class="btn btn-default btn-lg btn-block active"&gt;
+        primary - active&lt;/a&gt;
+      &lt;a href="#" class="btn btn-default btn-lg disabled"&gt; primary - active&lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</pre> 
+
  
- 
- ##### # STEP3 ACTIVE / DISABLED  
- ```html
- <div class="container   panel  panel-warning">
-  <h3  class="panel-heading"> [3]  state :  active , disabled</h3>
-  <p   class="well">  사용방법 :  btn(콘텐츠)
-          btn-primary(색상)  btn-lg(사이즈)  active/disabled    </p>
-  <div  class="panel-body">
-    <p>  <a href="#"  class="btn  btn-primary  btn-lg">  primary - basic</a> </p>
-    <p>  <a href="#"  class="btn  btn-primary  btn-lg  active">  primary - active</a> </p>
-    <p>  <a href="#"  class="btn  btn-primary  btn-lg  disabled">  primary - active</a> </p>
-    <p>  <a href="#"  class="btn  btn-danger   btn-lg">  danger-basic </a> </p>
-    <p>  <a href="#"  class="btn  btn-danger   btn-lg active">  danger - active </a> </p>
-    <p>  <a href="#"  class="btn  btn-danger   btn-lg disabled">  danger - active </a> </p>
-  </div>
- </div>
- ```
+---
+<!-- _class: aqua -->  
   
-  
- ##### # STEP4 BLOCK
- ```html
- <div class="container   panel  panel-success">
-  <h3  class="panel-heading"> [4]  display :block  속성</h3>
-  <p   class="well">  사용방법 :
-           btn(콘텐츠)  btn-primary(색상)  btn-lg(사이즈)   active/disabled   btn-block </p>
-  <p   class="well">    btn-block  : 줄바꿈이 되고  parent 가로사이즈 만큼 영역이 넓어짐</p>
-  <div  class="panel-body">
-    <p>
-      <a href="#"  class="btn  btn-default  btn-lg">  primary - basic</a>
-      <a href="#"  class="btn  btn-default  btn-lg   active">  primary - active</a>
-        <a href="#"  class="btn  btn-default  btn-lg  disabled">  primary - active</a>
-    </p>
-    <p>
-      <a href="#"  class="btn  btn-default  btn-lg">  primary - basic</a>
-      <a href="#"  class="btn  btn-default  btn-lg  btn-block active">
-                                                                       primary - active</a>
-       <a href="#"  class="btn  btn-default  btn-lg  disabled">  primary - active</a>
-    </p>
-  </div>
- </div>
- ``` 
-  
- ##### # STEP5 CUSTOM
- ```html
- <div class="container   panel  panel-success">
-  <h3  class="panel-heading"> [5] cmustom css</h3>
-  <p   class="well">  원본 css는 수정하지 말고 child-css 만들어서 사용하기( 누더기...)</p>
-  <div  class="panel-body  dropdown">
-    <button class="btn btn-danger btn-block dropdown-toggle"
-    type="button" data-toggle="dropdown">Dropdown Example
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-    <li><a href="#">HTML</a></li>
-    <li><a href="#">CSS</a></li>
-    <li><a href="#">JavaScript</a></li>
-    </ul>
-  </div>
- </div>
- ```
- 
- > web009_bootstrap003_CSS.html
- ```html
- <!DOCTYPE html>
- <html lang="ko">
- <head>
-   <title>DBDBIG</title>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
- <!-- Latest compiled and minified CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
- 
- <!-- Latest compiled JavaScript -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
- </head>
- <body>
-  <div class="container   card  card-default my-5">
-      <h3  class="cards-heading">[1]   button + color </h3>
-      <p   class="alert alert-warning">  사용방법 :  btn(콘텐츠)  btn-primary(색상)  </p>
-      <div  class="panel-body">
-        <p>  <a href="#"  class="btn  btn-default">BUTTON1 - DEFAULT</a> </p>
-        <p>  <a href="#"  class="btn  btn-primary">BUTTON2 - PRIMARY</a> </p>
-        <p>  <a href="#"  class="btn  btn-success">BUTTON3 - SUCCESS</a> </p>
-        <p>  <a href="#"  class="btn  btn-info">BUTTON4  - INFO</a> </p>
-        <p>  <a href="#"  class="btn  btn-warning">BUTTON5 - WARNING</a> </p>
-        <p>  <a href="#"  class="btn  btn-danger">BUTTON6 - DANGER</a> </p>
-        <p>  <a href="#"  class="btn  btn-link">BUTTON7 - LINK</a> </p>
-      </div>
-  </div>
-  <!-- end container -->
-  <!-- end container -->
- 
-  <div class="container     card  card-default my-5">
-      <h3  class="cards-heading">[2] button  + color + size</h3>
-      <p   class="alert alert-warning">  사용방법 :  btn(콘텐츠)  btn-primary(색상)  btn-lg(사이즈)  </p>
-      <div  class="panel-body">
-        <p>  <a href="#"  class="btn  btn-warning  btn-lg">    lg : large</a> </p>
-        <p>  <a href="#"  class="btn  btn-warning  btn-md">  md : middle</a> </p>
-        <p>  <a href="#"  class="btn  btn-warning  btn-sm">  sm : small</a> </p>
-        <p>  <a href="#"  class="btn  btn-warning  btn-xs">  xm : 엑스트라 small</a> </p>
-      </div>
-  </div>
-  <!-- end container -->
-  <!-- end container -->
+##### # STEP5 CUSTOM
+<pre class="codeblock">
+&lt;div class="container panel panel-success"&gt;
+  &lt;h3 class="panel-heading"&gt; [5] cmustom css&lt;/h3&gt;
+  &lt;p class="well"&gt; 원본 css는 수정하지 말고 child-css 만들어서 사용하기( 누더기...)&lt;/p&gt;
+  &lt;div class="panel-body dropdown"&gt;
+    &lt;button class="btn btn-danger btn-block dropdown-toggle"
+    type="button" data-toggle="dropdown"&gt;Dropdown Example
+    &lt;span class="caret"&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;ul class="dropdown-menu"&gt;
+      &lt;li&gt;&lt;a href="#"&gt;HTML&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;CSS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</pre>
  
  
-  <div class="container    card  card-default my-5">
-      <h3  class="cards-heading">[3]  state :  active , disabled</h3>
-      <p   class="alert alert-warning">  사용방법 :  btn(콘텐츠)  btn-primary(색상)  btn-lg(사이즈)  active/disabled    </p>
-      <div  class="panel-body">
-        <p>  <a href="#"  class="btn  btn-primary  btn-lg">  primary - basic</a> </p>
-        <p>  <a href="#"  class="btn  btn-primary  btn-lg  active">  primary - active</a> </p>
-        <p>  <a href="#"  class="btn  btn-primary  btn-lg  disabled">  primary - active</a> </p>
-        <p>  <a href="#"  class="btn  btn-danger   btn-lg">  danger-basic </a> </p>
-        <p>  <a href="#"  class="btn  btn-danger   btn-lg active">  danger - active </a> </p>
-        <p>  <a href="#"  class="btn  btn-danger   btn-lg disabled">  danger - active </a> </p>
-      </div>
-  </div>
-  <!-- end container -->
-  <!-- end container -->
+---
+#### 예시) 전체홈페이지
+<!-- _class: aqua -->  
+<pre class="codeblock">
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+  &lt;title&gt;DBDBIG&lt;/title&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;!-- Latest compiled and minified CSS --&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+  &lt;!-- Latest compiled JavaScript --&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="container card card-default my-5"&gt;
+    &lt;h3 class="cards-heading"&gt;[1] button + color&lt;/h3&gt;
+    &lt;p class="alert alert-warning"&gt;사용방법 : btn(콘텐츠) btn-primary(색상)&lt;/p&gt;
+    &lt;div class="panel-body"&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-default"&gt;BUTTON1 - DEFAULT&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-primary"&gt;BUTTON2 - PRIMARY&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-success"&gt;BUTTON3 - SUCCESS&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-info"&gt;BUTTON4 - INFO&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-warning"&gt;BUTTON5 - WARNING&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-danger"&gt;BUTTON6 - DANGER&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-link"&gt;BUTTON7 - LINK&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="container card card-default my-5"&gt;
+    &lt;h3 class="cards-heading"&gt;[2] button + color + size&lt;/h3&gt;
+    &lt;p class="alert alert-warning"&gt;사용방법 : btn(콘텐츠) btn-primary(색상) btn-lg(사이즈)&lt;/p&gt;
+    &lt;div class="panel-body"&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-warning btn-lg"&gt;lg : large&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-warning btn-md"&gt;md : middle&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-warning btn-sm"&gt;sm : small&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-warning btn-xs"&gt;xm : 엑스트라 small&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="container card card-default my-5"&gt;
+    &lt;h3 class="cards-heading"&gt;[3] state : active , disabled&lt;/h3&gt;
+    &lt;p class="alert alert-warning"&gt;사용방법 : btn(콘텐츠) btn-primary(색상) btn-lg(사이즈) active/disabled&lt;/p&gt;
+    &lt;div class="panel-body"&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-primary btn-lg"&gt;primary - basic&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-primary btn-lg active"&gt;primary - active&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-primary btn-lg disabled"&gt;primary - active&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-danger btn-lg"&gt;danger-basic&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-danger btn-lg active"&gt;danger - active&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="btn btn-danger btn-lg disabled"&gt;danger - active&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="container card card-default my-5"&gt;
+    &lt;h3 class="cards-heading"&gt;[4] display :block 속성&lt;/h3&gt;
+    &lt;p class="alert alert-warning"&gt;사용방법 : btn(콘텐츠) btn-primary(색상) btn-lg(사이즈) active/disabled btn-block&lt;/p&gt;
+    &lt;p class="alert alert-warning"&gt;btn-block : 줄바꿈이 되고 parent 가로사이즈 만큼 영역이 넓어짐&lt;/p&gt;
+    &lt;div class="panel-body"&gt;
+      &lt;p&gt;
+        &lt;a href="#" class="btn btn-default btn-lg"&gt;primary - basic&lt;/a&gt;
+        &lt;a href="#" class="btn btn-default btn-lg active"&gt;primary - active&lt;/a&gt;
+        &lt;a href="#" class="btn btn-default btn-lg disabled"&gt;primary - active&lt;/a&gt;
+      &lt;/p&gt;
+      &lt;p&gt;
+        &lt;a href="#" class="btn btn-default btn-lg"&gt;primary - basic&lt;/a&gt;
+        &lt;a href="#" class="btn btn-default btn-lg btn-block active"&gt;primary - active&lt;/a&gt;
+        &lt;a href="#" class="btn btn-default btn-lg disabled"&gt;primary - active&lt;/a&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="container card card-default my-5"&gt;
+    &lt;h3 class="cards-heading"&gt;[5] cmustom css&lt;/h3&gt;
+    &lt;p class="alert alert-warning"&gt;원본 css는 수정하지 말고 child-css 만들어서 사용하기( 누더기...)&lt;/p&gt;
+    &lt;div class="panel-body dropdown"&gt;
+      &lt;button class="btn btn-danger btn-block dropdown-toggle" type="button" data-toggle="dropdown"&gt;
+        Dropdown Example &lt;span class="caret"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;ul class="dropdown-menu"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;HTML&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;CSS&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
  
- 
-  <div class="container    card  card-default my-5">
-      <h3  class="cards-heading">[4]  display :block  속성</h3>
-      <p   class="alert alert-warning">  사용방법 :  btn(콘텐츠)  btn-primary(색상)  btn-lg(사이즈)   active/disabled   btn-block </p>
-      <p   class="alert alert-warning">    btn-block  : 줄바꿈이 되고  parent 가로사이즈 만큼 영역이 넓어짐</p>
-      <div  class="panel-body">
-        <p>
-            <a href="#"  class="btn  btn-default  btn-lg">  primary - basic</a>
-              <a href="#"  class="btn  btn-default  btn-lg   active">  primary - active</a>
-            <a href="#"  class="btn  btn-default  btn-lg  disabled">  primary - active</a>
-        </p>
-        <p>
-            <a href="#"  class="btn  btn-default  btn-lg">  primary - basic</a>
-              <a href="#"  class="btn  btn-default  btn-lg  btn-block active">  primary - active</a>
-            <a href="#"  class="btn  btn-default  btn-lg  disabled">  primary - active</a>
-        </p>
-      </div>
-  </div>
-  <!-- end container -->
-  <!-- end container -->
- 
- 
-  <div class="container   card  card-default my-5">
-      <h3  class="cards-heading">[5] cmustom css</h3>
-      <p   class="alert alert-warning">  원본 css는 수정하지 말고 child-css 만들어서 사용하기( 누더기...)</p>
-      <div  class="panel-body  dropdown">
-        <button class="btn btn-danger btn-block dropdown-toggle"
-        type="button" data-toggle="dropdown">Dropdown Example
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-        <li><a href="#">HTML</a></li>
-        <li><a href="#">CSS</a></li>
-        <li><a href="#">JavaScript</a></li>
-        </ul>
-      </div>
-  </div><!--  container4 -->
- 
-   </body>
- </html>
- ```
+</pre>
  
  
  
- <br/>
- <br/>
- <br/>
  
- ---
- 
- ### #4.   쓸만한 기능들 (1)  CSS
+---
+<!-- _class: aqua -->   
+### #4.   쓸만한 기능들 (1)  CSS (1/2)
  1.   Text/Typography
  2.   Images
  3.   Jumbtron
@@ -792,6 +833,10 @@ html 코드에 미리 정의된 [클래스 선택자를 삽입]만하면 
  5.   Alert
  6.   Glyphicons
  7.   Badges and Labels
+
+ ---
+<!-- _class: aqua -->   
+### #4.   쓸만한 기능들 (1)  CSS (2/2)
  8.   Progress Bars
  9.   Pagination
  10.  Pager
@@ -799,377 +844,372 @@ html 코드에 미리 정의된 [클래스 선택자를 삽입]만하면 
  13.  FORM
  14. MEDIA OBJECT
  
- #### #4. 쓸만한 기능들 (1)  CSS
+
+  
+---
+<!-- _class: aqua -->  
+#### #4. 쓸만한 기능들 (1)  CSS  
+■1.   Text/Typography
+[Text/Typography](https://www.w3schools.com/bootstrap5/bootstrap_typography.php)
  
- ■1.   Text/Typography
- https://www.w3schools.com/bootstrap5/bootstrap_typography.php
+<img src="./images/web007_006.png" alt="bootstrap Step1" width="60%"/>
  
- 
- ![WEB PATTERN](img/web007_006.png)
- 
- ```html
- #1  <h1> - <h6>
- #2  <small>
- ex) <h1>h1 heading <small>secondary text</small></h1>
- 
- #3  <abbr>
- #4  <blockquote>
- class="blockquote-reverse"
- ex)
-   <blockquote class="blockquote-reverse">
-     <p>For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.</p>
-     <footer>From WWF's website</footer>
-   </blockquote>
- 
- #5 <dl>
- #6 <code>
- #7 <kbd>
- #8 <pre>
- 
- #9   .text-muted, .text-primary, .text-success, .text-info, .text-warning,   .text-danger
- #10. .bg-primary, .bg-success, .bg-info, .bg-warning,   .bg-danger
- 
- #11.  etc
- .lead	Makes a paragraph stand out
- .small	Indicates smaller text (set to 85% of the size of the parent)
- .text-left	Indicates left-aligned text
- .text-center	Indicates center-aligned text
- .text-right	Indicates right-aligned text
- .text-justify	Indicates justified text
- .text-nowrap	Indicates no wrap text
- .text-lowercase	Indicates lowercased text
- .text-uppercase	Indicates uppercased text
- .text-capitalize	Indicates capitalized text
- .initialism	Displays the text inside an <abbr> element in a slightly smaller font size
- .list-unstyled	Removes the default list-style and left margin on list items (works on both <ul> and <ol>). This class only applies to immediate children list items (to remove the default list-style from any nested lists, apply this class to any nested lists as well)
- .list-inline	Places all list items on a single line
- .dl-horizontal	Lines up the terms (<dt>) and descriptions (<dd>) in <dl> elements side-by-side. Starts off like default <dl>s, but when the browser window expands, it will line up side-by-side
- .pre-scrollable	Makes a <pre> element scrollable
- ```
+
+---
+<!-- _class: aqua -->  
+
+<pre class="codeblock">
+#1  &lt;h1&gt; - &lt;h6&gt;
+#2  &lt;small&gt;
+ex) &lt;h1&gt;h1 heading &lt;small&gt;secondary text&lt;/small&gt;&lt;/h1&gt;
+#3  &lt;abbr&gt;
+#4  &lt;blockquote&gt;   class="blockquote-reverse"
+#5  &lt;dl&gt;
+#6  &lt;code&gt;
+#7  &lt;kbd&gt;
+#8  &lt;pre&gt;
+</pre>
  
  
- <br/>
- <br/>
- <br/>
- 
- 
+---
+<!-- _class: aqua -->   
  ##### ■2.   Images
+[Images](https://www.w3schools.com/bootstrap5/bootstrap_images.php)
  
- https://www.w3schools.com/bootstrap5/bootstrap_images.php
+<img src="./images/web007_006.png" alt="bootstrap Step1" width="60%"/>
  
- ![WEB PATTERN](img/web007_006.png)
- 
- ```html
- <img src="cinqueterre.jpg" class="img-rounded" alt="Cinque Terre">
- <img src="cinqueterre.jpg" class="img-circle" alt="Cinque Terre">
- <img src="cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre">
- ```
- 
- 
- 
- 
- <br/>
- <br/>
- <br/>
+
+---
+<!-- _class: aqua -->   
+<pre class="codeblock">
+&lt;img src="cinqueterre.jpg"
+     class="img-rounded" alt="Cinque Terre"&gt;
+&lt;img src="cinqueterre.jpg" 
+     class="img-circle" alt="Cinque Terre"&gt;
+&lt;img src="cinqueterre.jpg" 
+     class="img-thumbnail" alt="Cinque Terre"&gt;
+</pre>
  
  
  
  
  
- ##### ■3.   Jumbtron
+---
+<!-- _class: aqua -->  
+##### ■3.   Jumbtron
+[Jumbtron](https://www.w3schools.com/bootstrap5/bootstrap_jumbotron.php)
  
- https://www.w3schools.com/bootstrap5/bootstrap_jumbotron.php
+
+
+---
+<!-- _class: aqua -->  
+ <img src="./images/web007_007.png" alt="bootstrap Step1" width="100%"/>
  
- 
- ![WEB PATTERN](img/web007_007.png)
- 
- ```html
- <div class="mt-4 p-5 bg-primary text-white rounded">
-   <h1>Jumbotron Example</h1>
-   <p>Lorem ipsum...</p>
- </div>
- ```
- 
- 
- 
- 
- <br/>
- <br/>
- <br/>
- 
- 
- 
- ##### ■4.   Alert
- 
- https://www.w3schools.com/bootstrap5/bootstrap_alerts.php
- 
- 
- ![WEB PATTERN](img/web007_008.png)
- 
- ```html
- <div class="alert alert-success">
-   <strong>Success!</strong> Indicates a successful or positive action.
- </div>
- ```
+
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;div class="mt-4 p-5 bg-primary text-white rounded"&gt;
+  &lt;h1&gt;Jumbotron Example&lt;/h1&gt;
+  &lt;p&gt;Lorem ipsum...&lt;/p&gt;
+&lt;/div&gt;
+</pre>
  
  
  
+  
+---
+<!-- _class: aqua -->  
+##### ■4.   Alert
+[Alert](https://www.w3schools.com/bootstrap5/bootst )
+
+
+
+---
+<!-- _class: aqua -->  
+ <img src="./images/web007_008.png" alt="bootstrap Step1" width="100%"/>
  
- <br/>
- <br/>
- <br/>
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;div class="alert alert-success"&gt;
+  &lt;strong&gt;Success!&lt;/strong&gt; Indicates a successful or positive action.
+&lt;/div&gt;
+</pre>
  
+  
  
+---
+<!-- _class: aqua -->   
  ##### ■5.    padding/margin
+[padding/margin]( https://www.w3schools.com/bootstrap5/bootstrap_utilities.php )
   
- https://www.w3schools.com/bootstrap5/bootstrap_utilities.php
+
  
+---
+<!-- _class: aqua -->    
+ <img src="./images/web007_009.png" alt="bootstrap Step1" width="100%"/>
  
- ![WEB PATTERN](img/web007_009.png)
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;div class="pt-4 bg-warning"&gt;I only have a top padding (1.5rem)&lt;/div&gt;
+&lt;div class="p-5 bg-success"&gt;I have a padding on all sides (3rem)&lt;/div&gt;
+&lt;div class="m-5 pb-5 bg-info"&gt;I have a margin on all sides (3rem) and a bottom padding (3rem)&lt;/div&gt;
+
+</pre>
  
- ```html
- <div class="pt-4 bg-warning">I only have a top padding (1.5rem)</div>
- <div class="p-5 bg-success">I have a padding on all sides (3rem)</div>
- <div class="m-5 pb-5 bg-info">I have a margin on all sides (3rem) and a bottom padding (3rem)</div>
- ```
  
  
  
  
- <br/>
- <br/>
- <br/>
- 
- 
- 
- 
- 
- ##### ■6.   Badges
- https://www.w3schools.com/bootstrap5/bootstrap_badges.php
- 
- 
- 
- ![WEB PATTERN](img/web007_010.png)
- 
- ```html
- <span class="badge bg-primary">Primary</span>
- 
- ```
- 
- 
- 
- 
- 
- <br/>
- <br/>
- <br/>
- 
- 
- 
- 
- 
- ##### ■7.   Progress Bars
- 
- https://www.w3schools.com/bootstrap5/bootstrap_progressbars.php
- 
- 
- 
- ![WEB PATTERN](img/web007_011.png)
- 
- ```html
- <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%"></div>
- ```
- 
- 
- 
- 
- 
- <br/>
- <br/>
- <br/>
- 
- 
- 
- 
- 
- ##### ■8.   Pagination
- 
- https://www.w3schools.com/bootstrap5/bootstrap_pagination.php
- 
- 
- 
- ![WEB PATTERN](img/web007_012.png)
- 
- 
- 
- ```html
- <ul class="pagination">
-   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-   <li class="page-item"><a class="page-link" href="#">1</a></li>
-   <li class="page-item"><a class="page-link" href="#">2</a></li>
-   <li class="page-item"><a class="page-link" href="#">3</a></li>
-   <li class="page-item"><a class="page-link" href="#">Next</a></li>
- </ul>
- 
- ```
- 
- 
- 
- 
- <br/>
- <br/>
- <br/>
- 
- 
- 
- 
- 
- 
- ##### ■9. cards
- https://www.w3schools.com/bootstrap5/bootstrap_cards.php
- 
- 
- ![WEB PATTERN](img/web007_013.png)
- 
- 
- 
- ```html
- <div class="card">
-   <div class="card-header">Header</div>
-   <div class="card-body">Content</div>
-   <div class="card-footer">Footer</div>
- </div>
- ```
- 
- 
- 
- <br/>
- <br/>
- <br/>
- 
- 
- 
- 
- ##### ■11. Dropdown
- 
- https://www.w3schools.com/bootstrap5/bootstrap_dropdowns.php
- 
- ![WEB PATTERN](img/web007_014.png)
- 
- 
- ```html
- <div class="dropdown">
-   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-     Dropdown button
-   </button>
-   <ul class="dropdown-menu">
-     <li><a class="dropdown-item" href="#">Link 1</a></li>
-     <li><a class="dropdown-item" href="#">Link 2</a></li>
-     <li><a class="dropdown-item" href="#">Link 3</a></li>
-   </ul>
- </div>
- 
- ```
- 
- 
- <br/>
- <br/>
- <br/>
- 
- 
- 
- ##### ■12.FORM
- 
- https://www.w3schools.com/bootstrap5/bootstrap_forms.php
- 
- 
- ![WEB PATTERN](img/web007_015.png)
- 
- 
- ```html
- <form action="/action_page.php">
-   <div class="mb-3 mt-3">
-     <label for="email" class="form-label">Email:</label>
-     <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-   </div>
-   <div class="mb-3">
-     <label for="pwd" class="form-label">Password:</label>
-     <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-   </div>
-   <div class="form-check mb-3">
-     <label class="form-check-label">
-       <input class="form-check-input" type="checkbox" name="remember"> Remember me
-     </label>
-   </div>
-   <button type="submit" class="btn btn-primary">Submit</button>
- </form>
- 
- ```
- 
- 
- 
- 
- 
- 
- 
- <br/>
- <br/>
- <br/>
  
  ---
+<!-- _class: aqua -->  
+ ##### ■6.   Badges
+[Badges]( https://www.w3schools.com/bootstrap5/bootstrap_badges.php)
+
  
- ### #5. 쓸만한 기능들 (2) CSS - TABLE
+ 
+  ---
+<!-- _class: aqua -->  
+ <img src="./images/web007_010.png" alt="bootstrap Step1" width="100%"/>
+ 
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;span class="badge bg-primary"&gt;Primary&lt;/span&gt;
+
+</pre>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ---
+<!-- _class: aqua -->  
+ ##### ■7.   Progress Bars
+[ Progress Bars]( https://www.w3schools.com/bootstrap5/bootstrap_progressbars.php)
+ 
+
+ 
+ 
+---
+<!-- _class: aqua -->    
+ <img src="./images/web007_011.png" alt="bootstrap Step1" width="100%"/>
+
+ ---
+<!-- _class: aqua -->  
+
+<pre class="codeblock">
+&lt;div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%"&gt;&lt;/div&gt;
+
+</pre>
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ ---
+<!-- _class: aqua -->  
+ ##### ■8.   Pagination
+ 
+[Pagination]( https://www.w3schools.com/bootstrap5/bootstrap_pagination.php )
+ 
+ 
+ ---
+<!-- _class: aqua -->  
+ <img src="./images/web007_012.png" alt="bootstrap Step1" width="100%"/>
+ 
+ 
+ 
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;ul class="pagination"&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link" 
+      href="#"&gt;Previous&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link" 
+      href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link" 
+      href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link"
+      href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link"
+      href="#"&gt;Next&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ ---
+<!-- _class: aqua -->  
+ ##### ■9. cards
+ 
+[cards]( https://www.w3schools.com/bootstrap5/bootstrap_cards.php )
+  
+
+---
+<!-- _class: aqua -->  
+ <img src="./images/web007_013.png" alt="bootstrap Step1" width="100%"/>
+ 
+ 
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;Header&lt;/div&gt;
+  &lt;div class="card-body"&gt;Content&lt;/div&gt;
+  &lt;div class="card-footer"&gt;Footer&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+ 
+ 
+ 
+ 
+ 
+---
+<!-- _class: aqua -->   
+ ##### ■10. Dropdown
+ 
+[Dropdown](  https://www.w3schools.com/bootstrap5/bootstrap_dropdowns.php)
+
+  
+---
+<!-- _class: aqua -->    
+ <img src="./images/web007_014.png" alt="bootstrap Step1" width="100%"/>
+ 
+ 
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;div class="dropdown"&gt;
+  &lt;button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"&gt;
+    Dropdown button
+  &lt;/button&gt;
+  &lt;ul class="dropdown-menu"&gt;
+    &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+ 
+</pre>
+ 
+ 
+ 
+ 
+ ---
+<!-- _class: aqua -->  
+ ##### ■11.FORM 
+ 
+[FORM](  https://www.w3schools.com/bootstrap5/bootstrap_forms.php )
+
+ 
+  ---
+<!-- _class: aqua -->  
+ <img src="./images/web007_015.png" alt="bootstrap Step1" width="100%"/>
+ 
+ 
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;form action="/action_page.php"&gt;
+  &lt;div class="mb-3 mt-3"&gt;
+    &lt;label for="email" class="form-label"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" class="form-control" id="email" placeholder="Enter email" name="email"&gt;
+  &lt;/div&gt;
+  &lt;div class="mb-3"&gt;
+    &lt;label for="pwd" class="form-label"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd"&gt;
+  &lt;/div&gt;
+  &lt;div class="form-check mb-3"&gt;
+    &lt;label class="form-check-label"&gt;
+      &lt;input class="form-check-input" type="checkbox" name="remember"&gt; Remember me
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+ 
+</pre>
+ 
+ 
+ 
+  
+ ---
+<!-- _class: aqua -->  
+ ##### ■12. TABLE
  1. TABLE 종류
  2. TABLE 색상
  3. 반응형테이블
  
- https://www.w3schools.com/bootstrap5/bootstrap_tables.php
+[TABLE](  https://www.w3schools.com/bootstrap5/bootstrap_tables.php )
+
  
  
- ![WEB PATTERN](img/web007_016.png)
- 
+---
+<!-- _class: aqua -->    
+<img src="./images/web007_016.png" alt="bootstrap Step1" width="100%"/> 
+
+---
+<!-- _class: aqua -->  
  ##### ■1. TABLE 종류
- ```html
- <table class="table">  </table>
- <table class="table table-striped">  </table>
- <table class="table table-bordered">  </table>
- <table class="table table-hover">  </table>
- <table class="table table-condensed">  </table>
- ```
+
+<pre class="codeblock">
+&lt;table class="table"&gt;  &lt;/table&gt;
+&lt;table class="table table-striped"&gt;  &lt;/table&gt;
+&lt;table class="table table-bordered"&gt;  &lt;/table&gt;
+&lt;table class="table table-hover"&gt;  &lt;/table&gt;
+&lt;table class="table table-condensed"&gt;  &lt;/table&gt;
+
+</pre>
  
  
- 
+---
+<!-- _class: aqua -->   
  ##### ■2. TABLE 색상
- ```html
- <tr class="active">  </tr>
- <tr class="success">  </tr>
- <tr class="info">  </tr>
- <tr class="warning">  </tr>
- <tr class="danger">  </tr>
- ```
+
+<pre class="codeblock">
+&lt;tr class="active"&gt;  &lt;/tr&gt;
+&lt;tr class="success"&gt;  &lt;/tr&gt;
+&lt;tr class="info"&gt;  &lt;/tr&gt;
+&lt;tr class="warning"&gt;  &lt;/tr&gt;
+&lt;tr class="danger"&gt;  &lt;/tr&gt;
+</pre>
  
  
- 
+---
+<!-- _class: aqua -->   
  ##### ■3. 반응형테이블
- ```html
- <div class="table-responsive">
-   <table class="table">
-     ...
-   </table>
- </div>
- ```
+
+<pre class="codeblock">
+&lt;div class="table-responsive"&gt;
+  &lt;table class="table"&gt;
+    ...
+  &lt;/table&gt;
+&lt;/div&gt;
+</pre>
  
  
  
  
  
  
- 
- <br/>
- <br/>
- <br/>
- 
- ---
+
+---
+<!-- _class: orange -->  
  
  ### #6. 쓸만한 기능들 (3) JS
  1. Collapse
@@ -1180,203 +1220,219 @@ html 코드에 미리 정의된 [클래스 선택자를 삽입]만하면 
  6. tooltip
  7. popover
  8. scrollspy
- 9.affix
+ 9. affix
  
  
- 
+---
+<!-- _class: aqua -->   
  ##### ■1. Collapse
+[Collapse](   https://www.w3schools.com/bootstrap5/bootstrap_collapse.php )
+
+  
+---
+<!-- _class: aqua -->    
+<img src="./images/web007_017.png" alt="bootstrap Step1" width="100%"/>
+
  
- https://www.w3schools.com/bootstrap5/bootstrap_collapse.php
- 
- ![WEB PATTERN](img/web007_017.png)
- 
- ```html
- <div id="accordion">
- 
-   <div class="card">
-     <div class="card-header">
-       <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
-         Collapsible Group Item #1
-       </a>
-     </div>
-     <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
-       <div class="card-body">
-         Lorem ipsum..
-       </div>
-     </div>
-   </div>
- 
-   <div class="card">
-     <div class="card-header">
-       <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
-         Collapsible Group Item #2
-       </a>
-     </div>
-     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
-       <div class="card-body">
-         Lorem ipsum..
-       </div>
-     </div>
-   </div>
- 
-   <div class="card">
-     <div class="card-header">
-       <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
-         Collapsible Group Item #3
-       </a>
-     </div>
-     <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
-       <div class="card-body">
-         Lorem ipsum..
-       </div>
-     </div>
-   </div>
- 
- </div>
- ```
- 
- 
- <br/>
- <br/>
- <br/>
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;div id="accordion"&gt;
+
+  &lt;div class="card"&gt;
+    &lt;div class="card-header"&gt;
+      &lt;a class="btn" data-bs-toggle="collapse" href="#collapseOne"&gt;
+        Collapsible Group Item #1
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id="collapseOne" class="collapse show" data-bs-parent="#accordion"&gt;
+      &lt;div class="card-body"&gt;
+        Lorem ipsum..
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="card"&gt;
+    &lt;div class="card-header"&gt;
+      &lt;a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo"&gt;
+        Collapsible Group Item #2
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id="collapseTwo" class="collapse" data-bs-parent="#accordion"&gt;
+      &lt;div class="card-body"&gt;
+        Lorem ipsum..
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="card"&gt;
+    &lt;div class="card-header"&gt;
+      &lt;a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree"&gt;
+        Collapsible Group Item #3
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id="collapseThree" class="collapse" data-bs-parent="#accordion"&gt;
+      &lt;div class="card-body"&gt;
+        Lorem ipsum..
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+</pre>
  
  
+ 
+ 
+---
+<!-- _class: aqua -->   
  ##### ■2. tabs
+[tabs](  https://www.w3schools.com/bootstrap5/bootstrap_navs.php )
  
- https://www.w3schools.com/bootstrap5/bootstrap_navs.php
+  
+---
+<!-- _class: aqua -->    
+ <img src="./images/web007_018.png" alt="bootstrap Step1" width="100%"/>
  
- ![WEB PATTERN](img/web007_018.png)
- 
- ```html
- <!-- Nav tabs -->
- <ul class="nav nav-tabs">
-   <li class="nav-item">
-     <a class="nav-link active" data-bs-toggle="tab" href="#home">Home</a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" data-bs-toggle="tab" href="#menu1">Menu 1</a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" data-bs-toggle="tab" href="#menu2">Menu 2</a>
-   </li>
- </ul>
- 
- <!-- Tab panes -->
- <div class="tab-content">
-   <div class="tab-pane container active" id="home">...</div>
-   <div class="tab-pane container fade" id="menu1">...</div>
-   <div class="tab-pane container fade" id="menu2">...</div>
- </div>
- ```
- 
- 
- 
- <br/>
- <br/>
- <br/>
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;!-- Nav tabs --&gt;
+&lt;ul class="nav nav-tabs"&gt;
+  &lt;li class="nav-item"&gt;
+    &lt;a class="nav-link active" data-bs-toggle="tab" href="#home"&gt;Home&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class="nav-item"&gt;
+    &lt;a class="nav-link" data-bs-toggle="tab" href="#menu1"&gt;Menu 1&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class="nav-item"&gt;
+    &lt;a class="nav-link" data-bs-toggle="tab" href="#menu2"&gt;Menu 2&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Tab panes --&gt;
+&lt;div class="tab-content"&gt;
+  &lt;div class="tab-pane container active" id="home"&gt;...&lt;/div&gt;
+  &lt;div class="tab-pane container fade" id="menu1"&gt;...&lt;/div&gt;
+  &lt;div class="tab-pane container fade" id="menu2"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+</pre>
  
  
- ##### ■3. navbar
+---
+<!-- _class: aqua -->   
+ ##### ■3. navbar 
+[navbar](  https://www.w3schools.com/bootstrap5/bootstrap_navbar.php )
  
+  
+---
+<!-- _class: aqua -->    
+ <img src="./images/web007_019.png" alt="bootstrap Step1" width="100%"/>
  
- https://www.w3schools.com/bootstrap5/bootstrap_navbar.php
- 
- ![WEB PATTERN](img/web007_019.png)
- 
- ```html
- <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-   <div class="container-fluid">
-     <a class="navbar-brand" href="javascript:void(0)">Logo</a>
-     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-       <span class="navbar-toggler-icon"></span>
-     </button>
-     <div class="collapse navbar-collapse" id="mynavbar">
-       <ul class="navbar-nav me-auto">
-         <li class="nav-item">
-           <a class="nav-link" href="javascript:void(0)">Link</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="javascript:void(0)">Link</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="javascript:void(0)">Link</a>
-         </li>
-       </ul>
-       <form class="d-flex">
-         <input class="form-control me-2" type="text" placeholder="Search">
-         <button class="btn btn-primary" type="button">Search</button>
-       </form>
-     </div>
-   </div>
- </nav>
- ```
- 
- 
- 
- 
- <br/>
- <br/>
- <br/>
- 
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;nav class="navbar navbar-expand-sm navbar-dark bg-dark"&gt;
+  &lt;div class="container-fluid"&gt;
+    &lt;a class="navbar-brand" 
+       href="javascript:void(0)"&gt;Logo&lt;/a&gt;
+    &lt;button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#mynavbar"&gt;
+      &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="collapse navbar-collapse" id="mynavbar"&gt;
+      &lt;ul class="navbar-nav me-auto"&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link" href="javascript:void(0)"&gt;Link&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link" href="javascript:void(0)"&gt;Link&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link" href="javascript:void(0)"&gt;Link&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;form class="d-flex"&gt;
+        &lt;input class="form-control me-2" type="text" placeholder="Search"&gt;
+        &lt;button class="btn btn-primary" type="button"&gt;Search&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+</pre>
  
  
  
+  
+ 
+ 
+ 
+ ---
+<!-- _class: aqua -->  
  ##### ■4. carousel
- https://www.w3schools.com/bootstrap5/bootstrap_carousel.php
+[carousel](    https://www.w3schools.com/bootstrap5/bootstrap_carousel.php)
+
+ 
+ ---
+<!-- _class: aqua -->  
+  <img src="./images/web007_020.png" alt="bootstrap Step1" width="100%"/>
+ 
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;!-- Carousel --&gt;
+&lt;div id="demo" class="carousel slide" data-bs-ride="carousel"&gt;
+
+  &lt;!-- Indicators/dots --&gt;
+  &lt;div class="carousel-indicators"&gt;
+    &lt;button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"&gt;&lt;/button&gt;
+    &lt;button type="button" data-bs-target="#demo" data-bs-slide-to="1"&gt;&lt;/button&gt;
+    &lt;button type="button" data-bs-target="#demo" data-bs-slide-to="2"&gt;&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- The slideshow/carousel --&gt;
+  &lt;div class="carousel-inner"&gt;
+    &lt;div class="carousel-item active"&gt;
+      &lt;img src="la.jpg" alt="Los Angeles" class="d-block w-100"&gt;
+    &lt;/div&gt;
+    &lt;div class="carousel-item"&gt;
+      &lt;img src="chicago.jpg" alt="Chicago" class="d-block w-100"&gt;
+    &lt;/div&gt;
+    &lt;div class="carousel-item"&gt;
+      &lt;img src="ny.jpg" alt="New York" class="d-block w-100"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Left and right controls/icons --&gt;
+  &lt;button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev"&gt;
+    &lt;span class="carousel-control-prev-icon"&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next"&gt;
+    &lt;span class="carousel-control-next-icon"&gt;&lt;/span&gt;
+  &lt;/button&gt;
+
+&lt;/div&gt;
+
+</pre>
  
  
- ![WEB PATTERN](img/web007_020.png)
- 
- ```html
- <!-- Carousel -->
- <div id="demo" class="carousel slide" data-bs-ride="carousel">
- 
-   <!-- Indicators/dots -->
-   <div class="carousel-indicators">
-     <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-     <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-     <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-   </div>
- 
-   <!-- The slideshow/carousel -->
-   <div class="carousel-inner">
-     <div class="carousel-item active">
-       <img src="la.jpg" alt="Los Angeles" class="d-block w-100">
-     </div>
-     <div class="carousel-item">
-       <img src="chicago.jpg" alt="Chicago" class="d-block w-100">
-     </div>
-     <div class="carousel-item">
-       <img src="ny.jpg" alt="New York" class="d-block w-100">
-     </div>
-   </div>
- 
-   <!-- Left and right controls/icons -->
-   <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-     <span class="carousel-control-prev-icon"></span>
-   </button>
-   <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-     <span class="carousel-control-next-icon"></span>
-   </button>
- </div>
- ```
  
  
- 
- 
- <br/>
- <br/>
- <br/>
- 
- 
- 
+ ---
+<!-- _class: aqua -->  
  ##### ■5. modal
- https://www.w3schools.com/bootstrap5/bootstrap_modal.php
+[modal]( https://www.w3schools.com/bootstrap5/bootstrap_modal.php )
  
  
- ![WEB PATTERN](img/web007_021.png)
+  ---
+<!-- _class: aqua -->  
+ <img src="./images/web007_021.png" alt="bootstrap Step1" width="100%"/>
  
- ```html
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
  <!-- Button to Open the Modal -->
  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
    Open modal
@@ -1384,466 +1440,464 @@ html 코드에 미리 정의된 [클래스 선택자를 삽입]만하면 
  
  <!-- The Modal -->
  <div class="modal" id="myModal">
-   <div class="modal-dialog">
-     <div class="modal-content">
- 
-       <!-- Modal Header -->
-       <div class="modal-header">
-         <h4 class="modal-title">Modal Heading</h4>
-         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-       </div>
- 
-       <!-- Modal body -->
-       <div class="modal-body">
-         Modal body..
-       </div>
- 
-       <!-- Modal footer -->
-       <div class="modal-footer">
-         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-       </div>
- 
-     </div>
-   </div>
- </div>
- ```
- 
- 
- 
- 
- <br/>
- <br/>
- <br/>
- 
- 
- ■6. tooltip
- https://www.w3schools.com/bootstrap5/bootstrap_tooltip.php
- 
- ![WEB PATTERN](img/web007_022.png)
- 
- 
- ```html
- <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" title="Hooray!">Hover over me!</button>
- 
- ```
+  &lt;!-- Button to Open the Modal --&gt;
+&lt;button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"&gt;
+  Open modal
+&lt;/button&gt;
+
+&lt;!-- The Modal --&gt;
+&lt;div class="modal" id="myModal"&gt;
+  &lt;div class="modal-dialog"&gt;
+    &lt;div class="modal-content"&gt;
+
+      &lt;!-- Modal Header --&gt;
+      &lt;div class="modal-header"&gt;
+        &lt;h4 class="modal-title"&gt;Modal Heading&lt;/h4&gt;
+        &lt;button type="button" class="btn-close" data-bs-dismiss="modal"&gt;&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Modal body --&gt;
+      &lt;div class="modal-body"&gt;
+        Modal body..
+      &lt;/div&gt;
+
+      &lt;!-- Modal footer --&gt;
+      &lt;div class="modal-footer"&gt;
+        &lt;button type="button" class="btn btn-danger" data-bs-dismiss="modal"&gt;Close&lt;/button&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</pre>
  
  
  
  
- <br/>
- <br/>
- <br/>
+ 
+ ---
+<!-- _class: aqua -->  
+ #####  ■6. tooltip
+[tooltip](  https://www.w3schools.com/bootstrap5/bootstrap_tooltip.php )
+
+
+---
+<!-- _class: aqua -->    
+ <img src="./images/web007_022.png" alt="bootstrap Step1" width="100%"/>
+ 
+ 
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;button type="button" class="btn btn-primary" data-bs-toggle="tooltip" title="Hooray!"&gt;Hover over me!&lt;/button&gt;
+
+ 
+</pre>
+ 
+ 
+  
+ 
+ ---
+<!-- _class: aqua -->  
+ #####   ■7. popover 
+[popover](   https://www.w3schools.com/bootstrap5/bootstrap_popover.php)
+
+ 
+  
+ ---
+<!-- _class: aqua -->  
+ <img src="./images/web007_023.png" alt="bootstrap Step1" width="100%"/>
+ 
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;div class="container mt-3"&gt;
+  &lt;h3&gt;Popover Example&lt;/h3&gt;
+
+  &lt;button type="button" class="btn btn-primary" data-bs-toggle="popover" title="Popover Header" data-bs-content="Some content inside the popover"&gt;
+    Toggle popover
+  &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+  })
+&lt;/script&gt;
+
+</pre>
  
  
  
- ■7. popover
- https://www.w3schools.com/bootstrap5/bootstrap_popover.php
- 
- 
- ![WEB PATTERN](img/web007_023.png)
- 
- 
- ```html
- <div class="container mt-3">
-   <h3>Popover Example</h3>
- 
-   <button type="button" class="btn btn-primary" data-bs-toggle="popover" title="Popover Header" data-bs-content="Some content inside the popover">
-     Toggle popover
-   </button>
- </div>
- 
- <script>
- var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
- var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-   return new bootstrap.Popover(popoverTriggerEl)
- })
- </script>
- ```
  
  
  
- 
- <br/>
- <br/>
- <br/>
- 
- 
- 
+ ---
+<!-- _class: aqua -->  
  ##### ■8. scrollspy
- https://www.w3schools.com/bootstrap5/bootstrap_scrollspy.php
+[scrollspy](    https://www.w3schools.com/bootstrap5/bootstrap_scrollspy.php )
+
+---
+<!-- _class: aqua -->    
+ <img src="./images/web007_024.png" alt="bootstrap Step1" width="100%"/>
+ 
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;style&gt;
+  body {
+    position: relative;
+  }
+&lt;/style&gt;
+
+</pre>
+ 
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50"&gt;
+
+  &lt;nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"&gt;
+    &lt;div class="container-fluid"&gt;
+      &lt;ul class="navbar-nav"&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link" href="#section1"&gt;Section 1&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link" href="#section2"&gt;Section 2&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link" href="#section3"&gt;Section 3&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;div id="section1" class="container-fluid bg-success text-white" style="padding:100px 20px;"&gt;
+    &lt;h1&gt;Section 1&lt;/h1&gt;
+    &lt;p&gt;Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!&lt;/p&gt;
+    &lt;p&gt;Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div id="section2" class="container-fluid bg-warning" style="padding:100px 20px;"&gt;
+    &lt;h1&gt;Section 2&lt;/h1&gt;
+    &lt;p&gt;Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!&lt;/p&gt;
+    &lt;p&gt;Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div id="section3" class="container-fluid bg-secondary text-white" style="padding:100px 20px;"&gt;
+    &lt;h1&gt;Section 3&lt;/h1&gt;
+    &lt;p&gt;Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!&lt;/p&gt;
+    &lt;p&gt;Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+
+</pre>
  
  
- ![WEB PATTERN](img/web007_024.png)
- 
- ```css
-   <style>
-   body {
-       position: relative;
-   }
-   </style>
- ```
- 
- ```html
- <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
- 
- <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-   <div class="container-fluid">
-     <ul class="navbar-nav">
-       <li class="nav-item">
-         <a class="nav-link" href="#section1">Section 1</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="#section2">Section 2</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="#section3">Section 3</a>
-       </li>
-     </ul>
-   </div>
- </nav>
- 
- <div id="section1" class="container-fluid bg-success text-white" style="padding:100px 20px;">
-   <h1>Section 1</h1>
-   <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-   <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
- </div>
- 
- <div id="section2" class="container-fluid bg-warning" style="padding:100px 20px;">
-   <h1>Section 2</h1>
-   <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-   <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
- </div>
- 
- <div id="section3" class="container-fluid bg-secondary text-white" style="padding:100px 20px;">
-   <h1>Section 3</h1>
-   <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-   <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
- </div>
- 
- </body>
- ```
  
  
- <br/>
- <br/>
- <br/>
+---
+<!-- _class: aqua -->  
+<img src="./images/web007_025.png" alt="bootstrap Step1" width="100%"/>
+
+---
+<!-- _class: aqua -->  
+<pre class="codeblock">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+  &lt;title&gt;DBDBIG&lt;/title&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;!-- Latest compiled and minified CSS --&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+  &lt;!-- Latest compiled JavaScript --&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;!-- header --&gt;
+  &lt;nav class="navbar navbar-expand-sm navbar-dark bg-dark"&gt;
+    &lt;div class="container-fluid"&gt;
+      &lt;a class="navbar-brand" href="javascript:void(0)"&gt;Logo&lt;/a&gt;
+      &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"&gt;
+        &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;div class="collapse navbar-collapse" id="mynavbar"&gt;
+        &lt;ul class="navbar-nav me-auto"&gt;
+          &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" href="javascript:void(0)"&gt;Link&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" href="javascript:void(0)"&gt;Link&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" href="javascript:void(0)"&gt;Link&lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;form class="d-flex"&gt;
+          &lt;input class="form-control me-2" type="text" placeholder="Search"&gt;
+          &lt;button class="btn btn-primary" type="button"&gt;Search&lt;/button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;!-- visual --&gt;
+  &lt;div id="demo" class="carousel slide" data-bs-ride="carousel" style="height:400px; overflow:hidden;"&gt;
+    &lt;div class="carousel-indicators"&gt;
+      &lt;button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"&gt;&lt;/button&gt;
+      &lt;button type="button" data-bs-target="#demo" data-bs-slide-to="1"&gt;&lt;/button&gt;
+      &lt;button type="button" data-bs-target="#demo" data-bs-slide-to="2"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class="carousel-inner"&gt;
+      &lt;div class="carousel-item active"&gt;
+        &lt;img src="./images/visual1.jpg" alt="Los Angeles" class="d-block" style="width:100%"&gt;
+      &lt;/div&gt;
+      &lt;div class="carousel-item"&gt;
+        &lt;img src="./images/visual2.jpg" alt="Chicago" class="d-block" style="width:100%"&gt;
+      &lt;/div&gt;
+      &lt;div class="carousel-item"&gt;
+        &lt;img src="./images/visual3.jpg" alt="New York" class="d-block" style="width:100%"&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev"&gt;
+      &lt;span class="carousel-control-prev-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next"&gt;
+      &lt;span class="carousel-control-next-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- main --&gt;
+  &lt;div class="container"&gt;
+    &lt;h3 class="mt-5 text-center"&gt; REACT SPRING BOARD &lt;/h3&gt;
+    &lt;table class="table table-striped table-bordered table-hover"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th style="width:25%" scope="col"&gt;NO&lt;/th&gt;
+          &lt;th style="width:35%" scope="col"&gt;TITLE&lt;/th&gt;
+          &lt;th style="width:20%" scope="col"&gt;NAME&lt;/th&gt;
+          &lt;th style="width:25%" scope="col"&gt;DATE&lt;/th&gt;
+          &lt;th style="width:10%" scope="col"&gt;HIT&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1&lt;/td&gt;
+          &lt;td&gt;&lt;a href="web012.html"&gt;첫번째 글쓰기입니다.&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;first&lt;/td&gt;
+          &lt;td&gt;2025.12.12&lt;/td&gt;
+          &lt;td&gt;&lt;span class="badge bg-secondary"&gt;1&lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;2&lt;/td&gt;
+          &lt;td&gt;&lt;a href="web012.html"&gt;두번째 글쓰기입니다.&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;first&lt;/td&gt;
+          &lt;td&gt;2025.12.12&lt;/td&gt;
+          &lt;td&gt;&lt;span class="badge bg-secondary"&gt;11&lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div class="text-end"&gt;
+      &lt;a href="web011.html" title="글쓰러 바로가기 버튼" class="btn btn-outline-primary"&gt;글쓰기&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- footer --&gt;
+  &lt;div class="mt-5 p-4 bg-dark text-white text-center"&gt;
+    &lt;p&gt;&copy; 2025. 개인회사명 Co. all rights reserved.&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
  
  
  
- <br/>
- <br/>
- <br/>
+---
+<!-- _class: aqua -->  
+<img src="./images/web007_026.png" alt="bootstrap Step1" width="100%"/>
+
+---
+<!-- _class: aqua -->  
+
+<pre class="codeblock">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+  &lt;title&gt;DBDBIG&lt;/title&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;!-- Latest compiled and minified CSS --&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+  &lt;!-- Latest compiled JavaScript --&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;!-- header --&gt;
+  &lt;nav class="navbar navbar-expand-sm navbar-dark bg-dark"&gt;
+    &lt;div class="container-fluid"&gt;
+      &lt;a class="navbar-brand" href="javascript:void(0)"&gt;Logo&lt;/a&gt;
+      &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"&gt;
+        &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;div class="collapse navbar-collapse" id="mynavbar"&gt;
+        &lt;ul class="navbar-nav me-auto"&gt;
+          &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" href="javascript:void(0)"&gt;Link&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" href="javascript:void(0)"&gt;Link&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" href="javascript:void(0)"&gt;Link&lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;form class="d-flex"&gt;
+          &lt;input class="form-control me-2" type="text" placeholder="Search"&gt;
+          &lt;button class="btn btn-primary" type="button"&gt;Search&lt;/button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;!-- main --&gt;
+  &lt;div class="container"&gt;
+    &lt;h3 class="mt-5 text-center"&gt; REACT WRITE &lt;/h3&gt;
+
+    &lt;div class="alert alert-secondary"&gt;
+      &lt;div class="my-3"&gt;
+        &lt;label for="bname" class="form-label"&gt;NAME&lt;/label&gt;
+        &lt;input type="text" class="form-control" id="name" name="bname" /&gt;
+      &lt;/div&gt;
+      &lt;div class="my-3"&gt;
+        &lt;label for="btitle" class="form-label"&gt;TITLE&lt;/label&gt;
+        &lt;input type="text" class="form-control" id="btitle" name="btitle" /&gt;
+      &lt;/div&gt;
+      &lt;div class="my-3"&gt;
+        &lt;label for="bcontent" class="form-label"&gt;CONTENT&lt;/label&gt;
+        &lt;textarea class="form-control" id="bcontent" name="bcontent"&gt;&lt;/textarea&gt;
+      &lt;/div&gt;
+      &lt;div class="text-end"&gt;
+        &lt;button class="btn btn-primary me-2"&gt;글쓰기&lt;/button&gt;
+        &lt;a href="web010.html" title="글쓰러 바로가기 버튼" class="btn btn-outline-primary"&gt;목록&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- footer --&gt;
+  &lt;div class="mt-5 p-4 bg-dark text-white text-center"&gt;
+    &lt;p&gt;&copy; 2025. 개인회사명 Co. all rights reserved.&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+ 
+  
+ 
+---
+<!-- _class: aqua -->  
+<img src="./images/web007_027.png" alt="bootstrap Step1" width="100%"/>
+
+
+ 
+---
+<!-- _class: aqua -->  
+
+<pre class="codeblock">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+  &lt;title&gt;DBDBIG&lt;/title&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;!-- Latest compiled and minified CSS --&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+  &lt;!-- Latest compiled JavaScript --&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;!-- header --&gt;
+  &lt;nav class="navbar navbar-expand-sm bg-dark navbar-dark"&gt;
+    &lt;div class="container-fluid"&gt;
+      &lt;!-- Links --&gt;
+      &lt;ul class="navbar-nav"&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link" href="#"&gt;Link 1&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link" href="#"&gt;Link 2&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link" href="#"&gt;Link 3&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;!-- main --&gt;
+  &lt;div class="container"&gt;
+    &lt;h3 class="mt-5 text-center"&gt; REACT SPRING BOARD DETAIL&lt;/h3&gt;
+    &lt;table class="table table-striped table-bordered table-hover"&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;TITLE&lt;/th&gt;
+          &lt;td colspan="3"&gt; TITLE &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;NAME&lt;/th&gt;
+          &lt;td&gt; NAME &lt;/td&gt;
+          &lt;th scope="row"&gt;DATE&lt;/th&gt;
+          &lt;td&gt; 2025.12.12&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;CONTENT&lt;/th&gt;
+          &lt;td colspan="3" style="height:200px; white-space:pre-wrap"&gt; 첫번째 글쓰기입니다. &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div class="text-end"&gt;
+      &lt;a href="web010.html" title="글쓰러 바로가기 버튼" class="btn btn-outline-primary"&gt;목록&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- footer --&gt;
+  &lt;div class="mt-5 p-4 bg-dark text-white text-center"&gt;
+    &lt;p&gt;&copy; 2025. 개인회사명 Co. all rights reserved.&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
  
  
+
  ---
- 
- ##### ■ 실습
- 
- ![WEB PATTERN](img/web007_025.png)
- >web010.html
- ```html
- <!DOCTYPE html>
- <html lang="ko">
- <head>
-   <title>DBDBIG</title>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
- <!-- Latest compiled and minified CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
- 
- <!-- Latest compiled JavaScript -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
- </head>
- <body>
- <!--  header   -->
- <!--  header   -->
- <!--  header   -->
- <!-- A grey horizontal navbar that becomes vertical on small screens -->
- <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-   <div class="container-fluid">
-     <a class="navbar-brand" href="javascript:void(0)">Logo</a>
-     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-       <span class="navbar-toggler-icon"></span>
-     </button>
-     <div class="collapse navbar-collapse" id="mynavbar">
-       <ul class="navbar-nav me-auto">
-         <li class="nav-item">
-           <a class="nav-link" href="javascript:void(0)">Link</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="javascript:void(0)">Link</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="javascript:void(0)">Link</a>
-         </li>
-       </ul>
-       <form class="d-flex">
-         <input class="form-control me-2" type="text" placeholder="Search">
-         <button class="btn btn-primary" type="button">Search</button>
-       </form>
-     </div>
-   </div>
- </nav>
- <!--  visual   -->
- <!--  visual   -->
- <!--  visual   -->
- 
- <!-- Carousel -->
- <!-- Carousel -->
- <div id="demo" class="carousel slide" data-bs-ride="carousel"  style="height:400px; overflow:hidden;">
-   <!-- Indicators/dots -->
-   <div class="carousel-indicators">
-     <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-     <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-     <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-   </div>
- 
-   <!-- The slideshow/carousel -->
-   <div class="carousel-inner">
-     <div class="carousel-item active">
-       <img src="img/visual1.jpg" alt="Los Angeles" class="d-block" style="width:100%">
-     </div>
-     <div class="carousel-item">
-       <img src="img/visual2.jpg" alt="Chicago" class="d-block" style="width:100%">
-     </div>
-     <div class="carousel-item">
-       <img src="img/visual3.jpg" alt="New York" class="d-block" style="width:100%">
-     </div>
-   </div>
- 
-   <!-- Left and right controls/icons -->
-   <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-     <span class="carousel-control-prev-icon"></span>
-   </button>
-   <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-     <span class="carousel-control-next-icon"></span>
-   </button>
- </div>
- 
- 
- <!--  main   -->
- <!--  main   -->
- <!--  main   -->
- <div class="container">
-   <h3 class="mt-5  text-center"> REACT SPRING BOARD </h3>
-   <table class="table table-striped table-bordered table-hover">
-     <thead>
-         <tr>
-             <th style="width:25%"   scope="col">NO</th>
-             <th style="width:35%"   scope="col">TITLE</th>
-             <th style="width:20%"   scope="col">NAME</th>
-             <th style="width:25%"   scope="col">DATE</th>
-             <th style="width:10%"   scope="col">HIT</th>
-         </tr>
-     </thead>
-     <tbody> <!-- ctrl + k + f   -->
-         <tr>
-           <td>1</td>
-           <td><a href="web012.html">첫번째 글쓰기입니다.</a></td>
-           <td>first</td>
-           <td>2025.12.12</td>
-           <td><span class="badge bg-secondary">1</span></td>
-         </tr>
- 
-         <tr>
-           <td>2</td>
-           <td><a href="web012.html">두번째 글쓰기입니다.</a></td>
-           <td>first</td>
-           <td>2025.12.12</td>
-           <td><span class="badge bg-secondary">11</span></td>
-         </tr>
-     </tbody>
-   </table>
-   <div class="text-end">
-     <a href="web011.html"  title="글쓰러 바로가기 버튼" class="btn btn-outline-primary">글쓰기</a>
-   </div>
- </div>
- 
- 
- <!--  footer   -->
- <!--  footer   -->
- <!--  footer   -->
-   <div class='mt-5 p-4 bg-dark text-white text-center'>
-     <p>&copy; 2025. 개인회사명 Co. all rights reserved.</p>
-   </div>
- </body>
- </html>
- ```
- 
- 
- <br/>
- <br/>
- <br/>
- 
- ---
- 
- 
- ![WEB PATTERN](img/web007_026.png)
- >web011.html
- 
- ```html
- <!DOCTYPE html>
- <html lang="ko">
- <head>
-   <title>DBDBIG</title>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
- <!-- Latest compiled and minified CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
- 
- <!-- Latest compiled JavaScript -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
- </head>
- <body>
- <!--  header   -->
- <!--  header   -->
- <!--  header   -->
- <!-- A grey horizontal navbar that becomes vertical on small screens -->
- <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-   <div class="container-fluid">
-     <a class="navbar-brand" href="javascript:void(0)">Logo</a>
-     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-       <span class="navbar-toggler-icon"></span>
-     </button>
-     <div class="collapse navbar-collapse" id="mynavbar">
-       <ul class="navbar-nav me-auto">
-         <li class="nav-item">
-           <a class="nav-link" href="javascript:void(0)">Link</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="javascript:void(0)">Link</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="javascript:void(0)">Link</a>
-         </li>
-       </ul>
-       <form class="d-flex">
-         <input class="form-control me-2" type="text" placeholder="Search">
-         <button class="btn btn-primary" type="button">Search</button>
-       </form>
-     </div>
-   </div>
- </nav>
- 
- <!--  main   -->
- <!--  main   -->
- <!--  main   -->
- <div class="container">
- 
-   <h3 class="mt-5  text-center"> REACT WRITE </h3>
- 
-   <div class="alert alert-secondary">
-     <div class="my-3">
-         <label for="bname" class="form-label">NAME</label>
-         <input type="text" class="form-control" id="name" name="bname" />
-     </div>
-     <div class="my-3">
-         <label for="btitle" class="form-label">TITLE</label>
-         <input type="text" class="form-control" id="btitle" name="btitle"  />
-     </div>
-     <div class="my-3">
-         <label for="bcontent" class="form-label">CONTENT</label>
-         <textarea class="form-control" id="bcontent" name="bcontent" ></textarea>
-     </div>
-     <div class="text-end">
-         <button class="btn btn-primary  me-2" >글쓰기</button>
-         <a href="web010.html"  title="글쓰러 바로가기 버튼" class="btn btn-outline-primary">목록</a>
-     </div>
- 
-   </div>
- 
- </div>
- 
- 
- <!--  footer   -->
- <!--  footer   -->
- <!--  footer   -->
-   <div class='mt-5 p-4 bg-dark text-white text-center'>
-     <p>&copy; 2025. 개인회사명 Co. all rights reserved.</p>
-   </div>
- </body>
- </html>
- ```
- 
- 
- <br/>
- <br/>
- <br/>
- 
- ---
- 
- 
- ![WEB PATTERN](img/web007_027.png)
- >web012.html
- ```html
- <!DOCTYPE html>
- <html lang="ko">
- <head>
-   <title>DBDBIG</title>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
- <!-- Latest compiled and minified CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
- 
- <!-- Latest compiled JavaScript -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
- </head>
- <body>
- <!--  header   -->
- <!--  header   -->
- <!--  header   -->
- <!-- A grey horizontal navbar that becomes vertical on small screens -->
- <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-   <div class="container-fluid">
-     <!-- Links -->
-     <ul class="navbar-nav">
-       <li class="nav-item">
-         <a class="nav-link" href="#">Link 1</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="#">Link 2</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="#">Link 3</a>
-       </li>
-     </ul>
-   </div>
- 
- </nav>
- 
- <!--  main   -->
- <!--  main   -->
- <!--  main   -->
- <div class="container">
-     <h3 class="mt-5  text-center"> REACT SPRING BOARD DETAIL</h3>
-     <table class="table table-striped table-bordered table-hover">
-       <tbody>
-           <tr> <th scope="row">TITLE</th> <td colSpan="3"> TITLE </td>
-           </tr>
-           <tr>
-               <th scope="row">NAME</th> <td> NAME </td>
-               <th scope="row">DATE</th> <td> 2025.12.12</td>
-           </tr>
-           <tr>
-               <th scope="row">CONTENT</th>
-               <td colSpan="3"  style="height:200px; white-space:pre-wrap" >  첫번째 글쓰기입니다.  </td>
-           </tr>
-       </tbody>
-   </table>
-   <div class="text-end">
-      <a href="web010.html"  title="글쓰러 바로가기 버튼" class="btn btn-outline-primary">목록</a>
-   </div>
- </div>
- 
- 
- <!--  footer   -->
- <!--  footer   -->
- <!--  footer   -->
-   <div class='mt-5 p-4 bg-dark text-white text-center'>
-     <p>&copy; 2025. 개인회사명 Co. all rights reserved.</p>
-   </div>
- </body>
- </html>
- ```
- 
+<!-- _class: thanks -->
+## 👋 열심히 들어주셔서 감사합니다!
+
+> <span class="fragment">Bootstrap은 웹 개발의 <span class="mark">기초이자 강력한 도구</span>입니다</span>  
+> <span class="fragment">그리드 시스템과 컴포넌트를 자유롭게 다뤄보세요!</span>
+> <span class="fragment">오늘 배운 클래스 하나가
+ **내일의 UI 혁신**이 될 수 있습니다</span>  
+> <span class="fragment">오늘의 한 걸음이 **내일의 가능성**이 되길 바라며,</span>  
+> <span class="fragment">그럼, 다음 이시간에 또 만나요!</span>
+
+
  
