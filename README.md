@@ -41,7 +41,7 @@ GitHub 기반 저장소 관리, VS Code 또는 IntelliJ 환경에서의 실시�
 | Chapter 2 | 변수 · 자료형 · 입력 |  [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_2_var_type_scanner)|
 | Chapter 3 | 연산자 | [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_3_operator)|
 | Chapter 4 | 제어문 | [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_4_제어문) |
-| Chapter 5 | 배열 | [보기](#) |
+| Chapter 5 | 배열 | [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_5_array)  |
 | Chapter 6 | 메서드 | [보기](#) |
 
 ---
