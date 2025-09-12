@@ -41,7 +41,7 @@ style: |
     
     width: 90%;
     height: 90%;
-    background-image: url('./images_github/워터마크_dbdbig.png'); /* 로고 이미지 경로 */
+    background-image: url('./images/워터마크_dbdbig.png'); /* 로고 이미지 경로 */
     background-repeat: no-repeat;
     background-size: contain;
     opacity: 0.65; /* 은은하게 보이도록 조정 */
@@ -252,7 +252,9 @@ style: |
   section.thanks   { background-color: #FDF5E6; color: #444; }
   section.ex       { background-color: #96e6a1; color:#333; }
   
----
+
+   
+---   
 <!-- _class: cover-java -->
 <h4 style="color:#6C757D;">
   <span style="color:#ff6e7f; text-shadow: 0 0 6px rgba(255,110,127,0.6); font-weight:bold;">🚀</span>
@@ -263,13 +265,14 @@ style: |
 
 <!-- 현재 챕터 강조 -->
 <div class="chapter-highlight">
-  📍 <strong>현재 위치:</strong> Chapter 5 · <em>배열 · 선언 · 반복문 활용</em>
+  📍 <strong>현재 위치:</strong> Chapter 6 · <em>메서드 · 정의 · 호출 · 매개변수</em>
 </div>
 
 <blockquote>
-  <span class="fragment" style="color:#343A40;">배열을 알면 데이터가 보인다</span><br>
-  <span class="fragment" style="color:#495057;">반복문과 함께 쓰면 강력해지는 배열의 세계로!</span>
+  <span class="fragment" style="color:#343A40;">코드를 나누면 이해가 쉬워진다</span><br>
+  <span class="fragment" style="color:#495057;">반복되는 작업을 메서드로 정리하면 효율이 쑥쑥!</span>
 </blockquote>
+
 
 ---
 <!-- _class: cover-java -->
@@ -280,94 +283,109 @@ style: |
   <span>▶ Chapter 2: 변수 · 자료형 · 입력</span>
   <span>▶ Chapter 3: 연산자</span>
   <span>▶ Chapter 4: 제어문</span>
-  <span class="current-chapter">✅▶ Chapter 5: 배열</span>
-  <span>▶ Chapter 6: 메서드</span>
+  <span>▶ Chapter 5: 배열</span>
+  <span class="current-chapter">✅▶ Chapter 6: 메서드</span>
 </div>
 
 <p style="margin-top:30px; font-size:0.95em; color:#888;">
-  이 트랙은 자바의 기초 개념을<br/> 실습 중심으로 배우며, 이후 객체지향과 심화 개념으로 확장됩니다.
+  메서드를 정의하고 호출하는 방법, 매개변수와 반환값의 개념을 익히며  코드의 재사용성과 가독성을 높이는 방법을 배워봅니다.
 </p>
- 
+
+
+
 ---
 <!-- _class: orange -->  
 # 🧩 Step 1: 핵심 개념 (1)
-# 1차원 배열
+# 메서드
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/001.png" alt="배열 001" width="100%" />
+<img src="./chapter6-1/001.png" alt="method 001" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/002.png" alt="배열 002" width="100%" />
+<img src="./chapter6-1/002.png" alt="method 002" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/003.png" alt="배열 003" width="100%" />
+<img src="./chapter6-1/003.png" alt="method 003" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/004.png" alt="배열 004" width="100%" />
+<img src="./chapter6-1/004.png" alt="method 004" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/005.png" alt="배열 005" width="100%" />
+<img src="./chapter6-1/005.png" alt="method 005" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/006.png" alt="배열 006" width="100%" />
+<img src="./chapter6-1/006.png" alt="method 006" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/007.png" alt="배열 007" width="100%" />
-
-
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/008.png" alt="배열 008" width="100%" />
+<img src="./chapter6-1/007.png" alt="method 007" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/009.png" alt="배열 009" width="100%" />
+<img src="./chapter6-1/008.png" alt="method 008" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/010.png" alt="배열 010" width="100%" />
+<img src="./chapter6-1/009.png" alt="method 009" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/011.png" alt="배열 011" width="100%" />
+<img src="./chapter6-1/010.png" alt="method 010" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/011.png" alt="method 011" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/012.png" alt="method 012" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/013.png" alt="method 013" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/014.png" alt="method 014" width="100%" />
 
 
 ---  
 <!-- _class: blue -->  
 # 🧪 Step 2: 코드 예제
 
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/012.png" alt="배열 012" width="100%" />
-
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/013.png" alt="배열 013" width="100%" />
+<img src="./chapter6-1/015.png" alt="method 015" width="100%" />
 
+
+
+  
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/014.png" alt="배열 014" width="100%" />
+<img src="./chapter6-1/016.png" alt="method 016" width="100%" />
+
 
 ---  
 <!-- _class: green -->  
@@ -375,312 +393,69 @@ style: |
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-1/015.png" alt="배열 015" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/016.png" alt="배열 016" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/017.png" alt="배열 017" width="100%" />
-
-
-
----  
-<!-- _class: blue -->  
-# 🧪 Step 2: 코드 예제
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/018.png" alt="배열 018" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/019.png" alt="배열 019" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/020.png" alt="배열 020" width="100%" />
-
-
-
-
----  
-<!-- _class: green -->  
-# 🛠️ Step 3: 실습 과제
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/021.png" alt="배열 021" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/022.png" alt="배열 022" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/023.png" alt="배열 023" width="100%" />
-
-
-
----  
-<!-- _class: purple -->  
-# 🧩 Step 4: 사고확장 
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/024.png" alt="배열 024" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/025.png" alt="배열 025" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/026.png" alt="배열 026" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/027.png" alt="배열 027" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/028.png" alt="배열 028" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/029.png" alt="배열 029" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/030.png" alt="배열 030" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/031.png" alt="배열 031" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/032.png" alt="배열 032" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/033.png" alt="배열 033" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/034.png" alt="배열 034" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/035.png" alt="배열 035" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/036.png" alt="배열 036" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/037.png" alt="배열 037" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/038.png" alt="배열 038" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/039.png" alt="배열 039" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/040.png" alt="배열 040" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/041.png" alt="배열 041" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/042.png" alt="배열 042" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/043.png" alt="배열 043" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/044.png" alt="배열 044" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/045.png" alt="배열 045" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/046.png" alt="배열 046" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/047.png" alt="배열 047" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/048.png" alt="배열 048" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/049.png" alt="배열 049" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/050.png" alt="배열 050" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/051.png" alt="배열 051" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/052.png" alt="배열 052" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/053.png" alt="배열 053" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/054.png" alt="배열 054" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/055.png" alt="배열 055" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/056.png" alt="배열 056" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/057.png" alt="배열 057" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/058.png" alt="배열 058" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/059.png" alt="배열 059" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-1/060.png" alt="배열 060" width="100%" />
-
-
-
-
+<img src="./chapter6-1/017.png" alt="method 017" width="100%" />
 
 
 
 
 ---
 <!-- _class: orange -->  
-# 🧩 Step 1: 핵심 개념 (2) 
-# 다차원 배열
+# 🧩 Step 1: 핵심 개념 (1)
+# 메서드-2 매개변수
+
+ 
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/018.png" alt="method 018" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/001.png" alt="배열2 001" width="100%" />
+<img src="./chapter6-1/019.png" alt="method 019" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/002.png" alt="배열2 002" width="100%" />
+<img src="./chapter6-1/020.png" alt="method 020" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/003.png" alt="배열2 003" width="100%" />
+<img src="./chapter6-1/021.png" alt="method 021" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/004.png" alt="배열2 004" width="100%" />
-
-
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/005.png" alt="배열2 005" width="100%" />
-
+<img src="./chapter6-1/022.png" alt="method 022" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/006.png" alt="배열2 006" width="100%" />
+<img src="./chapter6-1/023.png" alt="method 023" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/007.png" alt="배열2 007" width="100%" />
+<img src="./chapter6-1/024.png" alt="method 024" width="100%" />
 
 
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/025.png" alt="method 025" width="100%" />
 
----  
+---
 <!-- _class: blue -->  
 # 🧪 Step 2: 코드 예제
 
+
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/008.png" alt="배열2 008" width="100%" />
+<img src="./chapter6-1/026.png" alt="method 026" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/009.png" alt="배열2 009" width="100%" />
+<img src="./chapter6-1/027.png" alt="method 027" width="100%" />
 
 
 ---  
@@ -689,205 +464,18 @@ style: |
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/010.png" alt="배열2 010" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/011.png" alt="배열2 011" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/012.png" alt="배열2 012" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/013.png" alt="배열2 013" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/014.png" alt="배열2 014" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/015.png" alt="배열2 015" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/016.png" alt="배열2 016" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/017.png" alt="배열2 017" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/018.png" alt="배열2 018" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/019.png" alt="배열2 019" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/020.png" alt="배열2 020" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/021.png" alt="배열2 021" width="100%" />
-
-
----  
-<!-- _class: blue -->  
-# 🧪 Step 2: 코드 예제
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/022.png" alt="배열2 022" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/023.png" alt="배열2 023" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/024.png" alt="배열2 024" width="100%" />
-
----  
-<!-- _class: green -->  
-# 🛠️ Step 3: 실습 과제
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/025.png" alt="배열2 025" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/026.png" alt="배열2 026" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/027.png" alt="배열2 027" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/028.png" alt="배열2 028" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/029.png" alt="배열2 029" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/030.png" alt="배열2 030" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/031.png" alt="배열2 031" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/032.png" alt="배열2 032" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/033.png" alt="배열2 033" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/034.png" alt="배열2 034" width="100%" />
+<img src="./chapter6-1/028.png" alt="method 028" width="100%" />
 
 
 ---
 <!-- _class: orange -->  
-# 🧩 Step 1: 핵심 개념
+# 🧩 Step 1: 핵심 개념 (1)
+# 메서드-3 return 
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/035.png" alt="배열2 035" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/036.png" alt="배열2 036" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/037.png" alt="배열2 037" width="100%" />
-
-
----  
-<!-- _class: purple -->  
-# 🧪 Step : 사고확장
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/038.png" alt="배열2 038" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/039.png" alt="배열2 039" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/040.png" alt="배열2 040" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/041.png" alt="배열2 041" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/042.png" alt="배열2 042" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/043.png" alt="배열2 043" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/044.png" alt="배열2 044" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/045.png" alt="배열2 045" width="100%" />
-
-
----
-<!-- _class: aqua -->
-<img src="./chapter5-2/046.png" alt="배열2 046" width="100%" />
+<img src="./chapter6-1/029.png" alt="method 029" width="100%" />
 
 
 ---  
@@ -896,13 +484,205 @@ style: |
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/047.png" alt="배열2 047" width="100%" />
-
+<img src="./chapter6-1/030.png" alt="method 030" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/048.png" alt="배열2 048" width="100%" />
+<img src="./chapter6-1/031.png" alt="method 031" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/032.png" alt="method 032" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/033.png" alt="method 033" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/034.png" alt="method 034" width="100%" />
+
+
+---  
+<!-- _class: green -->  
+# 🧪 Step 2: 코드 예제
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/035.png" alt="method 035" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/036.png" alt="method 036" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/037.png" alt="method 037" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/038.png" alt="method 038" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/039.png" alt="method 039" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/040.png" alt="method 040" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/041.png" alt="method 041" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/042.png" alt="method 042" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/043.png" alt="method 043" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/044.png" alt="method 044" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/045.png" alt="method 045" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/046.png" alt="method 046" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/047.png" alt="method 047" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/048.png" alt="method 048" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/049.png" alt="method 049" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/050.png" alt="method 050" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/051.png" alt="method 051" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/052.png" alt="method 052" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/053.png" alt="method 053" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/054.png" alt="method 054" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-1/055.png" alt="method 055" width="100%" />
+
+
+---
+<!-- _class: orange -->  
+# 🧩 Step 1: 핵심 개념 (2)
+#  오버로딩
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/001.png" alt="method 001" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/002.png" alt="method 002" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/003.png" alt="method 003" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/004.png" alt="method 004" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/005.png" alt="method 005" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/006.png" alt="method 006" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/007.png" alt="method 007" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/008.png" alt="method 008" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/009.png" alt="method 009" width="100%" />
+
+
+---  
+<!-- _class: blue -->  
+# 🧪 Step 2: 코드 예제
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/010.png" alt="method 010" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/011.png" alt="method 011" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/012.png" alt="method 012" width="100%" />
 
 
 
@@ -912,22 +692,322 @@ style: |
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/049.png" alt="배열2 049" width="100%" />
+<img src="./chapter6-2/013.png" alt="method 013" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/050.png" alt="배열2 050" width="100%" />
+<img src="./chapter6-2/014.png" alt="method 014" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/051.png" alt="배열2 051" width="100%" />
+<img src="./chapter6-2/015.png" alt="method 015" width="100%" />
 
 
 ---
 <!-- _class: aqua -->
-<img src="./chapter5-2/052.png" alt="배열2 052" width="100%" />
+<img src="./chapter6-2/016.png" alt="method 016" width="100%" />
+
+
+
+---
+<!-- _class: orange -->  
+# 🧩 Step 1: 핵심 개념 (3)
+#  call by reference
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/017.png" alt="method 017" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/018.png" alt="method 018" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/019.png" alt="method 019" width="100%" />
+
+
+---  
+<!-- _class: blue -->  
+# 🧪 Step 2: 코드 예제
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/020.png" alt="method 020" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/021.png" alt="method 021" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/022.png" alt="method 022" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/023.png" alt="method 023" width="100%" />
+
+
+
+---  
+<!-- _class: green -->  
+# 🛠️ Step 3: 실습 과제
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/024.png" alt="method 024" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/025.png" alt="method 025" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/026.png" alt="method 026" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/027.png" alt="method 027" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/028.png" alt="method 028" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/029.png" alt="method 029" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/030.png" alt="method 030" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/031.png" alt="method 031" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/032.png" alt="method 032" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/033.png" alt="method 033" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/034.png" alt="method 034" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/035.png" alt="method 035" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/036.png" alt="method 036" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/037.png" alt="method 037" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/038.png" alt="method 038" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/039.png" alt="method 039" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/040.png" alt="method 040" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/041.png" alt="method 041" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/042.png" alt="method 042" width="100%" />
+
+
+
+
+---
+<!-- _class: orange -->  
+# 🧩 Step 1: 핵심 개념 (4)
+#  재귀함수
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/043.png" alt="method 043" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/044.png" alt="method 044" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/045.png" alt="method 045" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/046.png" alt="method 046" width="100%" />
+
+
+---  
+<!-- _class: blue -->  
+# 🧪 Step 2: 코드 예제
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/047.png" alt="method 047" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/048.png" alt="method 048" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/049.png" alt="method 049" width="100%" />
+
+
+---  
+<!-- _class: green -->  
+# 🛠️ Step 3: 실습 과제
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/050.png" alt="method 050" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/051.png" alt="method 051" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/052.png" alt="method 052" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/053.png" alt="method 053" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/054.png" alt="method 054" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/055.png" alt="method 055" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/056.png" alt="method 056" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/057.png" alt="method 057" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/058.png" alt="method 058" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/059.png" alt="method 059" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/060.png" alt="method 060" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/061.png" alt="method 061" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/062.png" alt="method 062" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/063.png" alt="method 063" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/064.png" alt="method 064" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/065.png" alt="method 065" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/066.png" alt="method 065" width="100%" />
+
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/067.png" alt="method 067" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/068.png" alt="method 068" width="100%" />
+
+
+---
+<!-- _class: aqua -->
+<img src="./chapter6-2/069.png" alt="method 069" width="100%" />
+
+
+
 
 
 
