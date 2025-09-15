@@ -54,8 +54,8 @@ GitHub 기반 저장소 관리, VS Code 또는 IntelliJ 환경에서의 실시�
 |------|------|------|
 | Chapter 7 | 클래스 · 객체 · 상속 · 캡슐화 | [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_7_oop)  |
 | Chapter 8 | static/final/modifier |[보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_8_static_final_modifier)  |
-| Chapter 9 | static/final/modifier | [보기](https://sally03915.github.io/stackventure_250825/marp003_9_classArray_extends)  |
-| Chapter 10 | 다형성/abstract/interface | [보기](https://sally03915.github.io/stackventure_250825/marp003_10_interface) |
+| Chapter 9 | static/final/modifier | [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_9_classArray_extends)  |
+| Chapter 10 | 다형성/abstract/interface | [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_10_interface) |
 | Chapter 11 | 중첩클래스,내부클래스,예외처리 | [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_11_nexted_class)  |
 
 ---
@@ -64,8 +64,8 @@ GitHub 기반 저장소 관리, VS Code 또는 IntelliJ 환경에서의 실시�
 
 | 챕터 | 내용 | 링크 |
 |------|------|------|
-| Chapter 12 | Thread |[보기](https://sally03915.github.io/stackventure_250825/marp003_12_thread)  |
-| Chapter 13 | Collection Framework | [보기](https://sally03915.github.io/stackventure_250825/marp003_13_collection)  |
+| Chapter 12 | Thread |[보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_12_thread)  |
+| Chapter 13 | Collection Framework | [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_13_collection)  |
 | Chapter 14 | Lambda + Stream | [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_14_lambda_stream)  |
 | Chapter 15 | Java IO| [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_15_IO)  |
 | Chapter 16 | Network | [보기](https://sally03915.github.io/stackventure_250825/003_java/marp003_16_network)  |
