@@ -110,7 +110,6 @@ style: |
     margin-bottom: 10px;
   }
  
-
   /* 과목별 cover 배경 */
   section.cover-githubai {
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364, #3a6186, #89253e, #ff6e7f);

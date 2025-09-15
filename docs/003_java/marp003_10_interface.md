@@ -252,8 +252,6 @@ style: |
   section.thanks   { background-color: #FDF5E6; color: #444; }
   section.ex       { background-color: #96e6a1; color:#333; }
 
-
-
 ---
 <!-- _class: cover-java -->
 <h4 style="color:#6C757D;">
