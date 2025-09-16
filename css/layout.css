@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/*  layout.css  */
+#wrap     {   display: flex;      flex-direction: column;       }
+#header   {   height:140px;  /* background-color:deepskyblue;  */}
+#visual   {  /* height:540px;   background-color:lightblue;  */}
+#footer   {  height:40px;   background-color:#333;     margin-top:auto;       }
+
+.container{ width:85%;    margin:0 auto;    }

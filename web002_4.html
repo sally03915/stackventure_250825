@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사용자 카드 + 리스트 예제</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 30px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    }
+
+    h1 {
+      text-align: center;
+      color: #e1306c;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      width: 250px;
+      margin: 0 auto 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .jack {
+      background: linear-gradient(135deg, #dbeafe, #f0f9ff);
+    }
+
+    .june {
+      background: linear-gradient(135deg, #ffe0f0, #fff0f5);
+    }
+
+    .mina {
+      background: linear-gradient(135deg, #ede9fe, #f5f3ff);
+    }
+
+    .card img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #e1306c;
+    }
+
+    .card h2 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .card a {
+      font-size: 13px;
+      color: #e1306c;
+      text-decoration: none;
+    }
+
+    .card h3 {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .card ul,
+    .card ol,
+    .card dl {
+      text-align: left;
+      padding-left: 20px;
+      color: #333;
+      margin: 0;
+    }
+
+    .card dt {
+      font-weight: bold;
+    }
+
+    .card dd {
+      margin: 0 0 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>사용자 프로필 카드</h1>
+
+  <!-- Jack -->
+  <div class="card jack">
+    <p><img src="./img/user1.png" alt="Jack 프로필 사진" /></p>
+    <h2>Jack</h2>
+    <p>백엔드 개발자 | Node.js & DB 전문가</p>
+    <p><strong>팔로워:</strong> 3,200명</p>
+    <p><a href="https://github.com/jackdev" target="_blank" rel="noopener">깃허브 보기</a></p>
+    <h3>Jack이 좋아하는 기술</h3>
+    <ul>
+      <li>Node.js</li>
+      <li>MongoDB</li>
+      <li>Docker</li>
+    </ul>
+  </div>
+
+  <!-- June -->
+  <div class="card june">
+    <p><img src="./img/user2.png" alt="June 프로필 사진" /></p>
+    <h2>June</h2>
+    <p>프론트엔드 디자이너 | React & UI/UX</p>
+    <p><strong>팔로워:</strong> 2,100명</p>
+    <p><a href="https://github.com/juneui" target="_blank" rel="noopener">깃허브 보기</a></p>
+    <h3>프론트엔드 학습 추천 순서</h3>
+    <ol>
+      <li>HTML & CSS</li>
+      <li>JavaScript</li>
+      <li>React</li>
+    </ol>
+  </div>
+
+  <!-- Mina -->
+  <div class="card mina">
+    <p><img src="./img/user3.png" alt="Mina 프로필 사진" /></p>
+    <h2>Mina</h2>
+    <p>AI 연구원 | Python & 머신러닝</p>
+    <p><strong>팔로워:</strong> 1,500명</p>
+    <p><a href="https://github.com/minaai" target="_blank" rel="noopener">깃허브 보기</a></p>
+    <h3>Mina의 역할 정의</h3>
+    <dl>
+      <dt>직무</dt>
+      <dd>AI 연구원</dd>
+      <dt>주요 기술</dt>
+      <dd>Python, 머신러닝</dd>
+      <dt>관심 분야</dt>
+      <dd>자연어 처리, 딥러닝</dd>
+    </dl>
+  </div>
+
+</body>
+</html>
