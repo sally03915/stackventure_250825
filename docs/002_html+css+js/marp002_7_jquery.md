@@ -41,7 +41,7 @@ style: |
     
     width: 90%;
     height: 90%;
-    background-image: url('./images_github/워터마크_dbdbig.png'); /* 로고 이미지 경로 */
+    background-image: url('./images/워터마크_dbdbig.png'); /* 로고 이미지 경로 */
     background-repeat: no-repeat;
     background-size: contain;
     opacity: 0.65; /* 은은하게 보이도록 조정 */
@@ -252,6 +252,9 @@ style: |
   section.thanks   { background-color: #FDF5E6; color: #444; }
   section.ex       { background-color: #96e6a1; color:#333; }
   
+
+
+
 ---
 <!-- _class: cover-html -->
 <h4 style="color:#6C757D;">
@@ -263,12 +266,12 @@ style: |
 
 <!-- 현재 챕터 강조 -->
 <div class="chapter-highlight">
-  📍 <strong>현재 위치:</strong> Chapter 2 · <em>HTML 태그 · id/class · 레이아웃</em>
+  📍 <strong>현재 위치:</strong> Chapter 5 · <em>jQuery와 프레임워크 활용</em>
 </div>
 
 <blockquote>
-  <span class="fragment" style="color:#343A40;">태그의 의미를 이해하고 구조를 설계하는 능력</span><br>
-  <span class="fragment" style="color:#495057;">시맨틱 마크업으로 웹 접근성과 유지보수 향상</span>
+  <span class="fragment" style="color:#343A40;">jQuery를 활용한 DOM 조작과 이벤트 처리</span><br>
+  <span class="fragment" style="color:#495057;">프레임워크 기반 개발로 생산성과 유지보수 향상</span>
 </blockquote>
 
 ---
@@ -277,161 +280,217 @@ style: |
 
 <div class="track-outline">
   <span>▶ Chapter 1: 웹 개발 시작과 HTML 구조</span>
-  <span class="current-chapter">✅▶ Chapter 2: HTML 태그 · id/class · 레이아웃</span>
+  <span>▶ Chapter 2: HTML 태그 · id/class · 레이아웃</span>
   <span>▶ Chapter 3: Bootstrap</span>
   <span>▶ Chapter 4: JavaScript 문법 · 이벤트 · 배열</span>
-  <span>▶ Chapter 5: jQuery와 프레임워크 활용</span>
+  <span class="current-chapter">✅▶ Chapter 5: jQuery와 프레임워크 활용</span>
 </div>
 
 <p style="margin-top:30px; font-size:0.95em; color:#888;">
-  이 챕터에서는 HTML의 기본 태그와 구조를 이해하고,<br/>
-  id/class를 활용한 선택자 개념과 레이아웃 설계 방법을 배웁니다.
+  이 챕터에서는 jQuery를 활용한 DOM 조작과 이벤트 처리 방법을 배우고, 
+  프레임워크를 통해 웹 개발의 효율성과 유지보수성을 높이는 방법을 익힙니다.
 </p>
 
  
 ---
-
 <!-- _class: orange -->
-# 🧩 Step 1: 핵심 개념
+# 🧩 Step 1: 핵심 개념  
+***jQuery 선택자 기초***     
+→ ***태그***, ***아이디***, ***클래스***, ***형제 요소 (prev / next)*** 등
 
 ---
 <!-- _class: aqua -->
-## 🧪 개념 2: 배치의 핵심 -
- float, position, display, flex
 
-- <span class="fragment">웹 요소의 <span class="mark">배치 방식</span>은 다양하다</span>  
-- <span class="fragment">float은 좌우 정렬, 
-- position은 절대/고정 위치 지정</span>  
-- <span class="fragment">display는 block/inline/inline-block/flex 구성</span>  
-- <span class="fragment">margin과 padding은 요소 간 <span class="mark">간격 조절</span>에 사용</span>
+### 🔍 기본 선택자  
+- ***$("태그")*** : 태그로 요소 선택  
+- ***$("#아이디")*** : 아이디로 요소 선택  
+- ***$(".클래스")*** : 클래스명으로 요소 선택  
 
 ---
+<!-- _class: aqua -->
 
+### 🧩 구조 선택자  
+- ***$("부모 자식")*** : 부모 안의 자식 선택  
+- ***$("div:first")*** : 첫 번째 요소 선택  
+
+---
+<!-- _class: aqua -->
+
+### 🔗 형제 요소 선택자  
+- ***$(".item").prev()*** : 바로 앞 형제 요소 선택  
+- ***$(".item").next()*** : 바로 뒤 형제 요소 선택  
+
+---
 <!-- _class: blue -->
 # 🧪 Step 2: 코드 예제
 
 ---
-
 <!-- _class: aqua -->
-## ✅ 배치 예제 1: float
 
 <pre class="codeblock">
-&lt;div class=&quot;container f1&quot;&gt;
-  &lt;div class=&quot;item i1&quot;&gt;LEFT&lt;/div&gt;
-  &lt;div class=&quot;item i2&quot;&gt;RIGHT&lt;/div&gt;
-  &lt;div class=&quot;both&quot;&gt;ABCDEFCHIG&lt;/div&gt;
-&lt;/div&gt;
+$(document).ready(function(){
+  $("p").css("color", "blue"); // 모든 p 태그 파란색
+  $("#hello").css("font-size", "30px"); //아이디 hello 글자 크기
+  $(".greeting").css("background-color", "yellow"); // 클래스 greeting 배경색
+  $("ul li").css("color", "red"); // 리스트 항목 빨간색
+  $("div:first").css("border", "2px solid green"); // 첫 번째 div 테두리
+  $(".item").prev().css("color", "orange"); // 앞 형제 요소 주황색
+  $(".item").next().css("color", "purple"); // 뒤 형제 요소 보라색
+});
 </pre>
 
-> <span class="fragment">float은 요소를 <span class="mark">왼쪽 또는 오른쪽</span>으로 띄워 배치합니다</span>  
-> <span class="fragment">clear:both로 다음 요소의 흐름을 정리합니다</span>
-
 ---
-
 <!-- _class: aqua -->
-## ✅ 배치 예제 2: position
 
-<pre class="codeblock">
-&lt;div class=&quot;container p1&quot;&gt;
-  &lt;p class=&quot;me&quot;&gt;WHERE I AM?&lt;/p&gt;
-  &lt;p&gt;position:relative - box 자리 유지 / absolute - 유지 안됨&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;container p2&quot;&gt;
-  &lt;p class=&quot;me&quot;&gt;WHERE I AM? position:fixed 브라우저에 콕!&lt;/p&gt;
-&lt;/div&gt;
-</pre>
+## ✅ 선택자 요약표 (1/2)
 
-> <span class="fragment">relative는 기준 위치를 잡고, absolute는 부모 기준으로 이동</span>  
-> <span class="fragment">fixed는 브라우저 기준으로 고정됩니다</span>
+| 선택자 | 설명 |
+|--------|------|
+| ***$("p")*** | 모든 p태그 선택 |
+| ***$("#hello")*** | 아이디가 hello 인 요소 선택 |
+| ***$(".greeting")*** | 클래스가 greeting 인 요소 선택 |
+| ***$("ul li")*** | 리스트 항목 선택 | 
 
 ---
-
 <!-- _class: aqua -->
-## ✅ 배치 예제 3: display
 
+## ✅ 선택자 요약표 (2/2)
 
-<pre class="codeblock">
-&lt;div class=&quot;container&quot;&gt;
-  &lt;ul&gt;
-    &lt;li&gt;APPLE&lt;/li&gt;
-    &lt;li&gt;banana&lt;/li&gt;
-    &lt;li&gt;coconut&lt;/li&gt;
-  &lt;/ul&gt;
+| 선택자 | 설명 |
+|--------|------| 
+| ***$("div:first")*** | 첫 번째 div 선택 |
+| ***$(".item").prev()*** | 앞 형제 요소 선택 |
+| ***$(".item").next()*** | 뒤 형제 요소 선택 |
 
-  &lt;hr/&gt;
-
-  &lt;ul class=&quot;d1&quot;&gt;
-    &lt;li&gt;APPLE&lt;/li&gt;
-    &lt;li&gt;banana&lt;/li&gt;
-    &lt;li&gt;coconut&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;ul class=&quot;d2&quot;&gt;
-    &lt;li&gt;APPLE&lt;/li&gt;
-    &lt;li&gt;banana&lt;/li&gt;
-    &lt;li&gt;coconut&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;
-</pre>
-
-> <span class="fragment">display:inline은 줄바꿈 없이 나열</span>  
-> <span class="fragment">inline-block은 너비/높이 지정 가능</span>
 
 ---
-
 <!-- _class: aqua -->
-## ✅ 배치 예제 4: margin/padding
 
-<pre class="codeblock">
-&lt;div class=&quot;container mp&quot;&gt;
-  &lt;p class=&quot;me&quot;&gt;WHERE I AM?&lt;/p&gt;
-&lt;/div&gt;
-</pre>
-
-> <span class="fragment">margin은 <span class="mark">바깥 여백</span>, 
-  padding은 <span class="mark">안쪽 여백</span></span>  
-> <span class="fragment">방향별로 top/right/bottom/left 지정 가능</span>
+- ***$("태그")*** 는 같은 태그를 모두 선택  
+- ***$("#아이디")*** 는 하나의 특정 요소 선택  
+- ***$(".클래스")*** 는 같은 그룹의 요소 선택  
+- ***prev()*** 는 바로 앞 형제를 선택  
+- ***next()*** 는 바로 뒤 형제를 선택  
 
 ---
+<!-- _class: green -->
+# 🧪 Step 3: 연습문제
 
+---
 <!-- _class: aqua -->
-## ✅ 배치 예제 5: flex
 
-<pre class="codeblock">
-&lt;div class=&quot;container flex&quot;&gt;
-  &lt;div class=&quot;flex-box&quot;&gt;
-    &lt;div class=&quot;flex-item&quot;&gt;1&lt;/div&gt;
-    &lt;div class=&quot;flex-item&quot;&gt;2&lt;/div&gt;
-    &lt;div class=&quot;flex-item&quot;&gt;3&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;p&gt;display:flex를 사용하면 자식 요소들이 한 줄에 정렬됩니다&lt;/p&gt;
-&lt;/div&gt;
-</pre>
-
-> <span class="fragment">flex는 <span class="mark">유연한 레이아웃</span>을 구성할 수 있어요</span>  
-> <span class="fragment">justify-content, align-items 등으로 정렬 방식 조절</span>
+1. ***$("#hello")*** 는 어떤 요소를 선택하나요?  
+2. ***$(".greeting")*** 는 몇 개의 요소를 선택할 수 있나요?  
+3. ***$("ul li")*** 는 어떤 구조를 선택하나요?  
+4. ***$(".item").next()*** 는 어떤 요소를 선택하나요?
 
 ---
-
 <!-- _class: red -->
 # 🧪 Step 5: 기억 테스트
 
 ---
-
 <!-- _class: aqua -->
-## ❓ 퀴즈 3: float 사용 시 주의할 점은?
 
-- <span class="fragment">A. padding을 꼭 줘야 한다</span>  
-- <span class="fragment">B. clear:both로 흐름을 정리한다 ✅</span>  
-- <span class="fragment">C. display:flex와 함께 써야 한다</span>
+- ***$("p")*** 는 어떤 태그를 선택하나요?  
+- ***$("#아이디")*** 는 어떤 방식으로 선택하나요?  
+- ***$(".클래스")*** 는 어떤 그룹을 선택하나요?  
+- ***prev()*** 와 ***next()*** 는 어떤 관계의 요소를 선택하나요?  
+- ***$("div:first")*** 는 어떤 요소를 선택하나요?
+ 
+ 
+---
+<!-- _class: orange -->
+# 🧩 Step 1: 핵심 개념  
+***jQuery 기본 효과***     
+→ ***숨기기***, ***보이기***, ***천천히 나타나기***, ***슬라이드***, ***애니메이션***
 
 ---
 <!-- _class: aqua -->
-## ❓ 퀴즈 4: position:fixed는 어떤 기준으로 위치를 잡나요?
 
-- <span class="fragment">A. 부모 요소 기준</span>  
-- <span class="fragment">B. 브라우저 기준 ✅</span>  
-- <span class="fragment">C. 문서 전체 기준</span>
+### 🎈 기본 효과  
+- ***hide()*** : 요소를 숨겨요  
+- ***show()*** : 숨긴 요소를 다시 보여줘요  
+- ***fadeOut() / fadeIn()*** : 천천히 사라지고 나타나요  
+
+---
+<!-- _class: aqua -->
+
+### 🎬 슬라이드와 애니메이션  
+- ***slideUp() / slideDown()*** : 위로 접히거나 아래로 펼쳐져요  
+- ***animate()*** : 크기나 위치를 바꿔요  
+
+---
+<!-- _class: blue -->
+# 🧪 Step 2: 코드 예제
+
+---
+<!-- _class: aqua -->
+
+<pre class="codeblock">
+$(document).ready(function(){
+  $("#btn1").click(function(){ $("#box1").hide(); });
+  $("#btn2").click(function(){ $("#box1").show(); });
+  $("#btn3").click(function(){ $("#box2").fadeOut(); });
+  $("#btn4").click(function(){ $("#box2").fadeIn(); });
+  $("#btn5").click(function(){ $("#box3").slideUp(); });
+  $("#btn6").click(function(){ $("#box3").slideDown(); });
+  $("#btn7").click(function(){ $("#box4").animate({left: "200px", width: "300px"}, 1000); });
+});
+</pre>
+
+---
+<!-- _class: aqua -->
+
+## ✅ 효과 요약표
+
+| 함수 이름 | 설명 |
+|-----------|------|
+| ***hide()*** | 요소를 숨겨요 |
+| ***show()*** | 숨긴 요소를 다시 보여줘요 |
+| ***fadeOut() / fadeIn()*** | 천천히 사라지고 나타나요 |
+| ***slideUp() / slideDown()*** | 접히거나 펼쳐져요 |
+| ***animate()*** | 크기나 위치를 바꿔요 |
+
+---
+<!-- _class: aqua -->
+
+- ***hide()*** 는 화면에서 요소를 감춰요  
+- ***show()*** 는 숨겨진 요소를 다시 보여줘요  
+- ***fadeOut()*** 은 천천히 사라지고  
+- ***fadeIn()*** 은 천천히 나타나요  
+- ***slideUp()*** 은 위로 접히고  
+- ***slideDown()*** 은 아래로 펼쳐져요  
+- ***animate()*** 는 움직이거나 크기를 바꿔요  
+
+---
+<!-- _class: green -->
+# 🧪 Step 3: 연습문제
+
+---
+<!-- _class: aqua -->
+
+1. ***hide()*** 와 ***show()*** 는 어떤 차이가 있나요?  
+2. ***fadeOut()*** 은 어떤 방식으로 요소를 숨기나요?  
+3. ***slideDown()*** 은 어떤 효과를 주나요?  
+4. ***animate()*** 를 사용하면 어떤 변화가 생기나요?
+
+---
+<!-- _class: red -->
+# 🧪 Step 5: 기억 테스트
+
+---
+<!-- _class: aqua -->
+
+- ***hide()*** 는 어떤 상황에서 사용하나요?  
+- ***fadeIn()*** 은 어떤 느낌으로 나타나나요?  
+- ***slideUp()*** 은 어떤 방향으로 접히나요?  
+- ***animate()*** 는 어떤 속성을 바꿀 수 있나요?  
+- ***show()*** 는 어떤 요소를 다시 보여주나요?
+ 
+ 
+
+
+
 
 ---
 <!-- _class: thanks -->

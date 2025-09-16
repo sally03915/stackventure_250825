@@ -41,7 +41,7 @@ style: |
     
     width: 90%;
     height: 90%;
-    background-image: url('./images_github/워터마크_dbdbig.png'); /* 로고 이미지 경로 */
+    background-image: url('./images/워터마크_dbdbig.png'); /* 로고 이미지 경로 */
     background-repeat: no-repeat;
     background-size: contain;
     opacity: 0.65; /* 은은하게 보이도록 조정 */
@@ -252,6 +252,8 @@ style: |
   section.thanks   { background-color: #FDF5E6; color: #444; }
   section.ex       { background-color: #96e6a1; color:#333; }
   
+
+
 ---
 <!-- _class: cover-html -->
 <h4 style="color:#6C757D;">
@@ -263,182 +265,533 @@ style: |
 
 <!-- 현재 챕터 강조 -->
 <div class="chapter-highlight">
-  📍 <strong>현재 위치:</strong> Chapter 2 · <em>HTML 태그 · id/class · 레이아웃</em>
+  📍 <strong>현재 위치:</strong> Chapter 4 · <em>JavaScript 문법 · 이벤트 · 배열</em>
 </div>
 
 <blockquote>
-  <span class="fragment" style="color:#343A40;">태그의 의미를 이해하고 구조를 설계하는 능력</span><br>
-  <span class="fragment" style="color:#495057;">시맨틱 마크업으로 웹 접근성과 유지보수 향상</span>
+  <span class="fragment" style="color:#343A40;">동적 웹 페이지를 위한 JavaScript 핵심 문법</span><br>
+  <span class="fragment" style="color:#495057;">이벤트 처리와 배열·객체 활용으로 인터랙션 구현</span>
 </blockquote>
 
 ---
 <!-- _class: cover-html -->
-<h2 style="font-size:1.6em; color:#555;">목차 : Web Essentials 트랙</h2>
-
+<h2 style="font-size:1.2em; color:#555;">목차 : Web Essentials 트랙</h2>
 <div class="track-outline">
   <span>▶ Chapter 1: 웹 개발 시작과 HTML 구조</span>
-  <span class="current-chapter">✅▶ Chapter 2: HTML 태그 · id/class · 레이아웃</span>
+  <span>▶ Chapter 2: HTML 태그 · id/class · 레이아웃</span>
   <span>▶ Chapter 3: Bootstrap</span>
-  <span>▶ Chapter 4: JavaScript 문법 · 이벤트 · 배열</span>
+  <span class="current-chapter">✅▶ Chapter 4: JavaScript 문법 · 이벤트 · 배열</span>
   <span>▶ Chapter 5: jQuery와 프레임워크 활용</span>
 </div>
 
-<p style="margin-top:30px; font-size:0.95em; color:#888;">
-  이 챕터에서는 HTML의 기본 태그와 구조를 이해하고,<br/>
-  id/class를 활용한 선택자 개념과 레이아웃 설계 방법을 배웁니다.
-</p>
+---
+<!-- _class: cover-html -->
+## 📑 JavaScript 학습 목차 (1/2)
+
+1. **기초 문법 1, 2, 3**  
+  → 출력 방식, 변수 선언, 자료형, typeof 등
+
+2. **이벤트 처리 기초**  
+  → onclick, prompt, alert, mouse 이벤트 등
+
+3. **DOM 선택자 활용**  
+  → querySelector, parentElement, closest 등
+
+4. **함수 선언과 이벤트 연결**  
+  → 함수 정의, 호출, 이벤트 핸들러
+
+5. **조건문과 반복문 제어**  
+  → if/else, switch, for, while, do...while
+---
+<!-- _class: cover-html -->
+## 📑 JavaScript 학습 목차 (2/2)
+
+6. **함수 제어 심화 및 기타 문법**  
+  → return, 매개변수, 흐름 제어 등
+
+7. **유용한 내장 함수**  
+  → parseInt, parseFloat, isNaN, Date, Math 등
+
+8. **배열과 객체의 활용**  
+  → 배열 메서드, 객체 속성, 메서드 정의
+
+9. **배열과 객체 심화**  
+  → 배열 반복, 객체 순회, 고급 활용
+
+10. **ES6 문법과 최신 기능**  
+  → let/const, 화살 함수, 템플릿 문자열, 구조 분해 등
 
  
+ 
 ---
-
 <!-- _class: orange -->
-# 🧩 Step 1: 핵심 개념
+# 🧩 Step 1: 핵심 개념 (1)
+**기초 문법 1, 2, 3**     
+→ **출력 방식**, **변수 선언**, **자료형**, **typeof** 등
 
 ---
 <!-- _class: aqua -->
-## 🧪 개념 2: 배치의 핵심 -
- float, position, display, flex
 
-- <span class="fragment">웹 요소의 <span class="mark">배치 방식</span>은 다양하다</span>  
-- <span class="fragment">float은 좌우 정렬, 
-- position은 절대/고정 위치 지정</span>  
-- <span class="fragment">display는 block/inline/inline-block/flex 구성</span>  
-- <span class="fragment">margin과 padding은 요소 간 <span class="mark">간격 조절</span>에 사용</span>
+### 🖨️ 출력 방법  
+- **document.write("문자열")**: 
+   HTML 문서에 직접 출력  
+- **console.log("문자열")**: 
+   브라우저 개발자 도구 콘솔에 출력  
 
 ---
+<!-- _class: aqua -->
 
+### 📦 변수 선언 방식  
+- **var**: 재선언 및 재할당 가능  
+- **let**: 재선언 불가, 재할당 가능  
+- **const**: 재선언 및 재할당 불가, 선언 시 초기화 필수  
+
+---
+<!-- _class: aqua -->
+
+### 🔍 자료형과 typeof  
+- **typeof**로 변수의 타입 확인  
+- **"10" + 10** → **"1010"**  
+- **Number("10") + 10** → **20**
+
+---
 <!-- _class: blue -->
 # 🧪 Step 2: 코드 예제
 
 ---
-
 <!-- _class: aqua -->
-## ✅ 배치 예제 1: float
 
-<pre class="codeblock">
-&lt;div class=&quot;container f1&quot;&gt;
-  &lt;div class=&quot;item i1&quot;&gt;LEFT&lt;/div&gt;
-  &lt;div class=&quot;item i2&quot;&gt;RIGHT&lt;/div&gt;
-  &lt;div class=&quot;both&quot;&gt;ABCDEFCHIG&lt;/div&gt;
-&lt;/div&gt;
+
+<pre class="codeblock"  style="width:120%; font-size:50%">
+document.write("<p>Hello js!</p>");
+console.log("안녕 javascript!");
+
+var x = 10;
+var x = 20;
+
+let y = 5;
+// let y = 6; // 오류
+
+const z = 7;
+// z = 8; // 오류
+
+let a = 10;
+console.log(typeof a); // number
+a = "10";
+console.log(typeof a); // string
+console.log(a + 10); // "1010"
+console.log(Number(a) + 10); // 20
 </pre>
 
-> <span class="fragment">float은 요소를 <span class="mark">왼쪽 또는 오른쪽</span>으로 띄워 배치합니다</span>  
-> <span class="fragment">clear:both로 다음 요소의 흐름을 정리합니다</span>
+---
+<!-- _class: green -->
+# 🧪 Step 3: 연습문제
 
 ---
-
 <!-- _class: aqua -->
-## ✅ 배치 예제 2: position
+
+1. **document.write()** 와 **console.log()** 의 차이점은?  
+2. **var**, **let**, **const** 중 재선언이 가능한 것은?  
+3. **typeof true**의 결과는?  
+4. **"10" + 10**과 **Number("10") + 10**의 차이는?
+
+---
+<!-- _class: orange -->
+# 🧩 Step 1: 핵심 개념 (2)
+**이벤트 처리 기초**     
+→ **onclick**, **prompt**, **alert**, **mouse 이벤트** 등
+
+---
+<!-- _class: aqua -->
+
+### 🔔 알림창 이벤트  
+- **prompt()**: 사용자 입력 받기  
+- **alert()**: 알림창 표시  
+- **confirm()**: 확인/취소 선택  
+
+---
+<!-- _class: aqua -->
+
+### 🖱️ 이벤트 처리  
+- **onclick**: 클릭 이벤트  
+- **addEventListener()**: 다양한 이벤트 처리 가능  
+- **mouseenter** / **mouseleave**: 마우스 진입/이탈 감지  
+
+---
+<!-- _class: blue -->
+# 🧪 Step 2: 코드 예제
+
+---
+<!-- _class: aqua -->
+
 
 <pre class="codeblock">
-&lt;div class=&quot;container p1&quot;&gt;
-  &lt;p class=&quot;me&quot;&gt;WHERE I AM?&lt;/p&gt;
-  &lt;p&gt;position:relative - box 자리 유지 / absolute - 유지 안됨&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;container p2&quot;&gt;
-  &lt;p class=&quot;me&quot;&gt;WHERE I AM? position:fixed 브라우저에 콕!&lt;/p&gt;
-&lt;/div&gt;
+document.getElementById("addEvent").onclick = function() {
+  let color = prompt("좋아하는 음료는?");
+  alert("좋아하는 음료는 " + color + "입니다.");
+};
+
+const box = document.querySelector("#box");
+box.addEventListener("mouseenter", () => {
+  box.style.backgroundColor = "#fff3cd";
+});
+box.addEventListener("mouseleave", () => {
+  box.style.backgroundColor = "#cff4fc";
+});
 </pre>
 
-> <span class="fragment">relative는 기준 위치를 잡고, absolute는 부모 기준으로 이동</span>  
-> <span class="fragment">fixed는 브라우저 기준으로 고정됩니다</span>
+---
+<!-- _class: green -->
+# 🧪 Step 3: 연습문제
 
 ---
-
 <!-- _class: aqua -->
-## ✅ 배치 예제 3: display
 
+1. **prompt()** 와 **alert()** 의 역할은?  
+2. **addEventListener()** 의 장점은?  
+3. **mouseenter** 와 **mouseleave** 의 차이점은?
+
+---
+<!-- _class: orange -->
+# 🧩 Step 1: 핵심 개념 (3)
+**DOM 선택자 활용**     
+→ **querySelector**, **parentElement**, **closest** 등
+
+---
+<!-- _class: aqua -->
+
+### 🔍 DOM 선택자  
+- **getElementById()**: ID로 요소 선택  
+- **getElementsByTagName()**: 태그명으로 선택  
+- **querySelector()**: CSS 선택자 방식  
+- **value**, **innerHTML**: 값과 내용 접근  
+
+---
+<!-- _class: blue -->
+# 🧪 Step 2: 코드 예제
+
+---
+<!-- _class: aqua -->
 
 <pre class="codeblock">
-&lt;div class=&quot;container&quot;&gt;
-  &lt;ul&gt;
-    &lt;li&gt;APPLE&lt;/li&gt;
-    &lt;li&gt;banana&lt;/li&gt;
-    &lt;li&gt;coconut&lt;/li&gt;
-  &lt;/ul&gt;
+let color = document.querySelector("#color");
+let items = color.children;
+for (let i = 0; i <pre items.length; i++) {
+  items[i].style.color = "crimson";
+}
 
-  &lt;hr/&gt;
+let orange = document.querySelector("#orange");
+orange.parentElement.style.border = "5px dotted crimson";
 
-  &lt;ul class=&quot;d1&quot;&gt;
-    &lt;li&gt;APPLE&lt;/li&gt;
-    &lt;li&gt;banana&lt;/li&gt;
-    &lt;li&gt;coconut&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;ul class=&quot;d2&quot;&gt;
-    &lt;li&gt;APPLE&lt;/li&gt;
-    &lt;li&gt;banana&lt;/li&gt;
-    &lt;li&gt;coconut&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;
+let gold = document.querySelector("#gold");
+gold.closest("ul").style.backgroundColor = "gold";
 </pre>
 
-> <span class="fragment">display:inline은 줄바꿈 없이 나열</span>  
-> <span class="fragment">inline-block은 너비/높이 지정 가능</span>
+---
+<!-- _class: green -->
+# 🧪 Step 3: 연습문제
 
 ---
-
 <!-- _class: aqua -->
-## ✅ 배치 예제 4: margin/padding
+
+1. **getElementById()** 와 **querySelector()**   차이점은?  
+2. **innerHTML** 과 **value** 의 차이는?  
+3. **parentElement** 와 **closest()** 의 차이점은?
+
+---
+<!-- _class: orange -->
+# 🧩 Step 1: 핵심 개념 (4)
+**함수 선언과 이벤트 연결**     
+→ **함수 정의**, **호출**, **이벤트 핸들러**
+
+---
+<!-- _class: aqua -->
+
+### 🧠 함수 선언과 호출  
+- **function 함수명() {}**: 함수 선언  
+- **함수명()**: 함수 호출  
+- 이벤트 핸들러에서 함수 호출 가능  
+
+---
+<!-- _class: aqua -->
+
+### 🔗 a 태그 이벤트  
+- **preventDefault()**: 기본 동작 방지  
+- **addEventListener("click", handler)**: 
+클릭 이벤트 처리  
+
+---
+<!-- _class: blue -->
+# 🧪 Step 2: 코드 예제
+
+---
+<!-- _class: aqua -->
 
 <pre class="codeblock">
-&lt;div class=&quot;container mp&quot;&gt;
-  &lt;p class=&quot;me&quot;&gt;WHERE I AM?&lt;/p&gt;
-&lt;/div&gt;
+function fn1() {
+  alert("hello~ js!");
+}
+document.getElementById("fn1").onclick = fn1;
+
+const link = document.querySelector(".target_a");
+link.addEventListener("click", (e) => {
+  e.preventDefault();
+  fn1();
+});
 </pre>
 
-> <span class="fragment">margin은 <span class="mark">바깥 여백</span>, 
-  padding은 <span class="mark">안쪽 여백</span></span>  
-> <span class="fragment">방향별로 top/right/bottom/left 지정 가능</span>
+---
+<!-- _class: green -->
+# 🧪 Step 3: 연습문제
 
 ---
-
 <!-- _class: aqua -->
-## ✅ 배치 예제 5: flex
 
-<pre class="codeblock">
-&lt;div class=&quot;container flex&quot;&gt;
-  &lt;div class=&quot;flex-box&quot;&gt;
-    &lt;div class=&quot;flex-item&quot;&gt;1&lt;/div&gt;
-    &lt;div class=&quot;flex-item&quot;&gt;2&lt;/div&gt;
-    &lt;div class=&quot;flex-item&quot;&gt;3&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;p&gt;display:flex를 사용하면 자식 요소들이 한 줄에 정렬됩니다&lt;/p&gt;
-&lt;/div&gt;
-</pre>
-
-> <span class="fragment">flex는 <span class="mark">유연한 레이아웃</span>을 구성할 수 있어요</span>  
-> <span class="fragment">justify-content, align-items 등으로 정렬 방식 조절</span>
+1. 함수 선언과 호출의 차이점은?  
+2. **preventDefault()**는 언제 사용하나요?  
+3. **addEventListener()**를 사용하는 이유는?
 
 ---
-
 <!-- _class: red -->
 # 🧪 Step 5: 기억 테스트
 
 ---
-
 <!-- _class: aqua -->
-## ❓ 퀴즈 3: float 사용 시 주의할 점은?
 
-- <span class="fragment">A. padding을 꼭 줘야 한다</span>  
-- <span class="fragment">B. clear:both로 흐름을 정리한다 ✅</span>  
-- <span class="fragment">C. display:flex와 함께 써야 한다</span>
+- **document.write()**는 어디에 출력되나요?  
+- **console.log()**는 어떤 상황에서 유용한가요?  
+- **const**는 선언 시 반드시 어떤 작업이 필요하나요?  
+- **typeof**는 어떤 값을 반환하나요?  
+- **Number()** 함수는 어떤 상황에서 사용하나요?
+
+---
+<!-- _class: orange -->
+# 🧩 Step 1: 핵심 개념 (5)
+1. **조건문과 반복문 제어**     
+→ **if/else**, **switch**, **for**, **while**, **do...while**  
+2. **함수 제어 심화 및 기타 문법**     
+→ **return**, **매개변수**, **흐름 제어** 등
 
 ---
 <!-- _class: aqua -->
-## ❓ 퀴즈 4: position:fixed는 어떤 기준으로 위치를 잡나요?
 
-- <span class="fragment">A. 부모 요소 기준</span>  
-- <span class="fragment">B. 브라우저 기준 ✅</span>  
-- <span class="fragment">C. 문서 전체 기준</span>
+### 🔁 조건문  
+- **if**, **else if**, **else**: 조건에 따라 코드 실행  
+- **switch**: 여러 경우의 조건 처리  
+
+---
+<!-- _class: aqua -->
+
+### 🔄 반복문  
+- **for**: 반복 횟수가 정해진 경우  
+- **while**: 조건이 참일 동안 반복  
+- **do...while**: 최소 1회 실행 후 조건 확인  
+
+---
+<!-- _class: blue -->
+# 🧪 Step 2: 코드 예제
+
+---
+<!-- _class: aqua -->
+
+<pre class="codeblock"  style="width:120%; font-size:25%">
+let score = 85;
+if (score >= 90) {
+  console.log("A");
+} else if (score >= 80) {
+  console.log("B");
+} else {
+  console.log("C");
+}
+
+for (let i = 1; i <= 5; i++) {
+  console.log(i);
+}
+
+let j = 1;
+while (j <= 5) {
+  console.log(j);
+  j++;
+}
+</pre>
+
+---
+<!-- _class: green -->
+# 🧪 Step 3: 연습문제
+
+---
+<!-- _class: aqua -->
+
+1. **if**문과 **switch**문의 차이점은?  
+2. **while**과 **do...while**의 실행 순서 차이는?  
+3. **for**문에서 초기값, 조건식, 증감식의 역할은?
+ 
+ 
+---
+<!-- _class: orange -->
+# 🧩 Step 1: 핵심 개념 (6)
+**유용한 내장 함수**     
+→ **parseInt**, **parseFloat**, **isNaN**, **Date**, **Math** 등
+
+---
+<!-- _class: aqua -->
+
+### 🧰 유용한 내장 함수  
+- **parseInt()**, **parseFloat()**: 문자열 → 숫자  
+- **isNaN()**: 숫자인지 확인  
+- **Math**: 수학 관련 함수 모음  
+
+---
+<!-- _class: aqua -->
+
+### 📅 날짜 함수  
+- **Date()**: 현재 날짜와 시간  
+- **getFullYear()**, **getMonth()**, **getDate()**: 날짜 정보 추출  
+
+---
+<!-- _class: blue -->
+# 🧪 Step 2: 코드 예제
+
+---
+<!-- _class: aqua -->
+
+<pre class="codeblock">
+let num = "123.45";
+console.log(parseInt(num)); // 123
+console.log(parseFloat(num)); // 123.45
+console.log(isNaN(num)); // false
+
+let today = new Date();
+console.log(today.getFullYear());
+console.log(today.getMonth() + 1);
+console.log(today.getDate());
+</pre>
+
+---
+<!-- _class: green -->
+# 🧪 Step 3: 연습문제
+
+---
+<!-- _class: aqua -->
+
+1. **parseInt()** 와 **parseFloat()** 의 차이점은?  
+2. **isNaN()** 의 반환값은 어떤 의미인가요?  
+3. **Date()** 객체에서 월을 가져올 때 왜 +1을 하나요?
+
+---
+<!-- _class: orange -->
+# 🧩 Step 1: 핵심 개념 (7)
+1. **배열과 객체의 활용**     
+→ **배열 메서드**, **객체 속성**, **메서드 정의**  
+2. **배열과 객체 심화**     
+→ **배열 반복**, **객체 순회**, **고급 활용**
+
+---
+<!-- _class: aqua -->
+
+### 📚 배열  
+- 여러 값을 하나의 변수에 저장  
+- **push()**, **pop()**, **length** 등 메서드 사용  
+
+---
+<!-- _class: aqua -->
+
+### 🧱 객체  
+- **{ key: value }** 형태  
+- 속성 접근: **obj.key** 또는 **obj["key"]**  
+- 메서드 정의 가능  
+
+---
+<!-- _class: blue -->
+# 🧪 Step 2: 코드 예제
+
+---
+<!-- _class: aqua -->
+
+<pre class="codeblock">
+let fruits = ["apple", "banana", "cherry"];
+fruits.push("orange");
+console.log(fruits.length); // 4
+
+let person = {
+  name: "Sally",
+  age: 25,
+  greet: function() {
+    console.log("Hello!");
+  }
+};
+console.log(person.name);
+person.greet();
+</pre>
+
+---
+<!-- _class: green -->
+# 🧪 Step 3: 연습문제
+
+---
+<!-- _class: aqua -->
+
+1. 배열과 객체의 차이점은?  
+2. **push()** 와 **pop()** 의 기능은?  
+3. 객체에서 메서드를 정의하는 방법은?
+
+---
+<!-- _class: orange -->
+# 🧩 Step 1: 핵심 개념 (10) 
+**ES6 문법과 최신 기능**     
+→ **let/const**, **화살 함수**, **템플릿 문자열**, **구조 분해** 등
+
+---
+<!-- _class: aqua -->
+
+### ✨ ES6 주요 문법  
+- **let**, **const**: 블록 범위 변수 선언  
+- 화살 함수 **()=>{}**  
+- 템플릿 문자열 **${}**
+
+---
+<!-- _class: aqua -->
+
+### 📦 구조 분해 할당  
+- 배열이나 객체의 값을 변수로 쉽게 추출  
+- **...rest**: 나머지 요소 수집  
+
+---
+<!-- _class: blue -->
+# 🧪 Step 2: 코드 예제
+
+---
+<!-- _class: aqua -->
+
+<pre class="codeblock">
+const name = "Sally";
+const age = 25;
+console.log(`이름은 ${name}, 나이는 ${age}입니다.`);
+
+const add = (a, b) => a + b;
+
+const [x, y, ...rest] = [1, 2, 3, 4, 5];
+console.log(x, y); // 1 2
+console.log(rest); // [3, 4, 5]
+</pre>
+
+---
+<!-- _class: green -->
+# 🧪 Step 3: 연습문제
+
+---
+<!-- _class: aqua -->
+
+1. **let**과 **const**의 차이점은?  
+2. 화살 함수의 특징은?  
+3. 템플릿 문자열의 장점은?  
+4. 구조 분해 할당의 활용 예시는?
+ 
+
 
 ---
 <!-- _class: thanks -->
 ## 👋 열심히 들어주셔서 감사합니다!
-
-> <span class="fragment">배치 방식은 웹 디자인의 <span class="mark">핵심</span>입니다</span>  
-> <span class="fragment">다양한 방식으로 실습하며 감각을 익혀보세요!</span>
 > <span class="fragment">오늘의 한 걸음이 **내일의 가능성**이 되길 바라며,</span>  
 > <span class="fragment">그럼, 다음 이시간에 또 만나요!</span>
 
