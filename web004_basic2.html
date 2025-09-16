@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{ margin:0; padding:0;}
+    /*
+    1. 컨테이너에 적용하는 속성
+    2. 아이템에 적용하는 속성
+    [   [.item][.item][.item]  ].container
+    */
+     h3{ padding:2%; border-left:10px solid burlywood;  background-color: beige;}
+    .container{   background-color:#ccc;    width:80%;  margin: 2% auto;  padding:2%; }
+    .item{  background-color:darkturquoise; color:white; padding:2%  }
+
+    .i1{ background-color:darkturquoise;  }
+    .i2{ background-color:deepskyblue;  }
+    .i3{ background-color:blueviolet;  }
+
+    /* ver-1. flex(width만), block(100%) */
+    .c1{  display: flex;   }
+    .c2{  display: block;  }
+
+    /* ver-2. 방향 */
+    .c3{  display: flex;  flex-direction:row;  }
+    .c4{  display: flex;  flex-direction:column;  }
+    .c5{  display: flex;  flex-direction:row-reverse;  }
+    .c6{   display:flex; flex-direction:column-reverse;  }
+
+    /* ver-3  스크롤 없는 100% 레이아웃 */
+    html,body{   height: 100%; }
+    .c7     {   display: flex;  flex:1;  }  /* 확장1 */
+    .c7  .i1{   display: flex;  width:200px; flex:none; } /* flex:none; 확장(0), 축소(0), 기본크기(auto)  */
+    .c7  .i2{   display: flex;               flex:1;   }  /* flex:1;   확장(1), 축소(1), 기본크기(0)  */
+
+
+    /* ver-4  네비게이션 */
+    .c8{   display: flex;  }
+    .c8  .i1 , .c8  .i2, .c8 .i3 {   flex:none;   } /* flex:none; 확장(0), 축소(0), 기본크기(auto)  */
+    .c8 .i3 { margin-left:auto;}
+
+
+    /* ver-5  footer */
+    .c9{   display: flex; 	flex-direction: column;  height: 300px;	 }
+    .c9  .i1{ height:50px; margin-top:auto; }
+
+    /* ver-6  left   center  right */
+    .c10{   display: flex; 	 justify-content: space-between;  }
+
+    /* ver-7  center */
+    .c11{   display: flex; 	    flex-direction: column;   height: 100px;  }
+    .c11  .item{  margin:auto; font-size:20px;}
+
+    /* ver-8  유동 width */
+    .c12{   display: flex; 	    height: 100px;  }
+    .c12  .item{   flex:0  1  auto;  max-width:300px;
+        overflow:hidden;      text-overflow: ellipsis;  white-space: nowrap;
+        height: 38px;  padding: 8px;     margin: 16px 8px 0;
+      }
+    .c12  .i4{ margin-left:auto; }
+
+
+    /* ver-9  왼상, 왼하, 오른쪽상, 오른쪽하 */
+    .c13{
+        display: flex;	    height: 400px;   width:400px;
+		align-content: space-around;  /* 항목균등간격으로 정렬 */
+		justify-content: space-around;/* 항목균등간격으로 정렬 */
+        flex-flow: column wrap;  /* 박스를 벗어났을때 줄바꿈속성성 */
+    }
+    .c13  .item{
+        width:150px; height:150px;  display: flex;
+        flex-direction: column;  /*  위에서 아래로방향 */
+        margin:2%;
+    }
+    /* ver-10   */
+    .c14{  width: 60%;     margin: 0 auto;    display: flex;   flex-wrap: wrap;   padding:0; }
+    .c14   .item{padding:1%; margin:1%;
+           display: flex;   flex-direction: column;   flex: none;    flex-basis: 29.33%;
+    }
+
+    </style>
+</head>
+<body>
+<div>
+    <h3>001. display:flex(내용물만큼만), block (가로100%)</h3>
+    <div class="container c1">
+        <div class="item  i1">aaa</div>
+        <div class="item  i2">bbbbb</div>
+        <div class="item  i3">cc</div>
+    </div>
+
+    <div class="container c2">
+        <div class="item  i1">aaa</div>
+        <div class="item  i2">bbbbb</div>
+        <div class="item  i3">cc</div>
+    </div>
+    <!--                    -->
+    <!--                    -->
+    <h3>002. flex-direction(배치 방향 설정)</h3>
+    <div class="container c3">
+        <div class="item  i1">aaa</div>
+        <div class="item  i2">bbbbb</div>
+        <div class="item  i3">cc</div>
+    </div>
+
+    <div class="container c4">
+        <div class="item  i1">aaa</div>
+        <div class="item  i2">bbbbb</div>
+        <div class="item  i3">cc</div>
+    </div>
+
+    <div class="container c5">
+        <div class="item  i1">aaa</div>
+        <div class="item  i2">bbbbb</div>
+        <div class="item  i3">cc</div>
+    </div>
+
+    <div class="container c6">
+        <div class="item  i1">aaa</div>
+        <div class="item  i2">bbbbb</div>
+        <div class="item  i3">cc</div>
+    </div>
+    <!--                    -->
+    <!--                    -->
+    <h3>003. 스크롤 없는 100% 레이아웃 </h3>
+    <div class="container c7">
+        <div class="item  i1">aaa</div>
+        <div class="item  i2">bbbbb</div>
+    </div>
+    <!--                    -->
+    <!--                    -->
+    <h3>004. 네비게이션 </h3>
+    <div class="container c8">
+        <div class="item  i1">aaa</div>
+        <div class="item  i2">bbbbb</div>
+        <div class="item  i3">cc</div>
+    </div>
+    <!--                    -->
+    <!--                    -->
+    <h3>005. 바닥에 붙는 footer </h3>
+    <div class="container c9">
+        <div class="item  i1">aaa</div>
+    </div>
+    <!--                    -->
+    <!--                    -->
+    <h3>006. left, center, right </h3>
+    <div class="container c10">
+        <div class="item  i1">aaa</div>
+        <div class="item  i2">bbbbb</div>
+        <div class="item  i3">cc</div>
+    </div>
+    <!--                    -->
+    <!--                    -->
+    <h3>007. center </h3>
+    <div class="container c11">
+        <div class="item  i1">aaa</div>
+    </div>
+    <!--                    -->
+    <!--                    -->
+    <h3>008. 유동 width </h3>
+    <div class="container c12">
+        <div class="item  i1">가나다라마바사아자차카타파하가나다라마바사아자차카타파하</div>
+        <div class="item  i2">가나다라마바사</div>
+        <div class="item  i3">가나다라</div>
+        <div class="item  i4">가나다라</div>
+    </div>
+
+    <!--                    -->
+    <!--                    -->
+    <h3>009. 위, 아래로 흐르는 목록 </h3>
+    <div class="container c13">
+        <div class="item  i1">AAA</div>
+        <div class="item  i2">BBB</div>
+        <div class="item  i3">CCC</div>
+        <div class="item  i4">DDD</div>
+    </div>
+
+    <!--                    -->
+    <!--                    -->
+    <h3>010. 가로세로 비율유지 박스 </h3>
+    <div class="container c14">
+        <div class="item  i1">AAA</div>
+        <div class="item  i2">BBB</div>
+        <div class="item  i3">CCC</div>
+        <div class="item  i4">DDD</div>
+    </div>
+
+
+
+
+</div>
+</body>
+</html>

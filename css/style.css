@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/*  style.css  */
+/*############### header  ###############*/
+#head{ display: flex;   width:100%; }
+#head  #logo , #head  .search{  flex:none; }
+#header #logo{  width:160px;   margin:20px 0; }
+#head  .search{margin-left:auto;     }
+
+#searchText { width: 480px;	height: 30px;	text-indent: 10px;	margin:20px 0;  }
+.search input[type="image"] {	vertical-align: middle;	}
+
+#header nav  li{  display: inline-block;  }
+#header nav  li a{  display: inline-block;   padding:0 20px;}
+
+
+/*############### visual  ###############*/
+#visual{width:100%;  height: calc(100vh - 120px); /*전체 브라우저 높이에서 120px만큼 빼줌*/
+        background:url("../img/main.jpg")  no-repeat  center;   position: relative;
+        background-attachment: fixed;
+}
+#visual  .visual_desc{ transition: all .5s; position:absolute; right:75%; top:15%;  width:15%;  background-color:#1570a6;  padding:17px; color:#fff;  }
+#visual .visual_desc:hover{
+    box-shadow: 5px 5px 10px #6f6f53;
+    border-radius: 15px;
+}
+#visual  .visual_desc h3{ font-size:150%; }
+#visual  .visual_desc p{   margin:20px 0; }
+#visual  .visual_desc a{  color:white; }
+
+
+/*############### content  ###############*/
+#content  .container  ul{  display: flex;  margin:2% 0;  text-align: center; }
+#content  .container  ul li{     flex:1;    overflow:hidden;   text-overflow: ellipsis;  white-space: nowrap;   font-size: 85%;
+    font-weight: bold;   }
+
+#content  .container  ul li img{transition: all 0.7s;}
+#content  .container  ul li img:hover{ transform:scale(0.9); }
+
+
+/*############### footer  ###############*/
+#footer {text-align: center;  padding-top:20px}
+#footer  li  {  display: inline-block;   margin-right:5px;    }
+#footer  li a{  color:white; }

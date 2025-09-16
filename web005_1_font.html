@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{ margin:0; padding:0;}
+    /*
+    1. 컨테이너에 적용하는 속성
+    2. 아이템에 적용하는 속성
+    [   [.item][.item][.item]  ].container
+    */
+     h3{ padding:2%; border-left:10px solid burlywood;  background-color: beige;}
+    .container{   background-color:#efefef;    width:80%;  margin: 2% auto;  padding:2%; }
+    </style>
+</head>
+<body>
+    <h3> 1.  FONT속성 </h3>
+    <div class="container">
+        <p  style="color:red;background-color:pink">1. 글자색상 red / 배경색- pink  인라인방법으로 작성
+             1. 글자색 : color
+        </p>
+        <p style="font-size:25px">
+            2. 글자사이즈 : font-size
+            font-size:25px
+        </p>
+        <p style="font-style:italic;">
+            3. 기울이기 : font-style:italic / normal
+            font-style:italic;
+        </p>
+        <p style="font-weight:bold;">
+            4. 굵게 : font-weight : bold / normal
+        </p>
+        <p style="font-family:'Courier New', Courier, monospace">
+            5. 글꼴 : font-family
+            font-family:'Courier New', Courier, monospace
+        </p>
+
+    </div>
+    <!--        -->
+    <!--        -->
+
+    <h3> 2. 문단 속성</h3>
+    <div class="container">
+        <p style="line-height: 3em;">
+            1. 행간     : line-height
+            line-height: 3em
+        </p>
+        <p style="text-align: center;">
+            2. 정렬     : text-align
+            text-align: center
+        </p>
+        <p style="text-indent:2em;">
+            3. 들여쓰기 : text-indent
+            text-indent:2em;
+        </p>
+        <p style="letter-spacing:5px;">
+            4. 자간     : letter-spacing   letter-spacing:5px;
+        </p>
+        <p style="text-decoration: underline;">
+            5. 밑줄     : text-decoration   text-decoration: underline;
+        </p>
+    </div>
+    <!--        -->
+    <!--        -->
+
+    <h3>연습문제</h3>
+    <div class="container">
+        <p  style="color:gray;font-size: 25;">
+            연습문제1) 인라인방법을 이용해서 글자색상 gray / 글자사이즈 25px
+        </p>
+        <p  style="color:orange;line-height: 30px;">
+            연습문제2) 인라인방법을 이용해서 글자색상 orange / 행간 30px
+        </p>
+        <p style="font-family: 'Malgun Gothic', sans-serif;">
+            연습문제3) 인라인방법을 이용해서
+            글꼴 1순위 Malgun Gothic 2순위 sans-serif
+        </p>
+        <p  style="text-align: right; letter-spacing: 5px;">
+            연습문제4) 인라인방법을 이용해서 오른쪽으로 정렬 / 글자간격5px
+        </p>
+        <p style="color:red;letter-spacing: 3px;font-weight: bold;font-style:italic; text-indent:1em; text-decoration: line-through;text-align:justify">
+            연습문제5) 인라인방법을 이용해서
+            글자색상 red / 자간 3px / 굵게 / 기울이기 / 들여쓰기 1em / 취소선
+            / 글자의 정렬이 왼쪽-오른쪽 선에 딱 맞춰서 정렬되게 만들기
+        </p>
+    </div>
+
+</body>
+</html>
