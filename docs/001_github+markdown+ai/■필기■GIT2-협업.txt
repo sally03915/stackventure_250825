@@ -1,0 +1,138 @@
+--------------------
+* 협업
+--------------------
+■1 조장
+   1. github  저장소만들기 
+    - 조별체크
+   2. basic.html  -  파일올리기
+
+====== code  start
+PS C:\git1> git init
+Initialized empty Git repository in C:/git1/.git/
+PS C:\git1>
+PS C:\git1>  git  remote  add  origin https://github.com/sally03915/git1.git
+PS C:\git1> git remote -v
+origin  https://github.com/sally03915/git1.git (fetch)
+origin  https://github.com/sally03915/git1.git (push) 
+PS C:\git1> git  push origin  master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 412 bytes | 206.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0        
+To https://github.com/sally03915/git1.git
+ * [new branch]      master -> master
+PS C:\git1> 
+====== code  end
+
+
+   3. 팀원초대   -  sally03915
+      [Settings] - access[Collaborators] - add People 
+
+
+■2 팀원
+1.  팀원 원격저장소에서 다운로드받기
+------------------------------------------ 
+git  clone  주소  폴더이름
+------------------------------------------ 
+# 1.  팀원 원격저장소에서 다운로드받기
+git       clone   주소            폴더이름
+1. 폴더이름을 줄경우     >  폴더이름으로 폴더가 새로 생성, 그 안에 코드들이 다운로드
+2. 폴더이름을 안줄경우  >  프로젝트 이름으로 폴더가 자동으로 생기고,  그안에 코드들이 다운로드
+
+
+====== code  start
+C:\>mkdir  git_test_part
+C:\>cd  git_test_part
+C:\git_test_part>git  clone   https://github.com/sally03915/git_test.git  user1
+Cloning into 'user1'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+
+C:\git_test_part>
+C:\git_test_part>cd user1
+C:\git_test_part\user1>dir
+ C 드라이브의 볼륨에는 이름이 없습니다.
+ 볼륨 일련 번호: FA76-183F
+
+ C:\git_test_part\user1 디렉터리
+
+2024-01-23  오후 03:05    <DIR>          .
+2024-01-23  오후 03:05    <DIR>          ..
+2024-01-23  오후 03:05               246 basic.html
+               1개 파일                 246 바이트
+               2개 디렉터리  201,619,701,760 바이트  남음
+
+C:\git_test_part\user1> code .
+====== code  end
+
+
+
+2.  파일올리기
+------------------------------------------ 
+파일작성
+------------------------------------------
+             2-1.   git  add  .                                                        
+             2-2.   git  commit  -m  "first commit user1  "       
+             2-3.   주의!!!   git  push  origin  master 하면 안됨!  master 는 최종 프로젝트를 의미함.
+             2-4.   git  checkout  -b  user1                                
+             2-5.   git  push  origin  user1                                
+             2-6.   원격저장소 가서 올라간것 확인!
+             2-7.   [ compare & pull  request ] 버튼 클릭
+             2-8.   제목, 메시지 남기기     - [ Create pull  request ]
+             2-9.   Pull request(1) 에 문의내용올린 것 확인
+
+PS C:\git_test_part\user1> git add .
+PS C:\git_test_part\user1> 
+PS C:\git_test_part\user1> git commit  -m "user1  commit "
+[master 413a586] user1  commit   
+ 1 file changed, 11 insertions(+)
+ create mode 100644 user1.html   
+PS C:\git_test_part\user1> 
+
+
+
+
+■3  팀장  -    브런치에 올라온 코드 확인 후 팀원 코드 적용
+
+[ 실습3 ]    
+1.  원격저장소 가기
+2. Pull requests 확인
+3.  올린코드 확인
+              3-1. 올린코드 확인
+              3-2. user1의 commit 클릭
+              3-3. Review changes에 리뷰남기기
+4.  코드 적용시키기
+              4-1.  [ Merge pull request ]
+              4-2.  [ Comfirm merge ] 확인
+              4-3.  적용된 화면 확인
+
+
+
+■4.  팀장  -   마스터코드(팀장) 동기화
+▶ 마스터에 변화가 생기면 코드 동기화
+1. 현재 올라가 있는 수정된 원격저장소 코드와   팀장의 코드가 맞지 않을때
+2. 마스터코드 일단 저장하고
+              2-1.  git  add  .
+              2-2.  git  commit  -m  "second  commit  pull-before"
+              2-3.  git  pull  orgin  master
+              2-4.  작성한 코드와 수정된 코드를 확인 할 수 있다.
+              2-5.  수정후 코드 다시 올리기
+PS C:\mygit_basic2> git  add .
+PS C:\mygit_basic2>
+PS C:\mygit_basic2> git  commit  -m  "last  message test com"
+[master 6ca1cc2] last  message test com
+ 1 file changed, 13 insertions(+)
+PS C:\mygit_basic2> git  push  origin  master
+Enumerating objects: 5, done.
+
+
+
+
+
+
+
