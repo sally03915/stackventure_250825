@@ -1,88 +1,92 @@
-<!-- _class: cover -->
-
-# 🚀 Stackventure_250825
-
-### 📘 CodeCraft Series · Track Index  
-
-> **통합형 개발자를 위한 실전 중심의 기술 트랙 모음**  
-> 백엔드, 프론트엔드, 데이터, 인프라, AI까지 전방위 실습 중심으로 구성된 시리즈입니다.  
-> 👉 [웹페이지 바로가기](https://sally03915.github.io/stackventure_250825/)
-
-<br>
+좋아요! 아래는 기존 Java 중심 실습 트랙을 Oracle ERD(개체-관계 다이어그램) 중심 실습 트랙으로 재구성한 버전입니다. 데이터 모델링, 관계 설정, 실무 중심 ERD 설계 역량에 초점을 맞췄어요:
 
 ---
 
-## 🧭 목차
+# 🧠 CodeCraft Oracle ERD 설계 실습 트랙
 
-<br>
+본 프로젝트는 **Oracle 기반 데이터베이스 설계**,  
+**ERD(Entity Relationship Diagram) 모델링**, 그리고 **실무 중심의 DB 구조 설계 역량 강화**를 위한 실습형 예제입니다.
 
-| 트랙 번호 | 기술 스택 | 설명 | 링크 |
-|----------|-----------|------|------|
-| Track 01 | GitHub + Markdown + AI | 협업의 기본기 습득 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track01-github-ai) |
-| Track 02 | HTML + CSS + JS + jQuery + Bootstrap | 프론트엔드 핵심 기술 총정리 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track02-html-css-js) |
-| Track 03 | Java | 객체지향 프로그래밍 실습 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track03-java) |
-| Track 04 | MySQL + ERD | 데이터베이스 설계 및 관리 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track04-mysql-erd) |
-| Track 05 | Python + Django | 백엔드 웹 서비스 구축 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track05-python-django) |
-| Track 06 | JSP | 동적 웹 페이지 개발 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track06-jsp) |
-| Track 07 | AI API | 챗봇 구현 및 API 활용 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track07-ai-api) |
-| Track 08 | Docker | DevOps 환경 구성 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track08-docker) |
-| Track 09 | AWS | 클라우드 인프라 실습 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track09-aws) |
-| Track 10 | Spring + Security + JPA + Thymeleaf | 통합 웹 서비스 개발 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track10-spring-jpa) |
-| Track 11 | Node + React | 풀스택 SPA 구현 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track11-node-react) |
-| Track 12 | Spring + MyBatis + React | 통합 개발 실습 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track12-spring-mybatis-react) |
-| Track 13 | Spring + Flutter | 크로스 플랫폼 앱 개발 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track13-spring-flutter) |
-
-<br>
+> 💡 **단순한 SQL 작성에서 벗어나,  
+> 실무 중심의 테이블 구조 설계 · 관계 설정 · 정규화 · 제약조건까지  
+> 체계적으로 익히는 데 목적이 있습니다.**
 
 ---
 
-## 🧑‍💻 개발자 소개
+## 📌 Full-Stack Data Architect Profile
 
-<br>
+**CodeCraft 시리즈**는 기획부터 모델링, 문서화, 협업까지  
+전 과정을 주도적으로 수행할 수 있는 데이터 설계자를 위한 실습형 트랙입니다.
 
-> **Full Stack Developer · Sally03915**  
-> 실전 중심의 기술 습득과 프로젝트 기반 학습을 통해  
-> 프론트엔드부터 백엔드, 인프라, AI까지 전방위 역량을 갖춘 개발자를 지향합니다.
-
-<br>
+Lucidchart, dbdiagram.io, Draw.io 등 ERD 도구를 활용하며,  
+Oracle SQL Developer 또는 SQL*Plus 환경에서 실제 테이블 생성 및 관계 설정을 실습합니다.
 
 ---
 
-## 📌 사용법
+## 📌 `Track 03.` Oracle ERD 설계 핵심 실습  
+**Entity · Relationship · Normalization · Constraints · SQL DDL · ERD Tool 활용**
 
-<br>
-
-1. 각 트랙별 브랜치를 확인하고 필요한 기술을 학습합니다.  
-2. 웹페이지에서 실습 자료를 확인하고 직접 실행해보세요.  
-3. 궁금한 점은 Issues에 남겨주세요. 함께 성장하는 개발 문화를 지향합니다.
-
-<br>
+> Oracle 기반 데이터베이스 구조를 단계별로 설계하며,  
+> 실무 중심의 데이터 모델링 및 관계 설정 능력을 체계적으로 실습합니다.
 
 ---
 
-## 🛠️ 기술 스택 요약
+## 📌 목차
 
-<br>
+### Part 1. ERD 기초
 
-`Frontend`: HTML, CSS, JS, jQuery, Bootstrap, React, Flutter  
-`Backend`: Java, Python (Django), Spring Boot, Node.js  
-`Database`: MySQL, ERD, MyBatis, JPA  
-`Infra`: Docker, AWS  
-`AI`: OpenAI API, Prompt Engineering  
-`Collaboration`: GitHub, Markdown, Git Flow
-
-<br>
+| 챕터 | 내용 | 링크 |
+|------|------|------|
+| Chapter 1 | ERD란 무엇인가 · 개체와 속성 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd001_intro_entity_attribute) |
+| Chapter 2 | 관계(Relationship) · 기본키/외래키 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd002_relationship_pk_fk) |
+| Chapter 3 | 정규화(Normalization) · 중복 제거 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd003_normalization) |
+| Chapter 4 | 제약조건(Constraints) · 무결성 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd004_constraints_integrity) |
 
 ---
 
-## ⭐️ 프로젝트 목표
+### Part 2. 실무 모델링
 
-<br>
-
-> 단순한 튜토리얼을 넘어서  
-> **실제 서비스 구현에 가까운 풀스택 개발 역량**을 갖추는 것.  
-> 이 저장소는 그 여정을 함께하는 기술 아카이브입니다.
-
-<br>
+| 챕터 | 내용 | 링크 |
+|------|------|------|
+| Chapter 5 | 사용자 · 주문 · 상품 테이블 설계 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd005_user_order_product) |
+| Chapter 6 | 다대다 관계 처리 · 중간 테이블 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd006_many_to_many) |
+| Chapter 7 | ERD 도구 실습 (Lucidchart/dbdiagram) | [보기](https://sally03915.github.io/stackventure_250825/erd/erd007_erd_tool_practice) |
+| Chapter 8 | SQL DDL로 ERD 구현 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd008_sql_ddl_implementation) |
 
 ---
+
+## 📌 목표  
+- ERD를 활용한 **데이터 구조 설계 능력 강화**  
+- 정규화를 통한 **중복 최소화 및 효율적 저장 구조 설계**  
+- 제약조건 설정을 통한 **데이터 무결성 확보**  
+- SQL DDL을 통한 **Oracle DB 기반 테이블 생성 및 관계 설정**
+
+---
+
+## 📌 기술 스택 기반 DB 설계 역량
+
+| 기술 스택     | 데이터 설계 개념             | 실무 적용 역량 |
+|---------------|------------------------------|----------------|
+| ERD Tool      | 개체/관계/속성 모델링        | 실무 중심 데이터 구조 시각화 |
+| Oracle SQL    | DDL / PK / FK / Constraints  | 테이블 생성 및 관계 설정 |
+| Normalization | 1NF / 2NF / 3NF              | 중복 제거 및 효율적 설계 |
+| PL/SQL        | 프로시저 / 트리거 / 함수     | 비즈니스 로직 처리 |
+| Markdown      | 문서화 / 설계서 작성         | 협업용 ERD 문서 및 기술 명세 작성 |
+
+---
+
+## 📌 시작하기
+
+```bash
+# 저장소 복제
+git clone https://github.com/your-username/oracle-erd-track.git
+
+# 프로젝트 폴더로 이동
+cd oracle-erd-track
+
+# ERD 도구 또는 SQL Developer로 열기
+```
+
+---
+
+원하시면 특정 도메인(예: 병원, 쇼핑몰, 교육 플랫폼)에 맞춘 ERD 설계 예제도 추가해드릴 수 있어요. 어떤 분야에 관심 있으신가요?
