@@ -37,13 +37,13 @@ Oracle SQL Developer 또는 SQL*Plus 환경에서 실제 테이블 생성 및 �
 
 | 챕터 | 내용 | 링크 |
 |------|------|------|
-| Chapter 1 | oracle_setting | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle001_setting) |
-| Chapter 2 | select_basic | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle002_select_basic) |
-| Chapter 3 | select_where | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle003_select_where) |
-| Chapter 4 | select_fn | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle004_select_fn) |
-| Chapter 5 | select_group | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle005_select_group) |
-| Chapter 6 | select_join | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle006_select_join) |
-| Chapter 7 | select_subquery | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle007_select_subquery) |
+| Chapter 1 | oracle_setting | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle001_setting) |
+| Chapter 2 | select_basic | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle002_select_basic) |
+| Chapter 3 | select_where | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle003_select_where) |
+| Chapter 4 | select_fn | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle004_select_fn) |
+| Chapter 5 | select_group | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle005_select_group) |
+| Chapter 6 | select_join | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle006_select_join) |
+| Chapter 7 | select_subquery | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle007_select_subquery) |
 
 ---
 
@@ -51,12 +51,12 @@ Oracle SQL Developer 또는 SQL*Plus 환경에서 실제 테이블 생성 및 �
 
 | 챕터 | 내용 | 링크 |
 |------|------|------|
-| Chapter 8 | update_delete | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle008_update_delete) |
-| Chapter 9 | transaction | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle009_transaction) |
-| Chapter 10 | ddl | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle010_ddl) |
-| Chapter 11 | object | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle011_object) |
-| Chapter 12 | constraint | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle012_constraint) |
-| Chapter 13 | user | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle013_user) |
+| Chapter 8 | update_delete | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle008_update_delete) |
+| Chapter 9 | transaction | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle009_transaction) |
+| Chapter 10 | ddl | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle010_ddl) |
+| Chapter 11 | object | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle011_object) |
+| Chapter 12 | constraint | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle012_constraint) |
+| Chapter 13 | user | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle013_user) |
 
 
 ---
@@ -65,10 +65,10 @@ Oracle SQL Developer 또는 SQL*Plus 환경에서 실제 테이블 생성 및 �
 
 | 챕터 | 내용 | 링크 |
 |------|------|------|
-| Chapter 14 | plsql?  | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle014_plsql) |
-| Chapter 15 | record | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle015_record) |
-| Chapter 16 | cursor | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle016_cursor) |
-| Chapter 17 | save | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle017_save) |
+| Chapter 14 | plsql?  | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle014_plsql) |
+| Chapter 15 | record | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle015_record) |
+| Chapter 16 | cursor | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle016_cursor) |
+| Chapter 17 | save | [보기](https://sally03915.github.io/stackventure_250825/004_oracle/oracle017_save) |
 
 
 ---
