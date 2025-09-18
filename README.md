@@ -33,25 +33,55 @@ Oracle SQL Developer 또는 SQL*Plus 환경에서 실제 테이블 생성 및 �
 
 ## 📌 목차
 
-### Part 1. ERD 기초
+### Part 1. Oracle Basic
 
 | 챕터 | 내용 | 링크 |
 |------|------|------|
-| Chapter 1 | ERD란 무엇인가 · 개체와 속성 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd001_intro_entity_attribute) |
-| Chapter 2 | 관계(Relationship) · 기본키/외래키 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd002_relationship_pk_fk) |
-| Chapter 3 | 정규화(Normalization) · 중복 제거 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd003_normalization) |
-| Chapter 4 | 제약조건(Constraints) · 무결성 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd004_constraints_integrity) |
+| Chapter 1 | oracle_setting | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle001_setting) |
+| Chapter 2 | select_basic | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle002_select_basic) |
+| Chapter 3 | select_where | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle003_select_where) |
+| Chapter 4 | select_fn | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle004_select_fn) |
+| Chapter 5 | select_group | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle005_select_group) |
+| Chapter 6 | select_join | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle006_select_join) |
+| Chapter 7 | select_subquery | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle007_select_subquery) |
 
 ---
 
-### Part 2. 실무 모델링
+### Part 2. 데이터조작및 객체
 
 | 챕터 | 내용 | 링크 |
 |------|------|------|
-| Chapter 5 | 사용자 · 주문 · 상품 테이블 설계 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd005_user_order_product) |
-| Chapter 6 | 다대다 관계 처리 · 중간 테이블 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd006_many_to_many) |
-| Chapter 7 | ERD 도구 실습 (Lucidchart/dbdiagram) | [보기](https://sally03915.github.io/stackventure_250825/erd/erd007_erd_tool_practice) |
-| Chapter 8 | SQL DDL로 ERD 구현 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd008_sql_ddl_implementation) |
+| Chapter 8 | update_delete | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle008_update_delete) |
+| Chapter 9 | transaction | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle009_transaction) |
+| Chapter 10 | ddl | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle010_ddl) |
+| Chapter 11 | object | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle011_object) |
+| Chapter 12 | constraint | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle012_constraint) |
+| Chapter 13 | user | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle013_user) |
+
+
+---
+
+### Part 3. Plsql
+
+| 챕터 | 내용 | 링크 |
+|------|------|------|
+| Chapter 14 | plsql?  | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle014_plsql) |
+| Chapter 15 | record | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle015_record) |
+| Chapter 16 | cursor | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle016_cursor) |
+| Chapter 17 | save | [보기](https://sally03915.github.io/stackventure_250825/track04-oracle-erd/oracle017_save) |
+
+
+---
+
+### Part 4. Erd
+
+| 챕터 | 내용 | 링크 |
+|------|------|------|
+| Chapter 1 | 사용자 · 주문 · 상품 테이블 설계 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd005_user_order_product) |
+| Chapter 2 | 다대다 관계 처리 · 중간 테이블 | [보기](https://sally03915.github.io/stackventure_250825/erd/erd006_many_to_many) |
+| Chapter 3 | ERD 도구 실습 (Lucidchart/dbdiagram) | [보기](https://sally03915.github.io/stackventure_250825/erd/erd007_erd_tool_practice) | 
+
+
 
 ---
 
