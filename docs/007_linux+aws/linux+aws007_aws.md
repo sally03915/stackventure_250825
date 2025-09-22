@@ -3,7 +3,7 @@ marp: true
 theme: uncover
 paginate: true
 style: |
-  @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.0/D2CodingBig.css');
+  @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.0/D2CodingBig.css'); 
 
   /* 공통 스타일 */
   section {
@@ -13,7 +13,40 @@ style: |
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 60px;
+    padding: 60px;  
+    position: relative;
+    
+  } 
+   /*
+  section::before {
+    content: ":D2BIG";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 8em;
+    color: #000;
+    opacity: 0.03;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+    letter-spacing:-25px;
+  } */
+  section::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg); /* 대각선 배치 */
+    
+    width: 90%;
+    height: 90%;
+    background-image: url('./images/워터마크_dbdbig.png'); /* 로고 이미지 경로 */
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.65; /* 은은하게 보이도록 조정 */
+    pointer-events: none;
+    z-index: 0;
   }
 
   section h1 {
@@ -73,23 +106,10 @@ style: |
   section[class^="cover"] h2 {
     font-size: 1.6em;
     font-weight: 400;
-    color: #222;
+    color: #f0f0f0;
     margin-bottom: 10px;
   }
-
-  section.cover::after {
-    content: "";
-    background-image: url('회사로고_URL');
-    background-size: 80px;
-    background-repeat: no-repeat;
-    opacity: 0.05;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 80px;
-    height: 80px;
-    pointer-events: none;
-  }
+ 
 
   /* 과목별 cover 배경 */
   section.cover-githubai {
@@ -163,6 +183,68 @@ style: |
     color: #005999;
   }
 
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  td, th {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .mark {
+    color: #007acc;
+    font-weight: bold;
+  }  
+
+  code, pre {
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #eef;
+    padding: 12px 16px;
+    border-radius: 6px;
+    display: block;
+    width: 120%;              /* 전체 너비 사용 */
+    white-space: pre-wrap;    /* 줄바꿈 허용 */
+    overflow-x: auto;         /* 가로 스크롤 가능 */
+    box-sizing: border-box;   /* padding 포함한 너비 계산 */
+  }
+
+  pre code {
+    display: block;
+    width: 100%;               /* 전체 너비 사용 */
+    max-width: 800px;          /* 최대 너비 설정 */
+    margin: 0 auto;            /* 가운데 정렬 */
+    white-space: pre;          /* 줄바꿈 방지 */
+    overflow-x: auto;          /* 가로 스크롤 허용 */
+    font-size: 1.2em;
+    padding: 12px 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    color: #007acc;
+  }
+
+
+ 
+  pre {
+    max-width: 100%;
+    width: fit-content;
+  }
+
+  .codeblock {
+    background: #f4f4f4;
+    color: #007acc;
+    padding: 1em;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace; 
+    white-space: pre-wrap; 
+    font-size:0.7em;
+  }
+
   /* 일반 섹션 배경 */
   section.orange   { background: linear-gradient(135deg, #fca65e, #f76b1c); color: #fff; }
   section.blue     { background: linear-gradient(135deg, #6fa3ef, #4169E1); color: #ffffcc; }
@@ -171,222 +253,71 @@ style: |
   section.red      { background: linear-gradient(135deg, #ff6f61, #DC143C); color: #ffecec; }
   section.aqua     { background-color: #E0FFFF; color: #222; }
   section.thanks   { background-color: #FDF5E6; color: #444; }
+  section.ex       { background-color: #96e6a1; color:#333; }
   
 
   
 ---
-
 <!-- _class: cover-aws -->
 <h4 style="color:#6C757D;">
-  <span style="color:#FF9900; text-shadow: 0 0 6px rgba(255,153,0,0.6); font-weight:bold;">🚀</span>
-  CodeCraft Series · Track 09
-</h4>  
-<h1 style="color:#FF9900;">AWS 클라우드 실전</h1>  
-<h3 style="color:#333;">EC2 · S3 · IAM · RDS · Lambda</h3>
+  <span style="color:#ff6e7f; text-shadow: 0 0 6px rgba(255,110,127,0.6); font-weight:bold;">🧠</span>
+  CodeCraft Series · Track 04
+</h4>
+<h1 style="color:#007BFF;">Linux & AWS Fundamentals</h1>
+<h3 style="color:#17A2B8;">리눅스 기초부터 클라우드 배포까지, 인프라의 핵심을 배우다</h3>
 
 <!-- 현재 챕터 강조 -->
 <div class="chapter-highlight">
-  📍 <strong>현재 위치:</strong> Chapter 2 · <em>EC2 인스턴스 생성과 관리</em>
+  📍 <strong>현재 위치:</strong> Chapter 1· <em>리눅스란? · Linux 설치 </em>
 </div>
 
 <blockquote>
-  <span class="fragment" style="color:#343A40;">클라우드 인프라의 핵심 서비스를 직접 다루는 실습 중심 강의</span><br>
-  <span class="fragment" style="color:#495057;">AWS로 개발, 배포, 보안까지 한 번에 배우는 클라우드 여정</span>
+  <span class="fragment" style="color:#343A40;">실무에 바로 적용 가능한 리눅스 & AWS 입문서</span><br>
+  <span class="fragment" style="color:#495057;">터미널과 클라우드 콘솔을 넘나들며, 인프라의 기초를 다져요</span>
 </blockquote>
 
----
 
+---
 <!-- _class: cover-aws -->
-<h2 style="font-size:1.6em; color:#333;">목차 : AWS 클라우드 실전 트랙</h2>
+<h2 style="font-size:1.6em; color:#555;">📚 Linux + AWS 트랙 목차</h2>
+<h3> Part001:  리눅스 기초와 운영</h3>
+<div class="track-outline">
+  <span class="current-chapter">✅▶ Chapter 1: 리눅스란? · Setting</span>
+  <span>▶ Chapter 2:  기본 명령어 </span>
+  <span>▶ Chapter 3:  파일 시스템 </span>
+  <span>▶ Chapter 4:  사용자 · 권한</span>
+  <span>▶ Chapter 5:  프로세스· 패키지 관리 · 서비스 · 로그</span>
+  <span>▶ Chapter 6:  쉘 스크립트 · 자동화</span>
+</div>
+
+ 
+---
+<!-- _class: cover-aws -->
+<h2 style="font-size:1.6em; color:#555;">📚 Linux + AWS 트랙 목차</h2>
+<h3> Part002: 클라우드 인프라와 배포</h3>
 
 <div class="track-outline">
-  <span>▶ Chapter 1: AWS 소개와 콘솔 탐색</span>
-  <span class="current-chapter">✅▶ Chapter 2: EC2 인스턴스 생성과 관리</span>
-  <span>▶ Chapter 3: S3 버킷과 객체 저장</span>
-  <span>▶ Chapter 4: IAM 사용자와 권한 설정</span>
-  <span>▶ Chapter 5: RDS와 Lambda 실습</span>
+<span>▶ Chapter 7: AWS 개요</span>
+<span>▶ Chapter 8: EC2 인스턴스</span>
+<span>▶ Chapter 9: S3 스토리지</span>
+<span>▶ Chapter 10: CI/CD · Github Actions</span>
 </div>
 
 <p style="margin-top:30px; font-size:0.95em; color:#888;">
-  이 트랙은 AWS의 핵심 서비스를 실습 중심으로 학습하며 <br/> 클라우드 인프라 구축과 운영 능력을 향상시킵니다.
+  이 트랙은 리눅스 운영체제의 핵심 개념을 익히고,<br/> AWS를 활용한 클라우드 인프라 구축까지 이어집니다.
 </p>
 
 
 
----
 
-<!-- _class: orange -->
-# 🧩 Step 1: 핵심 개념
 
-- <span class="fragment">중요한 개념을 간결하게 정리</span>  
-- <span class="fragment">시각적으로 눈에 띄는 주황색</span>  
-- <span class="fragment">학습자의 집중을 유도</span>
 
----
 
-<!-- _class: aqua -->
-## 예제 1: 변수란?
 
-```python
-x = 10
-print(x)
-```
-
----
-
-<!-- _class: aqua -->
-## 예제 2: 함수란?
-
-```python
-def add(a, b):
-    return a + b
-```
-
----
-
-<!-- _class: blue -->
-# 🧪 Step 2: 코드 예제
-
-```python
-def greet(name):
-    return f"Hello, {name}!"
-```
-
-> <span class="fragment">파란 배경은 코드 가독성에 효과적입니다</span>
-
----
-
-<!-- _class: aqua -->
-## 예제 1: 리스트 반복문
-
-```python
-fruits = ["사과", "바나나"]
-for fruit in fruits:
-    print(fruit)
-```
-
----
-
-<!-- _class: aqua -->
-## 예제 2: 조건문 사용
-
-```python
-score = 85
-if score >= 80:
-    print("합격입니다!")
-```
-
----
-
-<!-- _class: green -->
-# 🛠️ Step 3: 실습 과제
-
-- <span class="fragment">직접 따라해보는 문제</span>  
-- <span class="fragment">녹색은 안정감과 실천을 상징</span>  
-- <span class="fragment">학습자에게 행동을 유도</span>
-
----
-
-<!-- _class: aqua -->
-## 과제 1: 사용자 입력 받아 인사하기
-
-```python
-name = input("이름을 입력하세요: ")
-print(f"{name}님 반갑습니다!")
-```
-
----
-
-<!-- _class: aqua -->
-## 과제 2: 짝수만 출력하기
-
-```python
-nums = [1, 2, 3, 4, 5]
-for n in nums:
-    if n % 2 == 0:
-        print(n)
-```
-
----
-
-<!-- _class: purple -->
-# 💡 Step 4: 사고 확장
-
-- <span class="fragment">“왜 그럴까?”를 생각하게 하는 질문</span>  
-- <span class="fragment">창의성과 상상력을 자극하는 보라색</span>
-
----
-
-<!-- _class: aqua -->
-## 질문 1: 함수는 왜 필요한가?
-
-- <span class="fragment">중복을 줄이고 유지보수를 쉽게 하기 위해</span>
-
----
-
-<!-- _class: aqua -->
-## 질문 2: 조건문 없이 짝수를 걸러낼 수 있을까?
-
-- <span class="fragment">창의적 접근을 유도하는 사고 실험</span>
-
----
-
-<!-- _class: red -->
-# 🧠 Step 5: 기억 테스트
-
-- <span class="fragment">퀴즈 또는 복습 문제</span>  
-- <span class="fragment">강렬한 마무리로 기억에 오래 남음</span>
-
----
-
-<!-- _class: aqua -->
-## 퀴즈 1
-
-`print("Hello")`의 역할은?
-
-- <span class="fragment">A. 화면에 출력한다</span>  
-- <span class="fragment">B. 값을 저장한다</span>  
-- <span class="fragment">C. 반복한다</span>
-
----
-
-<!-- _class: aqua -->
-## 퀴즈 2
-
-`if` 문은 어떤 상황에서 사용되나요?
-
-- <span class="fragment">A. 반복할 때</span>  
-- <span class="fragment">B. 조건을 판단할 때</span>  
-- <span class="fragment">C. 함수를 정의할 때</span>
-
----
-
-<!-- _class: aqua -->
-## 📊 테이블 예제
-
-| 이름   | 나이 | 직업     |
-|--------|------|----------|
-| 홍길동 | 30   | 개발자   |
-| 김영희 | 27   | 디자이너 |
-| 박철수 | 35   | 기획자   |
-
-> <span class="fragment">표 형식은 정보를 구조적으로 보여줄 때 유용합니다</span>
-
----
-
-<!-- _class: aqua -->
-## 🖼️ 이미지 예시
-
-```
-![예시 이미지](https://via.placeholder.com/300x200.png?text=Sample+Image)
-```
-
-> <span class="fragment">이미지는 시각적 이해를 돕고 집중도를 높입니다</span>
-
----
-
-<!-- _class: thanks -->
+---  
+<!-- _class: thanks -->  
 ## 👋  열심히 들어주셔서 감사합니다!
 
+> <span class="fragment">이제 자바의 구조와 출력까지 완벽하게 이해했어요</span>  
+> <span class="fragment">다음은 변수와 자료형, 그리고 입력으로 넘어가볼까요?</span>
 > <span class="fragment">오늘의 한 걸음이 **내일의 가능성**이 되길 바라며,</span>  
-> <span class="fragment">그럼, 다음 이시간에 또 만나요!</span>
