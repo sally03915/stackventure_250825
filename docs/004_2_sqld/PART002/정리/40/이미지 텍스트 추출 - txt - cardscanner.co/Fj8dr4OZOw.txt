@@ -1,0 +1,112 @@
+
+72
+다음 중 아래 테이블들을 대상으로 SQL 문장을 수행한 결과로 가장 적절한 것은?
+아래
+[테이블: OS]
+OSID(PK)
+OS명
+100
+200
+Android
+iOS
+300
+Bada
+[테이블: 단말기]
+단말기[D(PK)
+단말기명
+OSID(FK)
+1000
+A1000
+100
+2000
+B2000
+100
+3000
+C3000
+200
+4000
+D3000
+300
+[테이블: 고객]
+고객번호(PK)
+고객명
+단말기ID(PK)
+11000
+홍길동
+1000
+12000
+강감찬
+NULL
+13000
+이순신
+NULL
+14000
+안중근
+3000
+15000
+고길동
+4000
+16000
+이대로
+4000
+[SQL]
+SELECT A. 고객번호, A. 고객명, B. 단말기ID, B. 단말기명, C.OSID,
+COS명
+FROM
+ON
+ON
+고객 A LEFT OUTER JOIN 단말기 B
+(A. 고객번호 IN (11000, 12000) AND A. 단말기ID=
+B. 단말기ID) LEFT OUTER JOIN OS C
+(B,OSIDC,OSID)
+ORDER BY A. 고객번호:
+1 고객번호
+고객명단말기ID 단말기명
+OSID
+OS명
+11000
+홍길동
+1000
+A1000
+100 Android
+12000
+강감찬 NULL
+NULL
+NULL NULL
+13000
+이순신
+NULL
+NULL
+NULL
+NULL
+14000
+안중근
+NULL
+NULL
+NULL
+NULL
+15000
+고길동
+NULL
+NULL
+NULL
+NULL
+16000
+NULL 이대로
+NULL
+NULL NULL
+2 고객번호
+고객명 단말기ID 단말기명
+OSID
+OS명
+11000
+홍길동
+1000
+A1000
+100 Android
+12000
+강감찬
+NULL
+NULL
+NULL
+NULL

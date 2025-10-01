@@ -1,0 +1,20 @@
+
+53
+다음 중 오류가 발생하는 SQL 문장인 것은?
+1 SELECT 회원ID, SUM(주문금액) AS 합계
+FROM 주문
+GROUP BY ID
+HAVING COUNT(*)> 1:
+2 SELECT SUM(주문금액) AS 합계
+FROM 주문
+HAVING AVG(주문금액)> 100;
+3 SELECT 메뉴ID, 사용유형코드, COUNT(*) AS CNT
+FROM 시스템사용이력
+WHERE
+BETWEEN SYSDATE - 1 AND SYSDATE
+GROUP BY 메뉴ID, 사용유형코드
+HAVING 메뉴ID=3 AND 사용유형코드= 100;
+4 SELECT 메뉴ID, 사용유형코드, AVG(COUNT(*)) AS AVGCNT
+FROM 시스템사용이력
+GROUP BY 메뉴ID, 사용유형코드:
+но

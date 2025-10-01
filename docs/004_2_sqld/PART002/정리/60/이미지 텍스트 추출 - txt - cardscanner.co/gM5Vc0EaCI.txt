@@ -1,0 +1,47 @@
+
+1 SELECT A. 부서코드, A, 부서명, A. 상위부서코드, B. 매출액, LVL FROM (SELECT 부서코드, 부서명, 상위부서코드, LEVEL AS LVL FROM 부서
+START WITH 부서코드 '120'
+CONNECT BY PRIOR 상위부서코드 = 부서코드
+UNION
+SELECT 부서코드, 부서명, 상위부서코드, LEVEL AS LVL FROM 부서
+START WITH 부서코드= '120'
+CONNECT BY 상위부서코드 = PRIOR 부서코드) A LEFT
+OUTER JOIN
+ON (A. 부서코드 - B. 부시코드)
+ORDER BY A. 부서코드:
+B
+2 SELECT A부서코드, A, 부서명, A. 상위부서코드, B. 매출액, LVL FROM (SELECT 부서코드, 부서명, 상위부서코드, LEVEL AS LVL FROM 부서
+ON
+START WITH 부서코드 = '100'
+CONNECT BY 상위부서코드 = PRIOR 부서코드) A LEFT
+OUTER JOIN
+(A. 부서코드 - B. 부서코드)
+=
+ORDER BY A. 부서코드:
+B
+3 SELECT A. 부서코드, A, 부서명, A. 상위부서코드, B. 매출액, LVL FROM (SELECT 부서코드, 부서명, 상위부서코드 LEVEL AS LVL FROM 부서
+ON
+START WITH 부서코드 = '121'
+CONNECT BY PRIOR 상위부서코드 = 부서코드) A LEFT
+OUTER JOIN
+(A. 부서코드 = B. 부서코드)
+ORDER BY A. 부서코드:
+B
+4 SELECT A. 부서코드, A. 부서명, A. 상위부서코드, B. 매출액, LVL FROM (SELECT 부서코드, 부서명, 상위부서코드, LEVEL AS LVL
+FROM 부서
+START WITH 부서코드 = (SELECT 부서코드
+FROM 부서
+WHERE 상위부서코드 IS
+NULL
+START WITH 부서코드
+= '120'
+CONNECT BY PRIOR
+상위부서코드 코드)
+=
+부서
+CONNECT BY 상위부서코드 = PRIOR 부서코드) A LEFT
+OUTER JOIN
+(A. 부서코드 = B. 부서코드)
+B
+ON
+ORDER BY A 부서코드:

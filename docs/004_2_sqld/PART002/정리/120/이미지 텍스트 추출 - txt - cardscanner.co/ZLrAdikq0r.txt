@@ -1,0 +1,50 @@
+
+81. 2
+해설: SET OPERATOR : 합집합은 UNION, 교집합은 INTERSECT, 차집합은 MINUS/EXCEPT 이다.
+82, 2
+해설: UNION ALL을 사용하는 경우 칼럼 ALIAS는 첫번째 SQL 모듈 기준으로 표시되며, 정렬 기준은
+83, 1
+마지막 SQL 모듈에 표시하면 됨.
+해설: 집합 연산자는 SQL에서 위에 정의된 연산자가 먼저 수행된다. 그러므로 UNION이 나중에 수행되므로 결과적으로 중복 데이터가 모두 제거되어 1과 같은 결과가 도출된다. 만일 UNION과 UNION ALL의 순서를 바꾼다면 2과 같은 결과가 도출된다.
+84. 1
+해설: 가 SELECT A, B, C FROM R1
+UNION ALL
+SELECT A, B, C FROM R2;
+(중복 레코드 유지, 정렬 안함)
+R(A,B,C)
+A
+B
+C
+A3
+B2
+C3
+A1
+B1
+C1
+A2
+B1
+C2
+A1
+B1
+C1
+A3
+B2
+C3
+4 SELECT A, B, C FROM R1
+UNION
+SELECT A, B, C FROM R2;
+(중복 레코드 제거함, 정렬 발생)
+R(A,B,C)
+A
+B
+C
+A1
+B1
+C1
+A2
+B1
+C2
+A3
+B2
+C3
+2001

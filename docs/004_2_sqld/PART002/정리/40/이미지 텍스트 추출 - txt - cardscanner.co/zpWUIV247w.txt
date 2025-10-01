@@ -1,0 +1,37 @@
+
+69
+(3)
+LEFT OUTER JOIN 구매정보 BON A. 고객번호=B. 고객번호
+ᄂ : HAVING SUM(B. 구매번호)>=3
+: INNER JOIN 구매정보 BON A. 고객번호=B. 고객번호 ᄂ : WHERE B. 구매번호>=3
+아래는 어느 회사의 정산 데이터 모델의 일부이며 고객이 서비스를 사용한 시간대에 따라 차등 단가를 적용하려고 한다. 다음 중 시간대별사용량 테이블을 기반으로 고객별 사용금액을 추출하는 SQL으로 가장 적절한 것은?
+아래
+시간대구간
+시간대별 사용량
+고객
+시작시간대 종료시간대
+고객ID (FK) 사용시간대
+고객ID
++ 고객명
+단가
+사용량
+생년월일
+1 SELECT A. 고객ID, A. 고객명, SUM(B. 사용량 * C. 단가) AS 사용금액
+FROM 고객 A INNER JOIN 시간대별사용량 B
+ON A 고객 = B. 고객D) INNER JOIN 시간대구간 C
+ON B. 사용시간대 < C. 시작시간대 AND B. 사용시간대 > C. 종료시간대)
+GROUP BY A 고객ID, A, 고객명
+ORDER BY A. 고객ID, A, 고객명:
+2 SELECT A. 고객ID, A. 고객명, SUM(B. 사용량 * C. 단가) AS 사용금액 FROM 고객 A INNER JOIN 시간대별사용량 B INNER JOIN 시간대구간 C ON (A. 고객ID= B. 고객ID AND B. 사용시간대
+BETWEEN C. 시작시간대 AND C. 종료시간대
+GROUP BY A 고객ID A 고객명
+ORDER BY A 고객ID A 고객명:
+3 SELECT A. 고객ID, A. 고객명, SUM(B. 사용량 * C. 단가) AS 사용금액 FROM 고객 A INNER JOIN 시간대별사용량 B
+ON (A. 고객ID= B. 고객ID) INNER JOIN 시간대구간 C
+ON B. 사용시간대 BETWEEN C. 시작시간대 AND C. 종료시간대 GROUP BY A 고객 A 고객명
+ORDER BY A 고객ID, A. 고객명:
+4 SELECT A 고객ID, A. 고객명, SUMB, 사용량 * C. 단가) AS 사용금액
+FROM 고객 A INNER JOIN 시간대별사용량 B
+ON (A 고객ID=B. 고객ID) BETWEEN JOIN 시간대구간 C
+GROUP BY A. 고객ID, A. 고객명
+ORDER BY A 고객IDA 고객명:

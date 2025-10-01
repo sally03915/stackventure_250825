@@ -1,0 +1,26 @@
+
+119
+아래 설명 중
+ᄂ 에 해당하는 내용을 작성하시오.
+120
+아래
+DBMS에 생성된 USER와 다양한 권한들 사이에서 중개 역할을 합 수 있도록 DBMS에서는 ROLE을 제공한다. 이러한 ROLE DBMS
+USER에게 부여하기 위해서는 [
+ROLE을 회수하기 위해서는
+명령을 사용하며,
+명령을 사용한다.
+다음 중 B_User가 아래의 작업을 수행할 수 있도록 권한을 부여하는
+DCL로 가장 적절한 것은?
+UPDATE A User, TB_A
+SET col1='AAA'
+WHERE col2-3
+아래
+1 GRANT SELECT, UPDATE TO B_User;
+REVOKE SELECT ON A_User. TB_A FROM B_User;
+3 DENY UPDATE ONA_User. TB_A TO B_User;
+4 GRANT SELECT, UPDATE ON A_User.TB_A TO B_User;
+121
+아래의
+에 들어갈 내용을 쓰시오.
+아래
+DBMS 사용자를 생성하면 기본적으로 많은 권한을 부여해야 한다. 많은 DBMS에서는 DBMS 관리자가 사용자별로 권한을 관리해야 하는 부담과 복잡함을 줄이기 위하여 다양한 권한을 그룹으로 묶어 관리할 수 있도록 사용자와 권한 사이에서 중개 역할을 수행하는 을 제공한다.
