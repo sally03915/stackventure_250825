@@ -1,0 +1,38 @@
+
+128
+아래
+ᄀ 에 해당하는 내용을 작성하시오.
+아래
+예상되는 실행계획을 선택하는 옵티마이저를
+테이블 및 인덱스 등의 통계 정보를 활용하여 SQL문을 실행하는데 소요 될 처리시간 및 CPU, I/O 자원량 등을 계산하여 가장 효율적일 것으로
+라한
+다.
+129
+다음 중 실행계획을 통해서 알 수 있는 정보로 가장 부적절한 것은?
+1 액세스 기법
+2 질의 처리 예상 비용(Cost)
+9 조인 순서
+4 실제 처리 건수
+실행계획 정보의 구성요소
+연산
+Execution Plan 조인 기업
+SELECT STATEME Optimizer=A_L_ROWS (Cost=3 Card=2 Bytes=114)
+・[NESTED LOOPS] (Cost-3 Card=2Bytes=114)
+ATABLE ACCESS IUBY INDEX ROWIN) OF 'EMP' (TABLE) (Cost=2 Card=2Bytes=74) -[INDEX] (RARE 액세스 7법 P' (INDEX) (Cost=1 Card=2)
+TABLE ACCESS KOT TUMI) JF 'DEPT' (TABLE) (Cost=1 Card=1Bytes=20) ・[INDEX] (UNHOLE SCAN) OF 'PK_DEPT' (INDEX (JNIQUE)) (Cost-0 Card 1)
+최적화 정보
+130
+아래 실행계획의 실행순서에 맞게
+ᄃ 을 작성하시오
+아래
+2
+4
+5
+6
+NESTED LOOPS
+HASH JOIN
+TABLE ACCESS (FULL) TAB1
+TABLE ACCESS (FULL) TAB2
+TABLE ACCESS (BY ROWID) TAB3
+INDEX (UNIQUE SCAN) PK_TAB3
+→651

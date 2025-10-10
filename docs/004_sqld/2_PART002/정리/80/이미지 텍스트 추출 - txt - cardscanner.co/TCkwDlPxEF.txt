@@ -1,0 +1,21 @@
+
+122
+사용자 Lee가 릴레이션 R을 생성한 후, 아래와 같은 권한부여 SQL문들을
+실행하였다. 그 이후에 기능이 실행 가능한 SQL을 2개 고르시오. (단, A, B의 데이터 타입은 정수형이다)
+아래
+Lee: GRANT SELECT. INSERT, DELETE ON R TO Kim WITH GRANT OPTION:
+Kim: GRANT SELECT. INSERT, DELETE ON R TO Park:
+Lee: REVOKE DELETE ON R FROM Kim;
+Lee: REVOKE INSERT ON R FROM Kim CASCADE;
+1 Park: SELECT * FROM R WHEREA=400;
+2 Park: INSERT INTO R VALUES(400, 600);
+3 Park: DELETE FROM R WHERE B=800;
+4 Kim: INSERT INTO R VALUES(500, 600);
+123
+다음 중 PL/SQL에 대한 설명으로 가장 부적절한 것은?
+1 변수와 상수 등을 사용하여 일반 SQL 문장을 실행할 때 WHERE절의 조건 등으로 대입할 수 있다.
+2 Procedure, User Defined Function, Trigger 객체를 PL/SQL로 작성 할 수 있다.
+3 PL/SQL로 작성된 Procedure, User Defined Function은 전체가 하나의 트랜젝션으로 처리되어야 한다.
+4 Procedure 내부에 작성된 절차적 코드는 PL/SQL 엔진이 처리하고 일 반적인 SQL 문장은 SQL 실행기가 처리한다.
+수
+수

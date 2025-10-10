@@ -1,0 +1,27 @@
+
+36
+다음 SQL 문장 중 COLUMN1의 값이 널(NULL)이 아닌 경우를 찾아내는
+문장으로 가장 적절한 것은? (ANSI 표준 기준)
+**
+SELECT FROM MYTABLE WHERE COLUMN1 IS NOT NULL
+2 SELECT * FROM MYTABLE WHERE COLUMN1 ◇ NULL 3 SELECT * FROM MYTABLE WHERE COLUMN1 != NULL SELECT * FROM MYTABLE WHERE COLUMN1 NOT NULL
+37
+아래와 같은 DDL 문장으로 테이블 생성하고, SQL을 수행하였을 때
+다음 설명 중 옳은 것은?
+아래
+CREATE TABLE 서비스
+서비스번호 VARCHAR2(10) PRIMARY KEY,
+서비스명 VARCHAR2(100) NULL,
+개시일자 DATE NOT NULL
+);
+[SQL]
+SELECT * FROM 서비스 WHERE 서비스번호= 1;
+ᄂ INSERT INTO 서비스 VALUES ('999'". '2015-11-11)
+SELECT * FROM 서비스 WHERE 서비스명
+SELECT *
+=
+FROM 서비스 WHERE 서비스명 IS NULL;
+1 서비스번호 컬랩에 모든 레코드 중에서 'tor과 같은 숫자형식으로 하나의 레코드만이라도 입력되어 ᄀ은 오류 없이 실행된다.
+2 ORACLE에서 ᄂ과같이 데이터를 입력하였을 때, 서비스명 컬럼에 공백문자 데이터가 입력된다.
+® ORACLE에서 ᄂ과같이 데이터를 입력하고 ᄃ과 같이 조화하였을 때, 데이터는 조회된다.
+4 SQL Server에서 ᄂ과같이 데이터를 입력하고, 2과 같이 조회하였을 때, 데이터는 조회되지 않는다.

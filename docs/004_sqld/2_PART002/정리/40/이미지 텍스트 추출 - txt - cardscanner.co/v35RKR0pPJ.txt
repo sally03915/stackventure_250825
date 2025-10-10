@@ -1,0 +1,67 @@
+
+57
+다음 중 ORDER BY 절에 대한 설명으로 가장 부적절한 것은?
+1 SQL 문장으로 조회된 데이터들을 다양한 목적에 맞게 특정 컬럼을 기준으로 정렬하는데 사용한다.
+2 DBMS마다 NULL 값에 대한 정렬 순서가 다를 수 있으므로 주의하여야 한다.
+3 ORDER BY 절에서 컬럼명 대신 Alias 명이나 컬럼 순서를 나타내는 정수도 사용이 가능하나, 이들을 혼용하여 사용할 수 없다. 4 GROUP BY 절을 사용하는 경우 ORDER BY 절에 집계 함수를 사용할 수도 있다.
+58
+다음 SQL의 실행 결과로 가장 적절한 것은?
+아래
+TBL
+10
+AMT
+A
+50
+A
+200
+B
+300
+C
+100
+[SQL]
+SELECT ID, AMT
+FROM TBL
+ORDER BY (CASE WHEN ID= 'A' THEN 1 ELSE 2 END),
+AMT DESC
+1
+ID
+AMT
+2 ID
+AMT
+B
+300
+A
+200
+A
+200
+A
+50
+C
+100
+B
+300
+A
+50
+C
+100
+ID
+AMT
+4 ID
+AMT
+B
+300
+A
+50
+C
+100
+A
+200
+A
+200
+A
+50
+B
+300
+C
+100
+SQL 자격검정 실전문제

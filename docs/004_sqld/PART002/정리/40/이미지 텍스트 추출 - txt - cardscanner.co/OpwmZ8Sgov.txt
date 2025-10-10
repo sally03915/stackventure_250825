@@ -1,0 +1,11 @@
+
+51
+어느 기업의 직원 테이블(EMP)이 직급(GRADE) 별로 사원 500명, 대리 100명, 과장 30명, 차장 10명, 부장 5명, 직급이 정해지지 않은(NULL) 순차적으로 실행한 결과 건수를 순서대로 나열한 것으로 가장 적절한 것은? 사람 25명으로 구성되어 있을 때, 다음 중 SQL문을 SQL1)부터 SQL3)까지
+아래
+SQLI) SELECT COUNT(GRADE) FROM EMP;
+SQL2) SELECT GRADE FROM EMP WHERE GRADE IN '차장', '부장', '널);
+SQL3) SELECT GRADE, COUNT(*) FROM EMP GROUP BY GRADE;
+1 670, 15, 5
+3 645, 15, 6
+2 645, 40, 5
+4670, 40, 6

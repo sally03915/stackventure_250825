@@ -1,0 +1,23 @@
+
+1 SELECT 게임상품ID, 고객ID, 활동점수, 순위
+FROM (SELECT DENSE_RANK() OVER(ORDER BY 활동점수 DESC) AS 순위 고객ID, 게임상품ID, 활동점수
+FROM 고객활동)
+WHERE 순위 <= 10;
+2 SELECT 게임상품ID, 고객ID, 활동점수, 순위
+FROM (SELECT DENSE RANKO OVER(PARTITION BY
+D
+ORDER BY 활동점수 DESC) AS 순위
+고객ID, 게임상품ID, 활동점수
+FROM 고객활동)
+WHERE 순위 < 10;
+3 SELECT 게임상품ID, 고객ID, 활동점수, 순위
+FROM (SELECT RANK() OVER(ORDER BY 활동점수 DESC) AS 순위
+FROM 고객활동)
+WHERE 순위 < 10;
+고객ID, 게임상품ID, 활동점수
+4 SELECT 게임상품ID, 고객ID, 활동점수, 순위
+FROM (SELECT RANK) OVER(PARTITION BY
+D
+ORDER BY 활동점수 DESC) AS 순위
+고객ID, 게임상품ID, 활동점수
+FROM 고객활동)

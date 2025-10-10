@@ -1,0 +1,45 @@
+
+31
+아래와 같은 테이블에 SQL 구문이 실행되었을 경우 최종 출력 값을 작성
+하시오.
+[품목]
+품목ID
+단가
+001
+1000
+002
+2000
+003
+1000
+004
+2000
+023
+00
+(4) 4
+아래
+[SQL 구문)
+BEGIN TRANSACTION
+INSERT INTO 품목(품목ID, 단가)
+VALUES('005',2000)
+COMMIT
+BEGIN TRANSACTION
+DELETE 품목 WHERE 품목ID=002'
+BEGIN TRANSACTION
+UPDATE 품목 SET 단가=2000 WHERE
+단가=1000
+ROLLBACK
+SELECT COUNT(품목ID) FROM 품목 WHERE 단가=2000
+32 아래의 상품 테이블의 데이터에 대하여 관리자가 아래와 같이 SQL문장을 실행하여 데이터를 변경하였다. 데이터 변경 후의 상품ID '001'의 최종
+상품명을 작성하시오.
+아래
+[테이블: 상품]
+상품ID
+001
+상품명
+TV
+[SQL]
+BEGIN TRANSACTION;
+SAVE TRANSACTION SP1;
+UPDATE 상품 SET 상품명= 'LCD-TV' WHERE 상품ID= '001'; SAVE TRANSACTION SP2;
+UPDATE 상품 SET 상품명 '평면-TV WHERE 상품ID=001: ROLLBACK TRANSACTION SP2;
+COMMIT;

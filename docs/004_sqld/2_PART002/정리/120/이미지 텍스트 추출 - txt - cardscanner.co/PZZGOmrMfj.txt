@@ -1,0 +1,77 @@
+
+71. CROSS JOIN
+72,
+해설: CROSS JOIN EP. CODD 박사가 언급한 일반 집합 연산자의 PRODUCT의 개념으로 테이블 간 JOIN 조건이 없는 경우 생길 수 있는 모든 데이터의 조합을 말한다. 조건이 없거나 CROSS JOIN
+키워드를 사용할 수 있다.
+해설: WHERE 절에 A. 고객번호 IN (11000, 12000) 조건을 넣었다면 정답은 2 번이 되었을 것이나, ON 절에 A. 고객번호 IN (11000, 12000) 조건을 넣었기 때문에 모든 고객에 대해서 출력을 하되 JOIN 대상 데이터를 고객번호 11000과 12000으로 제한되어 1 번과 같은 결과가 출력된다.
+73, @
+74.
+해설: 보기의 3개의 SQL은 모두 Full Outer Join과 동일한 결과를 반환한다.
+해설: 주키와 외래키는 영향을 미치지 않는다.
+LEFT OUTER JOIN
+A
+B
+C
+D
+E
+1
+b
+W
+1
+10
+3
+d
+W
+1
+10
+5
+У
+y
+FULL OUTER JOIN
+A
+B
+C
+D
+E
+1
+b
+W
+1
+10
+3
+d
+W
+1
+10
+5
+У
+y
+Z
+V
+42
+11
+22
+RIGHT OUTER JOIN
+A
+B
+C
+D
+E
+1
+b
+W
+1
+10
+3
+d
+W
+1
+10
+2
+4
+11
+V
+2
+22
+75. LEFT JOIN E LEFT OUTER JOIN
+해설:LEFT OUTER JOIN은 좌측 테이블이 기준이 되어 결과를 생성한다. 즉, TABLE A와 B가 있을 때 (TABLE 'X'가 기준이 됨). A와 B를 비교해서 B의 JOIN 칼럼에서 같은 값이 있을 때 B테이블에서 해당 데이터를 가져오고, B의 JOIN 칼럼에서 같은 값이 없는 경우에는 B 테이블에서 가져오는 칼럼들 은 NULL 값으로 채운다. 그리고, LEFT JOIN으로 OUTER 키워드를 생략해서 사용할 수 있다.

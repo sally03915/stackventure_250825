@@ -1,0 +1,25 @@
+
+65. 2
+제2장. SQL 활용
+해설: 순수 관계 연산자에는 SELECT, PROJECT, JOIN, DIVIDE가 있다.
+66. 3, 4
+해설: 1 NOT EXIST 절의 연관서브쿼리에 X. 컨텐츠ID= B. 컨텐츠ID가 존재하지 않아 단 하나의 컨텐츠라도
+67. 1, 2
+비선호로 등록한 고객에 대해서는 모든 컨텐츠가 추천에서 배재 된다.
+2 추천컨텐츠를 기준으로 비선호컨텐츠와의 LEFT OUTER JOIN이 수행되고 비선호컨텐츠의 컨텐츠 ID에 대해서 IS NULL 조건(3 번과 같이)이 있다면 정확히 비선호 컨텐츠만 필터링할 수 있다. (고객이 비선호로 등록하지 않은 컨텐츠는 추천컨텐츠에만 등록 되어있으므로)
+해설: 3 데이터 모델을 보면 제품과 생산라인 엔터티에는 생산제품과 대응되지 않는 레코드가 있을 수 있다.
+4 특정 생산라인에서 생산되는 제품의 제품명을 알기위해서는 제품과 생산제품까지 2개의 엔터티만을 Inner Join 하면 된다.
+68. 2
+해설: 구매이력이 있어야 하므로 INNER JOIN이 필요하며, 구매 횟수이므로 COUNT 함수를 사용한다.
+69. 3
+해설: 1 두 번째 ON 절이 B. 사용시간대 BETWEEN C. 시작시간대 AND C. 시작시간대가 되어야 한다. 2 INNER JOIN 구문 오류가 발생한다.
+70. 1
+4 BETWEEN JOIN 이란 구문은 없다. 구문 오류가 발생한다.
+해설: TEAM, STADIUM 두 테이블을 조인하여 사용한다.
+1 USING 조건절을 이용한 EQUI JOIN에서도 NATURAL JOIN과 마찬가지로 JOIN 칼럼에 대해서는
+ALIAS나 테이블 이름과 같은 접두사를 붙일 수 없다. 지문 1는 SYNTAX 에러 발생함.
+USING T.STADIUM_ID=S.STADIUM_ID
+→ USING (STADIUM_ID)
+SELECT T.REGION_NAME, T.TEAM_NAME, T.STADIUM_ID, S.STADIUM_NAME
+→ SELECT T.REGION_NAME, T.TEAM_NAME, STADIUM_ID, S.STADIUM_NAME
+SQL 자격검정 실전문제 | 237

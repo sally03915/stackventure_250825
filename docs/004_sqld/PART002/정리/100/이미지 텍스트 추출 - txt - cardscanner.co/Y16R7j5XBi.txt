@@ -1,0 +1,29 @@
+
+142
+다음 중 Nested Loop Join에 대한 설명으로 가장 부적절한 것은?
+1 조인 칼럼에 적당한 인덱스가 있어서 자연조인(Natural join)이 효율적 일 때 유용하다.
+2 Driving Table의 조인 데이터 양이 큰 영향을 주는 조인 방식이다. 3 소트 머지 조인(Sort Merge Join)하기에 두 테이블이 너무 커서 소트 (Sort) 부하가 심할 때 유용하다.
+4 유니크 인덱스를 활용하여 수행시간이 적게 걸리는 소량 테이블을 온라인 조회하는 경우 유용하다.
+143
+다음 중 아래와 같은 SQL에서 나타날 수 있는 Join 기법으로 가장 적절한 것은?
+아래
+[DEPT 테이블 INDEX 정보]
+PK DEPT DEPTNO
+[EMP 테이블 INDEX 정보]
+PK EMP: EMPNO
+IDX_EMP_01: DEPTNO
+[SQL] SELECT *
+FROM DEPT D
+WHERED.DEPTNO = 'A001'
+AND
+EXISTS (SELECT 'X' FROM EMP E WHERE D.DEPTNO = E, DEPTNO)
+HASH ANTI JOIN
+HASH SEMI JOIN
+3 NESTED LOOP ANTI JOIN
+4 NESTED LOOP SEMI JOIN
+144
+다음 중 SMJ(Sort Merge Join)에 대한 설명으로 가장 부적절한 것은?
+1 조인 칼럼에 적당한 인덱스가 없어서 NL 조인(Nested Loops)가 비효 율적일 때 사용할 수 있다
+2 Driving Table의 개념이 중요하지 않은 조인 방식이다
+3 조인 조건의 인덱스의 유무에 영향 받지 않는다
+EQUI() 조인 조건에서만 동작한다.

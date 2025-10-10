@@ -1,0 +1,43 @@
+
+1 UPDATE 부서 A SET 담당자 = (SELECT C. 부서코드
+FROM
+(SELECT 부서코드, MAX(변경일자) AS 변경일자 FROM 부서입시
+GROUP BY 부서코드) B. 부서임시 C
+WHERE B. 부서코드 C. 부서코드
+AND
+B. 변경일자= C. 변경일자
+AND
+2 UPDATE 부서
+FROM
+A. 부서코드 = C. 부서코드)
+A SET 담당자= (SELECT C. 부서코드
+(SELECT 부서코드, MAX(변경일자) AS 변경일자
+FROM 부서임시
+GROUP BY 부서코드) B, 부서임시 C
+WHERE B. 부서코드 C. 부서코드
+AND B. 변경일자 = C. 변경일자
+AND A. 부서코트 - C. 부시코드)
+=
+WHERE EXISTS (SELECT 1 FROM 부서 X WHERE A. 부서코드=
+X. 부서코드);
+3 UPDATE 부서 A SET 담당자= (SELECT B. 담당자
+FROM
+부서임시 B
+= A. 부서코드
+WHERE B. 부서코드
+AND B. 변경일자 = (SELECT MAX(C.변경일자)
+FROM 부서임시 CWHERE
+C. 부서코드 = B. 부서코드)
+WHERE 부서코드 IN (SELECT 부서코드 FROM 부서임시);
+4 UPDATE 부서 A SET 담당자= (SELECT B. 담당자
+FROM 부서임시 B
+WHERE B. 부서코드= A. 부서코드
+AND B. 변경일자= '2015.01.25.");
+103
+다음 중 뷰(View)에 대한 설명으로 가장 부적절한 것은?
+1 뷰는 단지 정의만을 가지고 있으며, 실행 시점에 질의를 재작성하여 수행한다.
+2 뷰는 복잡한 SQL 문장을 단순화 시켜주는 장점이 있는 반면, 테이블
+구조가 변경되면 응용 프로그램을 변경해 주어야 한다.
+3 뷰는 보안을 강화하기 위한 목적으로도 활용할 수 있다.
+4 실제 데이터를 저장하고 있는 뷰를 생성하는 기능을 지원하는 DBMS도
+있다.
