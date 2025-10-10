@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 1 - IP 마법사와 주소 찾기</title>
+  <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* A4 인쇄용 설정 - 여백 최소화 */
+@page {
+  size: A4;
+  margin: 10mm 8mm;
+}
+
+/* 기본 설정 */
+body {
+  font-family: 'Jua', sans-serif, 'Segoe UI Emoji', 'Apple Color Emoji';
+  font-size: 0.85em;              /* 폰트 살짝 축소 */
+  line-height: 1.5;               /* 줄 간격 축소 */
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* 섹션별 페이지 분리 */
+.section {
+  margin:1em 0;
+  padding: 10mm 8mm;              /* 섹션 여백 축소 */
+  background-color: #fff;
+}
+
+/* 챕터 타이틀 박스 */
+.chapter-title {
+  background: #fce4ec;
+  padding: 16px;
+  border-left: 6px solid #b03060;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.chapter-title h2 {
+  font-size: 2.2em;
+  margin: 0;
+}
+
+.chapter-title p {
+  margin-top: 6px;
+  font-size: 1em;
+}
+
+/* 소제목 */
+.section h3 {
+  font-size: 1.2em;
+  margin: 20px 0 8px;
+  color: #6b4226;
+}
+
+/* 리스트 */
+ul {
+  line-height: 1.6;
+  font-size: 0.95em;
+  padding-left: 18px;
+  margin-bottom: 10px;
+}
+
+/* 표 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  page-break-inside: avoid;
+}
+
+th, td {
+  padding: 8px;
+  line-height: 1.4;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+thead {
+  background: #ffe4ec;
+  color: #b03060;
+}
+
+/* 카드 박스 */
+.card {
+  background: #fff3e0;
+  border: 1px solid #ffcc80;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 95%;
+  text-align: left;
+  page-break-inside: avoid;
+}
+
+/* 기출문제 박스 */
+.quiz {
+  background: #e8f5e9;
+  border-left: 5px solid #4caf50;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 95%;
+  text-align: left;
+  page-break-inside: avoid;
+}
+
+/* 카드/문제 간 구분선 (선택적) */
+.card:not(:first-child),
+.quiz:not(:first-child) {
+  border-top: 1px dashed #ddd;
+}
+
+/* 반응형 대응 (화면 보기용) */
+@media screen {
+  body {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .section {
+    padding: 32px 16px;
+  }
+
+  .card, .quiz {
+    margin: 14px auto;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <div class="chapter-title">
+      <h2>🏰 Chapter 6. OSI 7층 성의 구조</h2>
+      <p>편지를 안전하게 전달하는 7층 성의 이야기</p>
+    </div>
+    <p style="line-height: 1.8; font-size: 1.1em; text-align: center;">
+      컴퓨터 왕국에는 7층짜리 성이 있어요.<br>
+      각 층은 편지를 안전하게 전달하기 위해 서로 다른 역할을 맡고 있죠.
+    </p>
+
+    <h3>📌 OSI 7계층 요약</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>층</th>
+          <th>이름</th>
+          <th>역할</th>
+          <th>데이터 단위</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1층</td><td>물리층</td><td>전기 신호</td><td>비트</td></tr>
+        <tr><td>2층</td><td>데이터링크층</td><td>MAC 주소로 전달</td><td>프레임</td></tr>
+        <tr><td>3층</td><td>네트워크층</td><td>IP 주소로 경로 설정</td><td>패킷</td></tr>
+        <tr><td>4층</td><td>전송층</td><td>TCP/UDP로 전송</td><td>세그먼트/데이터그램</td></tr>
+        <tr><td>5층</td><td>세션층</td><td>대화 시작과 종료</td><td>메시지</td></tr>
+        <tr><td>6층</td><td>표현층</td><td>암호화, 압축, 번역</td><td>메시지</td></tr>
+        <tr><td>7층</td><td>응용층</td><td>우리가 사용하는 앱</td><td>메시지</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 1.5em; text-align: center;">🏰 OSI 성은 층마다 역할이 다르고, 서로 협력해서 편지를 보내요!</p>
+  </div>
+
+  <div class="section">
+    <h3>🃏 OSI 7층 성 암기카드</h3>
+
+    <div class="card"><p><strong>🃏 카드 53</strong><br>앞면: OSI 7계층은 총 몇 개의 계층으로 구성되어 있나요?<br>뒷면: 7개<br>설명: 물리, 데이터링크, 네트워크, 전송, 세션, 표현, 응용 계층<br>🔍 암기 포인트: “OSI = 7개의 계단, 물→데→네→전→세→표→응”</p></div>
+    <div class="card"><p><strong>🃏 카드 54</strong><br>앞면: OSI 7계층 중 데이터의 암호화와 압축을 담당하는 계층은?<br>뒷면: 표현층 (Presentation Layer)<br>설명: 데이터 형식 변환, 암호화, 압축 기능 수행<br>🔍 암기 포인트: “표현층 = 데이터의 옷 갈아입히기”</p></div>
+    <div class="card"><p><strong>🃏 카드 55</strong><br>앞면: OSI 7계층 중 사용자와 직접 상호작용하는 계층은?<br>뒷면: 응용층 (Application Layer)<br>설명: 이메일, 웹 브라우징 등 사용자 서비스 제공<br>🔍 암기 포인트: “응용층 = 사람과 가장 가까운 층”</p></div>
+    <div class="card"><p><strong>🃏 카드 56</strong><br>앞면: OSI 7계층 중 라우팅을 담당하는 계층은?<br>뒷면: 네트워크층 (Network Layer)<br>설명: IP 주소 기반으로 경로 선택<br>🔍 암기 포인트: “네트워크층 = 길 안내 계층”</p></div>
+    <div class="card"><p><strong>🃏 카드 57</strong><br>앞면: OSI 7계층 중 종단 간 연결을 담당하는 계층은?<br>뒷면: 전송층 (Transport Layer)<br>설명: TCP/UDP를 통해 신뢰성과 흐름 제어 제공<br>🔍 암기 포인트: “전송층 = 택배 계층”</p></div>
+    <div class="card"><p><strong>🃏 카드 58</strong><br>앞면: OSI 7계층 중 MAC 주소를 사용하는 계층은?<br>뒷면: 데이터링크층 (Data Link Layer)<br>설명: LAN에서 프레임 전송 시 MAC 주소 사용<br>🔍 암기 포인트: “데이터링크층 = MAC 주소 담당자”</p></div>
+    <div class="card"><p><strong>🃏 카드 59</strong><br>앞면: OSI 7계층 중 비트 단위로 데이터를 전송하는 계층은?<br>뒷면: 물리층 (Physical Layer)<br>설명: 전기적/기계적 특성 정의<br>🔍 암기 포인트: “물리층 = 0과 1이 흐르는 전선”</p></div>
+    <div class="card"><p><strong>🃏 카드 60</strong><br>앞면: OSI 7계층 중 세션을 설정하고 관리하는 계층은?<br>뒷면: 세션층 (Session Layer)<br>설명: 통신 세션의 생성, 유지, 종료 담당<br>🔍 암기 포인트: “세션층 = 대화 시작과 끝 조절자”</p></div>
+    <div class="card"><p><strong>🃏 카드 61</strong><br>앞면: OSI 7계층 중 데이터의 전송 단위가 프레임인 계층은?<br>뒷면: 데이터링크층 (Data Link Layer)<br>설명: MAC 주소 기반으로 프레임 전송<br>🔍 암기 포인트: “데이터링크층 = 프레임 택배 상자”</p></div>
+    <div class="card"><p><strong>🃏 카드 62</strong><br>앞면: OSI 7계층 중 데이터의 전송 단위가 패킷인 계층은?<br>뒷면: 네트워크층 (Network Layer)<br>설명: IP 주소 기반으로 경로 설정<br>🔍 암기 포인트: “네트워크층 = 패킷 길잡이”</p></div>
+    <div class="card"><p><strong>🃏 카드 63</strong><br>앞면: OSI 7계층 중 데이터의 전송 단위가 세그먼트인 계층은?<br>뒷면: 전송층 (Transport Layer)<br>설명: TCP/UDP를 통해 데이터 전송<br>🔍 암기 포인트: “전송층 = 세그먼트 택배 상자”</p></div>
+  </div>
+
+   <div class="section">
+    <h3>📘 대표 기출 문제</h3>
+
+    <div class="quiz"><p><strong>🧪 문제 1</strong><br>데이터 링크 계층의 역할은?<br>① 경로 설정 ② 오류 검출 및 흐름 제어 ③ 암호화 ④ 사용자 인터페이스 제공<br>✅ 정답: ②<br>💡 해설: 데이터 링크 계층은 물리적인 전송을 도와주는 중간 관리자야<br>🔍 암기 포인트: “링크 = 오류 + 흐름”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 2</strong><br>전송 계층의 주요 프로토콜은?<br>① TCP, UDP ② IP, ARP ③ HTTP, FTP ④ DNS, DHCP<br>✅ 정답: ①<br>💡 해설: TCP와 UDP는 전송 계층에서 데이터 흐름을 관리해요<br>🔍 암기 포인트: “전송 = TCP/UDP”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 3</strong><br>응용 계층의 기능은?<br>① MAC 주소 설정 ② 네트워크 경로 설정 ③ 사용자 인터페이스 제공 ④ 오류 검출<br>✅ 정답: ③<br>💡 해설: 응용 계층은 사용자가 직접 접하는 부분이에요<br>🔍 암기 포인트: “응용 = 사용자 접점”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 4</strong><br>OSI 7계층 중 IP 주소를 사용하는 계층은?<br>① 물리 계층 ② 네트워크 계층 ③ 전송 계층 ④ 응용 계층<br>✅ 정답: ②<br>💡 해설: IP 주소는 네트워크 계층에서 사용돼요<br>🔍 암기 포인트: “IP = 네트워크 계층”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 5</strong><br>OSI 7계층에서 실제 데이터가 전송되는 계층은?<br>① 물리 계층 ② 응용 계층 ③ 전송 계층 ④ 세션 계층<br>✅ 정답: ①<br>💡 해설: 물리 계층은 전기적 신호로 데이터를 실제로 보내는 계층이에요<br>🔍 암기 포인트: “물리 = 전기 신호”</p></div>
+  </div>
+
+
+</body>
+</html>

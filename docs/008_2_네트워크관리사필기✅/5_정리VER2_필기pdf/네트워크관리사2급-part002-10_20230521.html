@@ -1,0 +1,894 @@
+<!DOCTYPE html><html><head>
+      <title>네트워크관리사2급-part002-10_20230521</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\sally03915\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<style>
+pre, code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  overflow-x: hidden !important;
+  display: block !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+</style> 
+<h3 id="-네트워크관리사-2급-기출문제-2023년-5월-21일-시행">📋 네트워크관리사 2급 기출문제 (2023년 5월 21일 시행) </h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>📅 시험일자</td>
+<td>2023년 5월 21일 (정기 필기시험)</td>
+</tr>
+<tr>
+<td>🧭 시험 목적</td>
+<td>네트워크 기본 이론 및 실무 적용 능력 평가</td>
+</tr>
+<tr>
+<td>🧪 주요 출제 영역</td>
+<td>IP 클래스, DNS TTL, 서브넷 마스크, OSPF, UDP/TCP 구조, RARP, ICMP/IGMP, FTP/TFTP, SSH, ARQ</td>
+</tr>
+<tr>
+<td>🔁 반복 출제 경향</td>
+<td>포트 번호, 캡슐화, 3-Way Handshake, OSI 계층 기능, VPN, DNS 레코드, 파일 권한 설정, 명령어 해석</td>
+</tr>
+<tr>
+<td>📌 학습 포인트</td>
+<td>프로토콜 기능 이해, 계층별 역할 구분, 명령어 사용법, 보안 설정, 시스템 구조 분석</td>
+</tr>
+<tr>
+<td>🎯 활용 목적</td>
+<td>실전 대비, 자주 나오는 유형 파악, 핵심 개념 암기, 문제 풀이 전략 수립</td>
+</tr>
+<tr>
+<td>s</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">1</span><span class="token punctuation">]</span>
+IPv4 Class 중에서 멀티캐스트 용도로 사용되는 것은?
+① B Class  ② C Class  ❸ D Class  ④ E Class
+</code></pre><p><strong>정답:</strong> ❸ D Class</p>
+<p><strong>해설:</strong> D Class는 224.0.0.0 ~ 239.255.255.255 범위로 멀티캐스트 용도로 사용됩니다.</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+멀티캐스트는 여러 친구에게 동시에 메시지를 보내는 거예요. D Class는 그 친구들한테 보내는 주소예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">2</span><span class="token punctuation">]</span>
+DNS에서 사용될 때 TTL<span class="token punctuation">(</span>Time to Live<span class="token punctuation">)</span>의 설명으로 올바른 것은?
+① DNS 존에서 나가기 전 남은 시간  
+❷ DNS 캐시에서 나가기 전 남은 시간  
+③ 패킷이 DNS 존에서 나가기 전 남은 시간  
+④ 네임서버 레코드에서 나가기 전 남은 시간
+</code></pre><p><strong>정답:</strong> ❷ DNS 캐시에서 나가기 전 남은 시간</p>
+<p><strong>해설:</strong> TTL은 DNS 캐시에 저장된 레코드가 유지되는 시간으로, 시간이 지나면 다시 질의가 필요합니다.</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+DNS는 주소를 기억해두는데, TTL은 "얼마나 오래 기억할까?"를 정하는 타이머예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">3</span><span class="token punctuation">]</span>
+다음 중 IP Address의 Class가 다른 하나는?
+❶ <span class="token number">191.234</span>.149.32  ② <span class="token number">198.236</span>.115.33  ③ <span class="token number">222.236</span>.138.34  ④ <span class="token number">195.236</span>.126.35
+</code></pre><p><strong>정답:</strong> ❶ 191.234.149.32</p>
+<p><strong>해설:</strong> 191.x.x.x는 B Class에 속하며, 나머지 주소들은 C Class에 해당합니다.</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+IP 주소는 숫자에 따라 그룹이 달라요. 191은 다른 반 친구예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">4</span><span class="token punctuation">]</span>
+C Class 네트워크에서 각 서브넷에 <span class="token number">4</span>~5대의 PC를 연결하려면 적절한 서브넷 마스크는?
+① <span class="token number">255.255</span>.255.240  ② <span class="token number">255.255</span>.255.192  ❸ <span class="token number">255.255</span>.255.248  ④ <span class="token number">255.255</span>.255.0
+</code></pre><p><strong>정답:</strong> ❸ 255.255.255.248</p>
+<p><strong>해설:</strong> /29 서브넷 마스크는 8개의 IP를 제공하며, 6개까지 호스트 연결이 가능합니다.</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+방을 8개 만들고, 첫 방과 마지막 방은 못 쓰니까 실제로는 6명까지 들어갈 수 있어요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">5</span><span class="token punctuation">]</span>
+Link State 알고리즘을 이용해 자신의 상태를 알려주며 통신하는 프로토콜은?
+❶ OSPF  ② IDRP  ③ EGP  ④ BGP
+</code></pre><p><strong>정답:</strong> ❶ OSPF</p>
+<p><strong>해설:</strong> OSPF는 Link State 기반 라우팅 프로토콜로, 각 라우터가 자신의 상태를 전체에 알립니다.</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+OSPF는 "나는 여기 있어! 이쪽 길이 좋아!" 하고 친구들에게 알려주는 똑똑한 친구예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">6</span><span class="token punctuation">]</span>
+UDP 헤더에 포함되지 않는 항목은?
+❶ 확인 응답 번호  ② 소스 포트  ③ 체크섬  ④ 목적지 포트
+</code></pre><p><strong>정답:</strong> ❶ 확인 응답 번호</p>
+<p><strong>해설:</strong> UDP는 비연결형 프로토콜로, TCP처럼 확인 응답 번호(Ack Number)를 사용하지 않습니다.</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+UDP는 "보냈어!" 하고 끝이에요. "잘 받았어?"는 묻지 않아요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">7</span><span class="token punctuation">]</span>
+RARP에 대한 설명으로 올바른 것은?
+① 데이터 전송 서비스 규정  
+② 접속 없이 데이터 전송  
+❸ 하드웨어 주소를 IP로 변환  
+④ 오류 제어 및 라우팅 실패 보고
+</code></pre><p><strong>정답:</strong> ❸ 하드웨어 주소를 IP로 변환</p>
+<p><strong>해설:</strong> RARP는 MAC 주소를 기반으로 IP 주소를 알아내는 프로토콜입니다.</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+"이 컴퓨터의 이름(IP)이 뭐야?" 하고 MAC 주소를 보고 물어보는 거예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">8</span><span class="token punctuation">]</span>
+ICMP Message Type에 대한 설명으로 옳지 않은 것은?
+❶ <span class="token number">3</span> - Echo Request 응답용  
+② <span class="token number">4</span> - 흐름제어용  
+③ <span class="token number">5</span> - Redirect 용도  
+④ <span class="token number">17</span> - Address Mask 요청
+</code></pre><p><strong>정답:</strong> ❶ 3 - Echo Request 응답용</p>
+<p><strong>해설:</strong> ICMP Type 3은 "Destination Unreachable", Echo Request는 Type 8입니다.</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+3번은 "못 가요!"라고 말하는 거고, "거기 있어?"는 8번이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">9</span><span class="token punctuation">]</span>
+IGMP 프로토콜의 주된 기능은?
+① 오류 보고  
+② 대용량 파일 전송  
+❸ 멀티캐스트 그룹 호스트 관리  
+④ 물리주소 확인
+</code></pre><p><strong>정답:</strong> ❸ 멀티캐스트 그룹 호스트 관리</p>
+<p><strong>해설:</strong> IGMP는 멀티캐스트 그룹에 속한 호스트를 관리하는 데 사용됩니다.</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+IGMP는 "이 그룹에 누가 있어요?"를 관리하는 반장 같은 역할이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">10</span><span class="token punctuation">]</span>
+rlogin을 보완하여 암호화된 패스워드로 안전하게 접속할 수 있는 프로토콜은?
+❶ SSH  ② SNMP  ③ SSL  ④ Telnet
+</code></pre><p><strong>정답:</strong> ❶ SSH</p>
+<p><strong>해설:</strong> SSH(Secure Shell)는 암호화된 통신을 제공하여 rlogin이나 Telnet보다 안전합니다.</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+SSH는 자물쇠를 걸고 대화하는 거예요. 누가 엿들어도 내용을 몰라요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">11</span><span class="token punctuation">]</span>
+TCP/IP 프로토콜 <span class="token number">4</span>계층 구조를 하위 계층부터 상위 계층으로 올바르게 나열한 것은?
+❶ Network Interface - Internet - Transport - Application  
+② Application - Network Interface - Internet - Transport  
+③ Transport - Application - Network Interface - Internet  
+④ Internet - Transport - Application - Network Interface
+</code></pre><p><strong>정답:</strong> ❶ Network Interface - Internet - Transport - Application</p>
+<p><strong>해설:</strong> TCP/IP는 하위부터 Network Interface → Internet → Transport → Application 순으로 구성됩니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>②: 계층 순서가 뒤섞여 있음</li>
+<li>③: Transport가 최하위로 잘못 배치됨</li>
+<li>④: Network Interface가 최상위로 잘못 배치됨</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+인터넷을 쓰려면 먼저 물리적 연결(Network), 주소 확인(Internet), 데이터 전달(Transport), 그리고 우리가 쓰는 앱(Application)이 필요해요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">12</span><span class="token punctuation">]</span>
+FTP 및 TFTP의 특징으로 옳은 것은?
+① TFTP는 기본 포트가 <span class="token number">25</span>번이다  
+② FTP는 계정 접속만 가능하다  
+❸ TFTP는 UDP 방식으로 데이터 손실 가능성이 있다  
+④ FTP는 UDP를 사용한다
+</code></pre><p><strong>정답:</strong> ❸ TFTP는 UDP 방식으로 데이터 손실 가능성이 있다</p>
+<p><strong>해설:</strong> TFTP는 UDP 기반으로 동작하며, 신뢰성 보장이 없어 데이터 손실 가능성이 있습니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>①: TFTP는 포트 69번 사용</li>
+<li>②: FTP는 익명 접속도 가능</li>
+<li>④: FTP는 TCP 기반</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+TFTP는 빠르지만 확인 없이 보내는 방식이라 중간에 잃어버릴 수도 있어요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">13</span><span class="token punctuation">]</span>
+TCP Header의 flag 값 중 <span class="token number">3</span>-way handshake의 첫 번째 단계에서 설정되는 값은?
+① RST  ② ACK  ③ URG  ❹ SYN
+</code></pre><p><strong>정답:</strong> ❹ SYN</p>
+<p><strong>해설:</strong><br>
+(TCP 3-way handshake): SYN → SYN+ACK → ACK 순서<br>
+TCP 연결 수립의 첫 단계는 SYN 패킷을 보내는 것으로 시작됩니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① RST: 연결 초기화 또는 종료</li>
+<li>② ACK: 응답 확인</li>
+<li>③ URG: 긴급 데이터 표시</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+"얘기 좀 해요!" 하고 먼저 손을 내미는 게 SYN이에요. 그 다음에 ACK으로 답해요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">14</span><span class="token punctuation">]</span>  
+다음 설명에 해당하는 기술은?  
+- 저전력, 저가격, 사용의 편리성을 가진 근거리 무선네트워크의 대표적 기술 중 하나로 IEEE <span class="token number">802.15</span>.4 표준의 PHY층과 MAC층을 기반으로 상위 프로토콜과 응용을 규격화한 기술이다.
+- 원격제어 및 관리의 응용에 적합한 홈오토메이션 등에 적용되며, 유비쿼터스 센서 네트워크 환경 구축에 중추적 역할을 담당한다.
+
+
+① WLAN  ② HomeRF  ❸ ZigBee  ④ IrDA
+</code></pre><p><strong>정답:</strong> ❸ ZigBee</p>
+<p><strong>해설:</strong> ZigBee는 저전력, 저속 데이터 전송에 적합한 무선 기술로 스마트홈, 센서 네트워크 등에 사용됩니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① WLAN: 고속 무선 LAN</li>
+<li>② HomeRF: 가정용 무선 통신 기술</li>
+<li>④ IrDA: 적외선 통신 방식</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+ZigBee는 느리지만 전기 적게 먹는 무선 기술이에요. 센서끼리 조용히 대화할 때 써요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">15</span><span class="token punctuation">]</span>
+전자 메일 송수신에 사용되는 프로토콜로만 짝지어진 것은?
+① HTTP, POP3  ② HTTP, ICMP  ③ ICMP, SMTP  ❹ POP3, SMTP
+</code></pre><p><strong>정답:</strong> ❹ POP3, SMTP</p>
+<p><strong>해설:</strong> SMTP는 메일 송신, POP3는 수신에 사용되는 이메일 프로토콜입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① HTTP는 웹 통신용</li>
+<li>② ICMP는 네트워크 진단용</li>
+<li>③ ICMP는 메일과 무관</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+메일 보내는 친구는 SMTP, 받는 친구는 POP3예요. 둘이 짝꿍이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">16</span><span class="token punctuation">]</span>
+IPv6에서 6000Byte 패킷이 이더넷 LAN을 통과할 때 사용하는 확장 헤더는?
+① Source Routing  ❷ Fragmentation  ③ Authentication  ④ Destination Option
+</code></pre><p><strong>정답:</strong> ❷ Fragmentation</p>
+<p><strong>해설:</strong> IPv6에서는 기본적으로 송신자가 직접 단편화하지 않지만, 확장 헤더를 통해 Fragmentation을 수행할 수 있습니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① Source Routing: 경로 지정</li>
+<li>③ Authentication: 인증 정보 제공</li>
+<li>④ Destination Option: 목적지 옵션 설정</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+큰 짐은 쪼개서 보내야 해요. Fragmentation은 짐을 나누는 기능이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">17</span><span class="token punctuation">]</span>
+IP의 체크섬<span class="token punctuation">(</span>Checksum<span class="token punctuation">)</span>에 대한 설명으로 올바른 것은?
+❶ IP Header의 완전성을 검사한다  
+② IP Header와 데이터 모두 검사  
+③ 데이터만 검사  
+④ TCP에서만 체크섬 사용
+</code></pre><p><strong>정답:</strong> ❶ IP Header의 완전성을 검사한다</p>
+<p><strong>해설:</strong> IP 체크섬은 IP 헤더의 오류를 검사하며, 데이터는 검사하지 않습니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>②: 데이터는 검사 대상 아님</li>
+<li>③: IP 체크섬은 데이터 검사 안 함</li>
+<li>④: TCP도 체크섬 사용하지만 IP도 사용함</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+편지 봉투(IP 헤더)가 찢어졌는지 확인하는 거예요. 안에 내용은 안 봐요!</p>
+<br>
+<br>
+<br>
+<blockquote>
+<p>2과목 : 네트워크 일반</p>
+</blockquote>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">18</span><span class="token punctuation">]</span>
+다음 설명에 해당하는 기술은?  
+- 김 씨는 데이터센터 네트워크에서 전송 용량이 제한되는 현상을 해결하기 위한 기술을 연구하고 있다. 
+- 네트워크 전송 용량을 물리적으로 증가시키는 데에는 한계가 있기 때문에, 
+- 클라이언트 서버에서 들어오는 데이터를 효율적으로 처리할 수 있는 기술이 개발되고 있다. 
+- 이러한 기술에는 데이터 전처리 및 분산 처리 방식이 포함된다. 
+- 또한, 소프트웨어 정의 네트워킹<span class="token punctuation">(</span>SDN<span class="token punctuation">)</span>과 스마트 네트워크 인터페이스 카드<span class="token punctuation">(</span>SmartNIC<span class="token punctuation">)</span>를 활용하여 
+- 전송 효율을 높이고 응답 시간을 줄이는 방식도 사용된다.
+- 데이터를 사용자 가까운 곳에서 처리하여 지연을 줄이고 실시간 반응을 가능하게 하는 기술이다.
+
+
+
+
+① 사물인터넷<span class="token punctuation">(</span>IoT<span class="token punctuation">)</span>  ② 유비쿼터스  ❸ 에지 컴퓨팅  ④ 신 클라이언트
+</code></pre><p><strong>정답:</strong> ❸ 에지 컴퓨팅</p>
+<p><strong>해설:</strong> 에지 컴퓨팅은 중앙 서버 대신 사용자 근처에서 데이터를 처리하여 빠른 응답을 제공합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① IoT: 사물 간 연결</li>
+<li>② 유비쿼터스: 언제 어디서나 컴퓨팅</li>
+<li>④ 신 클라이언트: 서버 의존형 단말기</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+멀리 본사에 물어보지 않고, 바로 옆 사무실에서 답해주는 시스템이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">19</span><span class="token punctuation">]</span>
+프레임 길이를 동적으로 변경하여 전송 효율을 높이는 ARQ 방식은?
+❶ Adaptive ARQ  ② Go back-N ARQ  ③ Selective-Repeat ARQ  ④ Stop and Wait ARQ
+</code></pre><p><strong>정답:</strong> ❶ Adaptive ARQ</p>
+<p><strong>해설:</strong> Adaptive ARQ는 네트워크 상태에 따라 프레임 길이를 조절하여 효율을 높입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>② Go back-N: 오류 발생 시 이전 프레임부터 재전송</li>
+<li>③ Selective-Repeat: 오류 프레임만 재전송</li>
+<li>④ Stop and Wait: 한 번에 하나씩 전송</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+상황에 따라 짧게 또는 길게 말하는 친구예요. 똑똑하게 조절해요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">20</span><span class="token punctuation">]</span>
+OSI <span class="token number">7</span> Layer에서 Data Link 계층의 기능으로 옳지 않은 것은?
+① 오류 제어  ② 흐름 제어  
+❸ 텍스트 압축 및 암호화  ④ 링크 관리
+</code></pre><p><strong>정답:</strong> ❸ 텍스트 압축 및 암호화</p>
+<p><strong>해설:</strong> 텍스트 압축 및 암호화는 Presentation Layer의 기능이며, Data Link 계층은 오류 제어, 흐름 제어, 링크 관리 등을 담당합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① 오류 제어: 전송 중 오류 감지</li>
+<li>② 흐름 제어: 데이터 흐름 조절</li>
+<li>④ 링크 관리: 연결 설정 및 유지</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+Data Link는 연결을 잘 유지하고, 실수 없이 전달하는 역할이에요. 포장이나 암호는 다른 친구가 해요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">21</span><span class="token punctuation">]</span>
+패킷 교환 방식의 특징에 대한 설명 중 옳지 않은 것은?
+① 오류 제어로 고신뢰성 통신 가능  
+② 전송 시에만 회선을 사용하여 효율적  
+③ 연결형과 비연결형 방식이 존재  
+❹ 복수의 상대방과는 통신이 불가능하다
+</code></pre><p><strong>정답:</strong> ❹ 복수의 상대방과는 통신이 불가능하다</p>
+<p><strong>해설:</strong> 패킷 교환은 복수의 상대방과 통신이 가능하며, 비연결형 방식인 데이터그램은 특히 자유로운 통신이 가능합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① 오류 제어로 신뢰성 향상</li>
+<li>② 전송 시에만 회선 사용 → 자원 효율적</li>
+<li>③ 가상회선(연결형), 데이터그램(비연결형) 방식 존재</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+패킷 교환은 친구 여러 명에게 동시에 메시지를 보낼 수 있어요. "한 명만 가능"은 틀린 말이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">22</span><span class="token punctuation">]</span>
+VPN에 대한 설명으로 <span class="token punctuation">(</span>A<span class="token punctuation">)</span>에 알맞은 용어는?  
+- VPN의 터널링 프로토콜로 <span class="token punctuation">(</span>A<span class="token punctuation">)</span>은/는 OSI <span class="token number">7</span>계층 중 <span class="token number">3</span>계층 프로토콜로서 전송 모드와 터널 모드 <span class="token number">2</span>가지를 사용한다. 
+- 전송 모드는 IP 페이로드를 암호화하여 IP 헤더로 캡슐화하지만, 터널 모드는 IP 패킷을 모두 암호화하여 인터넷으로 전송한다.
+- 인터넷 상에서 안전한 통신을 위해 암호화 기술을 사용하는 프로토콜이다.
+
+① PPTP  ② L2TP  ❸ IPSec  ④ SSL
+</code></pre><p><strong>정답:</strong> ❸ IPSec</p>
+<p><strong>해설:</strong> IPSec은 VPN에서 데이터 암호화와 인증을 제공하는 보안 프로토콜입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① PPTP: 간단한 VPN 프로토콜, 보안 취약</li>
+<li>② L2TP: 터널링 기능, 암호화는 별도</li>
+<li>④ SSL: 웹 보안용, VPN에도 사용되지만 범용 아님</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+IPSec은 인터넷에 자물쇠를 걸어주는 기술이에요. 몰래 엿보지 못하게 해줘요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">23</span><span class="token punctuation">]</span>
+화상 회의 기술에 사용되는 프로토콜로 알맞은 것은?
+- 네트워크 관리팀은 원격근무와 온라인 결제 시스템을 위해 
+화상회의 시스템에서 동작하는 응용프로그램 기반의 제품을 선택하였다. 
+- 이 제품은 IETF에서 정의한 시그널링, 미디어 및 제어 프로토콜을 기반으로 하며, 
+서비스 세션의 생성, 수정 및 종료를 위해 TCP와 UDP를 사용한다. 
+- 또한 사용자는 URL을 이용하여 IP 주소에 구애받지 않고 접속할 수 있다.
+
+
+① IRC  ② HEVC/H.265  ③ MIME  ❹ SIP
+</code></pre><p><strong>정답:</strong> ❹ SIP</p>
+<p><strong>해설:</strong> SIP(Session Initiation Protocol)은 음성, 영상 통화 등 실시간 통신을 위한 세션을 설정하는 데 사용됩니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① IRC: 텍스트 기반 채팅</li>
+<li>② HEVC/H.265: 영상 압축 기술</li>
+<li>③ MIME: 이메일 첨부파일 처리</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+SIP는 "화상 회의 시작할게요~" 하고 연결을 도와주는 친구예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">24</span><span class="token punctuation">]</span>
+CSMA/CD 방식에 대한 설명으로 올바른 것은?
+① 링형 통신망에서 사용됨  
+② 반송파와 상관없이 전송  
+❸ 반송파 감지 후 전송  
+④ 통신량 많을수록 지연 예측 쉬움
+</code></pre><p><strong>정답:</strong> ❸ 반송파 감지 후 전송</p>
+<p><strong>해설:</strong> CSMA/CD는 반송파 감지 후 충돌이 없을 때 데이터를 전송하는 방식입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① 링형은 토큰 방식 사용</li>
+<li>② 반송파 감지 없이 전송은 아님</li>
+<li>④ 통신량 많으면 충돌 증가 → 지연 예측 어려움</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+길이 비었는지 보고 차가 없으면 출발하는 방식이에요. 눈치 보고 움직이는 거죠!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">25</span><span class="token punctuation">]</span>
+기가비트 이더넷 규격으로 올바른 것은?
+❶ 1000Base-SX  ② 1000Base-NX  ③ 1000Base-BX  ④ 1000Base-AX
+</code></pre><p><strong>정답:</strong> ❶ 1000Base-SX</p>
+<p><strong>해설:</strong> 1000Base-SX는 기가비트 이더넷의 표준 규격 중 하나로, 짧은 거리의 광섬유 전송에 사용됩니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>②, ④: 존재하지 않는 규격</li>
+<li>③ 1000Base-BX: 단일 광섬유 양방향 전송용</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+1000Base-SX는 "빠르고 짧은 거리"에 적합한 고속 도로예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">26</span><span class="token punctuation">]</span>
+링형<span class="token punctuation">(</span>Ring<span class="token punctuation">)</span> 네트워크 구성에 대한 설명으로 옳지 않은 것은?
+① 장애 발생 시 쉽게 발견 가능  
+② 노드 연결 최소화 목적  
+③ 한 장비 오류 시 전체 영향  
+❹ 확장성이 뛰어나다
+</code></pre><p><strong>정답:</strong> ❹ 확장성이 뛰어나다</p>
+<p><strong>해설:</strong> 링형은 구조상 확장성이 떨어지며, 노드 추가 시 전체 네트워크에 영향을 줄 수 있습니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① 장애 위치 추적 용이</li>
+<li>② 연결 수 적음</li>
+<li>③ 하나의 오류가 전체에 영향</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+링형은 친구들이 손잡고 원을 만든 구조예요. 한 명이 빠지면 다 흔들려요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">27</span><span class="token punctuation">]</span>
+모바일 셀룰러 시스템에서 통화 중 기지국을 변경하는 동작은?
+- 다른 단말기와 연결된 이동 단말기가 셀 범위 밖으로 이동하여
+다른 셀 범위안으로 들어가도 끊김이 없도록 새로운 셀의 기지국에 할당된 채널로 통화채널을 바꾼다.
+
+
+① 채널체인징  ② 페이징  ❸ 핸드오프  ④ 핸드쉐이크
+</code></pre><p><strong>정답:</strong> ❸ 핸드오프</p>
+<p><strong>해설:</strong> 핸드오프는 이동 중 통화가 끊기지 않도록 기지국을 자동으로 변경하는 기술입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① 채널체인징: 방송 채널 변경</li>
+<li>② 페이징: 단말기 위치 확인</li>
+<li>④ 핸드쉐이크: 통신 시작 시 신호 교환</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+핸드오프는 "기지국 바꿔 탈게요~" 하는 자동 환승이에요!</p>
+<hr>
+<blockquote>
+<p>3과목 : NOS</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">28</span><span class="token punctuation">]</span>
+Windows Server <span class="token number">2016</span>의 DNS 서버에서 레코드 추가 시 옳지 않은 것은?
+① A/AAA: IP 주소 등록  
+② PTR: IP → 도메인 등록  
+❸ CNAME: 서브도메인 등록  
+④ MX: 메일서버 등록
+</code></pre><p><strong>정답:</strong> ❸ CNAME: 서브도메인 등록</p>
+<p><strong>해설:</strong> CNAME은 별칭(alias)을 설정하는 레코드이며, 서브도메인 등록 용도는 아닙니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① A/AAA: 호스트 이름 → IP</li>
+<li>② PTR: IP → 도메인</li>
+<li>④ MX: 메일 서버 지정</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+CNAME은 "이 이름은 저 친구랑 같아요!"라고 알려주는 별명이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">29</span><span class="token punctuation">]</span>
+Linux에서 사용자가 내린 명령을 Kernel에 전달하는 역할을 하는 것은?
+① System Program  ② Loader  ❸ Shell  ④ Directory
+</code></pre><p><strong>정답:</strong> ❸ Shell</p>
+<p><strong>해설:</strong> Shell은 사용자의 명령을 해석하여 커널에 전달하는 인터페이스입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① System Program: 시스템 기능 수행</li>
+<li>② Loader: 프로그램 로딩</li>
+<li>④ Directory: 파일 구조</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+Shell은 통역사예요! 우리가 말하면 컴퓨터가 알아듣게 번역해줘요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">30</span><span class="token punctuation">]</span>
+Linux에서 ‘manager’ 파일을 소유자가 아닌 사람이 읽을 수는 있지만 수정은 못 하도록 설정하는 명령어는?
+① <span class="token function">chmod</span> <span class="token number">777</span> manager  ② <span class="token function">chmod</span> <span class="token number">666</span> manager  ③ <span class="token function">chmod</span> <span class="token number">646</span> manager  ❹ <span class="token function">chmod</span> <span class="token number">644</span> manager
+</code></pre><p><strong>정답:</strong> ❹ chmod 644 manager</p>
+<p><strong>해설:</strong> <code>644</code>는 소유자에게 읽기/쓰기, 그룹 및 기타 사용자에게 읽기 권한만 부여합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① 777: 모두에게 읽기/쓰기/실행</li>
+<li>② 666: 모두에게 읽기/쓰기</li>
+<li>③ 646: 그룹에 쓰기 권한 부여됨</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+644는 "내가 수정하고, 너희는 보기만 해!"라는 설정이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">31</span><span class="token punctuation">]</span>
+BitLocker 기능을 사용하기 위해 메인보드와 BIOS에서 지원해야 하는 기능은?
+① FSRM  ② NTLM  ❸ TPM  ④ Heartbeat
+</code></pre><p><strong>정답:</strong> ❸ TPM</p>
+<p><strong>해설:</strong> BitLocker는 TPM(Trusted Platform Module)을 통해 암호화 키를 안전하게 저장하고 시스템 보안을 강화합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① FSRM: 파일 서버 리소스 관리자</li>
+<li>② NTLM: 인증 프로토콜</li>
+<li>④ Heartbeat: 클러스터 상태 확인용</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+TPM은 컴퓨터 안에 숨겨진 금고예요. BitLocker는 그 금고에 열쇠를 넣어두는 거죠!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">32</span><span class="token punctuation">]</span>
+서버 담당자 Park 사원은 Windows Server <span class="token number">2016</span>에서 성능 모니터를 운영하여 서버의 성능을 분석하고자 한다. 다음 중 성능 모니터로 미리 정의한 일정한 주기로 특정 데이터를 수집하고자 성능 모니터 도구를 시작하기 위한 명령어로 올바른 것은? 
+❶ perfmon  ② msconfig  ③ dfrg  ④ secpol
+</code></pre><p><strong>정답:</strong> ❶ perfmon</p>
+<p><strong>해설:</strong> <code>perfmon</code>은 성능 모니터를 실행하는 명령어로, 시스템 자원 사용량을 실시간으로 확인할 수 있습니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>② msconfig: 시스템 설정 관리</li>
+<li>③ dfrg: 디스크 조각 모음</li>
+<li>④ secpol: 로컬 보안 정책 설정</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+perfmon은 컴퓨터의 건강 상태를 보는 청진기 같은 도구예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">33</span><span class="token punctuation">]</span>
+서버 관리자 Kim 사원이 Linux 서버의 ′/root′ 디렉터리를 점검 중 ′/etc/passwd′ 파일이 ′/root′ 디렉터리에 복사되어 있는 것을 발견하였다. 이에 Kim 사원은 ′/root/passwd′ 파일을 삭제하려 했으나 삭제가 되지 않았다. <span class="token punctuation">(</span>A<span class="token punctuation">)</span>명령어를 사용하여 파일 속성을 출력하였는데 해당 파일에 ′i′ 속성이 설정되어 쓰기 및 삭제가 되지 않는 것을 확인하였다. 해당 명령어 <span class="token punctuation">(</span>A<span class="token punctuation">)</span>는 무엇인가? Linux에서 파일 속성을 확인하여 삭제 불가 속성<span class="token punctuation">(</span>i<span class="token punctuation">)</span>을 확인할 수 있는 명령어는?
+
+<span class="token punctuation">[</span>root@icqa ~<span class="token punctuation">]</span><span class="token comment"># ls -l ./passwd</span>
+-rw-r--r--. <span class="token number">1</span> root root <span class="token number">2195</span> <span class="token number">10</span>월 <span class="token number">16</span> <span class="token number">16</span>:26 ./passwd
+<span class="token punctuation">[</span>root@icqa ~<span class="token punctuation">]</span><span class="token comment"># rm -f ./passwd</span>
+rm: cannot remove <span class="token string">'./passwd'</span><span class="token builtin class-name">:</span> 명령을 허용하지 않음
+<span class="token punctuation">[</span>root@icqa ~<span class="token punctuation">]</span><span class="token comment">#  (A) ./passwd</span>
+----i-------- ./passwd
+
+
+① <span class="token function">file</span>  ② <span class="token function">stat</span>  ❸ lsattr  ④ lsblk
+</code></pre><p><strong>정답:</strong> ❸ lsattr</p>
+<p><strong>해설:</strong> <code>lsattr</code> 명령어는 파일의 속성(예: i 속성)을 확인할 수 있으며, i 속성이 설정되면 삭제가 불가능합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① file: 파일 종류 확인</li>
+<li>② stat: 파일 상세 정보 출력</li>
+<li>④ lsblk: 블록 장치 정보 확인</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+lsattr는 파일에 자물쇠가 걸려 있는지 확인하는 도구예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">34</span><span class="token punctuation">]</span>
+터미널을 닫아도 백그라운드에서 작업을 계속 실행하도록 하는 명령어는?
+① <span class="token function">mkfs</span>  ❷ <span class="token function">nohup</span>  ③ <span class="token function">sleep</span>  ④ last
+</code></pre><p><strong>정답:</strong> ❷ nohup</p>
+<p><strong>해설:</strong> <code>nohup</code>은 터미널 종료 후에도 프로세스를 계속 실행할 수 있도록 합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① mkfs: 파일 시스템 생성</li>
+<li>③ sleep: 일정 시간 대기</li>
+<li>④ last: 로그인 기록 확인</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+nohup은 "나 터미널 꺼도 계속 일할게요!" 하는 성실한 친구예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">35</span><span class="token punctuation">]</span>
+Linux에서 암호 변경 경고를 <span class="token number">10</span>일 전에 설정하기 위한 명령어 옵션은?
+
+<span class="token operator">&gt;</span> $ <span class="token function">sudo</span> chage <span class="token parameter variable">-m</span> <span class="token number">2</span> <span class="token parameter variable">-M</span> <span class="token number">100</span>  <span class="token punctuation">(</span>      <span class="token punctuation">)</span>  <span class="token parameter variable">-I</span> <span class="token number">10</span> <span class="token parameter variable">-E</span> <span class="token number">2021</span>-12-25 John
+
+
+① <span class="token parameter variable">-m</span> <span class="token number">10</span>  ② <span class="token parameter variable">-L</span> <span class="token number">10</span>  ③ <span class="token parameter variable">-i</span> <span class="token number">10</span>  ❹ <span class="token parameter variable">-W</span> <span class="token number">10</span>
+</code></pre><p><strong>정답:</strong> ❹ -W 10</p>
+<p><strong>해설:</strong> <code>-W</code> 옵션은 암호 만료 전 경고를 줄 날짜를 설정합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① -m: 최소 사용 기간 설정</li>
+<li>② -L: 잘못된 옵션</li>
+<li>③ -i: 비활성화 기간 설정</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+-W는 "암호 바꿀 날이 다가와요~" 하고 미리 알려주는 알람이에요!</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>sudo chage -m 2 -M 100 (옵션) -I 10 -E 2021-12-25 John
+</code></pre><h3 id="️-각-옵션-설명">🛠️ 각 옵션 설명 </h3>
+<table>
+<thead>
+<tr>
+<th>옵션</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-m 2</code></td>
+<td>최소 비밀번호 변경 주기: 비밀번호를 변경한 후 최소 2일이 지나야 다시 변경 가능</td>
+</tr>
+<tr>
+<td><code>-M 100</code></td>
+<td>최대 비밀번호 유효 기간: 비밀번호는 100일 동안 유효하며, 이후 변경 필요</td>
+</tr>
+<tr>
+<td><code>(옵션)</code></td>
+<td>여기에 들어갈 수 있는 주요 옵션은 <strong>-W</strong> 또는 <strong>-d</strong> 등이 있음</td>
+</tr>
+<tr>
+<td><code>-I 10</code></td>
+<td>비밀번호 만료 후 10일간 로그인하지 않으면 계정 잠금</td>
+</tr>
+<tr>
+<td><code>-E 2021-12-25</code></td>
+<td>계정 만료일: 2021년 12월 25일 이후 계정 비활성화</td>
+</tr>
+<tr>
+<td><code>John</code></td>
+<td>설정 대상 사용자 계정 이름</td>
+</tr>
+</tbody>
+</table>
+<h5 id="-괄호-안에-들어갈-수-있는-대표적인-옵션">🔍 괄호 안에 들어갈 수 있는 대표적인 옵션 </h5>
+<ul>
+<li>
+<p><strong>-W &lt;days&gt;</strong><br>
+비밀번호 만료 전에 사용자에게 경고하는 기간을 설정합니다.<br>
+예: <strong>-W 7</strong> → 만료 7일 전에 경고</p>
+</li>
+<li>
+<p><strong>-d &lt;YYYY-MM-DD&gt;</strong><br>
+마지막 비밀번호 변경 날짜를 설정합니다.<br>
+예: <strong>-d 2021-10-01</strong></p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> chage <span class="token parameter variable">-m</span> <span class="token number">2</span> <span class="token parameter variable">-M</span> <span class="token number">100</span> <span class="token parameter variable">-W</span> <span class="token number">7</span> <span class="token parameter variable">-I</span> <span class="token number">10</span> <span class="token parameter variable">-E</span> <span class="token number">2021</span>-12-25 John
+</code></pre><p>이렇게 하면 John 계정은:</p>
+<ul>
+<li>비밀번호를 최소 2일 간격으로 변경 가능</li>
+<li>100일 후 비밀번호 만료</li>
+<li>만료 7일 전에 경고</li>
+<li>만료 후 10일간 로그인 없으면 계정 잠금</li>
+<li>2021년 12월 25일에 계정 자체가 만료됨</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">36</span><span class="token punctuation">]</span>
+DNS 캐시를 초기화하는 명령어는?
+① ipconfig /displaydns  ❷ ipconfig /flushdns  ③ ipconfig /release  ④ ipconfig /renew
+</code></pre><p><strong>정답:</strong> ❷ ipconfig /flushdns</p>
+<p><strong>해설:</strong> <code>flushdns</code>는 DNS 캐시를 초기화하여 오래된 도메인 정보를 제거합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① displaydns: 캐시 내용 보기</li>
+<li>③ release: IP 주소 해제</li>
+<li>④ renew: IP 주소 갱신</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+flushdns는 "기억 지워!" 하는 명령이에요. 새로 물어보게 해줘요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">37</span><span class="token punctuation">]</span>
+Windows의 EFS<span class="token punctuation">(</span>암호화 파일 시스템<span class="token punctuation">)</span>에 대한 설명으로 올바른 것은?
+① 윈도우 파일에만 적용됨  
+❷ 인증서 확장자 형식 지원  
+③ 암호만으로 개인키 보호  
+④ OS 재설치 후에도 파일 열림
+</code></pre><p><strong>정답:</strong> ❷ 인증서 확장자 형식 지원</p>
+<p><strong>해설:</strong> EFS는 CER, P7B, PFX, SST 등의 인증서 파일 형식을 지원합니다.<br>
+"복호화 키 없으면 불가능"</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① EFS는 NTFS 파일 시스템에 적용</li>
+<li>③ 암호 외에도 인증서 필요</li>
+<li>④ OS 재설치 시 복호화 불가</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+EFS는 자물쇠를 여는 열쇠를 인증서로 관리해요. 열쇠 없으면 못 열어요!<br>
+"복호화 키 없으면 불가능"</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">38</span><span class="token punctuation">]</span>
+도메인 사용자 계정 관리 명령어가 아닌 것은?
+① dsadd  ② dsmod  ③ dsrm  ❹ net user
+</code></pre><p><strong>정답:</strong> ❹ net user</p>
+<h5 id="-해설-요약">🧾 해설 요약 </h5>
+<ul>
+<li><strong>net user</strong>: 로컬 사용자 계정을 관리하는 명령어입니다.</li>
+<li><strong>dsadd / dsmod / dsrm</strong>: 도메인 사용자 계정을 관리할 때 사용하는 명령어들입니다.</li>
+</ul>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① dsadd: 사용자 추가</li>
+<li>② dsmod: 사용자 수정</li>
+<li>③ dsrm: 사용자 삭제</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+net user는 집안 친구 관리, dsadd는 회사 직원 관리예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">39</span><span class="token punctuation">]</span>
+Linux에서 마운트 여부를 확인할 수 없는 명령어는?
+❶ <span class="token function">fdisk</span>  ② <span class="token function">mount</span>  ③ <span class="token function">df</span>  ④ <span class="token function">cat</span> /etc/mtab
+</code></pre><p><strong>정답:</strong> ❶ fdisk</p>
+<p><strong>해설:</strong> <code>fdisk</code>는 디스크 파티션 정보를 확인하는 명령어이며, 마운트 여부는 확인할 수 없습니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>② mount: 마운트된 장치 확인</li>
+<li>③ df: 디스크 사용량 및 마운트 정보</li>
+<li>④ /etc/mtab: 마운트 정보 기록</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+fdisk는 "디스크 어떻게 나눴어요?"만 알려줘요. "지금 쓰고 있나요?"는 몰라요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">40</span><span class="token punctuation">]</span>
+Linux에서 디렉터리의 소유자와 소유 그룹을 변경하는 명령어는?
+① <span class="token function">chmod</span>  ❷ <span class="token function">chown</span>  ③ <span class="token function">useradd</span>  ④ chage
+</code></pre><p><strong>정답:</strong> ❷ chown</p>
+<p><strong>해설:</strong> <code>chown</code>은 파일이나 디렉터리의 소유자 및 그룹을 변경하는 명령어입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① chmod: 권한 변경</li>
+<li>③ useradd: 사용자 추가</li>
+<li>④ chage: 암호 정책 변경</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+chown은 "이 폴더는 이제 너 꺼야!" 하고 주인을 바꿔주는 명령이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">41</span><span class="token punctuation">]</span>
+Linux 시스템에서 비인가자의 로그인 시도 이력을 확인하기 위한 명령어는?
+❶ lastb  ② xferlog  ③ <span class="token function">history</span>  ④ <span class="token function">pkill</span>
+</code></pre><p><strong>정답:</strong> ❶ lastb</p>
+<p><strong>해설:</strong> <code>lastb</code>는 실패한 로그인 시도를 확인할 수 있는 명령어입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>② xferlog: FTP 전송 기록 확인</li>
+<li>③ history: 명령어 사용 내역 확인</li>
+<li>④ pkill: 프로세스 종료</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+lastb는 "누가 몰래 들어오려 했는지" 알려주는 감시 카메라 기록이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">42</span><span class="token punctuation">]</span>
+Linux 서버에서 불필요한 서비스 포트가 열려 있는지 확인하는 명령어는?
+① <span class="token function">ps</span> <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> tcp  ❷ <span class="token function">netstat</span> –antp  ③ <span class="token function">netstat</span> –rn  ④ <span class="token function">cat</span> /etc/services
+</code></pre><p><strong>정답:</strong> ❷ netstat –antp</p>
+<p><strong>해설:</strong> <code>netstat –antp</code>는 현재 열려 있는 TCP 포트와 해당 프로세스를 확인할 수 있는 명령어입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① ps -ef: 프로세스 목록 확인</li>
+<li>③ netstat –rn: 라우팅 테이블 확인</li>
+<li>④ /etc/services: 포트 번호와 서비스 매핑 정보</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+netstat –antp는 "어떤 문이 열려 있고, 누가 쓰고 있는지" 알려주는 보안 점검 도구예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">43</span><span class="token punctuation">]</span>
+Linux의 가상 파일 시스템으로 시스템 정보와 프로세스 상태를 확인할 수 있는 디렉터리는?
+① /boot  ② /etc  ❸ /proc  ④ /lib
+</code></pre><p><strong>정답:</strong> ❸ /proc</p>
+<p><strong>해설:</strong> <code>/proc</code>은 커널과 관련된 정보, 프로세스 상태, 하드웨어 정보를 제공하는 가상 파일 시스템입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① /boot: 부팅 관련 파일</li>
+<li>② /etc: 설정 파일</li>
+<li>④ /lib: 라이브러리 파일</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+/proc은 컴퓨터의 속을 들여다볼 수 있는 투명한 창문이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">44</span><span class="token punctuation">]</span>
+Linux에서 <span class="token string">'exam.txt'</span> 파일을 한 페이지씩 차례대로 보기 위한 명령어는?
+❶ <span class="token function">cat</span> exam.txt <span class="token operator">|</span> <span class="token function">more</span>  ② <span class="token function">cat</span> exam.txt <span class="token operator">|</span> <span class="token function">grep</span>  ③ <span class="token function">find</span> exam.txt <span class="token operator">|</span> <span class="token function">grep</span>  ④ <span class="token function">tar</span> exam.txt <span class="token operator">|</span> <span class="token function">grep</span>
+</code></pre><p><strong>정답:</strong> ❶ cat exam.txt | more</p>
+<p><strong>해설:</strong> <code>more</code> 명령어는 긴 파일을 한 페이지씩 출력하며, <code>cat</code>과 함께 사용하면 전체 내용을 넘기며 볼 수 있습니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>② grep: 특정 문자열 검색</li>
+<li>③ find: 파일 검색</li>
+<li>④ tar: 파일 압축/해제</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+more는 "한 장씩 넘겨볼게요~" 하는 책 넘기기 기능이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">45</span><span class="token punctuation">]</span>
+Windows Server <span class="token number">2016</span>의 IIS 기본 웹사이트 등록 정보 중 옳지 않은 설명은?
+① IP 주소: 접속 순서 지정 가능  
+❷ TCP 포트: 물리적 시리얼 포트 지정  
+③ 연결 수 제한: 접속 수 제한 가능  
+④ 연결 시간 제한: 일정 시간 후 세션 종료
+</code></pre><p><strong>정답:</strong> ❷ TCP 포트: 물리적 시리얼 포트 지정</p>
+<p><strong>해설:</strong> TCP 포트는 네트워크 통신을 위한 논리적 포트이며, 물리적 시리얼 포트와는 관련이 없습니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① IP 주소: 여러 IP 설정 가능</li>
+<li>③ 연결 수 제한: 동시 접속 수 조절</li>
+<li>④ 연결 시간 제한: 비활성 세션 종료</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+TCP 포트는 인터넷 통신용 문이에요. 시리얼 포트는 컴퓨터 뒷면의 물리적 구멍이에요!</p>
+<blockquote>
+<p>4과목 : 네트워크 운용기기</p>
+</blockquote>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">46</span><span class="token punctuation">]</span>
+머리카락 굵기만큼 얇은 유리 섬유로 빠른 속도와 넓은 대역폭을 제공하는 케이블은?
+① Coaxial Cable  ② Twisted Pair  ③ Thin Cable  ❹ Optical Fiber
+</code></pre><p><strong>정답:</strong> ❹ Optical Fiber</p>
+<p><strong>해설:</strong> 광섬유 케이블은 빛을 이용해 데이터를 전송하며, 속도와 대역폭이 뛰어나지만 설치가 까다롭습니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① Coaxial: 동축 케이블, 중간 속도</li>
+<li>② Twisted Pair: 전화선 기반, 저속</li>
+<li>③ Thin Cable: 구형 네트워크용</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+Optical Fiber는 빛의 속도로 달리는 고속도로예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">47</span><span class="token punctuation">]</span>
+LAN을 논리적으로 나누고 내부망을 분리할 수 있는 기술은?
+① NAC  ❷ VLAN  ③ IPS  ④ IDS
+</code></pre><p><strong>정답:</strong> ❷ VLAN</p>
+<p><strong>해설:</strong> VLAN은 하나의 물리적 네트워크를 논리적으로 분리하여 보안성과 관리 효율을 높입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① NAC: 네트워크 접근 제어</li>
+<li>③ IPS: 침입 차단 시스템</li>
+<li>④ IDS: 침입 탐지 시스템</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+VLAN은 같은 건물 안에 부서별로 다른 문을 만들어주는 기술이에요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">48</span><span class="token punctuation">]</span>
+TCP/IP 통신을 위한 IP 주소를 동적으로 할당해주는 프로토콜은?
+❶ DHCP  ② DNS  ③ IP주소 관리 시스템  ④ NAC
+</code></pre><p><strong>정답:</strong> ❶ DHCP</p>
+<p><strong>해설:</strong> DHCP는 네트워크에 접속한 장치에 자동으로 IP 주소를 할당하는 프로토콜입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>② DNS: 도메인 이름 → IP 주소 변환</li>
+<li>③ IP주소 관리 시스템: 수동 관리 도구</li>
+<li>④ NAC: 접근 제어</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+DHCP는 "들어오세요~ 이 주소 쓰세요!" 하고 자동으로 주소를 나눠줘요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">49</span><span class="token punctuation">]</span>
+RAID 방식 중 미러링을 통해 최고의 성능과 고장 대비 능력을 제공하는 것은?
+① RAID <span class="token number">0</span>  ❷ RAID <span class="token number">1</span>  ③ RAID <span class="token number">3</span>  ④ RAID <span class="token number">5</span>
+</code></pre><p><strong>정답:</strong> ❷ RAID 1</p>
+<p><strong>해설:</strong> RAID 1은 데이터를 동일하게 두 개의 디스크에 저장하여 하나가 고장나도 복구가 가능합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① RAID 0: 성능은 좋지만 복구 불가</li>
+<li>③ RAID 3: 패리티 기반</li>
+<li>④ RAID 5: 분산 패리티 방식</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+RAID 1은 복사본을 항상 하나 더 만들어두는 안전한 친구예요!</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">50</span><span class="token punctuation">]</span>
+무선랜 기술로 근거리에서 이동하며 지속적으로 네트워크에 접근할 수 있게 해주는 IEEE 규격은?
+
+- 미국 전기전자학회<span class="token punctuation">(</span>IEEE<span class="token punctuation">)</span>가 발표한 기술 규격으로 여섯 번째 표준이라는 의미로 ‘와이파이 <span class="token number">6</span>’이라 지칭한다.
+- 다양한 전파 환경에서 전송 효율을 향상시키기 위하여 다중 사용자 MIMO<span class="token punctuation">(</span>MU-MIMO<span class="token punctuation">)</span> 기술을 적용하였다.
+- 전송효율을 높이기 위하여 최대 <span class="token number">1024</span> QAM 변조 방식을 사용할 수 있다.
+- 무선 주파수의 포화 상태로 인한 통신 간섭 문제를 극복하기 위하여 등장한 확장 표준이며 비면허 주파수인 6GHz에서 통신을 지원한다.
+
+
+① IEEE <span class="token number">802</span>.11n  ② IEEE <span class="token number">802</span>.11ac  ③ IEEE <span class="token number">802</span>.11be  ❹ IEEE <span class="token number">802</span>.11ax
+</code></pre><p><strong>정답:</strong> ❹ IEEE 802.11ax</p>
+<p><strong>해설:</strong> IEEE 802.11ax는 Wi-Fi 6로 불리며, 고속·고효율 무선 통신을 지원하는 최신 규격입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<ul>
+<li>① 802.11n: Wi-Fi 4</li>
+<li>② 802.11ac: Wi-Fi 5</li>
+<li>③ 802.11be: Wi-Fi 7 (차세대 규격)</li>
+</ul>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+802.11ax는 최신 와이파이예요! 빠르고 여러 사람이 동시에 써도 끊기지 않아요!</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
