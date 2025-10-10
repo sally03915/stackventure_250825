@@ -37,21 +37,9 @@ Part001
 | Chapter 3 | Markdown 파일 만들기 | [보기](https://sally03915.github.io/stackventure_250825/001_github+markdown+ai/marp001_3_github_markdown) |
 | Chapter 4 | GitHub에서 협업하기 | [보기](https://sally03915.github.io/stackventure_250825/001_github+markdown+ai/marp001_4_github_협업) |
 | Chapter 5 | AI에게 질문하며 개발하기 | [보기](https://sally03915.github.io/stackventure_250825/001_github+markdown+ai/marp001_5_github_ai) |
+| Chapter 6 |-협업 과정에서 만날 수 있는 다양한 시나리오 | [보기](https://sally03915.github.io/stackventure_250825/001_github+markdown+ai/marp001_6_collaboration) |
 
-
-Part002 -협업 과정에서 만날 수 있는 다양한 시나리오
-
-| 챕터 | 내용 | 링크 |
-|------|------|------|
-| Chapter 6 | TAG(태그) | [보기](https://sally03915.github.io/stackventure_250825/001_github+markdown+ai/marp001_1_github_basic) |
-| Chapter 7 | RELEASE(릴리즈) | [보기](https://sally03915.github.io/stackventure_250825/001_github+markdown+ai/marp001_2_github_push_pull) |
-| Chapter 8 | AMEND(어맨드) | [보기](https://sally03915.github.io/stackventure_250825/001_github+markdown+ai/marp001_3_github_markdown) |
-| Chapter 9 | STASH(스태시) | [보기](https://sally03915.github.io/stackventure_250825/001_github+markdown+ai/marp001_4_github_협업) |
-| Chapter 10 | RESET(리셋) | [보기](https://sally03915.github.io/stackventure_250825/001_github+markdown+ai/marp001_5_github_ai) |
-| Chapter 11 | REVERT(리버트) | [보기](https://sally03915.github.io/stackventure_250825/001_github+markdown+ai/marp001_3_github_markdown) |
-| Chapter 12 | REBASE(리베이스) | [보기](https://sally03915.github.io/stackventure_250825/001_github+markdown+ai/marp001_4_github_협업) |
-| Chapter 13 | CHERRYPICK(체리픽) | [보기](https://sally03915.github.io/stackventure_250825/001_github+markdown+ai/marp001_5_github_ai) |
-
+ 
 ---
 
 ## 📌 목표  
