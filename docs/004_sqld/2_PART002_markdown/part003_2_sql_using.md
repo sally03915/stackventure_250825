@@ -8,6 +8,9 @@
 ③ JOIN
 ④ DIVIDE
 
+
+**정답** : 2
+
 ---
 ### ✅066  
 다음 중 아래 데이터 모델을 참고하여 설명에 맞게 올바르게 작성한 SQL 문장을 2개 고르시오.
@@ -80,8 +83,8 @@ ON (A.고객ID = B.고객ID) INNER JOIN 컨텐츠 C
 ON (B.컨텐츠ID = C.컨텐츠ID) LEFT OUTER JOIN 비선호컨텐츠 D
 ON (B.고객ID = D.고객ID AND B.컨텐츠최ID = D.컨텐츠ID)
 WHERE A.고객ID = #custId#
-AND   B.추천대상일자 = TO CHAR(SYSDATE, 'YYYY.MM.DD')
-AND   D.컨텐칙ID IS NULL;
+AND   B.추천대상일자 = TO_CHAR(SYSDATE, 'YYYY.MM.DD')
+AND   D.컨텐츠ID IS NULL;
 
 ④ SELECT C.컨텐츠ID, C.컨텐츠명
 FROM 고객 A INNER JOIN 추천컨텐츠 B
@@ -91,6 +94,10 @@ WHERE B.추천대상일자 = TO_CHAR(SYSDATE, 'YYYY.MM.DD')
 AND NOT EXISTS ( SELECT X.컨텐츠ID   FROM 비선호컨텐츠 X  
                     WHERE X.고객ID = B.고객ID  AND X.컨텐츠ID = B.컨텐츠ID);
 ```
+
+
+**정답** : 3,4
+
 
 ---
 
@@ -131,6 +138,20 @@ erDiagram
 ④ 특정 생산라인번호에서 생산되는 제품의 제품명을 알기위해서는 제품,생산제품, 생산라인까지 3개 엔터티의 Inner Join인 필요하다.
 
 
+**정답** : 1,2
+
+> 1번답안 : 
+생산제품 테이블이 두 관계를 연결한다는 점을 강조하려는 의도로 보임. 하지만 WHERE절에 2번 등장해야 한다는 표현은 부정확하고 오해의 소지가 있음.
+이처럼 생산제품 테이블은 ON절에서 2번 사용되지만, WHERE절에 2번 등장할 필요는 없음
+그래도 굳이 2개 고르라고 했으므로 완전틀린 3,4 제외
+
+```
+SELECT ...
+FROM 제품 P
+JOIN 생산제품 SP ON P.제품코드 = SP.제품코드
+JOIN 생산라인 L ON SP.라인번호 = L.라인번호
+```
+
 ---
 ### ✅068  
 아래의 테이블 스키마 정보를 참고하여, 다음 중 '구매 이력이 있는 고객 중 구매 횟수가 3회 이상인 고객의 이름과 등급을 출력하시오.'라는 질의에 대해 아래 SQL 문장의 (가), (나)에 들어 갈 구문으로 가장 적절한 것은?
@@ -161,6 +182,10 @@ GROUP BY A.이름, A.등급
 
 ④ (가): INNER JOIN 구매정보 B ON A.고객번호=B.고객번호
   (나): WHERE B.구매번호 >=3
+
+
+
+**정답** : 2
 
 
 ---
@@ -222,6 +247,10 @@ GROUP BY A.고객ID, A.고객명
 ORDER BY A.고객ID, A.고객명:
 ```
 
+
+**정답** : 3
+
+
 ---
 
 ### ✅070  
@@ -246,6 +275,9 @@ WHERE TEAM.STADIUM_ID = STADIUM.STADIUM_ID;
 ```
 
 
+**정답** : 1
+
+
 ---
 
 ### ✅071  
@@ -263,6 +295,10 @@ SELECT ENAME, DNAME
 FROM EMP  ㉠ DEPT 
 ORDER BY ENAME;
 ```
+
+
+**정답** : CROSS JOIN
+
 
 ---
 
@@ -340,6 +376,10 @@ ORDER BY A.고객번호;
 | 16000    | 이대로 | 4000      | D4000     | 300  | Bada    |
 
  
+**정답** : 1
+
+
+
 
 
 
@@ -380,6 +420,10 @@ WHERE NOT EXISTS (SELECT 1 FROM TBL1 A WHERE B.ID = A.ID)
 ④ 1, 2, 3
 
 
+
+**정답** : 4
+
+
 ---
 
 ### ✅074  
@@ -407,6 +451,9 @@ WHERE NOT EXISTS (SELECT 1 FROM TBL1 A WHERE B.ID = A.ID)
 
 
 
+**정답** : 1
+
+
 ---
 
 ### ✅075  
@@ -417,6 +464,9 @@ SELECT E, ENAME, D. DEPTNO, D. DNAME
 FROM  DEPT D  (가)  EMP E
 ON    D.DEPTNO = E.DEPTNO;
 ```
+
+
+**정답** : LEFT JOIN
 
 ---
 
@@ -481,8 +531,12 @@ ON (A.C1 = B.C1 AND B.C2 BETWEEN 1 AND 3)
 | C  | 3  |C  | 3  |
 | D  | 4  |D  | 4  |
 
----
 
+
+**정답** : 2
+
+
+---
 ### ✅077  
 아래와 같은 데이터 모델에서 ORACLE을 기준으로 SQL을 작성하였다. 그러나 SQL Server에서도 동일한 결과를 보장할 수 있도록 ANSI 구문으로 SQL을 변경하려고 한다. 다음 중 아래의 SQL을 ANSI 표준 구문으로 변경한 것으로 가장 적절한 것은?
 
@@ -550,6 +604,9 @@ ORDER BY A.게시판ID:
 ```
 
 
+**정답** : 1
+
+
 ---
 
 ### ✅078  
@@ -584,6 +641,13 @@ WHERE s.d_num = d.dept_num  and dept_name = '전자계산학과');
 | 30       | 전자계산학과       |
 
  
+
+
+**정답** : 5
+
+
+
+
 ---
 
 ### ✅079  
@@ -621,6 +685,11 @@ FROM TAB1
 WHERE NOT EXISTS 
 (SELECT 'X' FROM TAB2 WHERE TAB1.A = TAB2.A AND TAB1.B = TAB2.B);
 ```
+
+
+
+**정답** : 4
+
 
 
 ---
@@ -693,6 +762,10 @@ WHERE 서비스ID IN (SELECT 서비스ID FROM 서비스이용
 ```
 
 
+**정답** : 2
+
+
+
 ---
 
 ### ✅081  
@@ -701,6 +774,9 @@ SET OPERATOR 중에서 수학의 교집합과 같은 기능을 하는 연산자�
 ② INTERSECT
 ③ MINUS
 ④ EXCEPT
+
+
+**정답** : 2
 
 
 ---
@@ -765,6 +841,9 @@ ORDER BY 1, 2;
 | JONES  | MANAGER |
 | SMITH  | CLERK   |
  
+
+**정답** : 2
+
 
 
 ---
@@ -831,6 +910,30 @@ GROUP BY COL1, COL2;
 | AD   | A4   | 2   |
 
 
+**정답** : 3
+
+```
+✅ UNION vs UNION ALL 복습
+UNION → 중복 제거
+UNION ALL → 중복 유지
+
+SQL 실행 순서 분석
+
+1. `SELECT COL1, COL2 FROM TBL1`  
+   → 2 rows: AA/A1, AB/A2
+
+2. `UNION ALL` with TBL2  
+   → 4 rows added: AA/A1, AB/A2, AC/A3, AD/A4  
+   → 총 6 rows
+
+3. `UNION` with TBL1  
+   → TBL1 has AA/A1, AB/A2  
+   → `UNION` removes duplicates  
+   → AA/A1, AB/A2 already exist → no new rows added  
+   → 총 여전히 6 rows
+```
+
+
 
 ---
 
@@ -865,6 +968,10 @@ SELECT A, B, C FROM R2
 ③ 가: 3개, 나: 3개
 ④ 가: 3개, 나: 5개
 
+
+**정답** : 1
+
+
 ---
 
 ### ✅085  
@@ -882,6 +989,9 @@ SELECT A, B, C FROM R2
 ② Difference
 ③ Intersection
 ④ Product
+
+
+**정답** : 3
 
 
 ---
@@ -916,6 +1026,7 @@ erDiagram
 수행한 결과는 다르다.
 
 
+**정답** : 3
 
 ---
 
@@ -940,6 +1051,11 @@ CONNECT BY PRIOR C1 = C2
 ORDER SIBLINGS BY C3 DESC
 ```
 
+
+
+**정답** : C
+
+
 ---
 ### ✅088  
 다음 중 Oracle 계층형 질의에 대한 설명으로 가장 부적절한 것은?
@@ -950,6 +1066,7 @@ ORDER SIBLINGS BY C3 DESC
 ④ 루트 노드의 LEVEL 값은 0이다.
 
 
+**정답** : 4
 
 ---
 ### ✅089  
@@ -1010,6 +1127,7 @@ ORDER SIBLINGS BY 사원번호:
 | 008           | 김병만 | 2014-01-01 | 005                  |
  
 
+**정답** : 1
 
 ---
 
@@ -1021,6 +1139,8 @@ ORDER SIBLINGS BY 사원번호:
 ③ 오라클의 계층형 질의문에서 WHERE 절은 모든 전개를 진행한 이후 필터 조건으로서 조건을 만족하는 데이터만을 추출하는데 활용된다.
 ④ 오라클의 계층형 질의문에서 PRIOR 키워드는 CONNECT BY 절에만 사용할 수 있으며 'PRIOR 자식 = 부모' 형태로 사용하면 순방향 전개로 수행 된다.
 
+
+**정답** : 4
 
 ---
 
@@ -1116,6 +1236,8 @@ ON (A.부서코드 = B.부서코드)
 ORDER BY A.부서코드;
 ```
 
+**정답** : 1
+
 
 ---
 
@@ -1126,6 +1248,9 @@ ORDER BY A.부서코드;
 ② 두 테이블에 연관된 칼럼은 없으나 JOIN을 해야 한다.
 ③ 두 테이블에 공통 칼럼이 존재하고 두 테이블이 연관 관계가 있다.
 ④ 한 테이블 내에서 연관된 칼럼은 없으나 JOIN을 해야 한다.
+
+
+**정답** : 1
 
 ---
 
@@ -1184,6 +1309,9 @@ GROUP BY A.일자
 ORDER BY A.일자:
 ```
 
+**정답** : 3
+
+
 ---
 
 ### ✅094  
@@ -1213,7 +1341,13 @@ WHERE D = (SELECT D FROM DEPT WHERE E = 'i'):
 ① 0
 ② 1
 ③ 2  
-④ 3  
+④ 3 
+
+
+**정답** : 3
+
+
+
 
 ---
 
@@ -1233,6 +1367,9 @@ WHERE D = (SELECT D FROM DEPT WHERE E = 'i'):
 ② 가, 나, 라
 ③ 나, 다, 라
 ④ 가, 나, 마
+
+
+**정답** : 2
 
 
 ---
@@ -1258,7 +1395,8 @@ WHERE  (가) (SELECT * FROM 가족 WHERE  (나)  )
 ③ (가): NOT EXISTS  (나): 사번 = 부양사번
 ④ (가): NOT EXISTS  (나): 사번 <> 부양사번
 
-  
+ 
+**정답** : 3 
   
 
 ---
@@ -1325,8 +1463,11 @@ GROUP BY A.회원번호, A.회원명
 ORDER BY A.회원번호:
 ```
 
----
 
+**정답** : 3
+
+
+---
 ### ✅098  
 
 아래의 데이터 모델을 기준으로 SQL을 작성하였다. 다음 중 아래의 SQL에 대해 가장 바르게 설명한 것은?
@@ -1387,6 +1528,9 @@ WHERE EXISTS (SELECT 'X'
 ④ GROUP BY 및 집계함수를 사용하지 않고 HAVING절을 사용하였으므로 SQL이 실행되지 못하고 오류가 발생한다.
 
 
+
+**정답** : 3
+
 ---
 
 ### ✅099  
@@ -1396,6 +1540,9 @@ WHERE EXISTS (SELECT 'X'
 ② 다중 행 서브쿼리 비교 연산자는 단일 행 서브쿼리의 비교 연산자로도 사용할 수 있다.
 ③ 연관 서브쿼리는 주로 메인쿼리에 값을 제공하기 위한 목적으로 사용한다.
 ④ 서브 쿼리는 항상 메인쿼리에서 읽혀진 데이터에 대해 서브쿼리에서 해당 조건이 만족하는지를 확인하는 방식으로 수행된다.
+
+
+**정답** : 2
 
 ---
 
@@ -1417,6 +1564,7 @@ AND EXISTS (SELECT 1 FROM 사원 X WHERE X. 부서번호 = A.부서번호);
 ③ WHERE 절의 서브쿼리에 사원 테이블 검색 조건으로 입사년도 조건을 FROM절의 서브쿼리와 동일하게 추가해야 원하는 결과를 추출할 수 있다.
 ④ FROM 절의 서브쿼리는 동적 뷰(Dynamic View)라고도 하며, SQL 문장 중 테이블 명이 올 수 있는 곳에서 사용할 수 있다.
 
+**정답** : 3
 
 ---
 
@@ -1489,6 +1637,9 @@ FROM (SELECT 상품ID, 평가항목ID
 WHERE A.상품ID = B.상품ID
 AND   A.평가항목ID = C.평가항목ID;
 ```
+
+**정답** : 2
+
 
 ---
 
@@ -1563,6 +1714,10 @@ AND   A.평가항목ID = C.평가항목ID;
     AND B.변경일자 = '2015.01.25.');
 ```
 
+
+**정답** : 3
+
+
 ---
 ### ✅103  
 다음 중 뷰(View)에 대한 설명으로 가장 부적절한 것은?
@@ -1570,6 +1725,11 @@ AND   A.평가항목ID = C.평가항목ID;
 ② 뷰는 복잡한 SQL 문장을 단순화 시켜주는 장점이 있는 반면, 테이블 구조가 변경되면 응용 프로그램을 변경해 주어야 한다.
 ③ 뷰는 보안을 강화하기 위한 목적으로도 활용할 수 있다.
 ④ 실제 데이터를 저장하고 있는 뷰를 생성하는 기능을 지원하는 DBMS도 있다.
+
+
+**정답** : 2
+
+
 
 ---
 ### ✅104  
@@ -1604,6 +1764,10 @@ WHERE C2 >= 200 AND C1 = 'B'
 ② 200
 ③ 300 
 ④ 400
+
+
+**정답** : 2
+
 
 
 ---
@@ -1692,6 +1856,9 @@ GROUP BY ROLLUP (A.서비스ID, B.가입일자);
 | 합계 | 소계 | 8 |
 
 
+**정답** : 3
+
+
 
 ---
 
@@ -1776,6 +1943,9 @@ GROUP BY GROUPING SETS(B.지역ID, TO_CHAR(A.이용일시, 'YYYY.MM'))
 
 
 
+**정답** : 2
+
+
 ---
 
 ### ✅107  
@@ -1806,6 +1976,9 @@ FROM 구매이력
 GROUP BY    [가] (구매고객, 구매월)
 ```
 
+**정답** : ROLLUP
+
+
 ---
 
 ### ✅108  
@@ -1815,6 +1988,9 @@ GROUP BY    [가] (구매고객, 구매월)
 ② GROUPING SETS 함수의 경우에는 함수의 인자로 주어진 컬럼의 순서에 따라 결과가 달라지므로 컬럼의 순서가 중요하다.
 ③ CUBE, ROLLUP, GROUPING SETS 함수들의 대상 컬럼 중 집계된 컬럼 이외의 대상 컬럼 값은 해당 컬럼의 데이터 중 가장 작은 값을 반환한다.
 ④ CUBE 그룹 함수는 인자로 주어진 컬럼의 결합 가능한 모든 조합에 대해서 집계를 수행하므로 다른 그룹 함수에 비해 시스템에 대한 부하가 크다.
+
+
+**정답** : 4
 
 ---
 
@@ -1884,6 +2060,9 @@ GROUP BY    [가] (구매고객, 구매월)
     ORDER BY A.설비ID, B.에너지코드;
 ```
 
+
+**정답** : 2,3
+
  
 ---
 
@@ -1930,6 +2109,9 @@ ORDER BY 자재번호, 발주처ID, 발주일자
 ④ GROUP BY GROUPING SETS (자재번호, (발주처ID, 발주일자))
 
  
+
+**정답** : 4
+
 ---
 
 ### ✅111  
@@ -2012,6 +2194,10 @@ GROUP BY GROUPING SETS((상품ID, 월));
 | NULL   | 2014.12  | 5000   |
 
 
+
+**정답** : 2
+
+
 ---
 ### ✅112  
 다음 중 윈도우 함수(Window Function, Analytic Function)에 대한 설명으로 가장 부적절한 것은?
@@ -2020,6 +2206,9 @@ GROUP BY GROUPING SETS((상품ID, 월));
 ② Partition 구분이 없으면 전체 집합을 하나의 Partition으로 정의한 것과 동일하다.
 ③ 윈도우 함수 처리로 인해 결과 건수가 줄어든다.
 ④ 윈도우 함수 적용 범위는 Partition을 넘을 수 없다.
+
+
+**정답** : 3
 
 
 ---
@@ -2103,6 +2292,7 @@ ORDER BY RNK;
 | 005      | 이규혁 | 700    | 3    |
  
 
+**정답** : 1
 
 
 ---
@@ -2171,6 +2361,10 @@ FROM (SELECT RANK() OVER(PARTITION BY 게임상품ID ORDER BY 활동점수 DESC)
     FROM 고객활동)
 ```
 
+
+**정답** : 4
+
+
 ---
 
 ### ✅115  
@@ -2223,8 +2417,12 @@ WHERE RNUM = 1;
 | 이벤트응모  | 저절로 | 이순신   | 78        |
 | 홈페이지    | 저절로 | 이대로   | 93        | 
 
----
 
+
+**정답** : 3
+
+
+---
 ### ✅116  
 다음 중 아래의 SQL에 대한 설명으로 가장 적절한 것은?
 
@@ -2243,6 +2441,10 @@ GROUP BY 상품분류코드;
 ② WINDOW FUNCTION의 ORDER BY절에 AVG 집계 함수를 사용하였으므로 위의 SQL은 오류가 발생한다.
 ③ 유사개수 컬럼은 상품분류코드별 평균상품가격을 서로 비교하여 -10000 ~ +10000 사이에 존재하는 상품분류코드의 개수를 구한 것이다.
 ④ 유사개수 컬럼은 상품전체의 평균상품가격을 서로 비교하여 -10000 ~ +10000 사이에 존재하는 상품의 개수를 구한 것이다.
+
+
+**정답** : 3
+
 
 ---
 ### ✅117  
@@ -2297,6 +2499,7 @@ AND   X.최고연봉 = Y.연봉
 | 004    | 200    | 김유신    | 4500 |
 
  
+**정답** : 1
 
 
 ---
@@ -2362,6 +2565,10 @@ WHERE FLAG1 = 0  OR FLAG2=0
 | A  | 10         | 18      |
 | A  | 20         | 99      |
 
+
+**정답** : 1
+
+
 ---
 
 ### ✅119  
@@ -2370,6 +2577,9 @@ WHERE FLAG1 = 0  OR FLAG2=0
 ```sql
 DBMS에 생성된 USER와 다양한 권한들 사이에서 중개 역할을 할 수 있도록 DBMS에서는 ROLE을 제공한다. 이러한 ROLE을 DBMS USER에게 부여하기 위해서는 (가) 명령을 사용하며, ROLE을 회수하기 위해서는 (나) 명령을 사용한다.
 ```
+
+**정답** : 가 - GRANT  , 나 - REVOKE
+
 
 ---
 
@@ -2386,6 +2596,10 @@ WHERE col2=3
 ③ DENY   UPDATE ON A_User.TB_A TO   B_User;
 ④ GRANT  SELECT, UPDATE ON A_User.TB_A TO B_User;
 
+
+
+**정답** : 4
+
 ---
 
 ### ✅121  
@@ -2394,6 +2608,10 @@ WHERE col2=3
 ```sql
 DBMS 사용자를 생성하면 기본적으로 많은 권한을 부여해야 한다. 많은 DBMS에서는 DBMS 관리자가 사용자별로 권한을 관리해야 하는 부담과 복잡함을 줄이기 위하여 다양한 권한을 그룹으로 묶어 관리할 수 있도록 사용자와 권한 사이에서 중개 역할을 수행하는 (가)을 제공한다. 
 ```
+
+
+**정답** : ROLE
+
 
 ---
 ### ✅122  
@@ -2411,6 +2629,10 @@ Lee: REVOKE INSERT ON R FROM Kim CASCADE;
 ③ Park: DELETE FROM R WHERE B = 800;
 ④ Kim : INSERT INTO R VALUES (500, 600);
 
+
+**정답** : 1,3
+
+
 ---
 ### ✅123  
 다음 중 PL/SQL에 대한 설명으로 가장 부적절한 것은?
@@ -2420,6 +2642,8 @@ Lee: REVOKE INSERT ON R FROM Kim CASCADE;
 ③ PL/SQL로 작성된 Procedure, User Defined Function은 전체가 하나의 트랜젝션으로 처리되어야 한다.
 ④ Procedure 내부에 작성된 절차적 코드는 PL/SQL엔진이 처리하고 일반적인 SQL 문장은 SQL실행기가 처리한다.
 
+
+**정답** : 3
 
 ---
 
@@ -2446,6 +2670,7 @@ end;
 ④ execute 'TRUNCATE TABLE DEPT':
 
  
+**정답** : 3
 
 
 ---
@@ -2459,6 +2684,9 @@ end;
 ④ 데이터의 무결성과 일관성을 위해서 사용자 정의 함수를 사용한다.
 
 
+**정답** : 4
+
+
 ---
 
 ### ✅126  
@@ -2469,6 +2697,9 @@ end;
 ③ Trigger는 TCL을 이용하여 트랜젝션을 제어할 수 있다.
 ④ Trigger는 데이터베이스에 로그인하는 작업에도 정의할 수 있다.
 
+
+**정답** : 3
+
 ---
 
 ### ✅127  
@@ -2478,3 +2709,6 @@ end;
 ② USER DEFINED FUNCTION
 ③ PACKAGE
 ④ TRIGGER
+
+
+**정답** : 4

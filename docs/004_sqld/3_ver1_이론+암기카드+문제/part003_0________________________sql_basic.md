@@ -1,10 +1,54 @@
+
+---
+### 📁 SQL BASIC
+
+| 구간 | 문제 번호 | 주제 | 난이도 |
+|------|------------|------|--------|
+| 1~10 | 001~010 | SQL 명령어 분류 및 기본 | ⭐ 초급 |
+| 11~20 | 011~020 | 테이블 생성 및 제약조건 | ⭐⭐ 초~중급 |
+| 21~30 | 021~030 | 관계 설정 및 트랜잭션 | ⭐⭐ 중급 |
+| 31~40 | 031~040 | SELECT 조건 및 NULL 처리 | ⭐⭐⭐ 중~고급 |
+| 41~50 | 041~050 | 고급 함수 및 날짜/CASE | ⭐⭐⭐ 고급 |
+| 51~64 | 051~064 | 실전 SELECT + GROUP BY/HAVING + JOIN | ⭐⭐⭐⭐ 실무형 |
+
+#### ✅ 1~10번: SQL 명령어 분류 및 기본 개념
+- DDL, DML, DCL, TCL 구분
+- 기본 테이블 생성 및 제약조건
+- 초보자 필수 개념
+
+#### ✅ 11~20번: 테이블 생성, 제약조건, 데이터 조작
+- 테이블 명명 규칙, DEFAULT, INDEX, PK/FK
+- INSERT/DELETE/ALTER 관련 실습 문제
+
+#### ✅ 21~30번: 관계 설정, FK 제약, 트랜잭션 처리
+- 관계형 모델, FK 삭제 동작, COMMIT/ROLLBACK
+- 오류 발생 조건, 데이터 무결성
+
+#### ✅ 31~40번: 트랜잭션, SELECT, 집계 함수, NULL 처리
+- 트랜잭션 흐름, SAVEPOINT, SELECT 조건절
+- COUNT, DISTINCT, IS NULL 등 실전 활용
+
+#### ✅ 41~50번: 고급 SQL 함수, 날짜 처리, CASE 문
+- LENGTH, REPLACE, TO_DATE, TO_CHAR
+- CASE 문 변형, GROUP BY 조건
+
+
+#### ✅ 51~64번: 실전 SELECT + GROUP BY/HAVING + JOIN
+- 집계 함수와 조건 필터링, 정렬, 다중 테이블 JOIN 
+- CASE + ORDER BY, 서브쿼리, 실행 순서 등 실무형 SQL
+
+
+
+---
+
 ### ✅001. 
 다음 중 데이터 제어어(DCL)에 해당하는 명령어는?
 ① INSERT  
 ② RENAME  
 ③ COMMIT  
 ④ REVOKE  
- 
+
+**정답** : 4
 
 
 
@@ -21,6 +65,8 @@
 ④ DROP  
 
 
+**정답** : 2
+
 
 ---
 
@@ -31,6 +77,7 @@
  
 
 
+**정답** : TCL
 
 
 
@@ -44,6 +91,9 @@
 ③ DDL은 스키마, 도메인, 테이블, 뷰, 인덱스를 정의하거나 변경 또는 제거할 때 사용되며 CREATE, ALTER, DROP, RENAME 등이 있다.  
 ④ 호스트 프로그램 속에 삽입되어 사용되는 DML 명령어들을 데이터 부속어(Data Sub Language)라고 한다.  
 
+
+**정답** : 1
+
 ---
 
 ### ✅005.  
@@ -55,6 +105,7 @@
 ④ DML - ALTER  
 
 
+**정답** : 1,2
 
 
 
@@ -121,6 +172,7 @@ CREATE TABLE PRODUCT
 
 
 
+**정답** : 4
 
 
 
@@ -153,6 +205,10 @@ CREATE TABLE PRODUCT
 ④ ALTER TABLE 기관분류 ALTER COLUMN 분류명 VARCHAR(30) NOT NULL;  
   ALTER TABLE 기관분류 ALTER COLUMN 등록일자 DATE NOT NULL;  
 
+
+
+**정답** : 4
+
 ---
 
 ### ✅008.  
@@ -164,6 +220,7 @@ CREATE TABLE PRODUCT
 ④ NULL과의 모든 비교(IS NULL 제외)는 알 수 없음(Unknown)을 반환한다.  
 
  
+**정답** : 3
 
 ---
 
@@ -215,6 +272,10 @@ CREATE TABLE R
 ③ (2, 2)  
 ④ (1, 1)  
 
+
+
+**정답** : 2
+
 ---
 
 ### ✅010.  
@@ -227,6 +288,9 @@ CREATE TABLE R
 
 
 
+**정답** : 1
+
+
 ---
 
 ### ✅011. 
@@ -237,6 +301,8 @@ CREATE TABLE R
 ④100_EMP
 
 
+
+**정답** : 1
 
 
 ---
@@ -292,6 +358,7 @@ CREATE INDEX IDX_EMP_01 ON EMP (JOIN_DATE):
 
 
 
+**정답** : 1,3
 
 ---
 
@@ -314,7 +381,7 @@ SQL2: select count(학번) from 학생
 속성(Attribute)에 널(Null)값이 존재할 수 있기 때문이다.
 
 
-
+**정답** : 3
 
 ---
 
@@ -326,6 +393,7 @@ SQL2: select count(학번) from 학생
 ④ 외래키 값은 참조 무결성 제약을 받을 수 있다.
 
 
+**정답** : 2,3
 
 
 ---
@@ -339,6 +407,7 @@ SQL2: select count(학번) from 학생
 ④ 외래키(Foreign Key)는 테이블간의 관계를 정의하기 위해 기본키(Primary Key)를 다른 테이블의 외래키가 참조하도록 생성한다.
 
 
+**정답** : 3
  
 
 ---
@@ -370,6 +439,7 @@ SQL2: select count(학번) from 학생
 
 
 
+**정답** : ALTER  , DROP COLUMN
 
 ---
 
@@ -406,12 +476,16 @@ COMMIT;
 ④ 3, 3
 
 
+**정답** : 2
+
 
 ---
 
 ### ✅018
 STADIUM 테이블의 이름을 STADIUM_JSC로 변경하는 SQL을 작성하시오. (ANSI 표준 기준)
 
+
+**정답** : REMANE STADIUM TO STADIUM_JSC
 
 ---
 
@@ -423,6 +497,7 @@ STADIUM 테이블의 이름을 STADIUM_JSC로 변경하는 SQL을 작성하시�
 ④ DEPENDENT
 
 
+**정답** : 4
 
 
 
@@ -451,6 +526,7 @@ DEGREE VARCHAR2(1)
 ④ 4, 5
 
  
+**정답** : 4
 
 ---
 
@@ -473,6 +549,7 @@ BOARD_DESC) VALUES ('100', 'FAQ', 'Y', 'FAQ 게시판');
 ④ UPDATE BOARD SET BOARD_ID = 200 WHERE BOARD_ID = '100';
 
 
+**정답** : 2
 
 ---
 
@@ -527,6 +604,7 @@ REFERENCES 고객 (고객ID) ON DELETE SET NULL;
 
 
  
+**정답** : 1 , 3
 
 
 ---
@@ -540,6 +618,7 @@ REFERENCES 고객 (고객ID) ON DELETE SET NULL;
 ④ DROP TABLE STADIUM:
 
 
+**정답** : 1
 
 
 
@@ -573,6 +652,8 @@ SELECT ㉠ 거주지, 근무지
 FROM 고객지역;
 
 
+**정답** : DISTINCT
+
 ---
 
 ### ✅025
@@ -588,6 +669,8 @@ FROM 고객지역;
 
 
 
+**정답** : 1
+
 ---
 
 ### ✅026
@@ -599,6 +682,7 @@ FROM 고객지역;
 ④ DROP은 Auto Commit이 되고, DELETE와 TRUNCATE는 사용자 Commit으로 수행된다.
 
 
+**정답** : 1,4
 
 
 ---
@@ -613,6 +697,8 @@ FROM 고객지역;
 
 
 
+**정답** : 2,4
+
 ---
 
 ### ✅028
@@ -624,6 +710,7 @@ FROM 고객지역;
 
 
 
+**정답** : 1,4
 
 
 ---
@@ -652,6 +739,8 @@ ROLLBACK;
 
 
 
+**정답** : 3
+
 
 ---
 
@@ -664,6 +753,8 @@ ROLLBACK;
 데이터에 대한 변경사항을 모두 폐기하고 변경전의 상태로 되돌리는 ㉢ 이 있다.
 ```
 
+
+**정답** : ㄱ - Transaction  ㄴ - Commit  ㄷ - rollback
 
 ---
 
@@ -702,6 +793,7 @@ SELECT COUNT(품목ID) FROM 품목 WHERE 단가=2000
 ④ 4
 
 
+**정답** : 3
 
 ---
 
@@ -729,6 +821,9 @@ COMMIT:
 
 
 
+**정답** : LCD-TV
+
+
 
 ---
 
@@ -739,6 +834,7 @@ SQL을 사용하여 데이터베이스에서 데이터를 조회할 때 원하�
 ```
 
 
+**정답** : WHERE
 
 ---
 
@@ -764,6 +860,8 @@ WHERE EMPNO > 100 AND SAL >= 3000 OR EMPNO = 200;
 ③ 2
 ④ 3
 
+
+**정답** : 2
 
 ---
 
@@ -797,6 +895,8 @@ TAB_A (레코드 3건)
 |NULL|   
  
 
+**정답** : 4
+
 ---
 
 ### ✅036
@@ -808,6 +908,7 @@ TAB_A (레코드 3건)
 ④ SELECT * FROM MYTABLE WHERE COLUMNI NOT NULL
 
 
+**정답** : 1
 
 
 ---
@@ -837,6 +938,7 @@ CREATE TABLE 서비스
 ④ SQL Server에서 (나)과같이 데이터를 입력하고, (라)과 같이 조회하였을때, 데이터는 조회되지 않는다.
 
 
+**정답** : 4
 
 ---
 
@@ -879,6 +981,7 @@ OR 년 = '2015' AND 월 BETWEEN '01' AND '03';
 
 
 
+**정답** : 4
 
 ---
 
@@ -930,6 +1033,8 @@ GROUP BY SVC ID
 ```
 
   
+  
+**정답** : 4
 
 ---
 
@@ -950,6 +1055,7 @@ GROUP BY SVC ID
 
  
 
+**정답** : 2
 
 ---
 
@@ -977,6 +1083,9 @@ FROM (
 ④ 6
 
 
+**정답** : 3
+
+
 
 ---
 
@@ -991,6 +1100,7 @@ SELECT   TO_CHAR(TO_DATE('2015.01.10 10', 'YYYY, MM, DD HH24') + 1/24/(60/10), '
 ④ 2015.01.10. 10:30:00
  
 
+**정답** : 3
 
 
 
@@ -1017,6 +1127,7 @@ SELECT LOC,
 FROM DEPT;
 ```
 
+**정답** : LOC WHEN 'NEW YORK' THEN 'EAST'
 
 
 ---
@@ -1065,6 +1176,9 @@ GROUP BY TEAM_ID;
 ```
 
 
+**정답** : 4
+
+
 ---
 
 ### ✅045
@@ -1091,6 +1205,7 @@ GROUP BY TEAM_ID;
 → 실행 결과는 1이다.
 
 
+**정답** : 2
 
 ---
 
@@ -1104,6 +1219,9 @@ SELECT ENAME, EMPNO, MGR, [가](MGR,7698) as NM
 FROM EMP;
 ```
 
+
+
+**정답** : NULIF
 
 ---
 
@@ -1131,6 +1249,7 @@ SELECT SAL/COMM FROM EMP_Q WHERE ENAME = 'SCOTT';
 ④ 0, 에러 발생, NULL
 
 
+**정답** : 4
 
 ---
 
@@ -1158,6 +1277,7 @@ FROM TAB1
 ④ 14
 
 
+**정답** : 3
 
 
 ---
@@ -1172,6 +1292,8 @@ FROM TAB1
 (ㄷ)  (표현식1, 표현식2): 임의의 개수 표현식에서 NULL이 아닌 최초의 표현식을 나타낸다.
 ```
 
+
+**정답** : ㄱ- NVL   ㄴ-NVLIF  ㄷ- COALESCE
 
 ---
 
@@ -1198,6 +1320,7 @@ SELECT AVG(COL3) FROM TAB_A WHERE COL1 IS NOT NULL;
 ④ 10, 10, 10
 
 
+**정답** : 3
  
 
 
@@ -1218,6 +1341,7 @@ SQL3) SELECT GRADE, COUNT(*) FROM EMP GROUP BY GRADE:
 ④ 670, 40, 6
 
 
+**정답** : 3
 
 ---
 
@@ -1278,6 +1402,7 @@ GROUP BY 광고ID
 ④ SELECT MIN(광고매체ID) AS 광고매체ID, MIN(광고시작일자) AS 광고시작일자
 FROM 광고게시
 
+**정답** : 2
 
 
 ---
@@ -1305,6 +1430,9 @@ HAVING 메뉴ID = 3 AND 사용유형코드 = 100;
 FROM 시스템사용이력
 GROUP BY 메뉴ID, 사용유형코드:
 ```
+
+
+**정답** : 4
 
 
 ---
@@ -1374,6 +1502,7 @@ ORDER BY 다 DESC:
 절에서 오류가 발생한다.
 
 
+**정답** : 2
 
 ---
 
@@ -1433,6 +1562,7 @@ ORDER BY (CASE WHEN ID = 999 THEN O ELSE ID END)
 | 200 |
 | 100 |
   
+**정답** : 2
 
 
 ---
@@ -1462,6 +1592,7 @@ HAVING SUM(매출금액) > 1000
 ORDER BY COUNT(*) ASC;
 
 
+**정답** : 3
 
 ---
 
@@ -1475,6 +1606,7 @@ ORDER BY COUNT(*) ASC;
 ④ GROUP BY 절을 사용하는 경우 ORDER BY 절에 집계 함수를 사용할 수도 있다.
 
 
+**정답** : 3
 
 ---
 
@@ -1533,6 +1665,9 @@ AMT DESC
 | A  | 50  |
 | C  | 100 | 
 
+
+**정답** : 2
+
 ---
 
 ### ✅059
@@ -1544,6 +1679,7 @@ AMT DESC
 ④ FROM-WHERE-GROUP BY-HAVING-SELECT-ORDER BY
 
 
+**정답** : 4
 
 ---
 
@@ -1581,6 +1717,7 @@ FROM 팀별성적
 ORDER BY 승리건수 DESC:
 ```
 
+**정답** : 4
  
 
 
@@ -1595,6 +1732,7 @@ ORDER BY 승리건수 DESC:
 ④ 5개
 
 
+**정답** : 3
 
 ---
 
@@ -1634,6 +1772,9 @@ AND 출연.배우번호 = 배우.배우번호;
 ```
 
 
+**정답** : 4
+
+
 ---
 
 ### ✅063
@@ -1652,6 +1793,9 @@ AND 출연.배우번호 = 배우.배우번호;
 ② 가. 나. 다
 ③ 가, 나, 다. 라
 ④ 가. 다. 라, 마
+
+
+**정답** : 4
 
 
 ---
@@ -1685,3 +1829,6 @@ WHERE A, ENAME LIKE B.RULE
 ③ 4
 ④ 6
  
+
+
+**정답** : 3 
