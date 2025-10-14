@@ -40,7 +40,7 @@ pre, code {
 | BOARD_ID: VARCHAR2(10) NOT NULL |
 | BOARD_NM: VARCHAR2(50) NOT NULL  <br/> USE_YN: VARCHAR2(1) NOT NULL <br/> REG_DATE: DATE NOT NULL <br/> BOARD_DESC: VARCHAR2(100) NULL |
 
-```
+```sql
 ① INSERT INTO BOARD VALUES (1, 'Q&A', 'Y', SYSDATE, 'Q&A 게시판');
 ② INSERT INTO BOARD (BOARD_ID, BOARD_NM, USE_YN,
 BOARD_DESC) VALUES ('100', 'FAQ', 'Y', 'FAQ 게시판');
@@ -119,7 +119,7 @@ ALTER TABLE 주문 ADD CONSTRAINT FK_001 FOREIGN KEY
 (고객ID)
 REFERENCES 고객 (고객ID) ON DELETE SET NULL;
 ```
-```
+```sql
 ① INSERT INTO 고객 VALUES ('C003', '강감찬', '2014-01-01');
 ② INSERT INTO 주문 VALUES ('0005', 'C003', '2013-12-28');
 ③ DELETE FROM 주문 WHERE 주문번호 IN ('0001', '0002');
@@ -156,7 +156,8 @@ FK 제약 → 참조 무결성 유지
 ```bash
 [문제 023] 
 개발 프로젝트의 표준은 모든 삭제 데이터에 대한 로그를 남기는 것을 원칙으로 하고, 테이블 삭제의 경우는 허가된 인력만이 정기적으로 수행 가능하도록 정하고 있다. 개발팀에서 사용 용도가 없다고 판단한 STADIUM 테이블의 데이터를 삭제하는 가장 좋은 방법은 무엇인가?
-
+```
+```sql
 ① DELETE FROM STADIUM:
 ② DELETE * FROM STADIUM:
 ③ TRUNCATE TABLE STADIUM:
@@ -245,7 +246,8 @@ DISTINCT = 중복 제거
 다음 중 아래와 같은 상황에서 사용할 수 있는 SQL 명령어는?
  
 > 우리가 관리하는 데이터베이스의 '매출' 테이블이 너무나 많은 디스크 용량을 차지하여 '매출' 테이블에서 필요한 데이터만을 추출하여 별도의 테이블로 옮겨 놓았다. 이후 "매출" 원본 테이블의 데이터를 모두 삭제함과 동시에, 디스크 사용량도 초기화 하고자 한다. (단, "매출" 테이블의 스키마 정의는 유지한다.)
- 
+```
+```sql 
 ① TRUNCATE TABLE 매출:
 ② DELETE FROM 매출:
 ③ DROP TABLE 매출:
@@ -275,7 +277,8 @@ TRUNCATE = 빠른 전체 삭제 + 디스크 초기화
 ```bash
 [문제 026]  
 다음 중 DELETE 와 TRUNCATE, DROP 명령어에 대해 비교한 설명으로 가장 부적절한 것을 2개 고르시오.
-
+```
+```sql
 ① 특정 테이블에 대하여 WHERE 조건절이 없는 DELETE 명령을 수행하면 DROP TABLE 명령을 수행했을 때와 똑같은 결과를 얻을 수 있다.
 ② DROP 명령어는 테이블 정의 자체를 삭제하고, TRUNCATE 명령어는 테이블을 초기상태로 만든다.
 ③ TRUNCATE 명령어는 UNDO를 위한 데이터를 생성하지 않기 때문에 동일 데이터량 삭제시 DELETE보다 빠르다.
@@ -314,7 +317,8 @@ TRUNCATE = 빠른 초기화 + Auto Commit
 ```bash
 [문제 027]  
 데이터베이스 트랜잭션에 대한 설명으로 가장 부적절한 것을 2개 고르시오.
-
+```
+```sql
 ① 원자성(atomicity): 트랜잭션에서 정의된 연산들은 모두 성공적으로 실행되던지 아니면 전혀 실행되지 않은 상태로 남아 있어야 한다.
 ② 일관성(consistency): 트랜잭션이 성공적으로 수행되면 그 트랜잭션이 갱신한 데이터베이스의 내용은 영구적으로 저장된다.
 ③ 고립성(isolation) : 트랜잭션이 실행되는 도중에 다른 트랜잭션의 영향을 받아 잘못된 결과를 만들어서는 안된다.
@@ -352,7 +356,8 @@ ACID = Atomicity, Consistency, Isolation, Durability
 ```bash
 [문제 028] 
 데이터베이스 트랜잭션에 대한 격리성이 낮은 경우 발생할 수 있는 문제점으로 가장 부적절한 것을 2개 고르시오.
-
+```
+```sql
 ① Dirty Read: 다른 트랜잭션에 의해 수정되었고 이미 커밋된 데이터를 읽는 것을 말한다.
 ② Non-Repeatable Read: 한 트랜잭션 내에서 같은 쿼리를 두 번 수행했는데, 그 사이에 다른 트랜잭션이 값을 수정 또는 삭제하는 바람에 두 쿼리 결과가 다르게 나타나는 현상을 말한다.
 ③ Phantom Read: 한 트랜잭션 내에서 같은 쿼리를 두 번 수행했는데, 첫번째 쿼리에서 없던 유령 레코드가 두번째 쿼리에서 나타나는 현상을 말한다.
@@ -403,7 +408,7 @@ UPDATE A SET VAL 200 WHERE ID = '001';
 CREATE TABLE B (ID CHAR(3) PRIMARY KEY);
 ROLLBACK;
 ```
-```
+```sql
 ① ORACLE에서는 CREATE TABLE 문장을 수행한 후, 묵시적으로 COMMIT이 수행 되어 VAL 값은 200이 되었다.
 ② SQL Server에서는 ROLLBACK 문장에 의해 UPDATE가 취소되어 VAL 값은 100이 되었다.
 ③ ORACLE에서는 CREATE TABLE 문장 수행에 의해 VAL 값은 200이 되었지만, ROLLBACK 실행으로 인하여 최종적으로 B 테이블은 생성되지 않았다.
@@ -442,8 +447,8 @@ ROLLBACK은 DML만 되돌림
 ```bash
 [문제 030]  
 아래 내용의 ㉠, ㉡, ㉢에 해당하는 단어를 순서대로 작성하시오.
-
- 
+```
+```sql
 ㉠ 은 데이터베이스의 논리적 연산단위로서 밀접히관련되어 분리될 수 없는 한 개 이상의 데이터베이스 조작을 가리킨다.
 ㉠ 의 종료를 위한 대표적 명령어로서는 데이터에 대한 변경사항을 데이터베이스에 영구적으로 반영하는 ㉡ 과
 데이터에 대한 변경사항을 모두 폐기하고 변경전의 상태로 되돌리는 ㉢ 이 있다.

@@ -1,0 +1,781 @@
+<!DOCTYPE html><html><head>
+      <title>part003_2_sql_basic_테이블생성제약조건</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\sally03915\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<style>
+pre, code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  overflow-x: hidden !important;
+  display: block !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+</style> 
+<hr>
+<h3 id="sql-basic">SQL BASIC </h3>
+<table>
+<thead>
+<tr>
+<th>구간</th>
+<th>문제 번호</th>
+<th>주제</th>
+<th>난이도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1~10</td>
+<td>001~010</td>
+<td>SQL 명령어 분류 및 기본</td>
+<td>⭐ 초급</td>
+</tr>
+<tr>
+<td>11~20</td>
+<td>011~020</td>
+<td>테이블 생성 및 제약조건</td>
+<td>⭐⭐ 초~중급</td>
+</tr>
+<tr>
+<td>21~30</td>
+<td>021~030</td>
+<td>관계 설정 및 트랜잭션</td>
+<td>⭐⭐ 중급</td>
+</tr>
+<tr>
+<td>31~40</td>
+<td>031~040</td>
+<td>SELECT 조건 및 NULL 처리</td>
+<td>⭐⭐⭐ 중~고급</td>
+</tr>
+<tr>
+<td>41~50</td>
+<td>041~050</td>
+<td>고급 함수 및 날짜/CASE</td>
+<td>⭐⭐⭐ 고급</td>
+</tr>
+<tr>
+<td>51~64</td>
+<td>051~064</td>
+<td>실전 SELECT + GROUP BY/HAVING + JOIN</td>
+<td>⭐⭐⭐⭐ 실무형</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-1120번-테이블-생성-제약조건-데이터-조작">✅ 11~20번: 테이블 생성, 제약조건, 데이터 조작 </h4>
+<ul>
+<li>테이블 명명 규칙, DEFAULT, INDEX, PK/FK</li>
+<li>INSERT/DELETE/ALTER 관련 실습 문제</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 011<span class="token punctuation">]</span>  
+다음 중 물리적 테이블 명으로 가장 적절한 것은?
+ 
+① EMP_10  
+② <span class="token number">100</span>-EMP  
+③ EMP-100  
+④ 100_EMP
+</code></pre><p><strong>정답:</strong> ①</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+①번은 “숫자로 시작하지 않고, 특수문자도 없지!”<br>
+SQL에서 테이블 이름은 문자로 시작하고, 밑줄(_)은 허용돼!</p>
+<p><strong>📚 전문 해설:</strong><br>
+SQL에서 테이블명은 문자로 시작해야 하며,<br>
+숫자나 특수문자(- 등)로 시작하거나 포함되면 오류가 발생할 수 있습니다.<br>
+밑줄(_)은 허용됩니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>문자로 시작, 밑줄 사용 → 적절</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>숫자로 시작, 하이픈 포함 → 부적절</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>하이픈 포함 → 부적절</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>숫자로 시작 → 부적절</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+테이블명 = 문자로 시작 + 밑줄은 OK + 특수문자 ❌</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 83: 테이블 명명 규칙 = 문자 시작, 특수문자 ❌, 밑줄 OK</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 012<span class="token punctuation">]</span>  
+
+아래와 같은 테이블 구조를 정의하려고 한다. 이때 아직 부서가 정의되지 않은 사원은 기본부서<span class="token punctuation">(</span>코드 <span class="token builtin class-name">:</span> <span class="token string">'0000'</span><span class="token punctuation">)</span>로 배치하고, 입사일자<span class="token punctuation">(</span>JOIN DATE<span class="token punctuation">)</span> 기준으로 많은 조회가 발생하므로 입사일자에 Index를 생성하려고 한다.
+다음 중 올바른 SQL 문장을 <span class="token number">2</span>개 고르시오
+</code></pre><p>EMP</p>
+<table>
+<thead>
+<tr>
+<th>EMP_NO: VARCHAR2(10) NOT NULL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EMP NM. VARCHAR2(30) NOT NULL <br> DEPT_CODE: VARCHAR2(4) NOT NULL <br> JOIN DATE: DATE NOT NULL<br> REGIST_DATE: DATE NULL</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>① <span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> EMP
+<span class="token punctuation">(</span>EMP_NO VARCHAR2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+EMP NM VARCHAR2<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+DEPT CODE VARCHAR2<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword keyword-DEFAULT">DEFAULT</span> <span class="token string">'0000'</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+<span class="token keyword keyword-JOIN">JOIN</span> <span class="token keyword keyword-DATE">DATE</span> <span class="token keyword keyword-DATE">DATE</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+REGIST <span class="token keyword keyword-DATE">DATE</span> <span class="token keyword keyword-DATE">DATE</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-INDEX">INDEX</span> IDX EMP <span class="token number">01</span> <span class="token keyword keyword-ON">ON</span> EMP <span class="token punctuation">(</span><span class="token keyword keyword-JOIN">JOIN</span> <span class="token keyword keyword-DATE">DATE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+② <span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> EMP
+<span class="token punctuation">(</span>EMP <span class="token keyword keyword-NO">NO</span> VARCHAR2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+EMP_NM VARCHAR2<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+DEPT CODE VARCHAR2<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword keyword-DEFAULT">DEFAULT</span> <span class="token string">'0000'</span><span class="token punctuation">,</span>
+<span class="token keyword keyword-JOIN">JOIN</span> <span class="token keyword keyword-DATE">DATE</span> <span class="token keyword keyword-DATE">DATE</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+REGIST <span class="token keyword keyword-DATE">DATE</span> <span class="token keyword keyword-DATE">DATE</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-INDEX">INDEX</span> IDX_EMP_01 <span class="token keyword keyword-ON">ON</span> EMP <span class="token punctuation">(</span>JOIN_DATE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+③ <span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> EMP
+<span class="token punctuation">(</span>EMP_NO VARCHAR2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+EMP_NM VARCHAR2<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+DEPT_CODE VARCHAR2<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword keyword-DEFAULT">DEFAULT</span> <span class="token string">'0000'</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+JOIN_DATE <span class="token keyword keyword-DATE">DATE</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+REGIST_DATE <span class="token keyword keyword-DATE">DATE</span><span class="token punctuation">)</span>:
+<span class="token keyword keyword-ALTER">ALTER</span> <span class="token keyword keyword-TABLE">TABLE</span> EMP <span class="token keyword keyword-ADD">ADD</span> <span class="token keyword keyword-CONSTRAINT">CONSTRAINT</span> EMP_PK <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span>
+<span class="token punctuation">(</span>EMP_NO<span class="token punctuation">)</span>:
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-INDEX">INDEX</span> IDX_EMP_01 <span class="token keyword keyword-ON">ON</span> EMP <span class="token punctuation">(</span>JOIN_DATE<span class="token punctuation">)</span>:
+
+④ <span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> EMP
+<span class="token punctuation">(</span>EMP_NO VARCHAR2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+EMP_NM VARCHAR2<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+DEPT_CODE VARCHAR2<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword keyword-DEFAULT">DEFAULT</span> <span class="token string">'0000'</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+JOIN_DATE <span class="token keyword keyword-DATE">DATE</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+REGIST_DATE <span class="token keyword keyword-DATE">DATE</span> <span class="token boolean">NULL</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-ALTER">ALTER</span> <span class="token keyword keyword-TABLE">TABLE</span> EMP <span class="token keyword keyword-ADD">ADD</span> <span class="token keyword keyword-CONSTRAINT">CONSTRAINT</span> EMP_PK <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span>
+<span class="token punctuation">(</span>EMP_NO<span class="token punctuation">)</span>:
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-INDEX">INDEX</span> IDX_EMP_01 <span class="token keyword keyword-ON">ON</span> EMP <span class="token punctuation">(</span>JOIN_DATE<span class="token punctuation">)</span>:
+</code></pre><p><strong>정답:</strong> ①, ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+①,③번은 “기본값도 잘 넣고, 인덱스도 만들고, PK도 잘 지정했어!”<br>
+문법도 정확하고, 요구사항도 충족해!</p>
+<p><strong>📚 전문 해설:</strong><br>
+입사일자에 인덱스를 생성하고, DEPT_CODE에 기본값을 지정하며,<br>
+EMP_NO에 대해 PK를 설정해야 합니다.<br>
+①과 ③은 이 조건을 모두 만족합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>DEFAULT, NOT NULL, 인덱스 설정 → ✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>NOT NULL 누락, DEFAULT 누락</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>PK 별도 설정, 인덱스 생성 → ✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>PK 중복 설정 → 문법 오류</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+기본값 + 인덱스 + PK = 정확한 테이블 정의</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 5: CREATE TABLE + CONSTRAINT</li>
+<li>🃏 카드 84: DEFAULT = 기본값 설정</li>
+<li>🃏 카드 85: CREATE INDEX = 성능 향상</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 013<span class="token punctuation">]</span> 
+다음 중 아래와 같은 문장으로 <span class="token string">'학생'</span> 테이블을 생성한 후, 유효한 튜플<span class="token punctuation">(</span>Tuple<span class="token punctuation">)</span>들을 삽입하였다. SQL <span class="token number">1</span>, SQL <span class="token number">2</span> 문장의 실행 결과로 가장 적절한 것은?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>생성<span class="token punctuation">)</span> <span class="token keyword keyword-create">create</span> <span class="token keyword keyword-table">table</span> 학생 <span class="token punctuation">(</span>학번 <span class="token keyword keyword-char">char</span> <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token keyword keyword-primary">primary</span> <span class="token keyword keyword-key">key</span><span class="token punctuation">,</span>
+장학금 <span class="token keyword keyword-integer">integer</span><span class="token punctuation">)</span>:
+
+SQL1: <span class="token keyword keyword-select">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword keyword-from">from</span> 학생
+SQL2: <span class="token keyword keyword-select">select</span> <span class="token function">count</span><span class="token punctuation">(</span>학번<span class="token punctuation">)</span> <span class="token keyword keyword-from">from</span> 학생
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>① SQL1, SQL2 문장의 실행 결과는 다를 수 있으며, 그 이유는 장학금
+속성(Attribute)에 널(Null)값이 존재할 수 있기 때문이다.
+② SQL1, SQL2 문장의 실행 결과는 항상 다르다.
+③ SQL1, SQL2 문장의 실행 결과는 항상 같다.
+④ SQL1, SQL2 문장의 실행 결과는 다를 수 있으며, 그 이유는 학번
+속성(Attribute)에 널(Null)값이 존재할 수 있기 때문이다.
+</code></pre><p><strong>정답:</strong> ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+③번은 “학번은 PK니까 NULL이 없어!”<br>
+그래서 COUNT(*)와 COUNT(학번)은 항상 같아!</p>
+<p><strong>📚 전문 해설:</strong><br>
+COUNT(*)는 전체 행 수를 세고,<br>
+COUNT(칼럼)는 NULL이 아닌 값만 셉니다.<br>
+하지만 학번은 PK이므로 NULL이 될 수 없기 때문에<br>
+두 결과는 항상 같습니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>장학금은 상관없음</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>항상 다르다 → 틀림</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>PK는 NULL 불가 → 항상 같음</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>학번에 NULL 가능 → 틀림</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+COUNT(*) vs COUNT(PK) → 항상 같음 (PK는 NULL ❌)</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 86: COUNT(*) vs COUNT(컬럼) 차이</li>
+<li>🃏 카드 61: PRIMARY KEY = 고유 이름표, NULL ❌</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 014<span class="token punctuation">]</span>  
+다음 중 외래키에 대한 설명으로 가장 부적절한 것을 <span class="token number">2</span>개 고르시오.
+① 테이블 생성시 설정할 수 있다.
+② 외래키 값은 널 값을 가질 수 없다.
+③ 한 테이블에 하나만 존재해야 한다.
+④ 외래키 값은 참조 무결성 제약을 받을 수 있다.
+</code></pre><p><strong>정답:</strong> ②, ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+②,③번은 “외래키는 NULL 안 되고, 하나만 있어야 해!”라고 말하는데,<br>
+사실 NULL도 가능하고 여러 개도 만들 수 있어!</p>
+<p><strong>📚 전문 해설:</strong><br>
+외래키는 NULL 값을 가질 수 있으며,<br>
+한 테이블에 여러 개의 외래키를 설정할 수 있습니다.<br>
+참조 무결성 제약도 적용됩니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>테이블 생성 시 설정 가능</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>외래키는 NULL 가능 → 틀림</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>외래키는 여러 개 가능 → 틀림</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>참조 무결성 적용 가능 → 맞음</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+FK = NULL 가능 + 여러 개 가능</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 62: FOREIGN KEY = 연결 다리</li>
+<li>🃏 카드 87: FK 특징 = NULL 가능, 다중 설정 가능</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 015<span class="token punctuation">]</span>  
+다음 중 데이터베이스 테이블의 제약조건<span class="token punctuation">(</span>Constraint<span class="token punctuation">)</span>에 대한 설명으로 가장 부적절한 것은?
+
+① CHECK 제약조건은 특정 컬럼의 무결성을 유지하기 위해 설정한다.  
+② PRIMARY KEY는 반드시 테이블당 하나만 정의할 수 있다.  
+③ UNIQUE로 지정된 모든 컬럼은 NULL 값을 가질 수 없다.  
+④ FOREIGN KEY는 다른 테이블의 PK를 참조하여 관계를 정의한다.
+</code></pre><p><strong>정답:</strong> ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+③번은 “UNIQUE는 중복도 안 되고 NULL도 안 돼!”라고 말하는데,<br>
+사실 NULL은 허용돼! 중복만 안 되는 거야!</p>
+<p><strong>📚 전문 해설:</strong><br>
+UNIQUE 제약조건은 중복을 허용하지 않지만,<br>
+NULL은 하나 이상 허용됩니다.<br>
+PK는 NULL을 허용하지 않으며, 테이블당 하나만 설정 가능합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>CHECK 제약조건 설명 정확</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>PK는 테이블당 하나만 가능 → 맞음</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>UNIQUE는 NULL 허용 → 틀림</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>FK는 다른 테이블의 PK 참조 → 맞음</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+UNIQUE = 중복 ❌, NULL ✅<br>
+PK = 중복 ❌, NULL ❌</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 61: PRIMARY KEY = 고유 이름표</li>
+<li>🃏 카드 63: UNIQUE = 중복 ❌, NULL 가능</li>
+<li>🃏 카드 64: NOT NULL = 빈칸 금지</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 016<span class="token punctuation">]</span>  
+EMP 테이블에서 COMM 칼럼을 삭제하고자 할 때, 아래 SQL 문장의 빈칸에 들어갈 내용은?
+</code></pre><h6 id="emp-테이블">EMP 테이블 </h6>
+<table>
+<thead>
+<tr>
+<th>MGR</th>
+<th>ENAME</th>
+<th>SAL</th>
+<th>COMM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7566</td>
+<td>FORD</td>
+<td>3000</td>
+<td></td>
+</tr>
+<tr>
+<td>7566</td>
+<td>SCOTT</td>
+<td>3000</td>
+<td></td>
+</tr>
+<tr>
+<td>7698</td>
+<td>JAMES</td>
+<td>950</td>
+<td></td>
+</tr>
+<tr>
+<td>7698</td>
+<td>ALLEN</td>
+<td>1600</td>
+<td>300</td>
+</tr>
+<tr>
+<td>7698</td>
+<td>WARD</td>
+<td>1250</td>
+<td>500</td>
+</tr>
+<tr>
+<td>7698</td>
+<td>TURNER</td>
+<td>1500</td>
+<td>0</td>
+</tr>
+<tr>
+<td>7698</td>
+<td>MARTIN</td>
+<td>1250</td>
+<td>1400</td>
+</tr>
+<tr>
+<td>7782</td>
+<td>MILLER</td>
+<td>1300</td>
+<td></td>
+</tr>
+<tr>
+<td>7839</td>
+<td>ADAMS</td>
+<td>1100</td>
+<td></td>
+</tr>
+<tr>
+<td>7839</td>
+<td>BLAKE</td>
+<td>2850</td>
+<td></td>
+</tr>
+<tr>
+<td>7839</td>
+<td>JONES</td>
+<td>2975</td>
+<td></td>
+</tr>
+<tr>
+<td>7839</td>
+<td>CLARK</td>
+<td>2450</td>
+<td></td>
+</tr>
+<tr>
+<td>7839</td>
+<td>SMITH</td>
+<td>800</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span> ① <span class="token punctuation">]</span> <span class="token keyword keyword-TABLE">TABLE</span> EMP  
+<span class="token punctuation">[</span> ② <span class="token punctuation">]</span> COMM
+</code></pre><p><strong>정답:</strong> ALTER, DROP COLUMN</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+“ALTER로 테이블을 바꾸고, DROP COLUMN으로 칼럼을 지워!”<br>
+이게 칼럼 삭제의 기본 공식이야!</p>
+<p><strong>📚 전문 해설:</strong><br>
+칼럼을 삭제할 때는 ALTER TABLE 명령어와 함께<br>
+DROP COLUMN을 사용해야 합니다.</p>
+<p>🧠 <strong>기억법:</strong><br>
+칼럼 삭제 = ALTER TABLE + DROP COLUMN</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 5: ALTER TABLE = 구조 변경</li>
+<li>🃏 카드 88: DROP COLUMN = 칼럼 제거</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 017<span class="token punctuation">]</span> 
+
+아래 <span class="token number">7</span>개의 SQL 문장이 성공적으로 수행되었다고 할 때, A, B, C 세 개의 SQL 문장을 차례대로 실행하면 A와 C의 SELECT 문장 수행결과는 각각 무엇인가?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> 부서<span class="token punctuation">(</span>부서번호 <span class="token keyword keyword-CHAR">CHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 부서명 <span class="token keyword keyword-CHAR">CHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">(</span>부서번호<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> 직원<span class="token punctuation">(</span>직원번호 <span class="token keyword keyword-CHAR">CHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 소속부서 <span class="token keyword keyword-CHAR">CHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">(</span>직원번호<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token keyword keyword-FOREIGN">FOREIGN</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">(</span>소속부서<span class="token punctuation">)</span> <span class="token keyword keyword-REFERENCES">REFERENCES</span> 부서<span class="token punctuation">(</span>부서번호<span class="token punctuation">)</span>
+<span class="token keyword keyword-ON">ON</span> <span class="token keyword keyword-DELETE">DELETE</span> <span class="token keyword keyword-CASCADE">CASCADE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-INSERT">INSERT</span> <span class="token keyword keyword-INTO">INTO</span> 부서 <span class="token keyword keyword-VALUES">VALUES</span><span class="token punctuation">(</span><span class="token string">'10'</span><span class="token punctuation">,</span> <span class="token string">'영업과'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-INSERT">INSERT</span> <span class="token keyword keyword-INTO">INTO</span> 부서 <span class="token keyword keyword-VALUES">VALUES</span><span class="token punctuation">(</span><span class="token string">'20'</span><span class="token punctuation">,</span> <span class="token string">'기획과'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-INSERT">INSERT</span> <span class="token keyword keyword-INTO">INTO</span> 직원 <span class="token keyword keyword-VALUES">VALUES</span><span class="token punctuation">(</span><span class="token string">'1000'</span><span class="token punctuation">,</span> <span class="token string">'10'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-INSERT">INSERT</span> <span class="token keyword keyword-INTO">INTO</span> 직원 <span class="token keyword keyword-VALUES">VALUES</span><span class="token punctuation">(</span><span class="token string">'2000'</span><span class="token punctuation">,</span> <span class="token string">'20'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-INSERT">INSERT</span> <span class="token keyword keyword-INTO">INTO</span> 직원 <span class="token keyword keyword-VALUES">VALUES</span><span class="token punctuation">(</span><span class="token string">'3000'</span><span class="token punctuation">,</span> <span class="token string">'20'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-COMMIT">COMMIT</span>:
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>A<span class="token punctuation">.</span> <span class="token keyword keyword-SELECT">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>직원번호<span class="token punctuation">)</span> <span class="token keyword keyword-FROM">FROM</span> 직원
+B<span class="token punctuation">.</span> <span class="token keyword keyword-DELETE">DELETE</span> <span class="token keyword keyword-FROM">FROM</span> 부서 <span class="token keyword keyword-WHERE">WHERE</span> 부서번호 <span class="token operator">=</span> <span class="token string">'20'</span>:
+C<span class="token punctuation">.</span> <span class="token keyword keyword-SELECT">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>직원번호<span class="token punctuation">)</span> <span class="token keyword keyword-FROM">FROM</span> 직원
+<span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+</code></pre><p>① 3, null<br>
+② 3, 1<br>
+③ 3, 2<br>
+④ 3, 3</p>
+<p><strong>정답:</strong> ② (A: 3, C: 1)</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+②번은 “부서 20을 지우면 그 부서 직원도 같이 지워져!”<br>
+ON DELETE CASCADE가 작동한 결과야!</p>
+<p><strong>📚 전문 해설:</strong><br>
+부서번호 20 삭제 → 해당 부서를 참조하는 직원도 삭제됨<br>
+직원 수: 삭제 전 3명 → 삭제 후 1명</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>A 결과</th>
+<th>C 결과</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>3</td>
+<td>NULL → 결과 없음</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>3</td>
+<td>1 → 정확</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>3</td>
+<td>2 → 틀림</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>3</td>
+<td>3 → 삭제 안 됨</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+ON DELETE CASCADE = 부모 삭제 → 자식도 삭제</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 62: FOREIGN KEY = 연결 다리</li>
+<li>🃏 카드 82: ON DELETE 옵션 = CASCADE / SET NULL</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 018<span class="token punctuation">]</span>  
+STADIUM 테이블의 이름을 STADIUM_JSC로 변경하는 SQL을 작성하시오. <span class="token punctuation">(</span>ANSI 표준 기준<span class="token punctuation">)</span>
+</code></pre><p><strong>정답:</strong> RENAME STADIUM TO STADIUM_JSC</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+“RENAME으로 테이블 이름을 바꿔!”<br>
+TO 다음에 새 이름을 쓰면 돼!</p>
+<p><strong>📚 전문 해설:</strong><br>
+ANSI SQL 표준에서는 테이블 이름 변경 시<br>
+RENAME 명령어를 사용합니다.</p>
+<p>🧠 <strong>기억법:</strong><br>
+테이블 이름 변경 = RENAME A TO B</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 89: RENAME = 테이블 이름 변경</li>
+<li>🃏 카드 5: ALTER TABLE = 구조 변경</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 019<span class="token punctuation">]</span>  
+
+표준 SQL<span class="token punctuation">(</span>SQL:1999<span class="token punctuation">)</span>에서 테이블 생성시 참조관계를 정의하기 위해 외래키<span class="token punctuation">(</span>Foreign Key<span class="token punctuation">)</span>를 선언한다. 관계형 데이터베이스에서 Child Table의 FK 데이터 생성시 Parent Table에 PK가 없는 경우, Child Table 데이터 입력을 허용하지 않는 참조동작<span class="token punctuation">(</span>Referential Action<span class="token punctuation">)</span>인 것은?
+
+① CASCADE
+② RESTRICT
+③ AUTOMATIC
+④ DEPENDENT
+</code></pre><p><strong>정답:</strong> ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+④번은 “부모 없으면 자식도 못 생겨!”<br>
+DEPENDENT는 부모 없으면 입력 자체가 안 돼!</p>
+<p><strong>📚 전문 해설:</strong><br>
+DEPENDENT는 부모 테이블에 참조 대상이 없으면<br>
+자식 테이블에 데이터를 입력할 수 없도록 제한합니다.</p>
+<p>※ DEPENDENT는 부모가 없으면 자식도 못 생기는 원칙</p>
+<p>예)</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token comment">-- 부모 테이블: 고객</span>
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> 고객 <span class="token punctuation">(</span>
+    고객ID <span class="token keyword keyword-INT">INT</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+    고객명 <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 자식 테이블: 주문</span>
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> 주문 <span class="token punctuation">(</span>
+    주문ID <span class="token keyword keyword-INT">INT</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+    고객ID <span class="token keyword keyword-INT">INT</span><span class="token punctuation">,</span>
+    주문일자 <span class="token keyword keyword-DATE">DATE</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-FOREIGN">FOREIGN</span> <span class="token keyword keyword-KEY">KEY</span> <span class="token punctuation">(</span>고객ID<span class="token punctuation">)</span> <span class="token keyword keyword-REFERENCES">REFERENCES</span> 고객<span class="token punctuation">(</span>고객ID<span class="token punctuation">)</span>
+    <span class="token comment">-- DEPENDENT 참조동작을 가정: 부모에 고객ID가 없으면 주문 입력 불가</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>CASCADE → 삭제 시 자식도 삭제</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>RESTRICT → 삭제 제한</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>AUTOMATIC → 표준 아님</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>DEPENDENT → 참조 없으면 입력 불가</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+DEPENDENT = 부모 없으면 자식 생성 ❌</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 82: ON DELETE 옵션 = CASCADE / SET NULL / RESTRICT</li>
+<li>🃏 카드 90: DEPENDENT = 참조 없으면 입력 불가</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 020<span class="token punctuation">]</span>  
+아래와 같은 SQL문에 대해 삽입이 성공하는 SQL문은?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> TBL
+<span class="token punctuation">(</span>
+ID NUMBER <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+AMT NUMBER <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+DEGREE VARCHAR2<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>1. INSERT INTO TBL VALUES(1, 100)
+2. INSERT INTO TBL(ID, AMT, DEGREE) VALUES(2, 200, 'AB')
+3. INSERT INTO TBL(ID, DEGREE) VALUES(4, 'X')
+4. INSERT INTO TBL(ID, AMT) VALUES(3, 300)
+5. INSERT INTO TBL VALUES(5, 500, NULL)
+</code></pre><p>① 1, 2<br>
+② 2, 3<br>
+③ 3, 4<br>
+④ 4, 5</p>
+<p><strong>정답:</strong> ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+④번은 “필수값만 넣었고, NULL도 안 빠졌어!”<br>
+ID와 AMT만 있으면 삽입 성공이야!</p>
+<p><strong>📚 전문 해설:</strong><br>
+AMT는 NOT NULL이므로 반드시 입력해야 하며,<br>
+DEGREE는 NULL 가능<br>
+①번은 DEGREE 누락 → 오류<br>
+②번은 DEGREE 길이 초과 → 오류<br>
+③번은 AMT 누락 → 오류<br>
+⑤번은 DEGREE NULL → 가능</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>DEGREE 누락 → 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>DEGREE 길이 초과 → 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>AMT 누락 → 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>필수값만 입력 → 성공</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td>NULL 허용 → 성공 가능</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+NOT NULL → 반드시 입력<br>
+VARCHAR2(1) → 한 글자만 허용</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 64: NOT NULL = 빈칸 금지</li>
+<li>🃏 카드 91: INSERT 조건 = 필수값 확인</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html><html><head>
+      <title>part005_1_sql_최적화</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\sally03915\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<style>
+pre, code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  overflow-x: hidden !important;
+  display: block !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+</style> 
+<hr>
+<h3 id="-sql-optimization">📁 SQL OPTIMIZATION </h3>
+<table>
+<thead>
+<tr>
+<th>구간</th>
+<th>문제 번호</th>
+<th>주제</th>
+<th>난이도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1~5</td>
+<td>128~132</td>
+<td>옵티마이저와 실행계획 개요</td>
+<td>⭐⭐ 초~중급</td>
+</tr>
+<tr>
+<td>6~10</td>
+<td>133~137</td>
+<td>인덱스 구조와 활용 전략</td>
+<td>⭐⭐⭐ 중급</td>
+</tr>
+<tr>
+<td>11~15</td>
+<td>138~142</td>
+<td>인덱스 성능과 조인 방식 비교</td>
+<td>⭐⭐⭐ 고급</td>
+</tr>
+<tr>
+<td>16~19</td>
+<td>143~146</td>
+<td>조인 기법별 특징과 적용 조건</td>
+<td>⭐⭐⭐⭐ 실무형</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-구간별-설명-2줄-요약">✅ 구간별 설명 (2줄 요약) </h2>
+<h3 id="-15번-옵티마이저와-실행계획-개요">✅ 1~5번: 옵티마이저와 실행계획 개요 </h3>
+<p>CBO, RBO 등 옵티마이저의 개념과 SQL 실행 흐름을 이해합니다.<br>
+실행계획의 구성 요소와 처리 절차를 시각적으로 분석하는 기초 구간입니다.</p>
+<hr>
+<h3 id="-610번-인덱스-구조와-활용-전략">✅ 6~10번: 인덱스 구조와 활용 전략 </h3>
+<p>B-TREE, CLUSTERED, BITMAP 등 인덱스 유형을 비교합니다.<br>
+인덱스의 장단점과 옵티마이저의 인덱스 선택 기준을 학습합니다.</p>
+<hr>
+<h3 id="-1115번-인덱스-성능과-조인-방식-비교">✅ 11~15번: 인덱스 성능과 조인 방식 비교 </h3>
+<p>인덱스 컬럼 순서, 범위 조건, DML 부하 등 성능에 미치는 영향을 분석합니다.<br>
+SQL 실행 조건에 따라 인덱스 효율성과 조인 방식이 어떻게 달라지는지 파악합니다.</p>
+<hr>
+<h3 id="-1619번-조인-기법별-특징과-적용-조건">✅ 16~19번: 조인 기법별 특징과 적용 조건 </h3>
+<p>Nested Loop, Hash Join, Sort Merge Join의 특징과 적용 조건을 비교합니다.<br>
+선행 테이블 선택, 인덱스 유무, 데이터량에 따른 조인 전략을 실무 중심으로 익힙니다.</p>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">128</span><span class="token punctuation">]</span>  
+아래에 해당하는 내용을 작성하시오.
+
+테이블 및 인덱스 등의 통계 정보를 활용하여 SQL문을 실행하는데 소요
+될 처리시간 및 CPU, I/O 자원량 등을 계산하여 가장 효율적일 것으로
+예상되는 실행계획을 선택하는 옵티마이저를  <span class="token punctuation">(</span>      <span class="token punctuation">)</span> 라 한다.
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">128</span><span class="token punctuation">]</span>  
+통계 정보를 활용해 실행계획을 선택하는 옵티마이저는?
+</code></pre><p><strong>✅ 정답:</strong> CBO (Cost Based Optimizer) ,  비용기반 옵티마이저</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+CBO는 비용을 계산해서 가장 빠른 실행계획을 선택해요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>CBO는 통계 정보 기반</li>
+<li>CPU, I/O, 처리 시간 등을 고려</li>
+<li>RBO는 규칙 기반으로 우선순위만 따짐</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+CBO = Cost Based → 비용 계산</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 70: 옵티마이저 종류</li>
+<li>🃏 카드 71: 실행계획 개요</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">129</span><span class="token punctuation">]</span>  
+다음 중 실행계획을 통해서 알 수 있는 정보로 가장 부적절한 것은?
+
+① 액세스 기법
+② 질의 처리 예상 비용<span class="token punctuation">(</span>Cost<span class="token punctuation">)</span>
+③ 조인 순서
+④ 실제 처리 건수
+</code></pre><img src="./images/129.jpg" alt="">
+<p><strong>✅ 정답:</strong> ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+실행계획은 예측 정보만 보여줘요. 실제 처리 건수는 실행 후에만 알 수 있어요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>실행계획은 예상 비용, 조인 순서, 액세스 방식 등 포함</li>
+<li>실제 건수는 실행 후 통계에서 확인 가능</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+실행계획 = 예측 정보<br>
+실제 건수 ≠ 실행계획</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 71: 실행계획 개요</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">130</span><span class="token punctuation">]</span>  
+아래 실행계획의 실행순서에 맞게 ㉠, ㉡, ㉢ 을 작성하시오.
+
+<span class="token number">1</span>  NESTED LOOPS
+<span class="token number">2</span>    HASH JOIN
+<span class="token number">3</span>      TABLE ACCESS <span class="token punctuation">(</span>FULL<span class="token punctuation">)</span> TAB1
+<span class="token number">4</span>      TABLE ACCESS <span class="token punctuation">(</span>FULL<span class="token punctuation">)</span> TAB2
+<span class="token number">5</span>    TABLE ACCESS <span class="token punctuation">(</span>BY ROWID<span class="token punctuation">)</span> TAB3
+<span class="token number">6</span>      INDEX <span class="token punctuation">(</span>UNIQUE SCAN<span class="token punctuation">)</span> PK TAB3
+    ㉠ → ㉡ → ㉢ → <span class="token number">6</span> → <span class="token number">5</span> → <span class="token number">1</span>
+</code></pre><p><strong>✅ 정답:</strong> ㉠ 3 → ㉡ 4 → ㉢ 2</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+실행은 항상 가장 안쪽부터 시작해요. FULL SCAN → JOIN → LOOP 순서예요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>3, 4: 테이블 전체 스캔</li>
+<li>2: HASH JOIN</li>
+<li>6 → 5: 인덱스 → ROWID</li>
+<li>1: NESTED LOOP</li>
+</ul>
+<h6 id="-실행계획-구조">✅ 실행계획 구조 </h6>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token number">1</span>  NESTED LOOPS
+<span class="token number">2</span>    <span class="token keyword keyword-HASH">HASH</span> <span class="token keyword keyword-JOIN">JOIN</span>
+<span class="token number">3</span>      <span class="token keyword keyword-TABLE">TABLE</span> ACCESS <span class="token punctuation">(</span><span class="token keyword keyword-FULL">FULL</span><span class="token punctuation">)</span> TAB1
+<span class="token number">4</span>      <span class="token keyword keyword-TABLE">TABLE</span> ACCESS <span class="token punctuation">(</span><span class="token keyword keyword-FULL">FULL</span><span class="token punctuation">)</span> TAB2
+<span class="token number">5</span>    <span class="token keyword keyword-TABLE">TABLE</span> ACCESS <span class="token punctuation">(</span><span class="token keyword keyword-BY">BY</span> ROWID<span class="token punctuation">)</span> TAB3
+<span class="token number">6</span>      <span class="token keyword keyword-INDEX">INDEX</span> <span class="token punctuation">(</span><span class="token keyword keyword-UNIQUE">UNIQUE</span> SCAN<span class="token punctuation">)</span> PK TAB3
+</code></pre><h6 id="-실행-순서-한-줄씩-설명">🧠 실행 순서 한 줄씩 설명 </h6>
+<h6 id="1️⃣-ᄀ-3-table-access-full-tab1">1️⃣ ㉠ <strong>3: TABLE ACCESS (FULL) TAB1</strong> </h6>
+<ul>
+<li>가장 먼저 TAB1 테이블을 <strong>전체 스캔</strong>합니다</li>
+<li>HASH JOIN의 첫 번째 입력으로 사용됨</li>
+</ul>
+<h6 id="2️⃣-ᄂ-4-table-access-full-tab2">2️⃣ ㉡ <strong>4: TABLE ACCESS (FULL) TAB2</strong> </h6>
+<ul>
+<li>다음으로 TAB2 테이블을 <strong>전체 스캔</strong>합니다</li>
+<li>HASH JOIN의 두 번째 입력으로 사용됨</li>
+</ul>
+<h6 id="3️⃣-ᄃ-2-hash-join">3️⃣ ㉢ <strong>2: HASH JOIN</strong> </h6>
+<ul>
+<li>TAB1과 TAB2의 결과를 해시 조인합니다</li>
+<li>이 결과는 NESTED LOOP의 외부 테이블 역할을 합니다</li>
+</ul>
+<h6 id="4️⃣-6-index-unique-scan-pk-tab3">4️⃣ <strong>6: INDEX (UNIQUE SCAN) PK TAB3</strong> </h6>
+<ul>
+<li>TAB3에 대해 <strong>인덱스를 먼저 스캔</strong>합니다</li>
+<li>PK 인덱스를 통해 해당 ROWID를 찾습니다</li>
+</ul>
+<h6 id="5️⃣-5-table-access-by-rowid-tab3">5️⃣ <strong>5: TABLE ACCESS (BY ROWID) TAB3</strong> </h6>
+<ul>
+<li>인덱스로 찾은 ROWID를 통해 TAB3의 실제 데이터를 읽습니다</li>
+</ul>
+<h6 id="6️⃣-1-nested-loops">6️⃣ <strong>1: NESTED LOOPS</strong> </h6>
+<ul>
+<li>HASH JOIN 결과와 TAB3 데이터를 NESTED LOOP 방식으로 결합합니다</li>
+</ul>
+<h6 id="-최종-실행-순서">✅ 최종 실행 순서 </h6>
+<table>
+<thead>
+<tr>
+<th>번호</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>㉠ 3</td>
+<td>TAB1 전체 스캔</td>
+</tr>
+<tr>
+<td>㉡ 4</td>
+<td>TAB2 전체 스캔</td>
+</tr>
+<tr>
+<td>㉢ 2</td>
+<td>HASH JOIN 수행</td>
+</tr>
+<tr>
+<td>6</td>
+<td>TAB3 인덱스 스캔</td>
+</tr>
+<tr>
+<td>5</td>
+<td>TAB3 ROWID 접근</td>
+</tr>
+<tr>
+<td>1</td>
+<td>NESTED LOOP 결합</td>
+</tr>
+</tbody>
+</table>
+<h6 id="-핵심-요약">📌 핵심 요약 </h6>
+<table>
+<thead>
+<tr>
+<th>구성 요소</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TABLE ACCESS (FULL)</td>
+<td>테이블 전체 스캔</td>
+</tr>
+<tr>
+<td>HASH JOIN</td>
+<td>두 테이블 조인</td>
+</tr>
+<tr>
+<td>INDEX SCAN</td>
+<td>인덱스를 통해 ROWID 찾기</td>
+</tr>
+<tr>
+<td>TABLE ACCESS (BY ROWID)</td>
+<td>인덱스로 찾은 행 읽기</td>
+</tr>
+<tr>
+<td>NESTED LOOPS</td>
+<td>조인 결과 반복 처리</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 기억하세요: <strong>실행계획은 항상 가장 안쪽부터 시작해서 바깥으로 진행됩니다.</strong></p>
+<p>🧠 <strong>기억법:</strong><br>
+실행계획은 안쪽부터 바깥으로</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 71: 실행계획 개요</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">131</span><span class="token punctuation">]</span>   
+다음 중 실행계획에 대한 설명으로 가장 부적절한 것은?
+
+① 실행계획은 SQL 처리를 위한 실행 절차와 방법을 표현한 것이다.
+② 실행계획은 조인 방법, 조인 순서, 액세스 기법 등이 표현된다.
+③ 동일 SQL문에 대해 실행계획이 다르면 실행 결과도 달라질 수 있다.
+④ CBO<span class="token punctuation">(</span>Cost Based Optimizer<span class="token punctuation">)</span>의 실행계획에는 단계별 예상 비용 및
+건수 등이 표시된다.
+</code></pre><p><strong>✅ 정답:</strong> ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+실행계획이 달라도 결과는 같아요! 다만 성능이 달라질 뿐이에요.</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>실행계획은 SQL 실행 방법</li>
+<li>결과는 동일하지만 성능은 달라짐</li>
+<li>CBO는 비용 기반으로 계획 수립</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+실행계획 ≠ 결과 변경<br>
+실행계획 = 성능 영향</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 70: 옵티마이저</li>
+<li>🃏 카드 71: 실행계획</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">132</span><span class="token punctuation">]</span>  
+다음 중 아래와 같은 SQL 처리 흐름도<span class="token punctuation">(</span>Access Flow Diagram<span class="token punctuation">)</span>에 대한 설명으로 가장 적절한 것을 <span class="token number">2</span>개 고르시오.
+</code></pre><img src="./images/132.jpg" alt="">
+```
+① SQL의 실행 시간을 알 수 있다.
+② 인덱스 스캔, 테이블 전체 스캔 등과 같은 액세스 기법이 표현된다.
+③ 실행계획과는 무관하다.
+④ SQL의 내부적인 처리 절차를 시각적으로 표현해준다.
+```
+**✅ 정답:** ②, ④
+<p>🧸 <strong>쉬운 해설:</strong><br>
+흐름도는 SQL 내부 처리 절차를 시각적으로 보여줘요. 인덱스 스캔도 표현돼요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>Access Flow Diagram은 SQL 처리 절차 시각화</li>
+<li>인덱스 스캔, 테이블 스캔 등 표현</li>
+<li>실행 시간은 포함되지 않음</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>실행 시간은 알 수 없음</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>액세스 기법 표현 가능</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>실행계획과 관련 있음</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>내부 처리 절차 시각화</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+Access Flow = 내부 처리 흐름</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 71: 실행계획</li>
+<li>🃏 카드 72: SQL 처리 흐름</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">133</span><span class="token punctuation">]</span>  
+다음 중 옵티마이저와 실행계획에 대한 설명으로 부적절한 것을 <span class="token number">2</span>개 고르시오.
+
+① SQL 처리 흐름도는 성능적인 측면의 표현은 고려하지 않는다.
+② 규칙기반 옵티마이저에서 제일 높은 우선순위는 행에 대한 고유 주소를 사용하는 방법이다.
+③ SQL 처리 흐름도는 인덱스 스캔 및 전체 테이블 스캔 등의 액세스 기법을 표현할 수 있다.
+④ 인덱스 범위 스캔은 항상 여러 건의 결과가 반환된다.
+</code></pre><p><strong>✅ 정답:</strong> ①, ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+① SQL 흐름도도 성능 표현 가능해요!<br>
+④ 인덱스 범위 스캔은 1건만 나올 수도 있어요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>① SQL 흐름도는 액세스 기법과 성능 흐름을 표현함</li>
+<li>④ 인덱스 범위 스캔은 조건에 따라 0건, 1건도 가능</li>
+<li>② RBO는 ROWID 액세스를 가장 우선시함</li>
+<li>③ 흐름도는 인덱스 스캔 등 표현 가능</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+범위 스캔 = 결과 다양<br>
+흐름도 = 성능 흐름 포함</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 70: 옵티마이저</li>
+<li>🃏 카드 71: 실행계획</li>
+<li>🃏 카드 72: SQL 흐름도</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">134</span><span class="token punctuation">]</span> 
+다음 중 관계형 데이터베이스의 인덱스<span class="token punctuation">(</span>Index<span class="token punctuation">)</span>에 대한 설명으로 가장 적절한 것은?
+
+① 기본 인덱스<span class="token punctuation">(</span>Primary Key Index<span class="token punctuation">)</span>에 중복된 키 값들이 나타날 수 있다.
+② 기본 인덱스에 널 값<span class="token punctuation">(</span>Null Value<span class="token punctuation">)</span>들이 나타날 수 없다.
+③ 보조 인덱스<span class="token punctuation">(</span>Secondary Index<span class="token punctuation">)</span>에는 고유한 키 값들만 나타날 수 있다.
+④ 자주 변경되는 속성은 인덱스를 정의할 좋은 후보이다.
+</code></pre><p><strong>✅ 정답:</strong> ②</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+기본 인덱스(PK)는 NULL을 허용하지 않아요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>PK 인덱스는 NULL 불가</li>
+<li>중복 불가</li>
+<li>보조 인덱스는 중복 가능</li>
+<li>자주 변경되는 컬럼은 인덱스에 부적합</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+PK = NULL 불가, 중복 불가</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 73: 인덱스 구조</li>
+<li>🃏 카드 74: 인덱스 특징</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">135</span><span class="token punctuation">]</span>   
+다음 중 관계형 데이터베이스 인덱스<span class="token punctuation">(</span>Index<span class="token punctuation">)</span>에 대한 설명으로 가장 부적절한 것을 <span class="token number">2</span>개 고르시오.
+
+① 테이블의 전체 데이터를 읽는 경우는 인덱스가 거의 불필요하다.
+② 인덱스는 조회, 삽입, 삭제, 갱신 연산의 속도를 향상시킨다.
+③ B 트리는 관계형 데이터베이스의 주요 인덱스 구조이다.
+④ 대량의 데이터를 삽입할 때는 모든 인덱스를 생성하고 데이터를 입력하는 것이 좋다.
+</code></pre><p><strong>✅ 정답:</strong> ②, ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+② 인덱스는 DML 성능을 저하시킬 수도 있어요!<br>
+④ 대량 삽입 시 인덱스는 나중에 생성하는 게 좋아요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>① 전체 데이터 읽을 땐 인덱스 불필요</li>
+<li>② DML 성능은 저하됨</li>
+<li>③ B-TREE는 대표 인덱스 구조</li>
+<li>④ 대량 삽입 시 인덱스는 나중에 생성</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+DML + 인덱스 = 성능 저하<br>
+대량 삽입 → 인덱스 나중에</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 74: 인덱스 특징</li>
+<li>🃏 카드 75: 인덱스 성능</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">136</span><span class="token punctuation">]</span>  
+아래의 INDEX에 대한 설명에서 <span class="token punctuation">(</span>가<span class="token punctuation">)</span>,<span class="token punctuation">(</span>나<span class="token punctuation">)</span>,<span class="token punctuation">(</span>다<span class="token punctuation">)</span>에 들어갈 인덱스 종류가 순서대로 바르게 나열된 것은?
+
+<span class="token punctuation">(</span>가<span class="token punctuation">)</span>인덱스는 브랜치 블록과 리프 블록으로 구성되며, 브랜치 블록은 분기를 목적으로 하고 리프블록은 인덱스를 구성하는 컬럼의 값으로 정렬된다. 일반적으로 OLTP 시스템 환경에서 가장 많이 사용된다.
+<span class="token punctuation">(</span>나<span class="token punctuation">)</span> 인덱스는 인덱스의 리프 페이지가 곧 데이터 페이지이며, 리프 페이지의 모든 데이터는 인덱스 키 컬럼 순으로 물리적으로 정렬되어 저장된다.
+<span class="token punctuation">(</span>다<span class="token punctuation">)</span> 인덱스는 시스템에서 사용될 질의를 시스템 구현 시에 모두 알 수 없는 경우인 DW 및 AD-HOC 질의 환경을 위해서 설계되었으며, 하나의 인덱스 키 엔트리가 많은 행에 대한 포인터를 저장하고 있는 구조이다.
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>① B-TREE 인덱스, BITMAP 인덱스, CLUSTERED 인덱스
+② B-TREE 인덱스, CLUSTERED 인덱스, BITMAP 인덱스
+③ BITMAP 인덱스, CLUSTERED 인덱스, REVERSE KEY 인덱스
+④ BITMAP 인덱스, REVERSE KEY 인덱스, CLUSTERED 인덱스
+</code></pre><p><strong>✅ 정답:</strong> ② B-TREE, CLUSTERED, BITMAP</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+B-TREE는 OLTP, CLUSTERED는 물리적 정렬, BITMAP은 DW에 좋아요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>B-TREE: 브랜치 + 리프 구조, OLTP에 적합</li>
+<li>CLUSTERED: 리프 = 데이터 페이지, 물리적 정렬</li>
+<li>BITMAP: 다건 포인터, DW/AD-HOC 질의에 적합</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+B-TREE = OLTP<br>
+CLUSTERED = 정렬<br>
+BITMAP = DW</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 73: 인덱스 구조</li>
+<li>🃏 카드 74: 인덱스 특징</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">137</span><span class="token punctuation">]</span> 
+다음 중 인덱스에 대한 설명으로 가장 적절한 것을 <span class="token number">2</span>개 고르시오.
+
+① 인덱스는 인덱스 구성 칼럼으로 항상 오름차순으로 정렬된다.
+② 비용기반 옵티마이저는 인덱스 스캔이 항상 유리하다고 판단한다.
+③ 규칙기반 옵티마이저는 적절한 인덱스가 존재하면 항상 인덱스를 사용 하려고 한다.
+④ 인덱스 범위 스캔은 결과가 없으면 한 건도 반환하지 않을 수 있다.
+</code></pre><p><strong>✅ 정답:</strong> ③, ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+③ RBO는 인덱스 있으면 무조건 써요!<br>
+④ 범위 스캔은 결과가 없을 수도 있어요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>① 인덱스는 정렬 방향 다양</li>
+<li>② CBO는 비용에 따라 판단</li>
+<li>③ RBO는 인덱스 우선</li>
+<li>④ 범위 조건에 따라 결과 없음 가능</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+RBO = 인덱스 우선<br>
+범위 스캔 = 결과 다양</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 70: 옵티마이저</li>
+<li>🃏 카드 74: 인덱스 특징</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">138</span><span class="token punctuation">]</span>   
+다음 중 아래의 내용에 대한 설명으로 가장 적절한 것을 <span class="token number">2</span>개 고르시오.
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span><span class="token keyword keyword-INDEX">INDEX</span> 생성<span class="token punctuation">]</span>
+아래
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-INDEX">INDEX</span> IDX_EMP_01 <span class="token keyword keyword-ON">ON</span> EMP <span class="token punctuation">(</span>REGIST_DATE<span class="token punctuation">,</span> DEPTNO<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span> 실행<span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword keyword-FROM">FROM</span> EMP
+<span class="token keyword keyword-WHERE">WHERE</span> DEPTNO <span class="token operator">=</span> <span class="token number">47</span>
+<span class="token operator">AND</span> REGIST_DATE <span class="token operator">BETWEEN</span> <span class="token string">'2015.02.01'</span> <span class="token operator">AND</span> <span class="token string">'2015.02.28'</span>:
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>① 실행된 SQL에 대해서 인덱스 비효율이 있어 인덱스의 컬럼을 DEPTNO + REGIST_DATE 순으로 변경할 필요가 있다.
+②IDX_EMP_01 인덱스를 이용하여 DEPTNO = 47 조건을 효율적으로 탐색할 수 있다.
+③ REGIST_DATE 컬럼에 대한 조건을 범위 검색이 아닌 동등 검색 조건으로 변경하면 IDX_EMP_01 인덱스를 효율적으로 활용할 수 있다.
+④ IDX_EMP_01 인덱스는 테이블 내의 대량 데이터를 탐색할 때 매우 유용하게 활용될 수 있는 인덱스 형식이다.
+</code></pre><p><strong>✅ 정답:</strong> ①, ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+① 인덱스 컬럼 순서가 조건과 맞아야 해요!<br>
+③ 범위 조건보다 동등 조건이 인덱스에 더 좋아요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>IDX_EMP_01: REGIST_DATE, DEPTNO</li>
+<li>WHERE절에서 DEPTNO만 동등 조건이면 인덱스 비효율</li>
+<li>REGIST_DATE를 동등 조건으로 바꾸면 효율 증가</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+인덱스 순서 = 조건 순서와 맞춰야<br>
+동등 조건 &gt; 범위 조건</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 75: 인덱스 성능</li>
+<li>🃏 카드 76: 인덱스 활용 전략</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">139</span><span class="token punctuation">]</span> 
+다음 중 인덱스에 대한 설명으로 가장 부적절한 것은?
+
+① 인덱스의 목적은 조회 성능을 최적화하는 것이다.
+② Insert, Update, Delete 등의 DML 처리 성능을 저하시킬 수도 있다.
+③ B-트리 인덱스는 일치 및 범위 검색에 적절한 구조이다.
+④ 인덱스 액세스는 테이블 전체 스캔보다 항상 유리하다.
+</code></pre><p><strong>✅ 정답:</strong> ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+인덱스가 항상 유리한 건 아니에요! 전체 스캔이 더 빠를 때도 있어요.</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>인덱스는 조회 성능 향상 목적</li>
+<li>DML 시 인덱스 유지 비용 발생</li>
+<li>B-트리는 일치/범위 검색에 적합</li>
+<li>소량 데이터나 전건 조회 시 전체 스캔이 더 효율적일 수 있음</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+인덱스 ≠ 항상 빠름<br>
+조건에 따라 전체 스캔이 유리할 수도 있음</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 74: 인덱스 특징</li>
+<li>🃏 카드 75: 인덱스 성능</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">140</span><span class="token punctuation">]</span>   
+다음 중 아래에서 인덱스에 대한 설명으로 가장 올바른 것만 묶은 것은?
+
+가<span class="token punctuation">)</span> 인덱스는 데이터 조회 목적에는 효과적이지만, INSERT, UPDATE, DELETE 작업에는 오히려 많은 부하를 줄 수도 있다.
+나<span class="token punctuation">)</span> 인덱스를 이용한 데이터 조회는 대부분의 경우 테이블 전체 스캔보다 빠르다.  
+다<span class="token punctuation">)</span> SQL Server의 클러스터형 인덱스는 ORACLE의 IOT와 매우 유사하다.
+라<span class="token punctuation">)</span> 인덱스는 INSERT와 DELETE 작업과는 다르게 UPDATE 작업에는 부하가 없을 수도 있다.
+마<span class="token punctuation">)</span> 인덱스를 활용하여 데이터를 조회할 때 인덱스를 구성하는 컬럼들의 순서는 SQL 실행 성능과 관계가 없다.
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>① 가, 나, 다
+② 가, 다, 라
+③ 다, 라, 마
+④ 가, 다, 마
+</code></pre><p><strong>✅ 정답:</strong> ① (가, 나, 다)</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+인덱스는 조회엔 좋지만 DML엔 부하가 생겨요. 클러스터형 인덱스는 IOT와 비슷해요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>가: DML 시 인덱스 유지 비용 발생</li>
+<li>나: 조건 검색 시 인덱스가 일반적으로 빠름</li>
+<li>다: SQL Server의 클러스터형 인덱스는 Oracle의 IOT와 유사한 구조</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+조회 = 인덱스 유리<br>
+DML = 인덱스 부하</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 74: 인덱스 특징</li>
+<li>🃏 카드 76: 인덱스 활용 전략</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">141</span><span class="token punctuation">]</span> 
+아래의 옵티마이저와 실행계획 대한 설명 중에서 옳은 것을 모두 묶은 것은?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>가<span class="token punctuation">)</span> ORACLE의 규칙기반 옵티마이저에서 가장 우선 순위가 높은 규칙은 Single <span class="token keyword keyword-row">row</span> <span class="token keyword keyword-by">by</span> rowid 엑세스 기법이다<span class="token punctuation">.</span>
+나<span class="token punctuation">)</span> 비용기반 옵티마이저는 테이블<span class="token punctuation">,</span> 인덱스<span class="token punctuation">,</span> 컬럼 등 객체의 통계정보를
+사용하여 실행계획을 수립하므로 통계정보가 변경되면 <span class="token keyword keyword-SQL">SQL</span>의 실행계획이 달라질 수 있다<span class="token punctuation">.</span>
+다<span class="token punctuation">)</span> ORACLE의 실행계획에 나타나는 기본적인 <span class="token keyword keyword-Join">Join</span> 기법으로는 NL <span class="token keyword keyword-Join">Join</span><span class="token punctuation">,</span> <span class="token keyword keyword-Hash">Hash</span> <span class="token keyword keyword-Join">Join</span><span class="token punctuation">,</span> Sort <span class="token keyword keyword-Merge">Merge</span> <span class="token keyword keyword-Join">Join</span> 등이 있다<span class="token punctuation">.</span>
+라<span class="token punctuation">)</span> 다양한 <span class="token keyword keyword-Join">Join</span> 기법 중 NL <span class="token keyword keyword-Join">Join</span>은 DW 등에서 데이터를 집계하는 업무에 많이 사용된다<span class="token punctuation">.</span>
+</code></pre><p>① 가, 다<br>
+② 가, 나, 다<br>
+③ 나, 다<br>
+④ 나. 다. 라</p>
+<p><strong>✅ 정답:</strong> ② (가, 나, 다)</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+RBO는 ROWID를 가장 우선시하고, CBO는 통계 기반이에요. Oracle은 3가지 Join을 기본으로 써요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>가: RBO는 ROWID 액세스를 최우선</li>
+<li>나: CBO는 통계정보 기반으로 비용 계산</li>
+<li>다: Oracle은 NL, Hash, Sort Merge Join을 기본으로 사용</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+RBO = 규칙 기반, ROWID 우선<br>
+CBO = 비용 기반, 통계 활용</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 70: 옵티마이저</li>
+<li>🃏 카드 71: 실행계획</li>
+<li>🃏 카드 77: Join 기법</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">142</span><span class="token punctuation">]</span> 
+다음 중 Nested Loop Join에 대한 설명으로 가장 부적절한 것은?
+
+① 조인 칼럼에 적당한 인덱스가 있어서 자연조인<span class="token punctuation">(</span>Natural <span class="token function">join</span><span class="token punctuation">)</span>이 효율적일 때 유용하다.
+② Driving Table의 조인 데이터 양이 큰 영향을 주는 조인 방식이다.
+③ 소트 머지 조인<span class="token punctuation">(</span>Sort Merge Join<span class="token punctuation">)</span>하기에 두 테이블이 너무 커서 소트<span class="token punctuation">(</span>Sort<span class="token punctuation">)</span> 부하가 심할 때 유용하다.
+④ 유니크 인덱스를 활용하여 수행시간이 적게 걸리는 소량 테이블을 온라인 조회하는 경우 유용하다.
+</code></pre><p><strong>✅ 정답:</strong> ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+Sort Merge Join이 부하가 클 때 Nested Loop Join을 쓰는 건 아니에요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>NL Join은 인덱스가 있을 때 유리</li>
+<li>소량 데이터에 적합</li>
+<li>Sort Merge Join은 대량 데이터에 적합</li>
+<li>NL Join은 Sort 부하 대체용이 아님</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+NL Join = 소량, 인덱스<br>
+Sort Merge = 대량, 정렬</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 77: Join 기법</li>
+<li>🃏 카드 78: Nested Loop 특징</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">143</span><span class="token punctuation">]</span> 
+다음 중 아래와 같은 SQL에서 나타날 수 있는 Join 기법으로 가장 적절한 것은?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span>DEPT 테이블 <span class="token keyword keyword-INDEX">INDEX</span> 정보<span class="token punctuation">]</span>
+PK_DEPT : DEPTNO
+<span class="token punctuation">[</span>EMP 테이블 <span class="token keyword keyword-INDEX">INDEX</span> 정보<span class="token punctuation">]</span>
+PK_EMP : EMPNO
+IDX_EMP_01 : DEPTNO
+
+<span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword keyword-FROM">FROM</span> DEPT D
+<span class="token keyword keyword-WHERE">WHERE</span> D<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> <span class="token string">'A001'</span>
+<span class="token operator">AND</span> <span class="token keyword keyword-EXISTS">EXISTS</span> <span class="token punctuation">(</span><span class="token keyword keyword-SELECT">SELECT</span> <span class="token string">'X'</span> <span class="token keyword keyword-FROM">FROM</span> EMP E <span class="token keyword keyword-WHERE">WHERE</span> D<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> E<span class="token punctuation">.</span>DEPTNO<span class="token punctuation">)</span>
+
+</code></pre><p>① HASH ANTI JOIN<br>
+② HASH SEMI JOIN<br>
+③ NESTED LOOP ANTI JOIN<br>
+④ NESTED LOOP SEMI JOIN</p>
+<p><strong>✅ 정답:</strong> ④ NESTED LOOP SEMI JOIN</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+EXISTS는 SEMI JOIN이에요. 조건 만족 여부만 확인하니까요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>EXISTS → SEMI JOIN</li>
+<li>DEPT가 드라이빙 테이블</li>
+<li>EMP에 조건 만족하는 행이 있는지만 확인</li>
+<li>NESTED LOOP 방식으로 처리</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+EXISTS = SEMI JOIN<br>
+NOT EXISTS = ANTI JOIN</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 77: Join 기법</li>
+<li>🃏 카드 78: Join 유형 비교</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">144</span><span class="token punctuation">]</span>  
+다음 중 SMJ<span class="token punctuation">(</span>Sort Merge Join<span class="token punctuation">)</span>에 대한 설명으로 가장 부적절한 것은?
+
+① 조인 칼럼에 적당한 인덱스가 없어서 NL 조인<span class="token punctuation">(</span>Nested Loops<span class="token punctuation">)</span>가 비효율적일 때 사용할 수 있다
+② Driving Table의 개념이 중요하지 않은 조인 방식이다
+③ 조인 조건의 인덱스의 유무에 영향 받지 않는다
+④ EQUI<span class="token punctuation">(</span><span class="token operator">=</span><span class="token punctuation">)</span> 조인 조건에서만 동작한다.
+</code></pre><p><strong>✅ 정답:</strong> ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+Sort Merge Join은 동등 조건뿐 아니라 범위 조건에서도 사용할 수 있어요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>SMJ는 인덱스 없어도 사용 가능</li>
+<li>Driving Table 개념 없음</li>
+<li>범위 조건도 사용 가능</li>
+<li>EQUI 조건만 가능하다는 건 오해</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+SMJ = 정렬 기반, 범위 조건 가능</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 77: Join 기법</li>
+<li>🃏 카드 79: Sort Merge 특징</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">145</span><span class="token punctuation">]</span>  
+해싱<span class="token punctuation">(</span>Hashing<span class="token punctuation">)</span> 기법을 이용하여 조인을 하는 해시조인<span class="token punctuation">(</span>Hash <span class="token function">join</span><span class="token punctuation">)</span>은 한쪽 테이블이 주 메모리의 가용 메모리에 담길 정도로 충분히 작고 해시 키 속성에 중복 값이 적을 때 효과적이다. 다음 중 해시조인이 더 효과적일 수 있는 조건에 대한 설명으로 가장 부적절한 것은?
+
+① 조인 컬럼에 적당한 인덱스가 없어서 자연조인<span class="token punctuation">(</span>Natural <span class="token function">join</span><span class="token punctuation">)</span>이 비효율적일 때
+② 자연조인<span class="token punctuation">(</span>Natural <span class="token function">join</span><span class="token punctuation">)</span>시 드라이빙<span class="token punctuation">(</span>driving<span class="token punctuation">)</span> 집합 쪽으로 조인 액세스량이 많아 Random 액세스 부하가 심할 때
+③ 소트 머지 조인<span class="token punctuation">(</span>Sort Merge Join<span class="token punctuation">)</span>을 하기에는 두 테이블이 너무 커서 소트<span class="token punctuation">(</span>Sort<span class="token punctuation">)</span> 부하가 심할 때
+④ 유니크 인덱스를 활용하여 수행시간이 적게 걸리는 소량 테이블을 온라인 조회하는 경우
+</code></pre><p><strong>✅ 정답:</strong> ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+Hash Join은 소량 테이블 조회에는 적합하지 않아요. 그건 Nested Loop Join이 더 좋아요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>Hash Join은 대량 데이터에 적합</li>
+<li>인덱스 없을 때 유리</li>
+<li>소량 데이터는 NL Join이 더 효율적</li>
+<li>해시 키 중복 적을수록 효과적</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+Hash Join = 대량, 인덱스 없음<br>
+NL Join = 소량, 인덱스 있음</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 77: Join 기법</li>
+<li>🃏 카드 80: Hash Join 특징</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 <span class="token number">146</span><span class="token punctuation">]</span>  
+다음 중 Join 기법에 대한 설명으로 가장 적절한 것은?
+
+① NL Join은 선택도가 낮은<span class="token punctuation">(</span>결과 행의 수가 적은<span class="token punctuation">)</span> 테이블이 선행 테이블로 선택되는 것이 일반적으로 유리하다.
+② Sort Merge Join은 동등 Join<span class="token punctuation">(</span>Equi Join<span class="token punctuation">)</span> 에서만 사용할 수 있으므로 제약이 존재한다.
+③ Hash Join은 결과 행의 수가 큰 테이블을 선행 테이블로 사용하는 것이 성능에 유리하다.
+④ Hash Join은 Sort Merge Join보다 항상 우수한 성능을 보장한다.
+</code></pre><p><strong>✅ 정답:</strong> ①</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+NL Join은 결과가 적은 테이블을 먼저 처리하는 게 유리해요!</p>
+<p>📚 <strong>전문 해설:</strong></p>
+<ul>
+<li>NL Join: 선택도 낮은 테이블을 선행 테이블로</li>
+<li>SMJ: 정렬 기반, Driving Table 개념 없음</li>
+<li>Hash Join: 선행 테이블은 메모리에 적재 가능해야 함</li>
+<li>Hash Join ≠ 항상 SMJ보다 빠름</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+NL Join = 선택도 낮은 테이블 먼저</p>
+<p>🃏 관련 암기카드</p>
+<ul>
+<li>🃏 카드 77: Join 기법</li>
+<li>🃏 카드 78: Join 전략</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
