@@ -1109,14 +1109,7 @@ SELECT EMPNO, ENAME, SAL, DEPTNO
 <img src="img/chap05_EX_001.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE ENAME LIKE '%S';
-</pre>
-
+ 
 
 
 ---
@@ -1125,16 +1118,7 @@ SELECT *
 <img src="img/chap05_EX_002.png" alt="" width="80%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT EMPNO, ENAME, JOB, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 30
-   AND JOB = 'SALESMAN';
-</pre>
-
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -1145,16 +1129,7 @@ SELECT EMPNO, ENAME, JOB, SAL, DEPTNO
 <!-- _class: aqua -->
 <img src="img/chap05_EX_003.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT EMPNO, ENAME, JOB, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO IN (20, 30)
-   AND SAL > 2000;
-</pre>
-
+ 
 ---
 <!-- _class: aqua -->
 ##### EX003   집합연산자( UNION을 )를 사용한 방식
@@ -1163,22 +1138,7 @@ SELECT EMPNO, ENAME, JOB, SAL, DEPTNO
 <!-- _class: aqua -->
 <img src="img/chap05_EX_003.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT EMPNO, ENAME, JOB, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 20
-   AND SAL > 2000
-UNION
-SELECT EMPNO, ENAME, JOB, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 30
-   AND SAL > 2000;
-</pre>
-
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -1190,14 +1150,6 @@ SELECT EMPNO, ENAME, JOB, SAL, DEPTNO
 <img src="img/chap05_EX_004.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE SAL < 2000
-    OR SAL > 3000;
-</pre>
 
 
 
@@ -1211,16 +1163,6 @@ SELECT *
 <img src="img/chap05_EX_005.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT ENAME, EMPNO, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 30
-   AND ENAME LIKE '%E%'
-   AND SAL NOT BETWEEN 1000 AND 2000;
-</pre>
-
 
 
 ---
@@ -1229,17 +1171,6 @@ SELECT ENAME, EMPNO, SAL, DEPTNO
 - EMP테이블에서  COMM 이 없고  ,  MGR은 존재하면 JOB 이 'MANAGER', 'CLERK' 인 사원 중 사원의 이름2번째 글자기 L 이 아닌 사원의 정보를 조회하시오.
 <img src="img/chap05_EX_006.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE COMM IS NULL
-   AND MGR IS NOT NULL
-   AND JOB IN ('MANAGER', 'CLERK')
-   AND ENAME NOT LIKE '_L%';
-</pre>
 
 
 ---
