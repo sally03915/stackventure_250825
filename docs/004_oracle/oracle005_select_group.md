@@ -454,7 +454,7 @@ SELECT * FROM (
 SELECT ENAME, SUM(SAL)
   FROM EMP;
 </pre>
-<img src="img/chap07_002.png" alt="" width="90%" />
+<img src="img/chap07_002.png" alt="" width="60%" />
 
 
 
@@ -677,7 +677,7 @@ ORDER BY DEPTNO, JOB;
 - EMP 테이블에서  ROLLUP 함수를 이용하여
 1. 부서별(큰그룹) 직책(소그룹)의
 2. 사원수, 가장 높은 급여, 급여의 합, 평균급여를  출력하시오.
-<img src="img/chap07_025.png" alt="" width="90%" />
+<img src="img/chap07_025.png" alt="" width="70%" />
 
 
  
@@ -867,7 +867,7 @@ ORDER BY DEPTNO, JOB;
 ##### Ex002
 - EMP 테이블을 이용하여 다음과 같이 출력하시오.
 - 같은직책(JOB)에 종사하는 사원이 3명 이상인 직책과 인원수를 출력하시오.
-<img src="img/chap07_EX_002.png" alt="" width="90%" />
+<img src="img/chap07_EX_002.png" alt="" width="60%" />
 
  
 
@@ -877,7 +877,7 @@ ORDER BY DEPTNO, JOB;
 ##### Ex003
 - EMP 테이블을 이용하여 다음과 같이 출력하시오.
 - 사원들의 입사년도(HIRE_YEAR)를 기준으로 부서별 몇명이 입사했는지 조회하시오.
-<img src="img/chap07_EX_003.png" alt="" width="90%" />
+<img src="img/chap07_EX_003.png" alt="" width="60%" />
 
  
 
