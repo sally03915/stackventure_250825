@@ -536,6 +536,7 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 ##### Q009  
 - 특정문자위치 찾기
 - INSTR(문자열,  찾을거, 시작위치, 몇번째째)
+- 'HELLO, ORACLE!' 문자열에서 다음과 같이 찾으시오.
 <img src="img/chap06_009.png" alt="" width="90%" />
 
 

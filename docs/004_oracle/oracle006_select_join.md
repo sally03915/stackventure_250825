@@ -437,18 +437,8 @@ SELECT E.ENAME, D.DNAME
 ##### Q001
 - EMP, DEPT 테이블을 이용하여
   FROM 절에 여러 테이블을 선언해해   다음과 같이 출력하시오
-<img src="img/chap08_001.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP, DEPT
-ORDER BY EMPNO;
-
-</pre>
-
+- 모든테이블의 데이터가 다나옴. 56줄
+<img src="img/chap08_001.png" alt="" width="20%" />
 
 ---
 <!-- _class: aqua -->
@@ -458,15 +448,7 @@ ORDER BY EMPNO;
 <img src="img/chap08_002.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP, DEPT
- WHERE EMP.DEPTNO = DEPT.DEPTNO
-ORDER BY EMPNO;
-
-</pre>
+ 
 
 
 ---
@@ -477,33 +459,23 @@ ORDER BY EMPNO;
 <img src="img/chap08_003.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP E, DEPT D
- WHERE E.DEPTNO = D.DEPTNO
-ORDER BY EMPNO;
-
-</pre>
+ 
 
 
 ---
 <!-- _class: aqua -->
 ##### Q004
 - EMP, DEPT 테이블을 이용하여
-  두테이블에 부서번호가 같은 열의이름이 포함되었을때  다음과 같이 출력하시오   (에러발생)
-<img src="img/chap08_004.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
+  두테이블에 부서번호가 같은 열의이름이 포함되었을때  다음과 같이 출력하시오  
+- 만약 에러가 난다면 그이유를 적으시오.
 <pre class="codeblock">
 SELECT EMPNO, ENAME, DEPTNO, DNAME, LOC
   FROM EMP E, DEPT D
  WHERE E.DEPTNO = D.DEPTNO;
-
 </pre>
+<img src="img/chap08_004.png" alt="" width="60%" />
+
+ 
 
 
 ---
@@ -513,17 +485,7 @@ SELECT EMPNO, ENAME, DEPTNO, DNAME, LOC
   열 이름에 각각의 테이블 이름도 함께 명시시 다음과 같이 출력하시오   ( 위의 문제 해결 )
 <img src="img/chap08_005.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, D.DEPTNO, D.DNAME, D.LOC
-  FROM EMP E, DEPT D
- WHERE E.DEPTNO = D.DEPTNO
-ORDER BY D.DEPTNO, E.EMPNO;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -534,15 +496,7 @@ ORDER BY D.DEPTNO, E.EMPNO;
 <img src="img/chap08_006.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, E.SAL, D.DEPTNO, D.DNAME, D.LOC
-  FROM EMP E, DEPT D
- WHERE E.DEPTNO = D.DEPTNO
-   AND SAL >= 3000;
-
-</pre>
+ 
 
 
 ---
@@ -552,26 +506,7 @@ SELECT E.EMPNO, E.ENAME, E.SAL, D.DEPTNO, D.DNAME, D.LOC
   유저 정보, 급여등급 , 그 등급의 최소급여와 최대급여를  다음과 같이 출력하시오
 <img src="img/chap08_007.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-select * from emp
-</pre>
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-select * from salgrade
-</pre>
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP E, SALGRADE S
- WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -580,18 +515,7 @@ SELECT *
   사원정보(EMPNO, ENAME, MGR) 와  직속상관(EMPNO, ENAME)의 사원번호를 다음과 같이 출력하시오
 <img src="img/chap08_008.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E1.EMPNO, E1.ENAME, E1.MGR,
-       E2.EMPNO AS MGR_EMPNO,
-       E2.ENAME AS MGR_ENAME
-  FROM EMP E1, EMP E2
- WHERE E1.MGR = E2.EMPNO;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -599,43 +523,16 @@ SELECT E1.EMPNO, E1.ENAME, E1.MGR,
 - EMP테이블을 2번 이용하여
 1.  사원정보(EMPNO, ENAME, MGR) 와  직속상관(EMPNO, ENAME)의 사원번호를 다음과 같이 출력하시오
 2.  직속상관이 없는 사원의 정보도 출력하시오
-
 ---
 <!-- _class: aqua -->
 <img src="img/chap08_009.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E1.EMPNO, E1.ENAME, E1.MGR,
-       E2.EMPNO AS MGR_EMPNO,
-       E2.ENAME AS MGR_ENAME
-  FROM EMP E1, EMP E2
- WHERE E1.MGR = E2.EMPNO(+)
-ORDER BY E1.EMPNO;
-
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q010
 -  (+)의 위치를 바꿔서 출력해보고 다음이 의미하는 바를 적으시오
-<img src="img/chap08_010.png" alt="" width="80%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E1.EMPNO, E1.ENAME, E1.MGR,
-       E2.EMPNO AS MGR_EMPNO,
-       E2.ENAME AS MGR_ENAME
-  FROM EMP E1, EMP E2
- WHERE E1.MGR(+) = E2.EMPNO
-ORDER BY E1.EMPNO;
-
-</pre>
+<img src="img/chap08_010.png" alt="" width="50%" />
 
 
 ---
@@ -652,16 +549,7 @@ ORDER BY E1.EMPNO;
 <img src="img/chap08_011.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, E.JOB, E.MGR, E.HIREDATE, E.SAL, E.COMM,
-       DEPTNO, D.DNAME, D.LOC
-  FROM EMP E NATURAL JOIN DEPT D
-ORDER BY DEPTNO, E.EMPNO;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -676,17 +564,7 @@ ORDER BY DEPTNO, E.EMPNO;
 <!-- _class: aqua -->
 <img src="img/chap08_012.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, E.JOB, E.MGR, E.HIREDATE, E.SAL, E.COMM,
-       DEPTNO, D.DNAME, D.LOC
-  FROM EMP E JOIN DEPT D USING (DEPTNO)
- WHERE SAL >= 3000
-ORDER BY DEPTNO, E.EMPNO;
-
-</pre>
+ 
 
 
 ---
@@ -705,18 +583,7 @@ ORDER BY DEPTNO, E.EMPNO;
 <!-- _class: aqua -->
 <img src="img/chap08_013.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, E.JOB, E.MGR, E.HIREDATE, E.SAL, E.COMM,
-       E.DEPTNO,
-       D.DNAME, D.LOC
-  FROM EMP E JOIN DEPT D ON (E.DEPTNO = D.DEPTNO)
- WHERE SAL <= 3000
-ORDER BY E.DEPTNO, EMPNO;
-
-</pre>
+ 
 
 
 ---
@@ -730,16 +597,7 @@ ORDER BY E.DEPTNO, EMPNO;
 <img src="img/chap08_014.png" alt="" width="80%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E1.EMPNO, E1.ENAME, E1.MGR,
-       E2.EMPNO AS MGR_EMPNO,
-       E2.ENAME AS MGR_ENAME
-  FROM EMP E1 LEFT OUTER JOIN EMP E2 ON (E1.MGR = E2.EMPNO)
-ORDER BY E1.EMPNO;
-
-</pre>
+ 
 
 
 ---
@@ -748,19 +606,9 @@ ORDER BY E1.EMPNO;
 - EMP , DEPT 테이블 이용하여  다음과 같이 출력하시오
 1.  RIGHT OUTER JOIN- 오른른쪽 외부조인을 기준으로 NULL보장
 
-<img src="img/chap08_015.png" alt="" width="70%" />
+<img src="img/chap08_015.png" alt="" width="60%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E1.EMPNO, E1.ENAME, E1.MGR,
-       E2.EMPNO AS MGR_EMPNO,
-       E2.ENAME AS MGR_ENAME
-  FROM EMP E1 RIGHT OUTER JOIN EMP E2 ON (E1.MGR = E2.EMPNO)
-ORDER BY E1.EMPNO, MGR_EMPNO;
-
-</pre>
+ 
 
 
 ---
@@ -771,19 +619,10 @@ ORDER BY E1.EMPNO, MGR_EMPNO;
 
 ---
 <!-- _class: aqua -->
-<img src="img/chap08_016.png" alt="" width="80%" />
+<img src="img/chap08_016.png" alt="" width="70%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E1.EMPNO, E1.ENAME, E1.MGR,
-       E2.EMPNO AS MGR_EMPNO,
-       E2.ENAME AS MGR_ENAME
-  FROM EMP E1 FULL OUTER JOIN EMP E2 ON (E1.MGR = E2.EMPNO)
-ORDER BY E1.EMPNO;
-</pre>
-
+ 
 
 
 
@@ -808,31 +647,13 @@ ORDER BY E1.EMPNO;
 
 <img src="img/chap08__EX_001.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT D.DEPTNO, D.DNAME, E.EMPNO, E.ENAME, E.SAL
-  FROM EMP E, DEPT D
- WHERE E.DEPTNO = D.DEPTNO
-   AND E.SAL > 2000;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### SQL-99방식
 <img src="img/chap08__EX_001.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT DEPTNO, D.DNAME, E.EMPNO, E.ENAME, E.SAL
-  FROM EMP E NATURAL JOIN DEPT D
- WHERE E.SAL > 2000;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -849,19 +670,7 @@ SELECT DEPTNO, D.DNAME, E.EMPNO, E.ENAME, E.SAL
 <img src="img/chap08__EX_002.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT D.DEPTNO,
-       D.DNAME,
-       TRUNC(AVG(SAL)) AS AVG_SAL,
-       MAX(SAL) AS MAX_SAL,
-       MIN(SAL) AS MIN_SAL,
-       COUNT(*) AS CNT
-  FROM EMP E, DEPT D
- WHERE E.DEPTNO = D.DEPTNO
-GROUP BY D.DEPTNO, D.DNAME;
-</pre>
+ 
 
 
 ---
@@ -871,19 +680,7 @@ GROUP BY D.DEPTNO, D.DNAME;
 <img src="img/chap08__EX_002.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT DEPTNO,
-       D.DNAME,
-       TRUNC(AVG(SAL)) AS AVG_SAL,
-       MAX(SAL) AS MAX_SAL,
-       MIN(SAL) AS MIN_SAL,
-       COUNT(*) AS CNT
-  FROM EMP E JOIN DEPT D USING (DEPTNO)
-GROUP BY DEPTNO, D.DNAME;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -899,29 +696,14 @@ GROUP BY DEPTNO, D.DNAME;
 <img src="img/chap08__EX_003.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT D.DEPTNO, D.DNAME, E.EMPNO, E.ENAME, E.JOB, E.SAL
-  FROM EMP E, DEPT D
- WHERE E.DEPTNO(+) = D.DEPTNO
-ORDER BY D.DEPTNO, E.ENAME;
-</pre>
+ 
 ---
 <!-- _class: aqua -->
 ##### SQL-99 방식
 
 <img src="img/chap08__EX_003.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT D.DEPTNO, D.DNAME, E.EMPNO, E.ENAME, E.JOB, E.SAL
-  FROM EMP E RIGHT OUTER JOIN DEPT D ON (E.DEPTNO = D.DEPTNO)
-ORDER BY D.DEPTNO, E.ENAME;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -938,19 +720,7 @@ ORDER BY D.DEPTNO, E.ENAME;
 <img src="img/chap08__EX_004.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT D.DEPTNO, D.DNAME,
-       E.EMPNO, E.ENAME, E.MGR, E.SAL, E.DEPTNO,
-       S.LOSAL, S.HISAL, S.GRADE,
-       E2.EMPNO AS MGR_EMPNO, E2.ENAME AS MGR_ENAME
-  FROM EMP E, DEPT D, SALGRADE S, EMP E2
- WHERE E.DEPTNO(+) = D.DEPTNO
-   AND E.SAL BETWEEN S.LOSAL(+) AND S.HISAL(+)
-   AND E.MGR = E2.EMPNO(+)
-ORDER BY D.DEPTNO, E.EMPNO;
-</pre>
+ 
 ---
 <!-- _class: aqua -->
 ##### SQL-99방식
@@ -958,22 +728,7 @@ ORDER BY D.DEPTNO, E.EMPNO;
 <img src="img/chap08__EX_004.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT D.DEPTNO, D.DNAME,
-       E.EMPNO, E.ENAME, E.MGR, E.SAL, E.DEPTNO,
-       S.LOSAL, S.HISAL, S.GRADE,
-       E2.EMPNO AS MGR_EMPNO, E2.ENAME AS MGR_ENAME
-  FROM EMP E RIGHT OUTER JOIN DEPT D
-                ON (E.DEPTNO = D.DEPTNO)
-              LEFT OUTER JOIN SALGRADE S
-                ON (E.SAL BETWEEN S.LOSAL AND S.HISAL)
-              LEFT OUTER JOIN EMP E2
-                ON (E.MGR = E2.EMPNO)
-ORDER BY D.DEPTNO, E.EMPNO;
-</pre>
-
+ 
 
 ---
 
