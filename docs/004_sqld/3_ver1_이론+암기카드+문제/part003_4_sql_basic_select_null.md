@@ -74,7 +74,7 @@ DELETE로 하나 지우고, UPDATE는 ROLLBACK돼서 반영 안 돼!
 그래서 단가 2000인 품목은 총 3개야!
 
 **📚 전문 해설:**  
-```
+```sql
 SQL 처리 순서 한 줄씩 요약
 1️⃣ BEGIN TRANSACTION → 트랜잭션 시작 
 2️⃣ INSERT INTO 품목 VALUES('005', 2000) → 품목 '005' 추가됨 
@@ -153,7 +153,7 @@ SP2까지 변경했다가 ROLLBACK 했으니까 SP1의 LCD-TV가 남아!
 - ROLLBACK SP2 → 평면-TV 취소  
 → 최종값은 LCD-TV
 
-```
+```sql
 SQL 처리 순서 한 줄씩 요약
 1️⃣ BEGIN TRANSACTION: → 트랜잭션 시작 
 2️⃣ SAVE TRANSACTION SP1; → 저장지점 SP1 설정 
@@ -236,7 +236,7 @@ EMPNO가 200인 행만 만족하니까 결과는 1개야!
 → EMPNO > 100 AND SAL ≥ 3000 → EMPNO 002만 만족  
 → 결과는 1건
  
-```
+```sql
 SQL 처리 순서 한 줄씩 요약
 1️⃣ SELECT COUNT(*) → 조건에 맞는 행의 개수를 셈 
 2️⃣ FROM EMP_TBL → EMP_TBL 테이블에서 조회 
@@ -307,9 +307,9 @@ NULL + 값 = NULL
 ---
 ```bash
 [문제 036]  
-
 다음 SQL 문장 중 COLUMN1의 값이 널(NULL)이 아닌 경우를 찾아내는 문장으로 가장 적절한 것은? (ANSI 표준 기준)
-
+```
+```sql
 ① SELECT * FROM MYTABLE WHERE COLUMNI IS NOT NULL
 ② SELECT * FROM MYTABLE WHERE COLUMNI ◊ NULL
 ③ SELECT * FROM MYTABLE WHERE COLUMNI != NULL

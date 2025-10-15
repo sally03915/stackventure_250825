@@ -141,7 +141,8 @@ TCL = COMMIT / ROLLBACK / SAVEPOINT
 ```bash
 [문제 004]  
 데이터 언어와 SQL 명령어에 대한 설명으로 가장 부적절한 것은?
- 
+```
+```sql
 ① 비절차적 데이터 조작어(DML)는 사용자가 무슨 데이터를 원하며, 어떻게 그것을 접근해야 되는지를 명세하는 언어이다.  
 ② DML은 데이터베이스 사용자가 응용 프로그램이나 질의어를 통하여 저장된 데이터베이스를 실질적으로 접근하는데 사용되며 SELECT, INSERT, DELETE, UPDATE 등이 있다.  
 ③ DDL은 스키마, 도메인, 테이블, 뷰, 인덱스를 정의하거나 변경 또는 제거할 때 사용되며 CREATE, ALTER, DROP, RENAME 등이 있다.  
@@ -327,7 +328,7 @@ PK 지정은 → CREATE 내부에서 CONSTRAINT로 처리
 등록일자: DATE NOT NULL 
 ```
 
-```
+```sql
 ① ALTER TABLE 기관분류 ALTER COLUMN (분류명 VARCHAR(30), 등록일자 DATE NOT NULL);  
 ② ALTER TABLE 기관분류 ALTER COLUMN (분류명 VARCHAR(30) NOT NULL, 등록일자 DATE NOT NULL);  
 ③ ALTER TABLE 기관분류 ALTER COLUMN 분류명 VARCHAR(30);  
@@ -487,7 +488,8 @@ SET NULL → 손자 NULL 처리
 ```bash
 [문제 010] 
 다음 중 테이블 생성 시 칼럼별 생성할 수 있는 제약조건(Constraints)에 대한 설명으로 가장 부적절한 것은?
-
+```
+```sql
 ① UNIQUE: 테이블 내에서 중복되는 값이 없으며 NULL 입력이 불가능하다.  
 ② PK: 주키로 테이블당 1개만 생성이 가능하다.  
 ③ FK: 외래키로 테이블당 여러 개 생성이 가능하다.  

@@ -1,0 +1,775 @@
+<!DOCTYPE html><html><head>
+      <title>part003_3_sql_basic_관계설정_트랜잭션</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\sally03915\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      <script type="text/javascript" src="file:///c:\Users\sally03915\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<style>
+pre, code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  overflow-x: hidden !important;
+  display: block !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+</style> 
+<hr>
+<h3 id="sql-basic">SQL BASIC </h3>
+<table>
+<thead>
+<tr>
+<th>구간</th>
+<th>문제 번호</th>
+<th>주제</th>
+<th>난이도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1~10</td>
+<td>001~010</td>
+<td>SQL 명령어 분류 및 기본</td>
+<td>⭐ 초급</td>
+</tr>
+<tr>
+<td>11~20</td>
+<td>011~020</td>
+<td>테이블 생성 및 제약조건</td>
+<td>⭐⭐ 초~중급</td>
+</tr>
+<tr>
+<td>21~30</td>
+<td>021~030</td>
+<td>관계 설정 및 트랜잭션</td>
+<td>⭐⭐ 중급</td>
+</tr>
+<tr>
+<td>31~40</td>
+<td>031~040</td>
+<td>SELECT 조건 및 NULL 처리</td>
+<td>⭐⭐⭐ 중~고급</td>
+</tr>
+<tr>
+<td>41~50</td>
+<td>041~050</td>
+<td>고급 함수 및 날짜/CASE</td>
+<td>⭐⭐⭐ 고급</td>
+</tr>
+<tr>
+<td>51~64</td>
+<td>051~064</td>
+<td>실전 SELECT + GROUP BY/HAVING + JOIN</td>
+<td>⭐⭐⭐⭐ 실무형</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-2130번-관계-설정-fk-제약-트랜잭션-처리">✅ 21~30번: 관계 설정, FK 제약, 트랜잭션 처리 </h4>
+<ul>
+<li>관계형 모델, FK 삭제 동작, COMMIT/ROLLBACK</li>
+<li>오류 발생 조건, 데이터 무결성</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 021<span class="token punctuation">]</span>  
+아래와 같은 데이터 모델에서 데이터를 조작하려고 한다. 다음 중 오류가 발생하는 SQL 문장인 것은?
+</code></pre><table>
+<thead>
+<tr>
+<th>BOARD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BOARD_ID: VARCHAR2(10) NOT NULL</td>
+</tr>
+<tr>
+<td>BOARD_NM: VARCHAR2(50) NOT NULL  <br> USE_YN: VARCHAR2(1) NOT NULL <br> REG_DATE: DATE NOT NULL <br> BOARD_DESC: VARCHAR2(100) NULL</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>① INSERT INTO BOARD VALUES (1, 'Q&amp;A', 'Y', SYSDATE, 'Q&amp;A 게시판');
+② INSERT INTO BOARD (BOARD_ID, BOARD_NM, USE_YN,
+BOARD_DESC) VALUES ('100', 'FAQ', 'Y', 'FAQ 게시판');
+③ UPDATE BOARD SET USE_YN = 'N' WHERE BOARD_ID = '1';
+④ UPDATE BOARD SET BOARD_ID = 200 WHERE BOARD_ID = '100';
+</code></pre><p><strong>정답:</strong> ②</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+②번은 REG_DATE 값을 안 넣었어!<br>
+REG_DATE는 NOT NULL이라 생략하면 오류야!</p>
+<p><strong>📚 전문 해설:</strong><br>
+BOARD 테이블의 REG_DATE 컬럼은 NOT NULL 제약이 걸려 있어 반드시 값을 입력해야 합니다.<br>
+②번 SQL은 REG_DATE 값을 생략했기 때문에 오류가 발생합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>모든 컬럼 값 입력 (NOT NULL 만족)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>REG_DATE 누락 (NOT NULL 위반)</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>조건에 맞는 UPDATE</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>PK 변경 가능 (제약 조건 없음)</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+NOT NULL → 반드시 값을 넣어야 함!</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 64: NOT NULL = 빈칸 금지</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 022<span class="token punctuation">]</span>  
+아래 데이터 모델과 같이 고객과 주문 테이블이 생성되어 있으며 고객과 주문 테이블에 입력되어 있는 데이터는 아래 표와 같다. 이 때 FK_001 이라는 제약조건을 아래 SQL과 같이 설정하였다. 다음 중 오류 없이 정상적으로 수행되는 SQL을 <span class="token number">2</span>개 고르시오.
+</code></pre><div class="mermaid">erDiagram
+    고객 ||--o{ 주문 : "FK_001"
+    고객 {
+        VARCHAR2(20) 고객코드 "PK, NOT NULL"
+        VARCHAR2(20) 고객명 "NOT NULL"
+        DATE 가입일자 "NOT NULL"
+    }
+    주문 {
+        VARCHAR2(20) 주문코드 "PK, NOT NULL"
+        VARCHAR2(20) 고객코드 "FK, NOT NULL"
+        DATE 주문일자 "NOT NULL"
+    }
+</div><h5 id="-주문-테이블-데이터">📦 주문 테이블 (데이터) </h5>
+<table>
+<thead>
+<tr>
+<th>주문코드(PK)</th>
+<th>고객코드</th>
+<th>주문일자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O001</td>
+<td>C001</td>
+<td>2013-12-24</td>
+</tr>
+<tr>
+<td>O002</td>
+<td>C001</td>
+<td>2013-12-25</td>
+</tr>
+<tr>
+<td>O003</td>
+<td>C002</td>
+<td>2013-12-26</td>
+</tr>
+<tr>
+<td>O004</td>
+<td>C002</td>
+<td>2013-12-27</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h5 id="-고객-테이블-데이터">📋 고객 테이블 (데이터) </h5>
+<table>
+<thead>
+<tr>
+<th>고객코드</th>
+<th>고객명(FK)</th>
+<th>가입일자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C001</td>
+<td>홍길동</td>
+<td>2013-12-12</td>
+</tr>
+<tr>
+<td>C002</td>
+<td>이순신</td>
+<td>2013-12-13</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-ALTER">ALTER</span> <span class="token keyword keyword-TABLE">TABLE</span> 주문 <span class="token keyword keyword-ADD">ADD</span> <span class="token keyword keyword-CONSTRAINT">CONSTRAINT</span> FK_001 <span class="token keyword keyword-FOREIGN">FOREIGN</span> <span class="token keyword keyword-KEY">KEY</span>
+<span class="token punctuation">(</span>고객ID<span class="token punctuation">)</span>
+<span class="token keyword keyword-REFERENCES">REFERENCES</span> 고객 <span class="token punctuation">(</span>고객ID<span class="token punctuation">)</span> <span class="token keyword keyword-ON">ON</span> <span class="token keyword keyword-DELETE">DELETE</span> <span class="token keyword keyword-SET">SET</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span>
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>① INSERT INTO 고객 VALUES ('C003', '강감찬', '2014-01-01');
+② INSERT INTO 주문 VALUES ('0005', 'C003', '2013-12-28');
+③ DELETE FROM 주문 WHERE 주문번호 IN ('0001', '0002');
+④ DELETE FROM 고객 WHERE 고객ID = 'C002';
+</code></pre><p><strong>정답:</strong> ①, ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+①은 신규 고객 추가!<br>
+③은 주문 삭제! 둘 다 문제 없어!</p>
+<p><strong>📚 전문 해설:</strong><br>
+②는 존재하지 않는 고객코드(C003)를 참조하므로 FK 제약조건 위반입니다.<br>
+④는 FK 설정이 잘못되어 오류 발생 가능성이 있습니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>신규 고객 추가</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>FK 위반</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>주문 삭제</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>FK 설정 오류 가능</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+FK 제약 → 참조 무결성 유지</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 62: FK = 연결 다리</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 023<span class="token punctuation">]</span> 
+개발 프로젝트의 표준은 모든 삭제 데이터에 대한 로그를 남기는 것을 원칙으로 하고, 테이블 삭제의 경우는 허가된 인력만이 정기적으로 수행 가능하도록 정하고 있다. 개발팀에서 사용 용도가 없다고 판단한 STADIUM 테이블의 데이터를 삭제하는 가장 좋은 방법은 무엇인가?
+
+① DELETE FROM STADIUM:
+② DELETE * FROM STADIUM:
+③ TRUNCATE TABLE STADIUM:
+④ DROP TABLE STADIUM:
+</code></pre><p><strong>정답:</strong> ①</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+DELETE는 로그 남기니까 안전하게 삭제 가능!</p>
+<p><strong>📚 전문 해설:</strong><br>
+DELETE는 트랜잭션 로그를 남기므로 데이터 삭제 이력을 관리할 수 있습니다.<br>
+TRUNCATE나 DROP은 로그를 남기지 않거나 테이블 자체를 삭제하므로 부적절합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>안전한 삭제</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>문법 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>로그 없음</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>테이블 삭제</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+DELETE = 안전한 삭제 + 로그 남김</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 37: DELETE = 삭제</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 024<span class="token punctuation">]</span>  
+
+아래의 고객지역 테이블을 대상으로 질의 결과와 같이 거주지와 근무지를 출력하고자 한다. 아래 SQL의 ㉠ 안에 들어갈 내용을 작성하시오. 
+</code></pre><h5 id="-고객지역-테이블">📋 고객지역 테이블 </h5>
+<table>
+<thead>
+<tr>
+<th>고객ID</th>
+<th>거주지</th>
+<th>근무지</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C001</td>
+<td>서울</td>
+<td>서울</td>
+</tr>
+<tr>
+<td>C002</td>
+<td>서울</td>
+<td>부산</td>
+</tr>
+<tr>
+<td>C003</td>
+<td>울산</td>
+<td>서울</td>
+</tr>
+<tr>
+<td>C004</td>
+<td>울산</td>
+<td>부산</td>
+</tr>
+<tr>
+<td>C005</td>
+<td>부산</td>
+<td>부산</td>
+</tr>
+</tbody>
+</table>
+<h5 id="-질의결과">📋 질의결과 </h5>
+<table>
+<thead>
+<tr>
+<th>거주지</th>
+<th>근무지</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>서울</td>
+<td>서울</td>
+</tr>
+<tr>
+<td>울산</td>
+<td>서울</td>
+</tr>
+<tr>
+<td>부산</td>
+<td>부산</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> ㉠ 거주지<span class="token punctuation">,</span> 근무지
+<span class="token keyword keyword-FROM">FROM</span> 고객지역<span class="token punctuation">;</span>
+</code></pre><p><strong>정답:</strong> DISTINCT</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+중복 제거할 땐 DISTINCT 써야지!</p>
+<p><strong>📚 전문 해설:</strong><br>
+DISTINCT는 SELECT 결과에서 중복된 행을 제거합니다.<br>
+거주지와 근무지 조합이 중복되는 경우 하나만 출력됩니다.</p>
+<p>🧠 <strong>기억법:</strong><br>
+DISTINCT = 중복 제거</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 21: SELECT = 꺼내기</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 025<span class="token punctuation">]</span>  
+
+다음 중 아래와 같은 상황에서 사용할 수 있는 SQL 명령어는?
+ 
+<span class="token operator">&gt;</span> 우리가 관리하는 데이터베이스의 <span class="token string">'매출'</span> 테이블이 너무나 많은 디스크 용량을 차지하여 <span class="token string">'매출'</span> 테이블에서 필요한 데이터만을 추출하여 별도의 테이블로 옮겨 놓았다. 이후 <span class="token string">"매출"</span> 원본 테이블의 데이터를 모두 삭제함과 동시에, 디스크 사용량도 초기화 하고자 한다. <span class="token punctuation">(</span>단, <span class="token string">"매출"</span> 테이블의 스키마 정의는 유지한다.<span class="token punctuation">)</span>
+ 
+① TRUNCATE TABLE 매출:
+② DELETE FROM 매출:
+③ DROP TABLE 매출:
+④ DELETE TABLE FROM 매출<span class="token punctuation">;</span>
+</code></pre><p><strong>정답:</strong> ①</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+TRUNCATE는 빠르고 디스크도 정리돼!</p>
+<p><strong>📚 전문 해설:</strong><br>
+TRUNCATE는 테이블의 모든 데이터를 삭제하면서 디스크 공간도 초기화합니다.<br>
+DELETE는 로그를 남기고 느리며, DROP은 테이블 정의까지 삭제합니다.</p>
+<p>🧠 <strong>기억법:</strong><br>
+TRUNCATE = 빠른 전체 삭제 + 디스크 초기화</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 40: DDL = 구조 변경</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 026<span class="token punctuation">]</span>  
+다음 중 DELETE 와 TRUNCATE, DROP 명령어에 대해 비교한 설명으로 가장 부적절한 것을 <span class="token number">2</span>개 고르시오.
+
+① 특정 테이블에 대하여 WHERE 조건절이 없는 DELETE 명령을 수행하면 DROP TABLE 명령을 수행했을 때와 똑같은 결과를 얻을 수 있다.
+② DROP 명령어는 테이블 정의 자체를 삭제하고, TRUNCATE 명령어는 테이블을 초기상태로 만든다.
+③ TRUNCATE 명령어는 UNDO를 위한 데이터를 생성하지 않기 때문에 동일 데이터량 삭제시 DELETE보다 빠르다.
+④ DROP은 Auto Commit이 되고, DELETE와 TRUNCATE는 사용자 Commit으로 수행된다.
+</code></pre><p><strong>정답:</strong> ①, ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+DELETE는 DROP이랑 달라!<br>
+그리고 TRUNCATE도 Auto Commit이야!</p>
+<p><strong>📚 전문 해설:</strong><br>
+① DELETE는 데이터만 삭제하고 테이블 정의는 유지합니다.<br>
+④ TRUNCATE와 DROP은 Auto Commit이 발생합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>DELETE는 DROP과 다름</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>정의 정확</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>성능 설명 정확</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>COMMIT 설명 오류</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+DROP = 테이블 삭제<br>
+DELETE = 데이터 삭제<br>
+TRUNCATE = 빠른 초기화 + Auto Commit</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 40: DDL = 구조 변경</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 027<span class="token punctuation">]</span>  
+데이터베이스 트랜잭션에 대한 설명으로 가장 부적절한 것을 <span class="token number">2</span>개 고르시오.
+
+① 원자성<span class="token punctuation">(</span>atomicity<span class="token punctuation">)</span>: 트랜잭션에서 정의된 연산들은 모두 성공적으로 실행되던지 아니면 전혀 실행되지 않은 상태로 남아 있어야 한다.
+② 일관성<span class="token punctuation">(</span>consistency<span class="token punctuation">)</span>: 트랜잭션이 성공적으로 수행되면 그 트랜잭션이 갱신한 데이터베이스의 내용은 영구적으로 저장된다.
+③ 고립성<span class="token punctuation">(</span>isolation<span class="token punctuation">)</span> <span class="token builtin class-name">:</span> 트랜잭션이 실행되는 도중에 다른 트랜잭션의 영향을 받아 잘못된 결과를 만들어서는 안된다.
+④ 지속성<span class="token punctuation">(</span>durability<span class="token punctuation">)</span>: 트랜잭션이 실행 되기 전의 데이터베이스 내용이 잘못 되어 있지 않다면 트랜잭션이 실행된 이후에도 데이터베이스의 내용에 잘못이 있으면 안된다.
+</code></pre><p><strong>정답:</strong> ②, ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+②, ④는 정의가 틀렸어!</p>
+<p><strong>📚 전문 해설:</strong><br>
+② 일관성은 트랜잭션 전후 데이터의 일관성을 유지하는 것이며, 영구 저장과는 무관합니다.<br>
+④ 지속성은 트랜잭션 완료 후 변경사항이 영구적으로 유지되는 것을 의미합니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>원자성 정의 정확</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>일관성 정의 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>고립성 정의 정확</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>지속성 정의 오류</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+ACID = Atomicity, Consistency, Isolation, Durability</p>
+<p>※ ACID는 컴퓨터가 일을 할 때 전부 다 하거나 안 하고(A), 항상 깔끔하게 정리하고(C), 서로 방해 없이 따로따로 하고(I), 끝난 일은 절대 잊지 않는(D) 똑똑한 약속이에요! 🎯</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 47~50: ACID 4대 원칙</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 028<span class="token punctuation">]</span> 
+데이터베이스 트랜잭션에 대한 격리성이 낮은 경우 발생할 수 있는 문제점으로 가장 부적절한 것을 <span class="token number">2</span>개 고르시오.
+
+① Dirty Read: 다른 트랜잭션에 의해 수정되었고 이미 커밋된 데이터를 읽는 것을 말한다.
+② Non-Repeatable Read: 한 트랜잭션 내에서 같은 쿼리를 두 번 수행했는데, 그 사이에 다른 트랜잭션이 값을 수정 또는 삭제하는 바람에 두 쿼리 결과가 다르게 나타나는 현상을 말한다.
+③ Phantom Read: 한 트랜잭션 내에서 같은 쿼리를 두 번 수행했는데, 첫번째 쿼리에서 없던 유령 레코드가 두번째 쿼리에서 나타나는 현상을 말한다.
+④ isolation <span class="token builtin class-name">:</span> 트랜잭션이 실행되는 도중에 다른 트랜잭션의 영향을 받아 잘못된 결과를 만들어서는 안된다.
+</code></pre><p><strong>정답:</strong> ①, ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+①은 커밋된 데이터 읽는 게 아니야!<br>
+④는 그냥 정의야!</p>
+<p><strong>📚 전문 해설:</strong><br>
+① Dirty Read는 커밋되지 않은 데이터를 읽는 현상입니다.<br>
+④는 문제 유형이 아니라 트랜잭션의 성질입니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>Dirty Read 정의 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>Non-Repeatable Read 정의 정확</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>Phantom Read 정의 정확</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>격리성 정의 자체</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+격리성 낮으면 → Dirty / Non-Repeatable / Phantom 발생</p>
+<p>※ 격리성이 낮으면, 예를 들어 친구가 아직 저장 안 한 숙제를 내가 먼저 보고(더러운 읽기), 같은 질문을 두 번 했는데 답이 달라지고(반복 안 됨), 처음엔 없던 친구가 갑자기 명단에 생기는(유령 등장) 일이 생길 수 있어요! 👻📚</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 51: 격리 수준 = 충돌</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 029<span class="token punctuation">]</span>  
+테이블 A에 대해 아래와 같은 SQL을 수행하였을 때 테이블 A의 ID <span class="token string">'001'</span>에 해당하는 최종 VAL의 값이 ORACLE에서는 <span class="token number">200</span>, SQL Server 에서는 <span class="token number">100</span>이 되었다. 다음 설명 중 가장 부적절한 것은?<span class="token punctuation">(</span>단, AUTO COMMIT은 FALSE로 설정되어 있다<span class="token punctuation">)</span>
+</code></pre><p>[테이블: A]</p>
+<table>
+<thead>
+<tr>
+<th>ID(PK)</th>
+<th>VAL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>100</td>
+</tr>
+<tr>
+<td>002</td>
+<td>200</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-UPDATE">UPDATE</span> A <span class="token keyword keyword-SET">SET</span> VAL <span class="token number">200</span> <span class="token keyword keyword-WHERE">WHERE</span> ID <span class="token operator">=</span> <span class="token string">'001'</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> B <span class="token punctuation">(</span>ID <span class="token keyword keyword-CHAR">CHAR</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-ROLLBACK">ROLLBACK</span><span class="token punctuation">;</span>
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>① ORACLE에서는 CREATE TABLE 문장을 수행한 후, 묵시적으로 COMMIT이 수행 되어 VAL 값은 200이 되었다.
+② SQL Server에서는 ROLLBACK 문장에 의해 UPDATE가 취소되어 VAL 값은 100이 되었다.
+③ ORACLE에서는 CREATE TABLE 문장 수행에 의해 VAL 값은 200이 되었지만, ROLLBACK 실행으로 인하여 최종적으로 B 테이블은 생성되지 않았다.
+④ SQL Server에서는 ROLLBACK 실행으로 인하여 UPDATE가 취소되었으며, 최종적으로 B 테이블은 생성되지 않았다.
+</code></pre><p><strong>정답:</strong> ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+③번은 ORACLE의 특징을 잘못 설명했어!<br>
+ORACLE은 CREATE TABLE 하면 자동 COMMIT돼서 B 테이블은 남아!</p>
+<p><strong>📚 전문 해설:</strong><br>
+ORACLE은 DDL 명령어(CREATE, ALTER 등)를 실행하면 자동으로 COMMIT이 발생합니다.<br>
+따라서 ROLLBACK을 해도 이전 DDL 작업은 취소되지 않으며, B 테이블은 생성된 상태로 남습니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>ORACLE의 Auto Commit 설명</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>SQL Server의 ROLLBACK 설명</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>ORACLE에서 B 테이블이 생성되지 않았다고 함</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>SQL Server에서 ROLLBACK으로 B 테이블 생성 안 됨</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+ORACLE DDL → Auto Commit<br>
+ROLLBACK은 DML만 되돌림</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 52: COMMIT = 저장</li>
+<li>🃏 카드 53: ROLLBACK = 취소</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 030<span class="token punctuation">]</span>  
+아래 내용의 ㉠, ㉡, ㉢에 해당하는 단어를 순서대로 작성하시오.
+
+ 
+㉠ 은 데이터베이스의 논리적 연산단위로서 밀접히관련되어 분리될 수 없는 한 개 이상의 데이터베이스 조작을 가리킨다.
+㉠ 의 종료를 위한 대표적 명령어로서는 데이터에 대한 변경사항을 데이터베이스에 영구적으로 반영하는 ㉡ 과
+데이터에 대한 변경사항을 모두 폐기하고 변경전의 상태로 되돌리는 ㉢ 이 있다.
+</code></pre><p><strong>정답:</strong> Transaction, Commit, Rollback</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+㉠은 트랜잭션!<br>
+㉡은 저장(COMMIT),<br>
+㉢은 취소(ROLLBACK)!</p>
+<p><strong>📚 전문 해설:</strong><br>
+트랜잭션(Transaction)은 데이터베이스에서 하나의 논리적 작업 단위입니다.<br>
+COMMIT은 변경사항을 저장하고, ROLLBACK은 변경사항을 취소하여 이전 상태로 되돌립니다.</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+<th>정답</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>㉠</td>
+<td>논리적 작업 단위</td>
+<td>Transaction</td>
+</tr>
+<tr>
+<td>㉡</td>
+<td>변경사항 저장</td>
+<td>Commit</td>
+</tr>
+<tr>
+<td>㉢</td>
+<td>변경사항 취소</td>
+<td>Rollback</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+트랜잭션 종료 → COMMIT or ROLLBACK<br>
+COMMIT = 저장 / ROLLBACK = 취소</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 46: 트랜잭션 = 묶음 처리</li>
+<li>🃏 카드 52: COMMIT = 저장</li>
+<li>🃏 카드 53: ROLLBACK = 취소</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+}
+</script>
+    
+    
+    
+  
+    </body></html>

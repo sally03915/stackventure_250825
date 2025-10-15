@@ -1,0 +1,1592 @@
+<!DOCTYPE html><html><head>
+      <title>part003_6_sql_basic_join</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\sally03915\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      <script type="text/javascript" src="file:///c:\Users\sally03915\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<style>
+pre, code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  overflow-x: hidden !important;
+  display: block !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+</style> 
+<hr>
+<h3 id="sql-basic">SQL BASIC </h3>
+<table>
+<thead>
+<tr>
+<th>구간</th>
+<th>문제 번호</th>
+<th>주제</th>
+<th>난이도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1~10</td>
+<td>001~010</td>
+<td>SQL 명령어 분류 및 기본</td>
+<td>⭐ 초급</td>
+</tr>
+<tr>
+<td>11~20</td>
+<td>011~020</td>
+<td>테이블 생성 및 제약조건</td>
+<td>⭐⭐ 초~중급</td>
+</tr>
+<tr>
+<td>21~30</td>
+<td>021~030</td>
+<td>관계 설정 및 트랜잭션</td>
+<td>⭐⭐ 중급</td>
+</tr>
+<tr>
+<td>31~40</td>
+<td>031~040</td>
+<td>SELECT 조건 및 NULL 처리</td>
+<td>⭐⭐⭐ 중~고급</td>
+</tr>
+<tr>
+<td>41~50</td>
+<td>041~050</td>
+<td>고급 함수 및 날짜/CASE</td>
+<td>⭐⭐⭐ 고급</td>
+</tr>
+<tr>
+<td>51~64</td>
+<td>051~064</td>
+<td>실전 SELECT + GROUP BY/HAVING + JOIN</td>
+<td>⭐⭐⭐⭐ 실무형</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-5164번-실전-select--group-byhaving--join">✅ 51~64번: 실전 SELECT + GROUP BY/HAVING + JOIN </h4>
+<ul>
+<li>집계 함수와 조건 필터링, 정렬, 다중 테이블 JOIN</li>
+<li>CASE + ORDER BY, 서브쿼리, 실행 순서 등 실무형 SQL</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 051<span class="token punctuation">]</span>  
+어느 기업의 직원 테이블<span class="token punctuation">(</span>EMP<span class="token punctuation">)</span>이 직급<span class="token punctuation">(</span>GRADE<span class="token punctuation">)</span> 별로 
+사원 <span class="token number">500</span>명, 대리 <span class="token number">100</span>명, 과장 <span class="token number">30</span>명, 차장 <span class="token number">10</span>명, 부장 <span class="token number">5</span>명, 직급이 정해지지 않은<span class="token punctuation">(</span>NULL<span class="token punctuation">)</span> 사람 <span class="token number">25</span>명으로 구성되어 있을 때, 다음 중 SQL문을 SQL1<span class="token punctuation">)</span>부터 SQL3<span class="token punctuation">)</span>까지 순차적으로 실행한 결과 건수를 순서대로 나열한 것으로 가장 적절한 것은?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>SQL1<span class="token punctuation">)</span> <span class="token keyword keyword-SELECT">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>GRADE<span class="token punctuation">)</span> <span class="token keyword keyword-FROM">FROM</span> EMP<span class="token punctuation">;</span>
+SQL2<span class="token punctuation">)</span> <span class="token keyword keyword-SELECT">SELECT</span> GRADE <span class="token keyword keyword-FROM">FROM</span> EMP <span class="token keyword keyword-WHERE">WHERE</span> GRADE <span class="token operator">IN</span> <span class="token punctuation">(</span>차장<span class="token string">', '</span>부장<span class="token string">', '</span>널'<span class="token punctuation">)</span><span class="token punctuation">;</span>
+SQL3<span class="token punctuation">)</span> <span class="token keyword keyword-SELECT">SELECT</span> GRADE<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword keyword-FROM">FROM</span> EMP <span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> GRADE:
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>① 670, 15, 5
+② 645, 40, 5
+③ 645, 15, 6
+④ 670, 40, 6
+</code></pre><p><strong>정답:</strong> ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+'널'은 문자열이야! 실제 NULL은 제외돼!<br>
+GROUP BY는 NULL도 하나의 그룹으로 포함돼!</p>
+<p><strong>📚 전문 해설:</strong><br>
+<strong>SQL 처리 순서 한 줄씩 요약</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>1️⃣ SQL1 → COUNT(GRADE) → NULL 제외 → 645명
+2️⃣ SQL2 → '널'은 문자열 → 실제 NULL은 제외됨 → 차장(10) + 부장(5) = 15명
+3️⃣ SQL3 → GROUP BY GRADE → NULL 포함 → 총 6개 그룹
+</code></pre><h6 id="1️⃣-sql1-select-countgrade-from-emp">1️⃣ SQL1) SELECT COUNT(GRADE) FROM EMP; </h6>
+<p>→ GRADE 컬럼에서 <strong>NULL 제외하고 개수 세기</strong> → 645명</p>
+<h6 id="2️⃣-sql2-select-grade-from-emp-where-grade-in-차장-부장-널">2️⃣ SQL2) SELECT GRADE FROM EMP WHERE GRADE IN ('차장', '부장', '널'); </h6>
+<p>→ '널'은 문자열이므로 <strong>NULL은 포함되지 않음</strong> → 차장(10명) + 부장(5명) = <strong>15명</strong></p>
+<h6 id="3️⃣-sql3-select-grade-count-from-emp-group-by-grade">3️⃣ SQL3) SELECT GRADE, COUNT(*) FROM EMP GROUP BY GRADE; </h6>
+<p>→ GRADE 기준으로 그룹화 → <strong>NULL도 하나의 그룹으로 포함됨</strong> → 총 <strong>6개 그룹</strong></p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>NULL 포함 오해</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>'널'을 NULL로 오해</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>정확한 계산</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>COUNT에 NULL 포함 오해</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+GROUP BY는 NULL도 그룹으로 포함됨<br>
+'널'은 문자열이지 NULL이 아님</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 33: COUNT(*) = 전체 행</li>
+<li>🃏 카드 25: HAVING = 그룹 필터</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 052<span class="token punctuation">]</span>  
+아래는 어느 회사의 광고에 대한 데이터 모델이다. 다음 중 광고매체 ID별 최초로 게시한 광고명과 광고시작일자를 출력하기 위하여 아래 <span class="token punctuation">[</span>가<span class="token punctuation">]</span>에 들어갈 SQL로 옳은 것은?
+</code></pre><div class="mermaid">erDiagram
+    광고 ||--o{ 광고게시 : "광고ID"
+    광고매체 ||--o{ 광고게시 : "광고매체ID"
+
+    광고 {
+        VARCHAR 광고ID PK
+        VARCHAR 광고명
+    }
+
+    광고매체 {
+        VARCHAR 광고매체ID PK
+        VARCHAR 광고매체명
+    }
+
+    광고게시 {
+        VARCHAR 광고게시번호  PK
+        VARCHAR 광고ID  FK
+        VARCHAR 광고매체ID FK
+        DATE 광고시작일자
+        DATE 광고종료일자
+    }
+
+</div><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> C<span class="token punctuation">.</span>광고매체명<span class="token punctuation">,</span> B<span class="token punctuation">.</span>광고명<span class="token punctuation">,</span> A<span class="token punctuation">.</span>광고시작일자
+<span class="token keyword keyword-FROM">FROM</span> 광고게시 A<span class="token punctuation">,</span> 광고 B<span class="token punctuation">,</span> 광고매체 C<span class="token punctuation">,</span>
+     <span class="token punctuation">(</span>         <span class="token punctuation">[</span>가<span class="token punctuation">]</span>            <span class="token punctuation">)</span>   D
+<span class="token keyword keyword-WHERE">WHERE</span> A<span class="token punctuation">.</span>광고시작일자 <span class="token operator">=</span> D<span class="token punctuation">.</span>광고시작일자
+<span class="token operator">AND</span>   A<span class="token punctuation">.</span>광고매체ID  <span class="token operator">=</span> D<span class="token punctuation">.</span>광고매체ID
+<span class="token operator">AND</span>   A<span class="token punctuation">.</span>광고ID <span class="token operator">=</span> B<span class="token punctuation">.</span>광고ID
+<span class="token operator">AND</span>   A<span class="token punctuation">.</span>광고매체ID <span class="token operator">=</span> C<span class="token punctuation">.</span>광고매체ID
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> C<span class="token punctuation">.</span>광고매체명:
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>① <span class="token keyword keyword-SELECT">SELECT</span> D<span class="token punctuation">.</span>광고매체ID<span class="token punctuation">,</span> <span class="token function">MIN</span><span class="token punctuation">(</span>D<span class="token punctuation">.</span>광고시작일자<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 광고시작일자
+<span class="token keyword keyword-FROM">FROM</span> 광고게시 D
+<span class="token keyword keyword-WHERE">WHERE</span> D<span class="token punctuation">.</span>광고매체ID <span class="token operator">=</span> C<span class="token punctuation">.</span>광고매체ID
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> D<span class="token punctuation">.</span>광고매체ID
+
+② <span class="token keyword keyword-SELECT">SELECT</span> 광고매체ID<span class="token punctuation">,</span> <span class="token function">MIN</span><span class="token punctuation">(</span>광고시작일자<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 광고시작일자
+<span class="token keyword keyword-FROM">FROM</span> 광고게시
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> 광고매체ID
+
+③ <span class="token keyword keyword-SELECT">SELECT</span> <span class="token function">MIN</span><span class="token punctuation">(</span>광고매체ID<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 광고매체ID<span class="token punctuation">,</span> <span class="token function">MIN</span><span class="token punctuation">(</span>광고시작일자<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 광고시작일자
+<span class="token keyword keyword-FROM">FROM</span> 광고게시
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> 광고ID
+
+④ <span class="token keyword keyword-SELECT">SELECT</span> <span class="token function">MIN</span><span class="token punctuation">(</span>광고매체ID<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 광고매체ID<span class="token punctuation">,</span> <span class="token function">MIN</span><span class="token punctuation">(</span>광고시작일자<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 광고시작일자
+<span class="token keyword keyword-FROM">FROM</span> 광고게시
+</code></pre><p><strong>정답:</strong> ②</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+광고매체ID별로 그룹 지어서 가장 빠른 시작일자만 뽑으면 돼!</p>
+<p><strong>📚 전문 해설:</strong><br>
+<strong>SQL 처리 순서 한 줄씩 요약</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>SQL 처리 순서 한 줄씩 요약
+1️⃣ 광고게시 테이블에서 광고매체ID별로 그룹핑
+2️⃣ 각 그룹에서 MIN(광고시작일자) 추출
+3️⃣ 외부 쿼리에서 JOIN하여 광고명과 매체명 연결
+</code></pre><p>1️⃣ <strong>서브쿼리 [가] 실행</strong><br>
+→ 광고게시 테이블에서 광고매체ID별로 그룹화<br>
+→ 각 그룹에서 가장 빠른 광고시작일자(MIN) 추출</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> 광고매체ID<span class="token punctuation">,</span> <span class="token function">MIN</span><span class="token punctuation">(</span>광고시작일자<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 광고시작일자
+<span class="token keyword keyword-FROM">FROM</span> 광고게시
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> 광고매체ID
+</code></pre><p>2️⃣ <strong>외부 쿼리에서 JOIN 조건 적용</strong><br>
+→ 광고게시 A와 서브쿼리 D를 광고매체ID와 광고시작일자로 연결<br>
+→ 해당 날짜에 최초로 게시된 광고만 선택됨</p>
+<p>3️⃣ <strong>광고명과 광고매체명 연결</strong><br>
+→ 광고 B와 광고매체 C 테이블을 각각 광고ID, 광고매체ID로 JOIN</p>
+<p>4️⃣ <strong>최종 출력 컬럼 선택 및 정렬</strong><br>
+→ 광고매체명, 광고명, 광고시작일자 출력<br>
+→ 광고매체명 기준으로 정렬</p>
+<p>🧠 <strong>기억법:</strong><br>
+GROUP BY + MIN → 그룹별 최초값</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 24: GROUP BY = 묶기</li>
+<li>🃏 카드 25: HAVING = 그룹 필터</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 053<span class="token punctuation">]</span>  
+다음 중 오류가 발생하는 SQL 문장인 것은?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>① <span class="token keyword keyword-SELECT">SELECT</span> 회원ID<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>주문금액<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 합계
+<span class="token keyword keyword-FROM">FROM</span> 주문
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> 회원ID
+<span class="token keyword keyword-HAVING">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+② <span class="token keyword keyword-SELECT">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>주문금액<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 합계
+<span class="token keyword keyword-FROM">FROM</span> 주문
+<span class="token keyword keyword-HAVING">HAVING</span> <span class="token function">AVG</span><span class="token punctuation">(</span>주문금액<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">100</span><span class="token punctuation">;</span>
+
+③ <span class="token keyword keyword-SELECT">SELECT</span> 메뉴ID<span class="token punctuation">,</span> 사용유형코드<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> CNT
+<span class="token keyword keyword-FROM">FROM</span> 시스템사용이력
+<span class="token keyword keyword-WHERE">WHERE</span> 사용일시 <span class="token operator">BETWEEN</span> SYSDATE <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">AND</span> SYSDATE
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> 메뉴ID<span class="token punctuation">,</span> 사용유형코드
+<span class="token keyword keyword-HAVING">HAVING</span> 메뉴ID <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">AND</span> 사용유형코드 <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+
+④ <span class="token keyword keyword-SELECT">SELECT</span> 메뉴ID<span class="token punctuation">,</span> 사용유형코드<span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> AVGCNT
+<span class="token keyword keyword-FROM">FROM</span> 시스템사용이력
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> 메뉴ID<span class="token punctuation">,</span> 사용유형코드:
+</code></pre><p><strong>정답:</strong> ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+COUNT(*)는 집계 함수인데, 그걸 또 AVG로 감싸면 안 돼!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>SQL 처리 순서 한 줄씩 요약
+1️⃣ GROUP BY로 메뉴ID, 사용유형코드별 집계
+2️⃣ COUNT(*)는 집계 함수
+3️⃣ AVG(COUNT(*))는 집계 함수 안에 집계 함수 → 문법 오류
+</code></pre><p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>정상</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>HAVING 단독 사용 가능</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>HAVING에서 조건 필터 가능</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>집계 함수 중첩 오류</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+집계 함수 안에 또 집계 함수는 ❌</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 25: HAVING = 그룹 필터</li>
+<li>🃏 카드 33: COUNT(*) = 전체 행</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 054<span class="token punctuation">]</span>  
+다음 중 아래와 같은 테이블 A에 대해서 SQL을 수행하였을 때의 결과로 가장 적절한 것은?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> A
+<span class="token punctuation">(</span>
+가 <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+나 <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+다 <span class="token keyword keyword-INT">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>[테이블 : A]</p>
+<table>
+<thead>
+<tr>
+<th>가</th>
+<th>나</th>
+<th>다</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>A001</td>
+<td>100</td>
+</tr>
+<tr>
+<td>002</td>
+<td>A001</td>
+<td>200</td>
+</tr>
+<tr>
+<td>003</td>
+<td>A002</td>
+<td>100</td>
+</tr>
+<tr>
+<td>004</td>
+<td>A002</td>
+<td>200</td>
+</tr>
+<tr>
+<td>005</td>
+<td>A002</td>
+<td>200</td>
+</tr>
+<tr>
+<td>006</td>
+<td>A003</td>
+<td>100</td>
+</tr>
+<tr>
+<td>007</td>
+<td>A003</td>
+<td>200</td>
+</tr>
+<tr>
+<td>008</td>
+<td>A003</td>
+<td>100</td>
+</tr>
+<tr>
+<td>009</td>
+<td>A003</td>
+<td>200</td>
+</tr>
+<tr>
+<td>010</td>
+<td>A004</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>가<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 가<span class="token punctuation">,</span> 나<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>다<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 다
+<span class="token keyword keyword-FROM">FROM</span> A
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> 나
+<span class="token keyword keyword-HAVING">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">1</span>
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> 다 <span class="token keyword keyword-DESC">DESC</span>:
+</code></pre><h6 id="1">① </h6>
+<table>
+<thead>
+<tr>
+<th>가</th>
+<th>나</th>
+<th>다</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>009</td>
+<td>A003</td>
+<td>600</td>
+</tr>
+<tr>
+<td>005</td>
+<td>A002</td>
+<td>500</td>
+</tr>
+</tbody>
+</table>
+<h6 id="2">② </h6>
+<table>
+<thead>
+<tr>
+<th>가</th>
+<th>나</th>
+<th>다</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>009</td>
+<td>A003</td>
+<td>600</td>
+</tr>
+<tr>
+<td>005</td>
+<td>A002</td>
+<td>500</td>
+</tr>
+<tr>
+<td>002</td>
+<td>A001</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+<h6 id="3">③ </h6>
+<table>
+<thead>
+<tr>
+<th>가</th>
+<th>나</th>
+<th>다</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>009</td>
+<td>A003</td>
+<td>600</td>
+</tr>
+<tr>
+<td>005</td>
+<td>A002</td>
+<td>500</td>
+</tr>
+<tr>
+<td>002</td>
+<td>A001</td>
+<td>300</td>
+</tr>
+<tr>
+<td>010</td>
+<td>A004</td>
+<td>200</td>
+</tr>
+</tbody>
+</table>
+<p>④ 위의 SQL은 SELECT 절에 COUNT를 사용하지 않았으므로, HAVING<br>
+절에서 오류가 발생한다.</p>
+<p><strong>정답:</strong> ②</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+COUNT(*) &gt; 1 조건이니까 A004는 제외돼!<br>
+A001, A002, A003만 남고 다 합산해서 정렬!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<p><strong>SQL 처리 순서 한 줄씩 요약</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>1️⃣ GROUP BY 나 → A001, A002, A003, A004
+2️⃣ HAVING COUNT(*) &gt; 1 → A004 제외
+3️⃣ SELECT MAX(가), 나, SUM(다) → 각 그룹의 최대 가, 합계 다
+4️⃣ ORDER BY 다 DESC → 다 기준 내림차순 정렬
+</code></pre><p>1️⃣ <strong>FROM A</strong><br>
+→ 테이블 A의 모든 행을 조회</p>
+<p>2️⃣ <strong>GROUP BY 나</strong><br>
+→ 나 컬럼 기준으로 그룹화<br>
+→ 그룹: A001, A002, A003, A004</p>
+<p>3️⃣ <strong>HAVING COUNT(*) &gt; 1</strong><br>
+→ 각 그룹의 행 수가 2개 이상인 것만 필터링<br>
+→ A004는 1개 → 제외됨<br>
+→ 남는 그룹: A001(2), A002(3), A003(4)</p>
+<p>4️⃣ <strong>SELECT MAX(가), 나, SUM(다)</strong><br>
+→ 각 그룹에서<br>
+  - MAX(가): 가장 큰 가 값<br>
+  - SUM(다): 다 컬럼의 합계<br>
+→ 결과:<br>
+  - A001 → MAX(가)=002, SUM(다)=300<br>
+  - A002 → MAX(가)=005, SUM(다)=500<br>
+  - A003 → MAX(가)=009, SUM(다)=600</p>
+<p>5️⃣ <strong>ORDER BY 다 DESC</strong><br>
+→ 다 합계 기준으로 내림차순 정렬<br>
+→ 순서: A003(600), A002(500), A001(300)</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>A001 누락</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>정확한 그룹 필터링 및 정렬</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>A004 포함 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>HAVING COUNT 사용 가능</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+HAVING은 GROUP BY 이후 조건 필터링</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 25: HAVING = 그룹 필터</li>
+<li>🃏 카드 33: COUNT(*) = 전체 행</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 055<span class="token punctuation">]</span>  
+다음 중 아래 SQL의 실행결과로 가장 적절한 것은?
+</code></pre><p>TBL</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+</tr>
+<tr>
+<td>100</td>
+</tr>
+<tr>
+<td>200</td>
+</tr>
+<tr>
+<td>200</td>
+</tr>
+<tr>
+<td>200</td>
+</tr>
+<tr>
+<td>999</td>
+</tr>
+<tr>
+<td>999</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> ID <span class="token keyword keyword-FROM">FROM</span> TBL
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> ID
+<span class="token keyword keyword-HAVING">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> <span class="token punctuation">(</span><span class="token keyword keyword-CASE">CASE</span> <span class="token keyword keyword-WHEN">WHEN</span> ID <span class="token operator">=</span> <span class="token number">999</span> <span class="token keyword keyword-THEN">THEN</span> O <span class="token keyword keyword-ELSE">ELSE</span> ID <span class="token keyword keyword-END">END</span><span class="token punctuation">)</span>
+</code></pre><p>①</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+</tr>
+<tr>
+<td>999</td>
+</tr>
+</tbody>
+</table>
+<p>②</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>999</td>
+</tr>
+<tr>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<p>③</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+</tr>
+<tr>
+<td>200</td>
+</tr>
+<tr>
+<td>999</td>
+</tr>
+</tbody>
+</table>
+<p>④</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>999</td>
+</tr>
+<tr>
+<td>200</td>
+</tr>
+<tr>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<p><strong>정답:</strong> ②</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+COUNT(*) = 2 조건이니까 100과 999만 남아!<br>
+CASE 정렬에서 999는 0으로 바뀌니까 먼저 나와!</p>
+<p><strong>📚 전문 해설:</strong><br>
+SQL 처리 순서 한 줄씩 요약</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>1️⃣ GROUP BY ID → 그룹: 100(2), 200(3), 999(2)  
+2️⃣ HAVING COUNT(*) = 2 → 100, 999만 남음  
+3️⃣ ORDER BY CASE → 999 → 0, 100 → 100 → 999 먼저 출력
+</code></pre><p>1️⃣ FROM TBL → 테이블 TBL의 모든 행을 조회<br>
+2️⃣ GROUP BY ID → ID 기준으로 그룹화 → 그룹:   - 100 → 2개   - 200 → 3개   - 999 → 2개<br>
+3️⃣ HAVING COUNT(*) = 2 → 그룹 중에서 행 수가 2개인 것만 필터링 → 남는 그룹: 100, 999<br>
+4️⃣ SELECT ID → 각 그룹의 ID만 출력<br>
+5️⃣ ORDER BY (CASE WHEN ID = 999 THEN 0 ELSE ID END) → 정렬 기준:   - 999 → 0   - 100 → 100 → 999가 먼저, 그 다음 100</p>
+<p>🧠 <strong>기억법:</strong><br>
+CASE 정렬은 치환된 값 기준으로 정렬됨</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 25: HAVING = 그룹 필터</li>
+<li>🃏 카드 43: CASE 문 실전 예시</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 056<span class="token punctuation">]</span> 
+다음 SQL 중 오류가 발생하는 것은?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>① <span class="token keyword keyword-SELECT">SELECT</span> 지역<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>매출금액<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 매출금액
+<span class="token keyword keyword-FROM">FROM</span> 지역별매출
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> 지역
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> 매출금액 <span class="token keyword keyword-DESC">DESC</span><span class="token punctuation">;</span>
+
+② <span class="token keyword keyword-SELECT">SELECT</span> 지역<span class="token punctuation">,</span> 매출금액
+<span class="token keyword keyword-FROM">FROM</span> 지역별매출
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> 년 <span class="token keyword keyword-ASC">ASC</span><span class="token punctuation">;</span>
+
+③ <span class="token keyword keyword-SELECT">SELECT</span> 지역<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>매출금액<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 매출금액
+<span class="token keyword keyword-FROM">FROM</span> 지역별매출
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> 지역
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> 년 <span class="token keyword keyword-DESC">DESC</span><span class="token punctuation">;</span>
+
+④ <span class="token keyword keyword-SELECT">SELECT</span> 지역<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>매출금액<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 매출금액
+<span class="token keyword keyword-FROM">FROM</span> 지역별매출
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> 지역
+<span class="token keyword keyword-HAVING">HAVING</span> <span class="token function">SUM</span><span class="token punctuation">(</span>매출금액<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">1000</span>
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword keyword-ASC">ASC</span><span class="token punctuation">;</span>
+</code></pre><p><strong>정답:</strong> ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+GROUP BY 지역 했는데 ORDER BY에 없는 컬럼인 '년'을 쓰면 오류야!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>SQL 처리 순서 한 줄씩 요약  
+1️⃣ GROUP BY 지역 → 집계 수행  
+2️⃣ ORDER BY 년 → GROUP BY에 포함되지 않은 컬럼 사용 → 오류 발생
+</code></pre><p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>집계 컬럼 정렬 가능</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>컬럼 존재 → 정렬 가능</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>GROUP BY에 없는 컬럼 정렬 → 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>HAVING 후 정렬 가능</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+ORDER BY는 GROUP BY에 포함된 컬럼만 사용 가능</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 57: ORDER BY = 정렬 기준</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 057<span class="token punctuation">]</span>  
+다음 중 ORDER BY 절에 대한 설명으로 가장 부적절한 것은?
+
+① SQL 문장으로 조회된 데이터들을 다양한 목적에 맞게 특정 컬럼을 기준으로 정렬하는데 사용한다.
+② DBMS마다 NULL 값에 대한 정렬 순서가 다를 수 있으므로 주의하여야 한다.
+③ ORDER BY 절에서 컬럼명 대신 Alias 명이나 컬럼 순서를 나타내는 정수도 사용이 가능하나, 이들을 혼용하여 사용할 수 없다.
+④ GROUP BY 절을 사용하는 경우 ORDER BY 절에 집계 함수를 사용할 수도 있다.
+</code></pre><p><strong>정답:</strong> ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+ORDER BY에서는 컬럼명, 별칭, 순서번호 다 같이 써도 돼!</p>
+<p><strong>📚 전문 해설:</strong><br>
+ORDER BY 절에서는 다음이 모두 사용 가능:</p>
+<ul>
+<li>컬럼명</li>
+<li>별칭</li>
+<li>SELECT 절의 컬럼 순서 번호<br>
+→ 혼용 가능</li>
+</ul>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>기본 기능 설명</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>NULL 정렬 주의 필요</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>혼용 불가 → 틀림</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>집계 함수 정렬 가능</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+ORDER BY = 컬럼명 / 별칭 / 순서번호 모두 가능</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 57: ORDER BY = 정렬 기준</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 058<span class="token punctuation">]</span> 
+다음 SQL의 실행 결과로 가장 적절한 것은?
+</code></pre><p>TBL</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>AMT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>50</td>
+</tr>
+<tr>
+<td>A</td>
+<td>200</td>
+</tr>
+<tr>
+<td>B</td>
+<td>300</td>
+</tr>
+<tr>
+<td>C</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> ID<span class="token punctuation">,</span> AMT
+<span class="token keyword keyword-FROM">FROM</span> TBL
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> <span class="token punctuation">(</span><span class="token keyword keyword-CASE">CASE</span> <span class="token keyword keyword-WHEN">WHEN</span> ID <span class="token operator">=</span> <span class="token string">'A'</span> <span class="token keyword keyword-THEN">THEN</span> <span class="token number">1</span> <span class="token keyword keyword-ELSE">ELSE</span> <span class="token number">2</span> <span class="token keyword keyword-END">END</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+AMT <span class="token keyword keyword-DESC">DESC</span>
+</code></pre><p>①</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>AMT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B</td>
+<td>300</td>
+</tr>
+<tr>
+<td>A</td>
+<td>200</td>
+</tr>
+<tr>
+<td>C</td>
+<td>100</td>
+</tr>
+<tr>
+<td>A</td>
+<td>50</td>
+</tr>
+</tbody>
+</table>
+<p>②</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>AMT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>200</td>
+</tr>
+<tr>
+<td>A</td>
+<td>50</td>
+</tr>
+<tr>
+<td>B</td>
+<td>300</td>
+</tr>
+<tr>
+<td>C</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<p>③</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>AMT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>50</td>
+</tr>
+<tr>
+<td>C</td>
+<td>100</td>
+</tr>
+<tr>
+<td>A</td>
+<td>200</td>
+</tr>
+<tr>
+<td>B</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+<p>④</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>AMT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B</td>
+<td>300</td>
+</tr>
+<tr>
+<td>A</td>
+<td>200</td>
+</tr>
+<tr>
+<td>A</td>
+<td>50</td>
+</tr>
+<tr>
+<td>C</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<p><strong>정답:</strong> ②</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+CASE로 A는 1, 나머지는 2 → A 먼저<br>
+AMT DESC니까 A 중에서 큰 금액 먼저!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>SQL 처리 순서 한 줄씩 요약  
+1️⃣ CASE 정렬 → A = 1, B/C = 2 → A 먼저  
+2️⃣ AMT DESC → A 중에서 200, 50 순서  
+3️⃣ 나머지 B(300), C(100) 순서로 출력
+</code></pre><p><strong>SQL 처리 순서 한 줄씩 요약</strong><br>
+특정 조건(ID='A')을 우선 정렬하고,<br>
+그 안에서 금액을 내림차순으로 정렬하는 전형적인 <strong>조건 기반 정렬</strong> 예제</p>
+<p>1️⃣ <strong>FROM TBL</strong><br>
+→ 테이블 TBL의 모든 행을 조회<br>
+→ 결과:<br>
+  - A, 50<br>
+  - A, 200<br>
+  - B, 300<br>
+  - C, 100</p>
+<p>2️⃣ <strong>ORDER BY (CASE WHEN ID = 'A' THEN 1 ELSE 2 END), AMT DESC</strong><br>
+→ 정렬 기준 1: ID가 'A'이면 1, 아니면 2<br>
+→ 정렬 기준 2: AMT 내림차순</p>
+<p>📊 정렬 단계별 결과</p>
+<ul>
+<li>
+<p>ID가 'A'인 행들 먼저 (CASE 결과 = 1):<br>
+  - A, 200<br>
+  - A, 50</p>
+</li>
+<li>
+<p>그 외 ID들 (CASE 결과 = 2), AMT 내림차순:<br>
+  - B, 300<br>
+  - C, 100</p>
+</li>
+</ul>
+<p>🎯 최종 출력 결과</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>AMT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>200</td>
+</tr>
+<tr>
+<td>A</td>
+<td>50</td>
+</tr>
+<tr>
+<td>B</td>
+<td>300</td>
+</tr>
+<tr>
+<td>C</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>정렬 순서 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>정확한 CASE + 금액 정렬</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>AMT 정렬 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>CASE 정렬 오류</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+CASE → 그룹 우선<br>
+AMT DESC → 금액 큰 순서</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 43: CASE 문 실전 예시</li>
+<li>🃏 카드 57: ORDER BY = 정렬 기준</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 059<span class="token punctuation">]</span> 
+ 다음 중 SELECT 문장의 실행 순서를 올바르게 나열한 것은?
+
+① SELECT-FROM-WHERE-GROUP BY-HAVING-ORDER BY
+② FROM-SELECT-WHERE-GROUP BY-HAVING-ORDER BY
+③ FROM-WHERE-GROUP BY-HAVING-ORDER BY - SELECT
+④ FROM-WHERE-GROUP BY-HAVING-SELECT-ORDER BY
+</code></pre><p><strong>정답:</strong> ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+실행 순서는 FROM부터 시작해서 SELECT는 거의 마지막이야!</p>
+<p><strong>📚 전문 해설:</strong><br>
+SQL 내부 처리 순서:<br>
+1️⃣ FROM<br>
+2️⃣ WHERE<br>
+3️⃣ GROUP BY<br>
+4️⃣ HAVING<br>
+5️⃣ SELECT<br>
+6️⃣ ORDER BY</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>SELECT 먼저 → 틀림</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>SELECT가 두 번째 → 틀림</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>SELECT가 마지막 아님</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>정확한 실행 순서</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+FROM → WHERE → GROUP → HAVING → SELECT → ORDER</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 59: SQL 실행 순서</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 060<span class="token punctuation">]</span>  
+아래의 팀별성적 테이블에서 승리건수가 높은 순으로 <span class="token number">3</span>위까지 출력하되 <span class="token number">3</span>위의 승리건수가 동일한 팀이 있다면 함께 출력하기 위한 SQL 문장으로 올바른 것은?
+</code></pre><p>[테이블: 팀별성적]</p>
+<table>
+<thead>
+<tr>
+<th>팀명</th>
+<th>승리건수</th>
+<th>패배건수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A팀</td>
+<td>120</td>
+<td>80</td>
+</tr>
+<tr>
+<td>B팀</td>
+<td>20</td>
+<td>180</td>
+</tr>
+<tr>
+<td>C팀</td>
+<td>10</td>
+<td>190</td>
+</tr>
+<tr>
+<td>D팀</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>E팀</td>
+<td>110</td>
+<td>90</td>
+</tr>
+<tr>
+<td>F팀</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>G팀</td>
+<td>70</td>
+<td>130</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>① <span class="token keyword keyword-SELECT">SELECT</span> <span class="token keyword keyword-TOP">TOP</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> 팀명<span class="token punctuation">,</span> 승리건수
+<span class="token keyword keyword-FROM">FROM</span> 팀별성적
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> 승리건수 <span class="token keyword keyword-DESC">DESC</span><span class="token punctuation">;</span>
+
+② <span class="token keyword keyword-SELECT">SELECT</span> <span class="token keyword keyword-TOP">TOP</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> 팀명<span class="token punctuation">,</span> 승리건수
+<span class="token keyword keyword-FROM">FROM</span> 팀별성적<span class="token punctuation">;</span>
+
+③ <span class="token keyword keyword-SELECT">SELECT</span> 팀명<span class="token punctuation">,</span> 승리건수
+<span class="token keyword keyword-FROM">FROM</span> 팀별성적
+<span class="token keyword keyword-WHERE">WHERE</span> ROWNUM <span class="token operator">&lt;=</span> <span class="token number">3</span>
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> 승리건수 <span class="token keyword keyword-DESC">DESC</span><span class="token punctuation">;</span>
+
+④ <span class="token keyword keyword-SELECT">SELECT</span> <span class="token keyword keyword-TOP">TOP</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword keyword-WITH">WITH</span> TIES 팀명<span class="token punctuation">,</span> 승리건수
+<span class="token keyword keyword-FROM">FROM</span> 팀별성적
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> 승리건수 <span class="token keyword keyword-DESC">DESC</span>:
+</code></pre><p><strong>정답:</strong> ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+WITH TIES는 3위와 동점인 팀도 같이 출력해줘!<br>
+승리건수 기준으로 정렬된 후 동점자까지 포함돼!</p>
+<p><strong>📚 전문 해설:</strong><br>
+SQL은 <strong>TOP(n) WITH TIES</strong>를 활용해 <strong>동점자까지 포함하는 정렬 기반 추출</strong>을 수행하는 대표적인 예제</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>1️⃣ ORDER BY 승리건수 DESC → 승리 많은 순서로 정렬  
+2️⃣ TOP(3) WITH TIES → 3번째 승리건수와 같은 팀도 포함  
+→ A팀(120), E팀(110), D팀(100), F팀(100) → 총 4팀 출력
+</code></pre><p>1️⃣ <strong>FROM 팀별성적</strong><br>
+→ 테이블의 모든 행을 조회</p>
+<p>2️⃣ <strong>ORDER BY 승리건수 DESC</strong><br>
+→ 승리건수 기준으로 내림차순 정렬<br>
+→ 정렬 결과:<br>
+  - A팀 (120)<br>
+  - E팀 (110)<br>
+  - D팀 (100)<br>
+  - F팀 (100)<br>
+  - G팀 (70)<br>
+  - B팀 (20)<br>
+  - C팀 (10)</p>
+<p>3️⃣ <strong>SELECT TOP(3) WITH TIES 팀명, 승리건수</strong><br>
+→ 상위 3개 행을 선택하되, <strong>3번째 승리건수와 동일한 값이 있는 행도 함께 포함</strong><br>
+→ 3위 승리건수 = 100 → D팀, F팀 모두 포함</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>TOP(3)만 출력 → 동점자 제외</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>TOP(3)만 출력 → 정렬 없음</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>ROWNUM 사용 → 동점자 포함 안 됨</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>TOP(3) WITH TIES → 동점자 포함</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>WITH TIES → "동점자도 같이 데려와!"</li>
+<li>ROWNUM → "Oracle은 정렬 전에 번호 붙여!"</li>
+<li>LIMIT → "그냥 위에서 N개만 잘라!"</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+WITH TIES = 동점자 포함</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 57: ORDER BY = 정렬 기준</li>
+<li>🃏 카드 43: CASE 문 실전 예시</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 061<span class="token punctuation">]</span>  
+다음 중 <span class="token number">5</span>개의 테이블로부터 필요한 칼럼을 조회하려고 할 때, 최소 몇 개의 JOIN 조건이 필요한가?
+
+① <span class="token number">2</span>개
+② <span class="token number">3</span>개
+③ <span class="token number">4</span>개
+④ <span class="token number">5</span>개
+</code></pre><p><strong>정답:</strong> ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+테이블이 5개면 연결하려면 4개의 JOIN 조건이 필요해!<br>
+각 테이블을 하나씩 이어 붙이는 구조야!</p>
+<p><strong>📚 전문 해설:</strong><br>
+5개의 테이블을 모두 연결하려면<br>
+→ 1 ↔ 2 ↔ 3 ↔ 4 ↔ 5 → 총 4개의 JOIN 조건 필요</p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>연결 부족</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>연결 부족</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>정확한 연결 수</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>과다 연결</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+N개의 테이블 → N-1개의 JOIN 필요</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 41: JOIN 유형</li>
+<li>🃏 카드 42: 서브쿼리 유형</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 062<span class="token punctuation">]</span>  
+아래의 영화 데이터베이스 테이블의 일부에서 밑줄 친 속성들은 테이블의 기본키이며 출연료가 <span class="token number">8888</span> 이상인 영화명, 배우명, 출연료를 구하는 SQL로 가장 적절한 것은?
+</code></pre><p>배우(<u>배우번호</u>, 배우명, 성별)<br>
+영화(<u>영화번호</u>, 영화명, 제작년도)<br>
+출연(<u>배우번호, 영화번호</u>, 출연료)</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>① <span class="token keyword keyword-SELECT">SELECT</span> 출연<span class="token punctuation">,</span> 영화명<span class="token punctuation">,</span> 영화<span class="token punctuation">,</span> 배우명<span class="token punctuation">,</span> 출연<span class="token punctuation">,</span> 출연료
+<span class="token keyword keyword-FROM">FROM</span> 배우<span class="token punctuation">,</span> 영화<span class="token punctuation">,</span> 출연
+<span class="token keyword keyword-WHERE">WHERE</span> 출연료 <span class="token operator">&gt;=</span> <span class="token number">8888</span>
+<span class="token operator">AND</span> 출연<span class="token punctuation">.</span>영화번호 <span class="token operator">=</span> 영화<span class="token punctuation">.</span>영화번호
+<span class="token operator">AND</span> 출연<span class="token punctuation">.</span>배우번호 <span class="token operator">=</span> 배우<span class="token punctuation">.</span>배우번호:
+
+② <span class="token keyword keyword-SELECT">SELECT</span> 영화<span class="token punctuation">,</span> 영화명<span class="token punctuation">,</span> 배우<span class="token punctuation">,</span> 배우명<span class="token punctuation">,</span> 출연료
+<span class="token keyword keyword-FROM">FROM</span> 영화<span class="token punctuation">,</span> 배우<span class="token punctuation">,</span> 출연
+<span class="token keyword keyword-WHERE">WHERE</span> 출연<span class="token punctuation">,</span> 출연료 <span class="token operator">&gt;</span> <span class="token number">8888</span>
+<span class="token operator">AND</span>   출연<span class="token punctuation">.</span>영화번호 <span class="token operator">=</span> 영화<span class="token punctuation">.</span>영화번호
+<span class="token operator">AND</span>   영화<span class="token punctuation">.</span>영화번호 <span class="token operator">=</span> 배우<span class="token punctuation">.</span>배우번호<span class="token punctuation">;</span>
+
+③ <span class="token keyword keyword-SELECT">SELECT</span> 영화명<span class="token punctuation">,</span> 배우명<span class="token punctuation">,</span> 출연료
+<span class="token keyword keyword-FROM">FROM</span> 배우<span class="token punctuation">,</span> 영화<span class="token punctuation">,</span> 출연
+<span class="token keyword keyword-WHERE">WHERE</span> 출연료 <span class="token operator">&gt;=</span> <span class="token number">8888</span>
+<span class="token operator">AND</span> 영화번호 <span class="token operator">=</span> 영화<span class="token punctuation">.</span>영화번호
+<span class="token operator">AND</span> 배우번호 <span class="token operator">=</span> 배우<span class="token punctuation">.</span>배우번호:
+
+④ <span class="token keyword keyword-SELECT">SELECT</span> 영화<span class="token punctuation">,</span> 영화명<span class="token punctuation">,</span> 배우<span class="token punctuation">,</span> 배우명<span class="token punctuation">,</span> 출연료
+<span class="token keyword keyword-FROM">FROM</span> 배우<span class="token punctuation">,</span> 영화<span class="token punctuation">,</span> 출연
+<span class="token keyword keyword-WHERE">WHERE</span> 출연료 <span class="token operator">&gt;=</span> <span class="token number">8888</span>
+<span class="token operator">AND</span> 출연<span class="token punctuation">.</span>영화번호 <span class="token operator">=</span> 영화<span class="token punctuation">.</span>영화번호
+<span class="token operator">AND</span> 출연<span class="token punctuation">.</span>배우번호 <span class="token operator">=</span> 배우<span class="token punctuation">.</span>배우번호<span class="token punctuation">;</span>
+</code></pre><p><strong>정답:</strong> ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+출연 테이블에서 출연료 조건 걸고, 영화와 배우 테이블을 JOIN하면 돼!</p>
+<p><strong>📚 전문 해설:</strong><br>
+SQL 처리 순서 한 줄씩 요약</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>1️⃣ 출연 테이블에서 출연료 ≥ 8888 조건 필터  
+2️⃣ 출연.영화번호 = 영화.영화번호 → 영화명 연결  
+3️⃣ 출연.배우번호 = 배우.배우번호 → 배우명 연결  
+4️⃣ SELECT 영화명, 배우명, 출연료 출력
+</code></pre><p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>SELECT 문법 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>조건 위치 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>JOIN 누락</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>정확한 JOIN + 조건</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+JOIN은 PK ↔ FK 연결<br>
+조건은 WHERE에서 필터링</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 41: JOIN 유형</li>
+<li>🃏 카드 42: 서브쿼리 유형</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 063<span class="token punctuation">]</span>
+다음 중 아래에서 Join에 대한 설명으로 가장 적절한 것은?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>가<span class="token punctuation">)</span> 일반적으로 <span class="token keyword keyword-Join">Join</span>은 PK와 FK 값의 연관성에 의해 성립된다<span class="token punctuation">.</span>
+나<span class="token punctuation">)</span> DBMS 옵티마이져는 <span class="token keyword keyword-From">From</span> 절에 나열된 테이블들을 임의로 <span class="token number">3</span>개 정도씩 묶어서 <span class="token keyword keyword-Join">Join</span>을 처리한다<span class="token punctuation">.</span>
+다<span class="token punctuation">)</span> EQUI <span class="token keyword keyword-Join">Join</span>은 <span class="token keyword keyword-Join">Join</span>에 관여하는 테이블 간의 컬럼 값들이 정확하게 일치하는 경우에 사용되는 방법이다<span class="token punctuation">.</span>
+라<span class="token punctuation">)</span> EQUI <span class="token keyword keyword-Join">Join</span>은 <span class="token string">'='</span> 연산자에 의해서만 수행되며<span class="token punctuation">,</span> 그 이외의 비교 연산자를 사용하는 경우에는 모두 Non EQUI <span class="token keyword keyword-Join">Join</span>이다<span class="token punctuation">.</span>
+마<span class="token punctuation">)</span> 대부분 Non EQUI <span class="token keyword keyword-Join">Join</span>을 수행할 수 있지만<span class="token punctuation">,</span> 때로는 설계상의 이유로 수행이 불가능한 경우도 있다<span class="token punctuation">.</span>
+</code></pre><p>① 가, 다, 라<br>
+② 가, 나, 다<br>
+③ 가, 나, 다, 라<br>
+④ 가, 다, 라, 마</p>
+<p><strong>정답:</strong> ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+JOIN은 PK-FK로 연결되고, '='이면 EQUI JOIN!<br>
+그 외 비교는 Non-EQUI JOIN이고, 설계상 불가능할 수도 있어!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>가) PK-FK 관계로 JOIN 성립 → 맞음</li>
+<li>다) '=' 연산자 → EQUI JOIN → 맞음</li>
+<li>라) '&gt;', '&lt;' 등 → Non-EQUI JOIN → 맞음</li>
+<li>마) 설계상 불가능한 경우 있음 → 맞음</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+EQUI = '='<br>
+Non-EQUI = 비교 연산자</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 41: JOIN 유형</li>
+<li>🃏 카드 42: 서브쿼리 유형</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 064<span class="token punctuation">]</span>  
+다음 SQL의 실행 결과로 맞는 것은? 
+</code></pre><p>[EMP_TBL]</p>
+<table>
+<thead>
+<tr>
+<th>EMPNO</th>
+<th>ENAME</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1000</td>
+<td>SMITH</td>
+</tr>
+<tr>
+<td>1050</td>
+<td>ALLEN</td>
+</tr>
+<tr>
+<td>1100</td>
+<td>SCOTT</td>
+</tr>
+</tbody>
+</table>
+<p>[RULE_TBL]</p>
+<table>
+<thead>
+<tr>
+<th>RULE_NO</th>
+<th>RULE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>S%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>%T%</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> CNT
+<span class="token keyword keyword-FROM">FROM</span> EMP_TBL A<span class="token punctuation">,</span> RULE_TBL B
+<span class="token keyword keyword-WHERE">WHERE</span> A<span class="token punctuation">,</span> ENAME <span class="token operator">LIKE</span> B<span class="token punctuation">.</span><span class="token keyword keyword-RULE">RULE</span>
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>① 0
+② 2
+③ 4
+④ 6
+</code></pre><p><strong>정답:</strong> ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+LIKE 조건이 두 RULE에 대해 각각 적용돼서<br>
+SMITH는 S%, SCOTT은 %T% → 각각 2건씩 매칭돼서 총 4건이야!</p>
+<p><strong>📚 전문 해설:</strong><br>
+SQL 처리 순서 한 줄씩 요약</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>1️⃣ EMP_TBL × RULE_TBL → 3명 × 2규칙 = 6건 조합  
+2️⃣ WHERE A.ENAME LIKE B.RULE → 조건 만족하는 조합만 남김  
+   - SMITH는 'S%'에 매칭됨  
+   - SCOTT은 '%T%'에 매칭됨  
+→ SMITH: 1규칙 만족 → 1건  
+→ SCOTT: 2규칙 모두 만족 → 2건  
+→ ALLEN은 어떤 규칙에도 매칭되지 않음  
+→ 총 4건 매칭됨
+</code></pre><p>1️⃣ <strong>FROM EMP_TBL A, RULE_TBL B</strong><br>
+→ 두 테이블 간 <strong>카티션 곱(Cartesian Product)</strong> 수행<br>
+→ EMP_TBL(3행) × RULE_TBL(2행) = 총 <strong>6행 생성</strong><br>
+※ 두 테이블의 모든 행을 서로 조합한 결과 → 테이블 A의 각 행 × 테이블 B의 각 행</p>
+<p>2️⃣ <strong>WHERE A.ENAME LIKE B.RULE</strong><br>
+→ 각 조합에 대해 <strong>ENAME</strong>이 <strong>RULE</strong> 패턴과 일치하는지 검사<br>
+→ 각 조합을 하나씩 비교:</p>
+<table>
+<thead>
+<tr>
+<th>ENAME</th>
+<th>RULE</th>
+<th>LIKE 결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SMITH</td>
+<td>S%</td>
+<td>✅ (S로 시작)</td>
+</tr>
+<tr>
+<td>SMITH</td>
+<td>%T%</td>
+<td>✅ (T 포함)</td>
+</tr>
+<tr>
+<td>ALLEN</td>
+<td>S%</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>ALLEN</td>
+<td>%T%</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>SCOTT</td>
+<td>S%</td>
+<td>✅ (S로 시작)</td>
+</tr>
+<tr>
+<td>SCOTT</td>
+<td>%T%</td>
+<td>✅ (T 포함)</td>
+</tr>
+</tbody>
+</table>
+<p>→ 총 <strong>4건</strong> 일치</p>
+<p>3️⃣ <strong>SELECT COUNT(*) CNT</strong><br>
+→ 조건을 만족하는 행 수 세기 → <strong>4</strong></p>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>조건 미충족 오해</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>일부 매칭만 고려</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>정확한 매칭 수</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>전체 조합 수 오해</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+LIKE 조건은 규칙마다 따로 적용됨<br>
+조인 후 조건 만족하는 행만 COUNT됨</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 26: 서브쿼리 = 쿼리 속 쿼리</li>
+<li>🃏 카드 33: COUNT(*) = 전체 행</li>
+<li>🃏 카드 41: JOIN 유형</li>
+<li>🃏 카드 43: CASE 문 실전 예시</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+}
+</script>
+    
+    
+    
+  
+    </body></html>

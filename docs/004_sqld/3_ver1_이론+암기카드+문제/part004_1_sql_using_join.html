@@ -1,0 +1,2452 @@
+<!DOCTYPE html><html><head>
+      <title>part004_1_sql_using_join</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\sally03915\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      <script type="text/javascript" src="file:///c:\Users\sally03915\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<style>
+pre, code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  overflow-x: hidden !important;
+  display: block !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+</style> 
+<hr>
+<h3 id="-sql-using">📁 SQL USING </h3>
+<table>
+<thead>
+<tr>
+<th>구간</th>
+<th>문제 번호</th>
+<th>주제</th>
+<th>난이도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1~15</td>
+<td>065~079</td>
+<td>관계 연산자, JOIN 실무, 집합 연산자</td>
+<td>⭐⭐ 초~중급</td>
+</tr>
+<tr>
+<td>16~30</td>
+<td>080~094</td>
+<td>INTERSECT, EXCEPT, 계층형 질의</td>
+<td>⭐⭐⭐ 중~고급</td>
+</tr>
+<tr>
+<td>31~45</td>
+<td>095~109</td>
+<td>집합 연산자, JOIN 조건, 서브쿼리 활용</td>
+<td>⭐⭐⭐ 고급</td>
+</tr>
+<tr>
+<td>46~63</td>
+<td>110~127</td>
+<td>실무형 SQL 로직, 집계, 조건부 연산</td>
+<td>⭐⭐⭐⭐ 실무형</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-115번--065079--관계-연산자-join-실무-집합-연산자">✅ 1~15번 ( 065~079 ): 관계 연산자, JOIN 실무, 집합 연산자 </h4>
+<ul>
+<li>SELECT, JOIN, OUTER JOIN, 집합 연산자(EXCEPT, UNION 등)의 기본 구조를 익힙니다.</li>
+<li>복합키, 비선호 필터링, 카티시안 곱 등 실무에서 자주 쓰이는 SQL 로직을 다룹니다.</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 065<span class="token punctuation">]</span>  
+다음 중 순수 관계 연산자에 해당하지 않는 것은?
+ 
+① SELECT  
+② UPDATE  
+③ JOIN  
+④ DIVIDE
+</code></pre><p><strong>정답:</strong> ②</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+UPDATE는 데이터를 수정하는 명령어예요. 관계형 대수에서 말하는 순수 관계 연산자에는 포함되지 않아요!</p>
+<p><strong>📚 전문 해설:</strong><br>
+관계형 데이터베이스에서 순수 관계 연산자는 데이터를 검색하거나 조합하는 연산을 의미해요.</p>
+<ul>
+<li>SELECT: 조건에 맞는 행을 선택</li>
+<li>JOIN: 두 테이블을 연결</li>
+<li>DIVIDE: 특정 조건을 만족하는 집합을 추출<br>
+→ 모두 관계형 대수의 연산자예요.<br>
+하지만 UPDATE는 데이터를 수정하는 DML(Data Manipulation Language) 명령어로, 관계 연산자가 아니에요.</li>
+</ul>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>SELECT는 관계 연산자</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>UPDATE는 DML 명령어</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>JOIN은 관계 연산자</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>DIVIDE는 관계 연산자</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+관계 연산자는 데이터를 "조회하고 연결"하는 연산<br>
+UPDATE는 데이터를 "수정"하는 명령어</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 23: JOIN = 연결</li>
+<li>🃏 카드 21: SELECT = 꺼내기</li>
+<li>🃏 카드 36: UPDATE = 수정</li>
+<li>🃏 카드 44: DML과 DDL의 차이 = DML은 행 조작, DDL은 구조 변경</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 066<span class="token punctuation">]</span>  
+고객에게 추천할 컨텐츠를 생성하는 배치작업에서, 추천 대상일자에 해당하고 비선호 컨텐츠에 포함되지 않은 컨텐츠만 추천해야 한다.  
+아래 데이터 모델을 참고하여 올바르게 작성된 SQL 문장을 <span class="token number">2</span>개 고르시오.
+</code></pre><div class="mermaid">erDiagram
+    고객 ||--o{ 추천컨텐츠 : "고객ID"
+    고객 ||--o{ 비선호컨텐츠 : "고객ID"
+    컨텐츠 ||--o{ 추천컨텐츠 : "컨텐츠ID"
+    컨텐츠 ||--o{ 비선호컨텐츠 : "컨텐츠ID"
+
+    고객 {
+        VARCHAR 고객ID  PK
+        VARCHAR 고객명
+        NUMBER 나이
+    }
+
+
+    컨텐츠 {
+        VARCHAR 컨텐츠ID  PK
+        VARCHAR 컨텐츠명
+    }
+
+    추천컨텐츠 {
+        VARCHAR 고객ID "FK PK"  
+        VARCHAR 컨텐츠ID "FK PK"
+        DATE 추천대상일자
+    }
+
+    비선호컨텐츠 {
+        VARCHAR 고객ID "FK PK"
+        VARCHAR 컨텐츠ID "FK PK"
+        DATETIME 등록일시
+    }
+
+</div><p>※ 추천컨텐츠 테이블의 복합키: 고객ID + 컨텐츠ID<br>
+※ 비선호컨텐츠 테이블의 복합키: 고객ID + 컨텐츠ID</p>
+<p>[설명]<br>
+우리는 매일 배치작업을 통하여 고객에게 추천할 컨텐츠를 생성하고 고객에게 추천서비스를 제공한다.<br>
+추천 컨텐츠 엔터티에서 언제 추천을 해야 하는지를 정의하는 추천 대상일자가 있어 해당일자에만 컨텐츠를 추천해야 한다. 또한 고객이 컨텐츠를 추천 받았을 때 선호하는 컨텐츠가 아닌 경우에는 고객이 비선호 컨텐츠로 분류하여 더 이상 추천 받기를 원하지 않는다. 그러므로 우리는 비선호 컨텐츠 엔터티에 등록된 데이터에 대해서는 추천을 수행하지 않아야 한다.</p>
+<p>※ 배치작업이란? 어떤 처리를 연속적으로 하는 것이 아니고 일정량씩 나누어 처리하는 경우 그 일정량을 배치(batch)라고 한다. 배치의 원뜻은 한 묶음이라는 의미다. [기계공학용어사전]<br>
+예) 상품을 주문하는 로직은 그당시에 발생하는 트랜잭션에 대한 처리이므로 배치작업이라 표현하지는 않는다. 하지만 상품별 주문량을 집계하는 로직의 경우 특정조건(기간등)으로 일괄처리를 해야함으로 배치작업이라 표현할 수 있다.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>① <span class="token keyword keyword-SELECT">SELECT</span> C<span class="token punctuation">.</span>컨텐츠ID<span class="token punctuation">,</span> C<span class="token punctuation">.</span>컨텐츠명  
+<span class="token keyword keyword-FROM">FROM</span> 고객 A  
+<span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 추천컨텐츠 B <span class="token keyword keyword-ON">ON</span> A<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> B<span class="token punctuation">.</span>고객ID  
+<span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 컨텐츠 C <span class="token keyword keyword-ON">ON</span> B<span class="token punctuation">.</span>컨텐츠ID <span class="token operator">=</span> C<span class="token punctuation">.</span>컨텐츠ID  
+<span class="token keyword keyword-WHERE">WHERE</span> A<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> <span class="token comment">#custId#  </span>
+<span class="token operator">AND</span> B<span class="token punctuation">.</span>추천대상일자 <span class="token operator">=</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'YYYY.MM.DD'</span><span class="token punctuation">)</span>  
+<span class="token operator">AND</span> <span class="token operator">NOT</span> <span class="token keyword keyword-EXISTS">EXISTS</span> <span class="token punctuation">(</span>  
+  <span class="token keyword keyword-SELECT">SELECT</span> X<span class="token punctuation">.</span>컨텐츠ID  
+  <span class="token keyword keyword-FROM">FROM</span> 비선호컨텐츠 X  
+  <span class="token keyword keyword-WHERE">WHERE</span> X<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> B<span class="token punctuation">.</span>고객ID <span class="token operator">AND</span> X<span class="token punctuation">.</span>컨텐츠ID <span class="token operator">=</span> B<span class="token punctuation">.</span>컨텐츠ID  
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+② <span class="token keyword keyword-SELECT">SELECT</span> C<span class="token punctuation">.</span>컨텐츠ID<span class="token punctuation">,</span> C<span class="token punctuation">.</span>컨텐츠명  
+<span class="token keyword keyword-FROM">FROM</span> 고객 A  
+<span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 추천컨텐츠 B <span class="token keyword keyword-ON">ON</span> A<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> <span class="token comment">#custId# AND A.고객ID = B.고객ID  </span>
+<span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 컨텐츠 C <span class="token keyword keyword-ON">ON</span> B<span class="token punctuation">.</span>컨텐츠ID <span class="token operator">=</span> C<span class="token punctuation">.</span>컨텐츠ID  
+<span class="token keyword keyword-RIGHT">RIGHT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> 비선호컨텐츠 D <span class="token keyword keyword-ON">ON</span> B<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> D<span class="token punctuation">.</span>고객ID <span class="token operator">AND</span> B<span class="token punctuation">.</span>컨텐츠ID <span class="token operator">=</span> D<span class="token punctuation">.</span>컨텐츠ID  
+<span class="token keyword keyword-WHERE">WHERE</span> B<span class="token punctuation">.</span>추천대상일자 <span class="token operator">=</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'YYYY.MM.DD'</span><span class="token punctuation">)</span>  
+<span class="token operator">AND</span> B<span class="token punctuation">.</span>컨텐츠ID <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span>
+
+③ <span class="token keyword keyword-SELECT">SELECT</span> C<span class="token punctuation">.</span>컨텐츠ID<span class="token punctuation">,</span> C<span class="token punctuation">.</span>컨텐츠명  
+<span class="token keyword keyword-FROM">FROM</span> 고객 A  
+<span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 추천컨텐츠 B <span class="token keyword keyword-ON">ON</span> A<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> B<span class="token punctuation">.</span>고객ID  
+<span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 컨텐츠 C <span class="token keyword keyword-ON">ON</span> B<span class="token punctuation">.</span>컨텐츠ID <span class="token operator">=</span> C<span class="token punctuation">.</span>컨텐츠ID  
+<span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> 비선호컨텐츠 D <span class="token keyword keyword-ON">ON</span> B<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> D<span class="token punctuation">.</span>고객ID <span class="token operator">AND</span> B<span class="token punctuation">.</span>컨텐츠ID <span class="token operator">=</span> D<span class="token punctuation">.</span>컨텐츠ID  
+<span class="token keyword keyword-WHERE">WHERE</span> A<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> <span class="token comment">#custId#  </span>
+<span class="token operator">AND</span> B<span class="token punctuation">.</span>추천대상일자 <span class="token operator">=</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'YYYY.MM.DD'</span><span class="token punctuation">)</span>  
+<span class="token operator">AND</span> D<span class="token punctuation">.</span>컨텐츠ID <span class="token operator">IS</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span>
+
+④ <span class="token keyword keyword-SELECT">SELECT</span> C<span class="token punctuation">.</span>컨텐츠ID<span class="token punctuation">,</span> C<span class="token punctuation">.</span>컨텐츠명  
+<span class="token keyword keyword-FROM">FROM</span> 고객 A  
+<span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 추천컨텐츠 B <span class="token keyword keyword-ON">ON</span> A<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> <span class="token comment">#custId# AND A.고객ID = B.고객ID  </span>
+<span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 컨텐츠 C <span class="token keyword keyword-ON">ON</span> B<span class="token punctuation">.</span>컨텐츠ID <span class="token operator">=</span> C<span class="token punctuation">.</span>컨텐츠ID  
+<span class="token keyword keyword-WHERE">WHERE</span> B<span class="token punctuation">.</span>추천대상일자 <span class="token operator">=</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'YYYY.MM.DD'</span><span class="token punctuation">)</span>  
+<span class="token operator">AND</span> <span class="token operator">NOT</span> <span class="token keyword keyword-EXISTS">EXISTS</span> <span class="token punctuation">(</span>  
+  <span class="token keyword keyword-SELECT">SELECT</span> X<span class="token punctuation">.</span>컨텐츠ID  
+  <span class="token keyword keyword-FROM">FROM</span> 비선호컨텐츠 X  
+  <span class="token keyword keyword-WHERE">WHERE</span> X<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> B<span class="token punctuation">.</span>고객ID <span class="token operator">AND</span> X<span class="token punctuation">.</span>컨텐츠ID <span class="token operator">=</span> B<span class="token punctuation">.</span>컨텐츠ID  
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre><p><strong>정답:</strong> ③, ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+비선호 컨텐츠는 추천에서 제외해야 해요!<br>
+LEFT JOIN 후 IS NULL 또는 NOT EXISTS로 제외하는 방식이 정답이에요.</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>추천 대상일자 조건: <strong>B.추천대상일자 = TO_CHAR(SYSDATE, 'YYYY.MM.DD')</strong></li>
+<li>비선호 제외 조건:
+<ul>
+<li>**LEFT JOIN ... IS NULL 방식 (③)</li>
+<li><strong>NOT EXISTS</strong> 방식 (④)</li>
+</ul>
+</li>
+<li>①은 오타로 인해 실행 불가</li>
+<li>②는 RIGHT JOIN을 사용했지만 논리적으로 추천 대상이 아닌 비선호 중심으로 조인되어 부적절</li>
+</ul>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>컨텐츠ID 오타로 실행 불가</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>JOIN 방향과 조건이 부적절</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>LEFT JOIN + IS NULL로 비선호 제외</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>NOT EXISTS로 비선호 제외</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong></p>
+<ul>
+<li>비선호 컨텐츠 제외: <strong>LEFT JOIN + IS NULL</strong> 또는 <strong>NOT EXISTS</strong></li>
+<li>추천 대상일자 필터링: <strong>SYSDATE</strong> 기준</li>
+</ul>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 22: WHERE = 필터링</li>
+<li>🃏 카드 26: 서브쿼리 = 쿼리 속 쿼리</li>
+<li>🃏 카드 45: 상관 서브쿼리 = 외부 컬럼 참조</li>
+<li>🃏 카드 41: JOIN 유형 = INNER, LEFT, RIGHT, FULL</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 067<span class="token punctuation">]</span>    
+아래는 어느 회사의 생산설비를 위한 데이터 모델의 일부에 대한 설명으로 가장 적절한 것을 <span class="token number">2</span>개 고르시오.
+</code></pre><div class="mermaid">erDiagram
+    제품 ||--o{ 생산제품 : "제품코드"
+    생산라인 ||--o{ 생산제품 : "라인번호"
+
+    제품 {
+        VARCHAR 제품코드
+        VARCHAR 제품명
+        VARCHAR 제품유형코드
+        VARCHAR 단위
+    }
+
+    생산제품 {
+        VARCHAR 라인번호 "FK PK"   
+        VARCHAR 제품코드 "FK PK"  
+    }
+
+    생산라인 {
+        VARCHAR 라인번호
+        DATE 최초가동일자
+    }
+
+</div><pre data-role="codeBlock" data-info="" class="language-text"><code>※ 생산제품 테이블의 복합키: 라인번호 + 제품코드
+
+① 제품, 생산제품, 생산라인 엔터티를 Inner Join 하기 위해서 생산제품 엔터티는 WHERE절에 최소 2번이 나타나야 한다.
+② 제품과 생산라인 엔터티를 Join시 적절한 Join조건이 없으므로 카티시안곱(Cartesian Product)이 발생한다.
+③ 제품과 생산라인 엔터티에는 생산제품과 대응되지 않는 레코드는 없다.
+④ 특정 생산라인번호에서 생산되는 제품의 제품명을 알기위해서는 제품,생산제품, 생산라인까지 3개 엔터티의 Inner Join인 필요하다.
+</code></pre><p><strong>정답:</strong> ①, ②</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+생산제품이 두 테이블을 연결하는 다리 역할이에요.<br>
+제품과 생산라인은 직접 연결되지 않아서 그냥 JOIN하면 곱셈돼요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>생산제품은 제품과 생산라인을 연결하는 중간 엔터티</li>
+<li>제품과 생산라인은 직접 JOIN할 수 없기 때문에 중간 테이블 필요</li>
+<li>WHERE절에 2번 등장한다는 표현은 다소 부정확하지만, 관계를 2번 맺는다는 의미로 해석 가능</li>
+</ul>
+<blockquote>
+<p>1번답안 :<br>
+생산제품 테이블이 두 관계를 연결한다는 점을 강조하려는 의도로 보임. 하지만 WHERE절에 2번 등장해야 한다는 표현은 부정확하고 오해의 소지가 있음.<br>
+이처럼 생산제품 테이블은 ON절에서 2번 사용되지만, WHERE절에 2번 등장할 필요는 없음<br>
+그래도 굳이 2개 고르라고 했으므로 완전틀린 3,4 제외</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>SELECT ...
+FROM 제품 P
+JOIN 생산제품 SP ON P.제품코드 = SP.제품코드
+JOIN 생산라인 L ON SP.라인번호 = L.라인번호
+</code></pre><p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>생산제품이 두 관계를 연결</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>직접 JOIN 불가 → 곱셈 발생</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>대응되지 않는 레코리 여부는 알 수 없음</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>3개 엔터티 JOIN은 맞지만 정답 2개 요구</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+중간 테이블이 없으면 곱셈이 발생한다!</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 23: JOIN = 연결</li>
+<li>🃏 카드 41: JOIN 유형</li>
+<li>🃏 카드 44: DML vs DDL</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 068<span class="token punctuation">]</span>  
+아래의 테이블 스키마 정보를 참고하여, 다음 중 <span class="token string">'구매 이력이 있는 고객 중 구매 횟수가 3회 이상인 고객의 이름과 등급을 출력하시오.'</span>라는 질의에 대해 아래 SQL 문장의 <span class="token punctuation">(</span>가<span class="token punctuation">)</span>, <span class="token punctuation">(</span>나<span class="token punctuation">)</span>에 들어 갈 구문으로 가장 적절한 것은?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span>테이블<span class="token punctuation">]</span>
+고객<span class="token punctuation">(</span>고객번호<span class="token punctuation">(</span>PK<span class="token punctuation">)</span><span class="token punctuation">,</span> 이름<span class="token punctuation">,</span> 등급<span class="token punctuation">)</span>
+구매정보<span class="token punctuation">(</span>구매번호<span class="token punctuation">(</span>PK<span class="token punctuation">)</span><span class="token punctuation">,</span> 구매금액<span class="token punctuation">,</span> 고객번호<span class="token punctuation">(</span>FK<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token operator">*</span> 구매정보 테이블의 고객번호는 고객 테이블의 고객번호를 참조하는 외래키<span class="token punctuation">(</span><span class="token keyword keyword-Foreign">Foreign</span> <span class="token keyword keyword-Key">Key</span><span class="token punctuation">)</span>이다<span class="token punctuation">.</span>
+
+<span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span> 문장<span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>이름<span class="token punctuation">,</span> A<span class="token punctuation">.</span>등급
+<span class="token keyword keyword-FROM">FROM</span> 고객 A
+<span class="token punctuation">(</span>가<span class="token punctuation">)</span>
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>이름<span class="token punctuation">,</span> A<span class="token punctuation">.</span>등급
+<span class="token punctuation">(</span>나<span class="token punctuation">)</span>
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>① <span class="token punctuation">(</span>가<span class="token punctuation">)</span>: <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 구매정보 B <span class="token keyword keyword-ON">ON</span> A<span class="token punctuation">,</span> 고객번호<span class="token operator">=</span>B<span class="token punctuation">,</span> 고객번호
+  <span class="token punctuation">(</span>나<span class="token punctuation">)</span>: <span class="token keyword keyword-HAVING">HAVING</span> <span class="token function">SUM</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>구매번호<span class="token punctuation">)</span> <span class="token operator">&gt;=</span><span class="token number">3</span>
+
+② <span class="token punctuation">(</span>가<span class="token punctuation">)</span>: <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 구매정보 B <span class="token keyword keyword-ON">ON</span> A<span class="token punctuation">.</span>고객번호<span class="token operator">=</span>B<span class="token punctuation">,</span> 고객번호
+  <span class="token punctuation">(</span>나<span class="token punctuation">)</span>: <span class="token keyword keyword-HAVING">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>구매번호<span class="token punctuation">)</span> <span class="token operator">&gt;=</span><span class="token number">3</span>
+
+③ <span class="token punctuation">(</span>가<span class="token punctuation">)</span>: <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> 구매정보 B <span class="token keyword keyword-ON">ON</span> A<span class="token punctuation">,</span> 고객번호<span class="token operator">=</span>B<span class="token punctuation">.</span>고객번호
+  <span class="token punctuation">(</span>나<span class="token punctuation">)</span>: <span class="token keyword keyword-HAVING">HAVING</span> <span class="token function">SUM</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>구매번호<span class="token punctuation">)</span><span class="token operator">&gt;=</span><span class="token number">3</span>
+
+④ <span class="token punctuation">(</span>가<span class="token punctuation">)</span>: <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 구매정보 B <span class="token keyword keyword-ON">ON</span> A<span class="token punctuation">.</span>고객번호<span class="token operator">=</span>B<span class="token punctuation">.</span>고객번호
+  <span class="token punctuation">(</span>나<span class="token punctuation">)</span>: <span class="token keyword keyword-WHERE">WHERE</span> B<span class="token punctuation">.</span>구매번호 <span class="token operator">&gt;=</span><span class="token number">3</span>
+</code></pre><p><strong>정답:</strong> ②</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+구매 횟수니까 COUNT로 세야 해요!<br>
+HAVING은 GROUP BY 이후 조건 필터링이에요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>INNER JOIN으로 구매정보와 연결</li>
+<li>GROUP BY로 고객별 집계</li>
+<li>HAVING COUNT로 3회 이상 필터링</li>
+<li>SUM(B.구매번호)는 구매번호가 숫자일 때만 의미 있음</li>
+</ul>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>SUM은 구매번호에 부적절</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>COUNT로 횟수 집계 → 정답</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>LEFT JOIN은 불필요</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>WHERE는 집계 전 필터링</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong></p>
+<ul>
+<li>횟수는 COUNT</li>
+<li>HAVING은 GROUP BY 이후</li>
+</ul>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 24: GROUP BY = 묶기</li>
+<li>🃏 카드 25: HAVING = 그룹 필터</li>
+<li>🃏 카드 22: WHERE = 필터링</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 069<span class="token punctuation">]</span>  
+아래는 어느 회사의 정산 데이터 모델의 일부이며 고객이 서비스를 사용한 시간대에 따라 차등 단가를 적용하려고 한다. 다음 중 시간대별사용량 테이블을 기반으로 고객별 사용금액을 추출하는 SQL으로 가장 적절한 것은?
+</code></pre><div class="mermaid">erDiagram
+    시간대구간 {
+        VARCHAR 시작시간대
+        VARCHAR 종료시간대
+        NUMBER 단가
+    }
+
+    고객 ||--o{ 시간대별사용량 : "고객ID"
+
+    고객 {
+        VARCHAR 고객ID
+        VARCHAR 고객명
+        DATE 생년월일
+    }
+
+    시간대별사용량 {
+        VARCHAR 고객ID "FK PK"
+        VARCHAR 사용시간대 "PK"
+        NUMBER 사용량
+    }
+
+</div><pre data-role="codeBlock" data-info="" class="language-text"><code>※ 시간대별사용량 테이블의 복합키: 고객ID + 사용시간대
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>①  <span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>고객ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>사용량 <span class="token operator">*</span> C<span class="token punctuation">.</span>단가<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 사용금액
+<span class="token keyword keyword-FROM">FROM</span> 고객 A <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 시간대별사용량 B
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>A<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> B<span class="token punctuation">.</span>고객ID<span class="token punctuation">)</span> <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 시간대구간 C
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>B<span class="token punctuation">.</span>사용시간대 <span class="token operator">&lt;=</span> C<span class="token punctuation">.</span>시작시간대 <span class="token operator">AND</span> B<span class="token punctuation">.</span>사용시간대 <span class="token operator">&gt;=</span> C<span class="token punctuation">.</span>종료시간대<span class="token punctuation">)</span>
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>고객ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>고객ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명<span class="token punctuation">;</span>
+
+② <span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>고객ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>사용량 <span class="token operator">*</span> C<span class="token punctuation">.</span>가<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 사용금액
+<span class="token keyword keyword-FROM">FROM</span> 고객 A <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 시간대별사용량 B <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 시간대구간 C
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>A<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> B<span class="token punctuation">.</span>고객ID <span class="token operator">AND</span> B<span class="token punctuation">.</span>사용시간대  <span class="token operator">BETWEEN</span> C<span class="token punctuation">.</span>시작시간대 <span class="token operator">AND</span> C<span class="token punctuation">.</span>종료시간대<span class="token punctuation">)</span>
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>고객ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>고객ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명:
+
+③ <span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>고객ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>사용량 <span class="token operator">*</span> C<span class="token punctuation">.</span>단가<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 사용금액
+<span class="token keyword keyword-FROM">FROM</span> 고객 A <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 시간대별사용량 B
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>A<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> B<span class="token punctuation">.</span>고객ID<span class="token punctuation">)</span> <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 시간대구간 C
+<span class="token keyword keyword-ON">ON</span> B<span class="token punctuation">.</span>사용시간대 <span class="token operator">BETWEEN</span> C<span class="token punctuation">.</span>시작시간대 <span class="token operator">AND</span> C<span class="token punctuation">.</span>종료시간대
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>고객ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>고객ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명:
+
+④ <span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>고객ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>사용량 <span class="token operator">*</span> C<span class="token punctuation">.</span>단가<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> 사용금액
+<span class="token keyword keyword-FROM">FROM</span> 고객 A <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> 시간대별사용량 B
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>A<span class="token punctuation">.</span>고객ID <span class="token operator">=</span> B<span class="token punctuation">.</span>고객ID<span class="token punctuation">)</span> <span class="token operator">BETWEEN</span> <span class="token keyword keyword-JOIN">JOIN</span> 시간대구간 C
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>고객ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>고객ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명:
+</code></pre><p><strong>정답:</strong> ③</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+시간대가 단가 범위 안에 있어야 하니까 BETWEEN으로 연결해요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>시간대별사용량과 시간대구간을 시간대 기준으로 연결</li>
+<li>BETWEEN으로 시작~종료 범위 조건</li>
+<li>SUM(사용량 × 단가)로 금액 계산</li>
+</ul>
+<h6 id="-sql-처리-순서-설명">🧠 SQL 처리 순서 설명 </h6>
+<ol>
+<li>
+<p><strong>FROM 고객 A</strong></p>
+<ul>
+<li>가장 먼저 <strong>고객</strong> 테이블을 기준으로 시작합니다. 별칭 <strong>A</strong>를 붙여 이후 참조에 사용됩니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>INNER JOIN 시간대별사용량 B ON (A.고객ID = B.고객ID)</strong></p>
+<ul>
+<li><strong>고객</strong> 테이블과 <strong>시간대별사용량</strong> 테이블을 <strong>고객ID</strong> 기준으로 내부 조인합니다. 즉, 두 테이블에서 <strong>고객ID</strong>가 일치하는 행만 남깁니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>INNER JOIN 시간대구간 C ON B.사용시간대 BETWEEN C.시작시간대 AND C.종료시간대</strong></p>
+<ul>
+<li>앞서 조인된 결과에 <strong>시간대구간</strong> 테이블을 추가로 조인합니다. <strong>사용시간대</strong>가 <strong>시작시간대</strong>와 <strong>종료시간대</strong> 사이에 있는 경우만 남깁니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>WHERE (없음)</strong></p>
+<ul>
+<li>이 구문에는 <strong>WHERE</strong> 절이 없지만, 있다면 이 단계에서 조건 필터링이 수행됩니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>GROUP BY A.고객ID, A.고객명</strong></p>
+<ul>
+<li>조인된 결과를 <strong>고객ID</strong>와 <strong>고객명</strong> 기준으로 그룹화합니다. 즉, 고객별로 데이터를 묶습니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>SELECT A.고객ID, A.고객명, SUM(B.사용량 * C.단가) AS 사용금액</strong></p>
+<ul>
+<li>그룹화된 각 고객에 대해 <strong>사용량 × 단가</strong>의 합계를 계산하여 <strong>사용금액</strong>으로 출력합니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>ORDER BY A.고객ID, A.고객명</strong></p>
+<ul>
+<li>최종 결과를 <strong>고객ID</strong>, <strong>고객명</strong> 기준으로 오름차순 정렬합니다.</li>
+</ul>
+</li>
+</ol>
+<h6 id="-요약-순서">🧾 요약 순서 </h6>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>처리 단계</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>FROM</strong></td>
+<td>기준 테이블 선택</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>JOIN</strong></td>
+<td>테이블 간 조인 수행</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>ON</strong></td>
+<td>조인 조건 적용</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>WHERE</strong></td>
+<td>조건 필터링 (해당 구문엔 없음)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>GROUP BY</strong></td>
+<td>그룹화 수행</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>SELECT</strong></td>
+<td>원하는 컬럼과 집계 계산</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>ORDER BY</strong></td>
+<td>결과 정렬</td>
+</tr>
+</tbody>
+</table>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>조건 방향 반대</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>단가 컬럼 오타</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>조건 정확, 컬럼 정확</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>JOIN 문법 오류</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+시간대 조건은 BETWEEN<br>
+금액 계산은 SUM(사용량 × 단가)</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 24: GROUP BY = 묶기</li>
+<li>🃏 카드 29: 윈도우 함수 = 행별 분석</li>
+<li>🃏 카드 35: INSERT = 추가</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 070<span class="token punctuation">]</span>    
+
+다음 중 팀<span class="token punctuation">(</span>TEAM<span class="token punctuation">)</span> 테이블과 구장<span class="token punctuation">(</span>STADIUM<span class="token punctuation">)</span> 테이블의 관계를 이용해서 소속팀이 가지고 있는 전용구장의 정보를 팀의 정보와 함께 출력하는 SQL을 작성할 때 결과가 다른 것은?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>① <span class="token keyword keyword-SELECT">SELECT</span> T<span class="token punctuation">.</span>REGION_NAME<span class="token punctuation">,</span> T<span class="token punctuation">.</span>TEAM_NAME<span class="token punctuation">,</span> T<span class="token punctuation">.</span>STADIUM_ID<span class="token punctuation">,</span> S<span class="token punctuation">.</span>STADIUM_NAME
+<span class="token keyword keyword-FROM">FROM</span> TEAM T <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> STADIUM S
+<span class="token keyword keyword-USING">USING</span> <span class="token punctuation">(</span>T<span class="token punctuation">.</span>STADIUM_ID <span class="token operator">=</span> S<span class="token punctuation">.</span>STADIUM_ID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+② <span class="token keyword keyword-SELECT">SELECT</span> TEAM<span class="token punctuation">.</span>REGION_NAME<span class="token punctuation">,</span> TEAM<span class="token punctuation">.</span>TEAM_NAME<span class="token punctuation">,</span> TEAM<span class="token punctuation">.</span>STADIUM_ID<span class="token punctuation">,</span> STADIUM<span class="token punctuation">.</span>STADIUM_NAME
+<span class="token keyword keyword-FROM">FROM</span> TEAM <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> STADIUM
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>TEAM<span class="token punctuation">.</span>STADIUM_ID <span class="token operator">=</span> STADIUM<span class="token punctuation">.</span>STADIUM_ID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+③ <span class="token keyword keyword-SELECT">SELECT</span> T<span class="token punctuation">.</span>REGION_NAME<span class="token punctuation">,</span> T<span class="token punctuation">.</span>TEAM_NAME<span class="token punctuation">,</span> T<span class="token punctuation">.</span>STADIUM_ID<span class="token punctuation">,</span> S<span class="token punctuation">.</span>STADIUM_NAME
+<span class="token keyword keyword-FROM">FROM</span> TEAM T<span class="token punctuation">,</span> STADIUM S
+<span class="token keyword keyword-WHERE">WHERE</span> T<span class="token punctuation">.</span>STADIUM_ID <span class="token operator">=</span> S<span class="token punctuation">.</span>STADIUM_ID<span class="token punctuation">;</span>
+
+④ <span class="token keyword keyword-SELECT">SELECT</span> TEAM<span class="token punctuation">.</span>REGION_NAME<span class="token punctuation">,</span> TEAM<span class="token punctuation">.</span>TEAM_NAME<span class="token punctuation">,</span> TEAM<span class="token punctuation">.</span>STADIUM_ID<span class="token punctuation">,</span> STADIUM<span class="token punctuation">.</span>STADIUM_NAME
+<span class="token keyword keyword-FROM">FROM</span> TEAM<span class="token punctuation">,</span> STADIUM
+<span class="token keyword keyword-WHERE">WHERE</span> TEAM<span class="token punctuation">.</span>STADIUM_ID <span class="token operator">=</span> STADIUM<span class="token punctuation">.</span>STADIUM_ID<span class="token punctuation">;</span>
+</code></pre><p><strong>정답:</strong> ①</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+USING은 컬럼명이 같을 때만 써요!<br>
+조건식이 들어가면 오류가 나요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>USING은 단순 컬럼명만 지정 가능</li>
+<li><code>USING (T.STADIUM_ID = S.STADIUM_ID)</code>는 문법 오류</li>
+<li>나머지는 모두 ON 또는 WHERE로 조건 지정</li>
+</ul>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>USING 문법 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>ON 조건 적절</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>WHERE 조건 적절</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>WHERE 조건 적절</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+USING은 <strong>컬럼명</strong>만! 조건식은 안 돼요!</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 41: JOIN 유형</li>
+<li>🃏 카드 23: JOIN = 연결</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 071<span class="token punctuation">]</span>  
+아래의 사례1은 Cartesian Product를 만들기 위한 SQL 문장이며 사례1과 같은 결과를 얻기 위해 사례2 SQL 문장의 ㉠ 안에 들어갈 내용을 작성하시오.
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span>사례<span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> ENAME<span class="token punctuation">,</span> DNAME
+<span class="token keyword keyword-FROM">FROM</span> EMP<span class="token punctuation">,</span> DEPT
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> ENAME<span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span>사례<span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> ENAME<span class="token punctuation">,</span> DNAME
+<span class="token keyword keyword-FROM">FROM</span> EMP  ㉠ DEPT 
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> ENAME<span class="token punctuation">;</span>
+</code></pre><p><strong>정답</strong> : CROSS JOIN</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+EMP와 DEPT를 조건 없이 연결하면 곱셈처럼 모든 조합이 나와요. 그게 바로 CROSS JOIN이에요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>CROSS JOIN은 조건 없이 두 테이블의 모든 조합을 반환</li>
+<li>EMP와 DEPT를 단순히 나열하면 CROSS JOIN과 동일한 결과</li>
+<li>INNER JOIN은 조건이 필요함</li>
+</ul>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>조건 기반 JOIN</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>방향성 있는 JOIN</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>곱셈 조합 → 정답</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>④</td>
+<td>동일 컬럼명 기준 JOIN</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+CROSS JOIN = 곱셈 조합</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 41: JOIN 유형</li>
+<li>🃏 카드 23: JOIN = 연결</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 072<span class="token punctuation">]</span> 
+다음 중 아래 테이블들을 대상으로 SQL 문장을 수행한 결과로 가장 적절한 것은?
+</code></pre><p>[테이블: OS]</p>
+<table>
+<thead>
+<tr>
+<th>OSID (PK)</th>
+<th>OS명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>200</td>
+<td>IOS</td>
+</tr>
+<tr>
+<td>300</td>
+<td>Bada</td>
+</tr>
+</tbody>
+</table>
+<p>[테이블: 단말기]</p>
+<table>
+<thead>
+<tr>
+<th>단말기ID (PK)</th>
+<th>단말기명</th>
+<th>OSID (FK)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1000</td>
+<td>A1000</td>
+<td>100</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>B2000</td>
+<td>100</td>
+</tr>
+<tr>
+<td>3000</td>
+<td>C3000</td>
+<td>200</td>
+</tr>
+<tr>
+<td>4000</td>
+<td>D3000</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+<p>[테이블: 고객]</p>
+<table>
+<thead>
+<tr>
+<th>고객번호 (PK)</th>
+<th>고객명</th>
+<th>단말기ID (FK)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11000</td>
+<td>홍길동</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>12000</td>
+<td>강감찬</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>13000</td>
+<td>이순신</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14000</td>
+<td>안중근</td>
+<td>3000</td>
+</tr>
+<tr>
+<td>15000</td>
+<td>고길동</td>
+<td>4000</td>
+</tr>
+<tr>
+<td>16000</td>
+<td>이대로</td>
+<td>4000</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>고객번호<span class="token punctuation">,</span> A<span class="token punctuation">.</span>고객명<span class="token punctuation">,</span> B<span class="token punctuation">.</span>단말기ID<span class="token punctuation">,</span> B<span class="token punctuation">.</span>단말기명<span class="token punctuation">,</span> C<span class="token punctuation">.</span>OSID<span class="token punctuation">,</span> C<span class="token punctuation">.</span>OS명
+<span class="token keyword keyword-FROM">FROM</span> 고객 A <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> 단말기 B
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>A<span class="token punctuation">.</span>고객번호 <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token number">11000</span><span class="token punctuation">,</span><span class="token number">12000</span><span class="token punctuation">)</span>  <span class="token operator">AND</span>  A<span class="token punctuation">.</span>단말기ID<span class="token operator">=</span>B<span class="token punctuation">.</span>단말기ID<span class="token punctuation">)</span>  <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> OS C
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>B<span class="token punctuation">.</span>OSID <span class="token operator">=</span> C<span class="token punctuation">.</span>OSID<span class="token punctuation">)</span>
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>고객번호<span class="token punctuation">;</span>
+</code></pre><p>①</p>
+<table>
+<thead>
+<tr>
+<th>고객번호</th>
+<th>고객명</th>
+<th>단말기ID</th>
+<th>단말기명</th>
+<th>OSID</th>
+<th>OS명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11000</td>
+<td>홍길동</td>
+<td>1000</td>
+<td>A1000</td>
+<td>100</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>12000</td>
+<td>강감찬</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>13000</td>
+<td>이순신</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14000</td>
+<td>안중근</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>15000</td>
+<td>고길동</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>16000</td>
+<td>이대로</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>② 단말기</p>
+<table>
+<thead>
+<tr>
+<th>고객번호</th>
+<th>고객명</th>
+<th>단말기ID</th>
+<th>단말기명</th>
+<th>OSID</th>
+<th>OS명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11000</td>
+<td>홍길동</td>
+<td>1000</td>
+<td>A1000</td>
+<td>100</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>12000</td>
+<td>강감찬</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>③</p>
+<table>
+<thead>
+<tr>
+<th>고객번호</th>
+<th>고객명</th>
+<th>단말기ID</th>
+<th>단말기명</th>
+<th>OSID</th>
+<th>OS명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11000</td>
+<td>홍길동</td>
+<td>1000</td>
+<td>A1000</td>
+<td>100</td>
+<td>Android</td>
+</tr>
+</tbody>
+</table>
+<p>④</p>
+<table>
+<thead>
+<tr>
+<th>고객번호</th>
+<th>고객명</th>
+<th>단말기ID</th>
+<th>단말기명</th>
+<th>OSID</th>
+<th>OS명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11000</td>
+<td>홍길동</td>
+<td>1000</td>
+<td>A1000</td>
+<td>100</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>12000</td>
+<td>강감찬</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>13000</td>
+<td>이순신</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14000</td>
+<td>안중근</td>
+<td>3000</td>
+<td>C3000</td>
+<td>200</td>
+<td>iOS</td>
+</tr>
+<tr>
+<td>15000</td>
+<td>고길동</td>
+<td>4000</td>
+<td>D4000</td>
+<td>300</td>
+<td>Bada</td>
+</tr>
+<tr>
+<td>16000</td>
+<td>이대로</td>
+<td>4000</td>
+<td>D4000</td>
+<td>300</td>
+<td>Bada</td>
+</tr>
+</tbody>
+</table>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+JOIN 조건에 고객번호 IN (11000,12000)이 들어가서 나머지 고객은 결과에 안 나와요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>LEFT JOIN이지만 조건에 고객번호 제한이 있어 결과가 제한됨</li>
+<li>단말기ID가 NULL인 고객은 단말기/OS 정보도 NULL</li>
+<li>전체 고객이 아닌 일부만 조회됨</li>
+</ul>
+<h6 id="-sql-처리-순서-설명-1">🧠 SQL 처리 순서 설명 </h6>
+<ol>
+<li>
+<p><strong>FROM 고객 A</strong></p>
+<ul>
+<li>가장 먼저 <strong>고객</strong> 테이블을 기준으로 시작합니다. 별칭 <strong>A</strong>를 붙여 이후 참조에 사용됩니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>LEFT OUTER JOIN 단말기 B ON (A.고객번호 IN (11000,12000) AND A.단말기ID = B.단말기ID)</strong></p>
+<ul>
+<li><strong>고객</strong> 테이블과 <strong>단말기</strong> 테이블을 외부 조인합니다.</li>
+<li>단말기 정보가 없어도 <strong>고객번호</strong>가 11000 또는 12000인 고객은 결과에 포함됩니다.</li>
+<li>조인 조건은 두 가지:
+<ul>
+<li><strong>A.고객번호</strong>가 11000 또는 12000</li>
+<li><strong>A.단말기ID = B.단말기ID</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>LEFT OUTER JOIN OS C ON (B.OSID = C.OSID)</strong></p>
+<ul>
+<li>앞서 조인된 결과에 <strong>OS</strong> 테이블을 외부 조인합니다.</li>
+<li>단말기의 OS 정보가 없어도 단말기 정보가 있으면 결과에 포함됩니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>WHERE (없음)</strong></p>
+<ul>
+<li>이 구문에는 <strong>WHERE</strong> 절이 없지만, 있다면 이 단계에서 조건 필터링이 수행됩니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>SELECT A.고객번호, A.고객명, B.단말기ID, B.단말기명, C.OSID, C.OS명</strong></p>
+<ul>
+<li>조인된 결과에서 원하는 컬럼들을 선택합니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>ORDER BY A.고객번호</strong></p>
+<ul>
+<li>최종 결과를 <strong>고객번호</strong> 기준으로 오름차순 정렬합니다.</li>
+</ul>
+</li>
+</ol>
+<h6 id="-요약-순서-1">🧾 요약 순서 </h6>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>처리 단계</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>FROM</strong></td>
+<td>기준 테이블 선택 (<strong>고객</strong>)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>LEFT OUTER JOIN</strong></td>
+<td><strong>단말기</strong> 테이블과 외부 조인</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>ON</strong></td>
+<td>조인 조건 적용</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>LEFT OUTER JOIN</strong></td>
+<td><strong>OS</strong> 테이블과 외부 조인</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>ON</strong></td>
+<td>OS 조인 조건 적용</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>SELECT</strong></td>
+<td>원하는 컬럼 선택</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>ORDER BY</strong></td>
+<td>결과 정렬</td>
+</tr>
+</tbody>
+</table>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>조건에 맞는 고객만 조회됨</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>일부만 조회되지만 설명 부족</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>단일 고객만 조회</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>전체 고객 조회됨 → 조건 무시</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+JOIN 조건에 필터가 있으면 LEFT JOIN이라도 제한됨</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 22: WHERE = 필터링</li>
+<li>🃏 카드 41: JOIN 유형</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 073<span class="token punctuation">]</span>    
+다음 중 아래 <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>, <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>, <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>의 SQL에서 실행결과가 같은 것은?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> B<span class="token punctuation">.</span>ID
+<span class="token keyword keyword-FROM">FROM</span> TBL1 A <span class="token keyword keyword-FULL">FULL</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> TBL2 B
+<span class="token keyword keyword-ON">ON</span> A<span class="token punctuation">.</span>ID <span class="token operator">=</span> B<span class="token punctuation">.</span>ID
+
+<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> B<span class="token punctuation">.</span>ID
+<span class="token keyword keyword-FROM">FROM</span> TBL1 A <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> TBL2 B
+<span class="token keyword keyword-ON">ON</span> A<span class="token punctuation">.</span>ID <span class="token operator">=</span> B<span class="token punctuation">.</span>ID
+<span class="token keyword keyword-UNION">UNION</span>
+<span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> B<span class="token punctuation">.</span>ID
+<span class="token keyword keyword-FROM">FROM</span> TBL1 A <span class="token keyword keyword-RIGHT">RIGHT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> TBL2 B
+<span class="token keyword keyword-ON">ON</span> A<span class="token punctuation">.</span>ID <span class="token operator">=</span> B<span class="token punctuation">.</span>ID
+
+<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> B<span class="token punctuation">.</span>ID
+<span class="token keyword keyword-FROM">FROM</span> TBL1 A<span class="token punctuation">,</span> TBL2 B
+<span class="token keyword keyword-WHERE">WHERE</span> A<span class="token punctuation">.</span>ID <span class="token operator">=</span> B<span class="token punctuation">.</span>ID
+<span class="token keyword keyword-UNION">UNION</span> <span class="token keyword keyword-ALL">ALL</span>
+<span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token boolean">NULL</span>
+<span class="token keyword keyword-FROM">FROM</span> TBL1 A
+<span class="token keyword keyword-WHERE">WHERE</span> <span class="token operator">NOT</span> <span class="token keyword keyword-EXISTS">EXISTS</span> <span class="token punctuation">(</span><span class="token keyword keyword-SELECT">SELECT</span> <span class="token number">1</span> <span class="token keyword keyword-FROM">FROM</span> TBL2 B <span class="token keyword keyword-WHERE">WHERE</span> A<span class="token punctuation">.</span>ID <span class="token operator">=</span> B<span class="token punctuation">.</span>ID<span class="token punctuation">)</span>
+<span class="token keyword keyword-UNION">UNION</span> <span class="token keyword keyword-ALL">ALL</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span> B<span class="token punctuation">.</span>ID
+<span class="token keyword keyword-FROM">FROM</span> TBL2 B
+<span class="token keyword keyword-WHERE">WHERE</span> <span class="token operator">NOT</span> <span class="token keyword keyword-EXISTS">EXISTS</span> <span class="token punctuation">(</span><span class="token keyword keyword-SELECT">SELECT</span> <span class="token number">1</span> <span class="token keyword keyword-FROM">FROM</span> TBL1 A <span class="token keyword keyword-WHERE">WHERE</span> B<span class="token punctuation">.</span>ID <span class="token operator">=</span> A<span class="token punctuation">.</span>ID<span class="token punctuation">)</span>
+</code></pre><p>① 1, 2<br>
+② 1, 3<br>
+③ 2, 3<br>
+④ 1, 2, 3</p>
+<p><strong>정답:</strong> ④ (1, 2, 3)</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+FULL OUTER JOIN은 양쪽 모두 포함!<br>
+(2), (3)도 같은 결과를 다른 방식으로 만든 거예요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>(1): FULL OUTER JOIN은 모든 행 포함</li>
+<li>(2): LEFT + RIGHT JOIN을 UNION하면 FULL과 동일</li>
+<li>(3): INNER JOIN + NOT EXISTS로 누락된 행 보완</li>
+</ul>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>일부만 포함</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>일부만 포함</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>일부만 포함</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>모두 동일 결과</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+FULL OUTER JOIN = LEFT + RIGHT</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 41: JOIN 유형</li>
+<li>🃏 카드 42: 서브쿼리 유형</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 074<span class="token punctuation">]</span> 
+아래의 EMP 테이블과 DEPT 테이블에서 밑줄 친 속성은 주키이며 EMP.C는 DEPT와 연결된 외래키이다. EMP 테이블과 DEPT 테이블을 LEFT, FULL, RIGHT 외부조인<span class="token punctuation">(</span>outer <span class="token function">join</span><span class="token punctuation">)</span>하면 생성되는 결과 건수로 가장 적절한 것은?
+</code></pre><p>[ EMP 테이블]</p>
+<table>
+<thead>
+<tr>
+<th><u>A</u></th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>b</td>
+<td>w</td>
+</tr>
+<tr>
+<td>3</td>
+<td>d</td>
+<td>w</td>
+</tr>
+<tr>
+<td>5</td>
+<td>y</td>
+<td>y</td>
+</tr>
+</tbody>
+</table>
+<p>[DEPT 테이블]</p>
+<table>
+<thead>
+<tr>
+<th><u>C</u></th>
+<th>D</th>
+<th>E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>w</td>
+<td>1</td>
+<td>10</td>
+</tr>
+<tr>
+<td>z</td>
+<td>4</td>
+<td>11</td>
+</tr>
+<tr>
+<td>v</td>
+<td>2</td>
+<td>22</td>
+</tr>
+</tbody>
+</table>
+<p>① 3건, 5건, 4건<br>
+② 4건, 5건, 3건<br>
+③ 3건, 4건, 4건<br>
+④ 3건, 4건, 5건</p>
+<p><strong>정답:</strong> ①</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+FULL JOIN은 양쪽 모두 포함해서 가장 많아요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>LEFT JOIN: EMP 기준 → 3건</li>
+<li>FULL JOIN: EMP + DEPT 모두 포함 → 5건</li>
+<li>RIGHT JOIN: DEPT 기준 → 4건<br>
+SQL 처리 순서별 설명</li>
+</ul>
+<h6 id="1️⃣-left-outer-join-emp-기준">1️⃣ LEFT OUTER JOIN (EMP 기준) </h6>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> EMP <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> DEPT <span class="token keyword keyword-ON">ON</span> EMP<span class="token punctuation">.</span>C <span class="token operator">=</span> DEPT<span class="token punctuation">.</span>C<span class="token punctuation">;</span>
+</code></pre><ul>
+<li>EMP 테이블의 <strong>모든 행</strong>을 기준으로 함.</li>
+<li>EMP.C = DEPT.C 조건이 맞는 경우 DEPT 정보도 붙음.</li>
+<li>EMP.C = w → DEPT.C = w 와 매칭됨 → 2건</li>
+<li>EMP.C = y → DEPT에 y 없음 → NULL 붙음 → 1건</li>
+</ul>
+<p>✅ <strong>총 3건</strong></p>
+<h6 id="2️⃣-full-outer-join-emp--dept-모두-기준">2️⃣ FULL OUTER JOIN (EMP + DEPT 모두 기준) </h6>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> EMP <span class="token keyword keyword-FULL">FULL</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> DEPT <span class="token keyword keyword-ON">ON</span> EMP<span class="token punctuation">.</span>C <span class="token operator">=</span> DEPT<span class="token punctuation">.</span>C<span class="token punctuation">;</span>
+</code></pre><ul>
+<li>EMP와 DEPT <strong>모두 포함</strong> (조건이 맞지 않아도 NULL로 채움)</li>
+<li>EMP.C = w → DEPT.C = w 와 매칭됨 → 2건</li>
+<li>EMP.C = y → DEPT에 없음 → 1건</li>
+<li>DEPT.C = z, v → EMP에 없음 → 2건</li>
+</ul>
+<p>✅ <strong>총 5건</strong></p>
+<hr>
+<h6 id="3️⃣-right-outer-join-dept-기준">3️⃣ RIGHT OUTER JOIN (DEPT 기준) </h6>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> EMP <span class="token keyword keyword-RIGHT">RIGHT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> DEPT <span class="token keyword keyword-ON">ON</span> EMP<span class="token punctuation">.</span>C <span class="token operator">=</span> DEPT<span class="token punctuation">.</span>C<span class="token punctuation">;</span>
+</code></pre><ul>
+<li>DEPT 테이블의 <strong>모든 행</strong>을 기준으로 함.</li>
+<li>DEPT.C = w → EMP.C = w 와 매칭됨 → 2건</li>
+<li>DEPT.C = z, v → EMP에 없음 → NULL 붙음 → 2건</li>
+</ul>
+<p>✅ <strong>총 4건</strong></p>
+<p>🧠 <strong>기억법:</strong><br>
+FULL JOIN = 가장 많은 건수</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 41: JOIN 유형</li>
+<li>🃏 카드 33: COUNT(*) = 전체 행</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 075<span class="token punctuation">]</span>    
+신규 부서의 경우 일시적으로 사원이 없는 경우도 있다고 가정하고 DEPT와 EMP를 조인하되 사원이 없는 부서 정보도 같이 출력하도록 할 때, 아래 SQL 문장의 <span class="token punctuation">(</span>가<span class="token punctuation">)</span> 안에 들어갈 내용을 기술하시오.
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> E<span class="token punctuation">,</span> ENAME<span class="token punctuation">,</span> D<span class="token punctuation">.</span> DEPTNO<span class="token punctuation">,</span> D<span class="token punctuation">.</span> DNAME
+<span class="token keyword keyword-FROM">FROM</span>  DEPT D  <span class="token punctuation">(</span>가<span class="token punctuation">)</span>  EMP E
+<span class="token keyword keyword-ON">ON</span>    D<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> E<span class="token punctuation">.</span>DEPTNO<span class="token punctuation">;</span>
+</code></pre><p><strong>정답:</strong> LEFT JOIN</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+LEFT JOIN은 왼쪽(DEPT)을 기준으로 사원이 없어도 보여줘요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>LEFT JOIN은 기준 테이블(DEPT)의 모든 행을 유지</li>
+<li>EMP에 대응되는 값이 없어도 NULL로 출력됨</li>
+</ul>
+<h6 id="-sql-처리-순서-설명-2">🧠 SQL 처리 순서 설명 </h6>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>SELECT E, ENAME, D.DEPTNO, D.DNAME
+FROM DEPT D LEFT JOIN EMP E
+ON D.DEPTNO = E.DEPTNO;
+</code></pre><h6 id="1️⃣-from-dept-d">1️⃣ <strong>FROM DEPT D</strong> </h6>
+<ul>
+<li>가장 먼저 <strong>DEPT</strong> 테이블을 기준으로 시작합니다.</li>
+<li>이 테이블이 <strong>왼쪽 테이블</strong>이 되며, LEFT JOIN의 기준이 됩니다.</li>
+</ul>
+<h6 id="2️⃣-left-join-emp-e">2️⃣ <strong>LEFT JOIN EMP E</strong> </h6>
+<ul>
+<li><strong>EMP</strong> 테이블을 <strong>DEPT</strong>에 <strong>외부 조인</strong>합니다.</li>
+<li><strong>EMP</strong>는 <strong>오른쪽 테이블</strong>이며, 사원이 없어도 <strong>DEPT</strong>의 모든 행은 유지됩니다.</li>
+</ul>
+<h6 id="3️⃣-on-ddeptno--edeptno">3️⃣ <strong>ON D.DEPTNO = E.DEPTNO</strong> </h6>
+<ul>
+<li>조인 조건: 부서번호가 같은 경우만 <strong>EMP</strong>의 정보가 붙습니다.</li>
+<li>조건이 맞지 않으면 <strong>EMP</strong> 쪽은 <strong>NULL</strong>로 채워집니다.</li>
+</ul>
+<h6 id="4️⃣-where-없음">4️⃣ <strong>WHERE</strong> (없음) </h6>
+<ul>
+<li>이 구문에는 <strong>WHERE</strong> 절이 없지만, 있다면 이 단계에서 조건 필터링이 수행됩니다.</li>
+</ul>
+<h6 id="5️⃣-select-e-ename-ddeptno-ddname">5️⃣ <strong>SELECT E, ENAME, D.DEPTNO, D.DNAME</strong> </h6>
+<ul>
+<li>조인된 결과에서 원하는 컬럼을 선택합니다.</li>
+<li>사원이 없는 부서의 경우 <strong>E</strong>, <strong>ENAME</strong>는 <strong>NULL</strong>로 출력됩니다.</li>
+</ul>
+<h6 id="-요약-순서-2">🧾 요약 순서 </h6>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>처리 단계</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>FROM</strong></td>
+<td>기준 테이블 선택 (<strong>DEPT</strong>)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>LEFT JOIN</strong></td>
+<td><strong>EMP</strong> 테이블과 외부 조인</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>ON</strong></td>
+<td>조인 조건 적용</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>SELECT</strong></td>
+<td>원하는 컬럼 선택</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>WHERE</strong> (없음)</td>
+<td>조건 필터링 없음</td>
+</tr>
+</tbody>
+</table>
+<h6 id="-핵심-요점">✅ 핵심 요점 </h6>
+<ul>
+<li><strong>LEFT JOIN</strong>은 왼쪽 테이블(DEPT)의 모든 행을 유지합니다.</li>
+<li>EMP에 대응되는 사원이 없어도 DEPT 정보는 출력됩니다.</li>
+<li>신규 부서처럼 사원이 없는 경우에도 부서 정보가 보장됩니다.</li>
+</ul>
+<p>🧠 <strong>기억법:</strong><br>
+LEFT JOIN = 왼쪽 기준 유지</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 41: JOIN 유형</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 076<span class="token punctuation">]</span>  
+다음 중 아래와 같은 데이터 상황에서 SQL의 수행 결과로 가장 적절한 것은?
+</code></pre><p>[ 테이블 1: TAB1]</p>
+<table>
+<thead>
+<tr>
+<th>C1</th>
+<th>C2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2</td>
+</tr>
+<tr>
+<td>C</td>
+<td>3</td>
+</tr>
+<tr>
+<td>D</td>
+<td>4</td>
+</tr>
+<tr>
+<td>E</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>[ 테이블 2: TAB2]</p>
+<table>
+<thead>
+<tr>
+<th>C1</th>
+<th>C2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B</td>
+<td>2</td>
+</tr>
+<tr>
+<td>C</td>
+<td>3</td>
+</tr>
+<tr>
+<td>D</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword keyword-FROM">FROM</span> TABI A <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> TAB2 B
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>A<span class="token punctuation">.</span>C1 <span class="token operator">=</span> B<span class="token punctuation">.</span>C1 <span class="token operator">AND</span> B<span class="token punctuation">.</span>C2 <span class="token operator">BETWEEN</span> <span class="token number">1</span> <span class="token operator">AND</span> <span class="token number">3</span><span class="token punctuation">)</span>
+</code></pre><p>①</p>
+<table>
+<thead>
+<tr>
+<th>C1</th>
+<th>C2</th>
+<th>C1</th>
+<th>C2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>B</td>
+<td>2</td>
+<td>B</td>
+<td>2</td>
+</tr>
+<tr>
+<td>C</td>
+<td>3</td>
+<td>C</td>
+<td>3</td>
+</tr>
+<tr>
+<td>D</td>
+<td>4</td>
+<td>D</td>
+<td>4</td>
+</tr>
+<tr>
+<td>E</td>
+<td>5</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>②</p>
+<table>
+<thead>
+<tr>
+<th>C1</th>
+<th>C2</th>
+<th>C1</th>
+<th>C2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>B</td>
+<td>2</td>
+<td>B</td>
+<td>2</td>
+</tr>
+<tr>
+<td>C</td>
+<td>3</td>
+<td>C</td>
+<td>3</td>
+</tr>
+<tr>
+<td>D</td>
+<td>4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E</td>
+<td>5</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>③</p>
+<table>
+<thead>
+<tr>
+<th>C1</th>
+<th>C2</th>
+<th>C1</th>
+<th>C2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>B</td>
+<td>2</td>
+<td>B</td>
+<td>2</td>
+</tr>
+<tr>
+<td>C</td>
+<td>3</td>
+<td>C</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>④</p>
+<table>
+<thead>
+<tr>
+<th>C1</th>
+<th>C2</th>
+<th>C1</th>
+<th>C2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>B</td>
+<td>2</td>
+<td>B</td>
+<td>2</td>
+</tr>
+<tr>
+<td>C</td>
+<td>3</td>
+<td>C</td>
+<td>3</td>
+</tr>
+<tr>
+<td>D</td>
+<td>4</td>
+<td>D</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>정답:</strong> ②</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+BETWEEN 조건에 안 맞는 D, E는 NULL로 나와요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>B.C2가 1~3 사이인 경우만 JOIN됨</li>
+<li>D(4), E(5)는 조건에 안 맞아 NULL</li>
+</ul>
+<h6 id="-sql-처리-순서별-설명">🧠 SQL 처리 순서별 설명 </h6>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword keyword-FROM">FROM</span> TAB1 A <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> TAB2 B
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>A<span class="token punctuation">.</span>C1 <span class="token operator">=</span> B<span class="token punctuation">.</span>C1 <span class="token operator">AND</span> B<span class="token punctuation">.</span>C2 <span class="token operator">BETWEEN</span> <span class="token number">1</span> <span class="token operator">AND</span> <span class="token number">3</span><span class="token punctuation">)</span>
+</code></pre><h6 id="1️⃣-from-tab1-a">1️⃣ <strong>FROM TAB1 A</strong> </h6>
+<ul>
+<li><strong>TAB1</strong> 테이블을 기준으로 시작합니다.</li>
+<li>이 테이블이 <strong>LEFT JOIN의 왼쪽 테이블</strong>이 됩니다.</li>
+</ul>
+<h6 id="2️⃣-left-outer-join-tab2-b">2️⃣ <strong>LEFT OUTER JOIN TAB2 B</strong> </h6>
+<ul>
+<li><strong>TAB2</strong> 테이블을 외부 조인합니다.</li>
+<li><strong>TAB1</strong>의 모든 행은 결과에 <strong>무조건 포함</strong>됩니다.</li>
+<li><strong>TAB2</strong>에 매칭되는 값이 없으면 <strong>NULL</strong>로 채워집니다.</li>
+</ul>
+<h6 id="3️⃣-on-ac1--bc1-and-bc2-between-1-and-3">3️⃣ <strong>ON (A.C1 = B.C1 AND B.C2 BETWEEN 1 AND 3)</strong> </h6>
+<ul>
+<li>조인 조건은 두 가지를 모두 만족해야 합니다:
+<ul>
+<li><strong>A.C1 = B.C1</strong></li>
+<li><strong>B.C2</strong> 값이 1 이상 3 이하</li>
+</ul>
+</li>
+<li>이 조건을 만족하는 경우에만 <strong>TAB2</strong>의 값이 붙습니다.</li>
+<li>조건을 만족하지 않으면 <strong>TAB2</strong>의 컬럼은 <strong>NULL</strong>로 채워집니다.</li>
+</ul>
+<h6 id="4️⃣-select-">4️⃣ **SELECT *** </h6>
+<ul>
+<li>조인된 결과에서 모든 컬럼을 출력합니다.</li>
+</ul>
+<h6 id="-조인-조건-적용-예시">📊 조인 조건 적용 예시 </h6>
+<table>
+<thead>
+<tr>
+<th>A.C1</th>
+<th>A.C2</th>
+<th>B.C1</th>
+<th>B.C2</th>
+<th>조인 여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>1</td>
+<td>—</td>
+<td>—</td>
+<td>❌ 없음 (TAB2에 A 없음)</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2</td>
+<td>B</td>
+<td>2</td>
+<td>✅ B.C2=2 (조건 만족)</td>
+</tr>
+<tr>
+<td>C</td>
+<td>3</td>
+<td>C</td>
+<td>3</td>
+<td>✅ B.C2=3 (조건 만족)</td>
+</tr>
+<tr>
+<td>D</td>
+<td>4</td>
+<td>D</td>
+<td>4</td>
+<td>❌ B.C2=4 (조건 불만족)</td>
+</tr>
+<tr>
+<td>E</td>
+<td>5</td>
+<td>—</td>
+<td>—</td>
+<td>❌ 없음 (TAB2에 E 없음)</td>
+</tr>
+</tbody>
+</table>
+<h6 id="-최종-결과">✅ 최종 결과 </h6>
+<table>
+<thead>
+<tr>
+<th>A.C1</th>
+<th>A.C2</th>
+<th>B.C1</th>
+<th>B.C2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>1</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2</td>
+<td>B</td>
+<td>2</td>
+</tr>
+<tr>
+<td>C</td>
+<td>3</td>
+<td>C</td>
+<td>3</td>
+</tr>
+<tr>
+<td>D</td>
+<td>4</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>E</td>
+<td>5</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>👉 <strong>총 5건</strong> 출력되며, <strong>TAB1</strong>의 모든 행이 유지되고 조건에 맞는 <strong>TAB2</strong> 값만 붙습니다.</p>
+<h6 id="-핵심-요약">🧷 핵심 요약 </h6>
+<ul>
+<li><strong>LEFT JOIN</strong>은 왼쪽 테이블(TAB1)의 모든 행을 유지합니다.</li>
+<li><strong>ON</strong> 조건이 <strong>두 조건 모두</strong> 만족해야 조인됩니다.</li>
+<li><strong>B.C2 BETWEEN 1 AND 3</strong> 조건 때문에 D는 조인되지 않습니다.</li>
+</ul>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>D도 포함됨 → 오류</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>조건 정확 → 정답</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>③</td>
+<td>일부 누락</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>조건 무시</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+JOIN 조건에 안 맞으면 NULL</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 22: WHERE = 필터링</li>
+<li>🃏 카드 41: JOIN 유형</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 077<span class="token punctuation">]</span>  
+아래와 같은 데이터 모델에서 ORACLE을 기준으로 SQL을 작성하였다. 그러나 SQL Server에서도 동일한 결과를 보장할 수 있도록 ANSI 구문으로 SQL을 변경하려고 한다. 다음 중 아래의 SQL을 ANSI 표준 구문으로 변경한 것으로 가장 적절한 것은?
+</code></pre><div class="mermaid">erDiagram
+    게시판 ||--o{ 게시글 : "게시판ID"
+
+    게시판 {
+        VARCHAR 게시판ID  "PK"
+        VARCHAR 게시판명
+        DATETIME 등록일시
+        CHAR 사용여부
+    }
+
+    게시글 {
+        VARCHAR 게시글ID "PK"
+        VARCHAR 게시판ID "FK"
+        VARCHAR 제목
+        TEXT 내용
+        DATETIME 등록일시
+        VARCHAR 등록자명
+        CHAR 삭제여부
+    }
+</div><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>게시판명<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>게시글ID<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> CNT
+<span class="token keyword keyword-FROM">FROM</span> 게시판 A<span class="token punctuation">,</span> 게시글 B
+<span class="token keyword keyword-WHERE">WHERE</span> A<span class="token punctuation">.</span>게시판ID <span class="token operator">=</span> B<span class="token punctuation">.</span>게시판ID<span class="token punctuation">(</span><span class="token operator">+</span><span class="token punctuation">)</span>
+<span class="token operator">AND</span>   B<span class="token punctuation">.</span>삭제여부<span class="token punctuation">(</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'N'</span>
+<span class="token operator">AND</span>   A<span class="token punctuation">.</span>사용여부 <span class="token operator">=</span> <span class="token string">'Y'</span>
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>게시판명
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">;</span>
+</code></pre><p><strong>[보기]</strong></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>① <span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>게시판명<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>게시글ID<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> CNT
+<span class="token keyword keyword-FROM">FROM</span>    게시판 A <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> 게시글 B
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>A<span class="token punctuation">.</span>게시판ID <span class="token operator">=</span> B<span class="token punctuation">.</span>게시판ID <span class="token operator">AND</span> B<span class="token punctuation">.</span>삭제여부 <span class="token operator">=</span> <span class="token string">'N'</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-WHERE">WHERE</span> A<span class="token punctuation">.</span>사용여부 <span class="token operator">=</span> <span class="token string">'Y'</span>
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>게시판명
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">;</span>
+
+② <span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>게시판명<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>게시글ID<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> CNT
+<span class="token keyword keyword-FROM">FROM</span> 게시판 A <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> 게시글 B
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>A<span class="token punctuation">.</span>게시판ID <span class="token operator">=</span> B<span class="token punctuation">.</span>게시판ID <span class="token operator">AND</span> A<span class="token punctuation">.</span>사용여부 <span class="token operator">=</span> <span class="token string">'Y'</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-WHERE">WHERE</span> B<span class="token punctuation">.</span>삭제여부 <span class="token operator">=</span> <span class="token string">'N'</span>
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>게시판명
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>게시판ID:
+
+③ <span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>게시판명<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>게시글ID<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> CNT
+<span class="token keyword keyword-FROM">FROM</span> 게시판 A <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> 게시글 B
+<span class="token keyword keyword-ON">ON</span> <span class="token punctuation">(</span>A<span class="token punctuation">.</span>게시판ID <span class="token operator">=</span> B<span class="token punctuation">.</span>게시판ID<span class="token punctuation">)</span>
+<span class="token keyword keyword-WHERE">WHERE</span> A<span class="token punctuation">.</span>사용여부 <span class="token operator">=</span> <span class="token string">'Y'</span> <span class="token operator">AND</span> B<span class="token punctuation">.</span>삭제여부 <span class="token operator">=</span> <span class="token string">'N'</span>
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>게시판명
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">;</span>
+
+④ <span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>게시판명 <span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>게시글ID<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> CNT
+<span class="token keyword keyword-FROM">FROM</span> 게시판 A <span class="token keyword keyword-RIGHT">RIGHT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> 게시글 B
+<span class="token keyword keyword-ON">ON</span>  <span class="token punctuation">(</span>A<span class="token punctuation">.</span>게시판ID <span class="token operator">=</span> B<span class="token punctuation">.</span>게시판ID <span class="token operator">AND</span> A<span class="token punctuation">.</span>사용여부 <span class="token operator">=</span> <span class="token string">'Y'</span> <span class="token operator">AND</span> B<span class="token punctuation">.</span>삭제여부 <span class="token operator">=</span> <span class="token string">'N'</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>게시판명
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>게시판ID:
+</code></pre><p><strong>정답:</strong> ①</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+Oracle의 (+)는 ANSI에서 LEFT JOIN으로 바꿔요.<br>
+삭제여부 조건도 ON절에 넣어야 정확한 결과가 나와요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li><code>B.삭제여부(+) = 'N'</code> → 삭제여부 조건도 JOIN 조건으로 포함</li>
+<li>ANSI에서는 <code>LEFT OUTER JOIN ... ON (...)</code>으로 표현</li>
+<li>WHERE절에 넣으면 JOIN 결과가 왜곡될 수 있음</li>
+</ul>
+<h6 id="-sql-처리-순서-설명-3">🧠 SQL 처리 순서 설명 </h6>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>게시판명<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span>게시글ID<span class="token punctuation">)</span> <span class="token keyword keyword-AS">AS</span> CNT  
+<span class="token keyword keyword-FROM">FROM</span> 게시판 A<span class="token punctuation">,</span> 게시글 B  
+<span class="token keyword keyword-WHERE">WHERE</span> A<span class="token punctuation">.</span>게시판ID <span class="token operator">=</span> B<span class="token punctuation">.</span>게시판ID<span class="token punctuation">(</span><span class="token operator">+</span><span class="token punctuation">)</span>  
+<span class="token operator">AND</span> B<span class="token punctuation">.</span>삭제여부<span class="token punctuation">(</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'N'</span>  
+<span class="token operator">AND</span> A<span class="token punctuation">.</span>사용여부 <span class="token operator">=</span> <span class="token string">'Y'</span>  
+<span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>게시판명  
+<span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> A<span class="token punctuation">.</span>게시판ID<span class="token punctuation">;</span>
+</code></pre><h6 id="1️⃣-from-게시판-a-게시글-b">1️⃣ <strong>FROM 게시판 A, 게시글 B</strong> </h6>
+<ul>
+<li>두 테이블을 나열합니다. 이 구문은 <strong>오라클의 ANSI 이전 조인 방식</strong>입니다.</li>
+<li><strong>게시판 A</strong>가 <strong>기준 테이블</strong>이며, <strong>게시글 B</strong>는 외부 조인 대상입니다.</li>
+</ul>
+<h6 id="2️⃣-where-a게시판id--b게시판id">2️⃣ <strong>WHERE A.게시판ID = B.게시판ID(+)</strong> </h6>
+<ul>
+<li>외부 조인 조건입니다.</li>
+<li><strong>게시판ID</strong>가 같은 경우를 매칭하며, <strong>게시글 B</strong>에 해당 게시글이 없어도 <strong>게시판 A</strong>의 행은 유지됩니다.</li>
+<li>즉, <strong>게시글이 없는 게시판도 결과에 포함</strong>됩니다.</li>
+</ul>
+<h6 id="3️⃣-and-b삭제여부--n">3️⃣ <strong>AND B.삭제여부(+) = 'N'</strong> </h6>
+<ul>
+<li>외부 조인 조건에 추가 필터입니다.</li>
+<li>삭제되지 않은 게시글만 포함되며, 게시글이 없을 경우에도 <strong>게시판</strong>은 유지됩니다.</li>
+</ul>
+<h6 id="4️⃣-and-a사용여부--y">4️⃣ <strong>AND A.사용여부 = 'Y'</strong> </h6>
+<ul>
+<li>게시판이 사용 중인 경우만 결과에 포함됩니다.</li>
+<li>이 조건은 <strong>내부 필터링</strong>이며, 외부 조인과 무관하게 적용됩니다.</li>
+</ul>
+<h6 id="5️⃣-group-by-a게시판id-a게시판명">5️⃣ <strong>GROUP BY A.게시판ID, A.게시판명</strong> </h6>
+<ul>
+<li>게시판별로 그룹화합니다.</li>
+<li>각 게시판에 대해 게시글 수를 집계할 수 있도록 준비합니다.</li>
+</ul>
+<h6 id="6️⃣-select-a게시판id-a게시판명-countb게시글id-as-cnt">6️⃣ <strong>SELECT A.게시판ID, A.게시판명, COUNT(B.게시글ID) AS CNT</strong> </h6>
+<ul>
+<li>그룹화된 결과에서 게시판 정보와 게시글 수를 출력합니다.</li>
+<li>게시글이 없는 경우 <strong>COUNT</strong>는 0으로 나옵니다.</li>
+</ul>
+<h6 id="7️⃣-order-by-a게시판id">7️⃣ <strong>ORDER BY A.게시판ID</strong> </h6>
+<ul>
+<li>결과를 게시판ID 기준으로 오름차순 정렬합니다.</li>
+</ul>
+<h6 id="-핵심-요약-1">✅ 핵심 요약 </h6>
+<table>
+<thead>
+<tr>
+<th>처리 단계</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FROM</strong></td>
+<td>두 테이블 나열 (오라클 방식)</td>
+</tr>
+<tr>
+<td><strong>WHERE</strong></td>
+<td>외부 조인 조건 적용 (<strong>(+)</strong>)</td>
+</tr>
+<tr>
+<td><strong>AND</strong></td>
+<td>삭제여부 조건 추가</td>
+</tr>
+<tr>
+<td><strong>AND</strong></td>
+<td>게시판 사용 여부 필터링</td>
+</tr>
+<tr>
+<td><strong>GROUP BY</strong></td>
+<td>게시판별 그룹화</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong></td>
+<td>게시판 정보 + 게시글 수 출력</td>
+</tr>
+<tr>
+<td><strong>ORDER BY</strong></td>
+<td>게시판ID 기준 정렬</td>
+</tr>
+</tbody>
+</table>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>JOIN 조건 정확히 변환</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>②</td>
+<td>사용여부는 WHERE절에 있어야 함</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>삭제여부를 WHERE에 넣으면 NULL 제외됨</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>방향이 반대이고 조건 과도함</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+Oracle의 (+) → ANSI의 LEFT JOIN<br>
+조건은 ON절에 포함해야 누락 방지!</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 41: JOIN 유형</li>
+<li>🃏 카드 60: 제약조건 설정 시점</li>
+<li>🃏 카드 57: 뷰 = 가상의 창문</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 078<span class="token punctuation">]</span>   
+다음과 같은 <span class="token number">2</span>개의 릴레이션이 있다고 가정하자. student의 기본키는 st_num이고, department의 기본키는 dept_nurn이다. 또한 student의 d_num은 department의 dept_num을 참조하는 외래키이다. 아래 SQL문의 실행 결과 건수는?
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token function">count</span><span class="token punctuation">(</span>st name<span class="token punctuation">)</span>
+<span class="token keyword keyword-FROM">FROM</span> student s
+<span class="token keyword keyword-WHERE">WHERE</span> <span class="token operator">not</span> <span class="token keyword keyword-exists">exists</span>
+<span class="token punctuation">(</span>   <span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span>
+    <span class="token keyword keyword-FROM">FROM</span> department d
+    <span class="token keyword keyword-WHERE">WHERE</span> s<span class="token punctuation">.</span>d_num <span class="token operator">=</span> d<span class="token punctuation">.</span>dept_num  <span class="token operator">and</span> dept_name <span class="token operator">=</span> <span class="token string">'전자계산학과'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>[테이블 1: Student]</p>
+<table>
+<thead>
+<tr>
+<th>st_num</th>
+<th>st_name</th>
+<th>d_num</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1001</td>
+<td>Yoo</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>Kim</td>
+<td>30</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Lee</td>
+<td>20</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Park</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1005</td>
+<td>Choi</td>
+<td>20</td>
+</tr>
+<tr>
+<td>1006</td>
+<td>Jeong</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>[테이블 2: Department]</p>
+<table>
+<thead>
+<tr>
+<th>dept_num</th>
+<th>dept_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>컴퓨터공학과</td>
+</tr>
+<tr>
+<td>20</td>
+<td>원자력공학과</td>
+</tr>
+<tr>
+<td>30</td>
+<td>전자계산학과</td>
+</tr>
+</tbody>
+</table>
+<p><strong>정답:</strong> 5</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+전자계산학과는 30번이니까 d_num이 30인 학생만 제외하면 돼요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>Kim(1002)이 전자계산학과 → 제외</li>
+<li>나머지 5명은 다른 학과 → 포함</li>
+<li>NOT EXISTS는 조건 만족하는 행이 없을 때 TRUE</li>
+</ul>
+<h6 id="-sql-처리-순서-설명-4">🧠 SQL 처리 순서 설명 </h6>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>st_name<span class="token punctuation">)</span>
+<span class="token keyword keyword-FROM">FROM</span> student s
+<span class="token keyword keyword-WHERE">WHERE</span> <span class="token operator">NOT</span> <span class="token keyword keyword-EXISTS">EXISTS</span> <span class="token punctuation">(</span>
+  <span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span>
+  <span class="token keyword keyword-FROM">FROM</span> department d
+  <span class="token keyword keyword-WHERE">WHERE</span> s<span class="token punctuation">.</span>d_num <span class="token operator">=</span> d<span class="token punctuation">.</span>dept_num <span class="token operator">AND</span> dept_name <span class="token operator">=</span> <span class="token string">'전자계산학과'</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h6 id="1️⃣-from-student-s">1️⃣ <strong>FROM student s</strong> </h6>
+<ul>
+<li>메인 쿼리의 기준 테이블은 <strong>student</strong>.</li>
+<li>모든 학생을 대상으로 시작합니다.</li>
+</ul>
+<h6 id="2️⃣-where-not-exists-">2️⃣ <strong>WHERE NOT EXISTS (...)</strong> </h6>
+<ul>
+<li>각 학생에 대해 서브쿼리를 실행하여 조건을 만족하는 <strong>department</strong>가 존재하는지 확인합니다.</li>
+<li>조건을 만족하는 <strong>department</strong>가 <strong>존재하지 않을 경우에만</strong> 해당 학생이 결과에 포함됩니다.</li>
+</ul>
+<h6 id="3️⃣-select--from-department-d-where-sd_num--ddept_num-and-dept_name--전자계산학과">3️⃣ <strong>SELECT * FROM department d WHERE s.d_num = d.dept_num AND dept_name = '전자계산학과'</strong> </h6>
+<ul>
+<li>서브쿼리: 학생의 <strong>d_num</strong>과 <strong>department.dept_num</strong>이 같고, <strong>dept_name</strong>이 **'전자계산학과'**인 경우를 찾습니다.</li>
+<li>즉, 학생이 <strong>'전자계산학과'</strong> 소속이면 <strong>EXISTS</strong>가 참이 되고, <strong>NOT EXISTS</strong>는 거짓이 되어 제외됩니다.</li>
+</ul>
+<h6 id="4️⃣-select-countst_name">4️⃣ <strong>SELECT COUNT(st_name)</strong> </h6>
+<ul>
+<li>최종적으로 조건을 만족하는 학생 수를 세어 출력합니다.</li>
+</ul>
+<h6 id="-조건-적용-예시">📊 조건 적용 예시 </h6>
+<table>
+<thead>
+<tr>
+<th>st_num</th>
+<th>st_name</th>
+<th>d_num</th>
+<th>해당 학과</th>
+<th>포함 여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1001</td>
+<td>Yoo</td>
+<td>10</td>
+<td>❌</td>
+<td>✅ 포함</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>Kim</td>
+<td>30</td>
+<td>✅ 전자계산학과</td>
+<td>❌ 제외</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Lee</td>
+<td>20</td>
+<td>❌</td>
+<td>✅ 포함</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Park</td>
+<td>10</td>
+<td>❌</td>
+<td>✅ 포함</td>
+</tr>
+<tr>
+<td>1005</td>
+<td>Choi</td>
+<td>20</td>
+<td>❌</td>
+<td>✅ 포함</td>
+</tr>
+<tr>
+<td>1006</td>
+<td>Jeong</td>
+<td>10</td>
+<td>❌</td>
+<td>✅ 포함</td>
+</tr>
+</tbody>
+</table>
+<h6 id="-최종-결과-1">✅ 최종 결과 </h6>
+<ul>
+<li><strong>'전자계산학과'</strong> 소속인 학생은 <strong>1002번 Kim</strong> 한 명뿐입니다.</li>
+<li>나머지 5명은 해당 학과가 아니므로 <strong>NOT EXISTS</strong> 조건을 만족합니다.</li>
+</ul>
+<p>🔢 <strong>결과 건수: 5명</strong></p>
+<h6 id="-핵심-요약-2">🧷 핵심 요약 </h6>
+<table>
+<thead>
+<tr>
+<th>처리 단계</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FROM student</strong></td>
+<td>기준 테이블 선택</td>
+</tr>
+<tr>
+<td><strong>WHERE NOT EXISTS (...)</strong></td>
+<td>해당 학과가 존재하지 않는 경우만 필터링</td>
+</tr>
+<tr>
+<td><strong>SELECT COUNT(st_name)</strong></td>
+<td>조건 만족하는 학생 수 계산</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+NOT EXISTS = 조건 만족하는 행이 없을 때만 TRUE</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 45: 상관 서브쿼리 = 외부 컬럼 참조</li>
+<li>🃏 카드 26: 서브쿼리 = 쿼리 속 쿼리</li>
+<li>🃏 카드 28: EXISTS = 존재 확인</li>
+</ul>
+<hr>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>문제 079<span class="token punctuation">]</span>   
+<span class="token punctuation">(</span>SQL Server<span class="token punctuation">)</span> 다음 중 아래의 SQL과 동일한 결과를 추출하는 SQL은?
+<span class="token punctuation">(</span>단, 테이블 TAB1, TAB2의 PK 컬럼은 A, B 이다<span class="token punctuation">)</span>
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token punctuation">[</span><span class="token keyword keyword-SQL">SQL</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">,</span> B
+<span class="token keyword keyword-FROM">FROM</span> TAB1
+<span class="token keyword keyword-EXCEPT">EXCEPT</span>
+<span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">,</span> B
+<span class="token keyword keyword-FROM">FROM</span> TAB2<span class="token punctuation">;</span>
+</code></pre><p><strong>[보기]</strong></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>① <span class="token keyword keyword-SELECT">SELECT</span> TAB2<span class="token punctuation">.</span>A<span class="token punctuation">,</span> TAB2<span class="token punctuation">.</span>B
+<span class="token keyword keyword-FROM">FROM</span> TABI<span class="token punctuation">,</span> TAB2
+<span class="token keyword keyword-WHERE">WHERE</span> TABI<span class="token punctuation">.</span>A <span class="token operator">&lt;&gt;</span> TAB2<span class="token punctuation">.</span>A
+<span class="token operator">AND</span> TAB1<span class="token punctuation">.</span>B <span class="token operator">&lt;&gt;</span> TAB2<span class="token punctuation">.</span>B
+
+② <span class="token keyword keyword-SELECT">SELECT</span> TAB2<span class="token punctuation">.</span>A<span class="token punctuation">,</span> TAB2<span class="token punctuation">.</span>B
+<span class="token keyword keyword-FROM">FROM</span> TAB1
+<span class="token keyword keyword-WHERE">WHERE</span> TAB1<span class="token punctuation">.</span>A <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token keyword keyword-SELECT">SELECT</span> TAB2<span class="token punctuation">.</span>A <span class="token keyword keyword-FROM">FROM</span> TAB2<span class="token punctuation">)</span>
+<span class="token operator">AND</span>   TAB1<span class="token punctuation">.</span>B <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token keyword keyword-SELECT">SELECT</span> TAB2<span class="token punctuation">.</span>B <span class="token keyword keyword-FROM">FROM</span> TAB2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+③ <span class="token keyword keyword-SELECT">SELECT</span> TAB2<span class="token punctuation">.</span>A<span class="token punctuation">,</span> TAB2<span class="token punctuation">.</span>B
+<span class="token keyword keyword-FROM">FROM</span> TAB1<span class="token punctuation">,</span> TAB2
+<span class="token keyword keyword-WHERE">WHERE</span> TAB1<span class="token punctuation">.</span>A <span class="token operator">=</span> TAB2<span class="token punctuation">.</span>A
+<span class="token operator">AND</span>   TAB1<span class="token punctuation">.</span>B <span class="token operator">=</span> TAB2<span class="token punctuation">.</span>B
+
+④ <span class="token keyword keyword-SELECT">SELECT</span> TAB1<span class="token punctuation">.</span>A<span class="token punctuation">,</span> TAB1<span class="token punctuation">.</span>B
+<span class="token keyword keyword-FROM">FROM</span> TAB1
+<span class="token keyword keyword-WHERE">WHERE</span> <span class="token operator">NOT</span> <span class="token keyword keyword-EXISTS">EXISTS</span> 
+<span class="token punctuation">(</span><span class="token keyword keyword-SELECT">SELECT</span> <span class="token string">'X'</span> <span class="token keyword keyword-FROM">FROM</span> TAB2 <span class="token keyword keyword-WHERE">WHERE</span> TAB1<span class="token punctuation">.</span>A <span class="token operator">=</span> TAB2<span class="token punctuation">.</span>A <span class="token operator">AND</span> TAB1<span class="token punctuation">.</span>B <span class="token operator">=</span> TAB2<span class="token punctuation">.</span>B<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p><strong>정답:</strong> ④</p>
+<p>🧸 <strong>쉬운 해설:</strong><br>
+EXCEPT은 TAB1에만 있는 행을 찾는 거예요!<br>
+NOT EXISTS로 TAB2에 없는 걸 찾으면 같은 결과예요!</p>
+<p><strong>📚 전문 해설:</strong></p>
+<ul>
+<li>EXCEPT: TAB1 - TAB2</li>
+<li>NOT EXISTS: TAB2에 없는 TAB1의 행을 찾음</li>
+<li>NOT IN은 NULL이 있으면 결과가 왜곡됨</li>
+</ul>
+<h6 id="-원래-sql">🎯 원래 SQL </h6>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">,</span> B
+<span class="token keyword keyword-FROM">FROM</span> TAB1
+<span class="token keyword keyword-EXCEPT">EXCEPT</span>
+<span class="token keyword keyword-SELECT">SELECT</span> A<span class="token punctuation">,</span> B
+<span class="token keyword keyword-FROM">FROM</span> TAB2<span class="token punctuation">;</span>
+</code></pre><ul>
+<li><strong>EXCEPT</strong>는 <strong>차집합</strong>을 의미합니다.</li>
+<li>즉, TAB1에만 존재하고 TAB2에는 없는 <strong>(A, B)</strong> 조합을 추출합니다.</li>
+</ul>
+<h6 id="-보기-4-sql-정답">✅ 보기 ④ SQL (정답) </h6>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> TAB1<span class="token punctuation">.</span>A<span class="token punctuation">,</span> TAB1<span class="token punctuation">.</span>B
+<span class="token keyword keyword-FROM">FROM</span> TAB1
+<span class="token keyword keyword-WHERE">WHERE</span> <span class="token operator">NOT</span> <span class="token keyword keyword-EXISTS">EXISTS</span> <span class="token punctuation">(</span>
+  <span class="token keyword keyword-SELECT">SELECT</span> <span class="token string">'X'</span>
+  <span class="token keyword keyword-FROM">FROM</span> TAB2
+  <span class="token keyword keyword-WHERE">WHERE</span> TAB1<span class="token punctuation">.</span>A <span class="token operator">=</span> TAB2<span class="token punctuation">.</span>A <span class="token operator">AND</span> TAB1<span class="token punctuation">.</span>B <span class="token operator">=</span> TAB2<span class="token punctuation">.</span>B
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h6 id="-sql-처리-순서-설명-5">🧠 SQL 처리 순서 설명 </h6>
+<h6 id="1️⃣-from-tab1">1️⃣ <strong>FROM TAB1</strong> </h6>
+<ul>
+<li>메인 쿼리의 기준 테이블은 <strong>TAB1</strong>.</li>
+<li>모든 행을 대상으로 시작합니다.</li>
+</ul>
+<h6 id="2️⃣-where-not-exists--1">2️⃣ <strong>WHERE NOT EXISTS (...)</strong> </h6>
+<ul>
+<li>각 TAB1의 행에 대해 서브쿼리를 실행합니다.</li>
+<li>서브쿼리 결과가 <strong>존재하지 않을 경우</strong>에만 해당 행을 결과에 포함합니다.</li>
+</ul>
+<h6 id="3️⃣-select-x-from-tab2-where-tab1a--tab2a-and-tab1b--tab2b">3️⃣ <strong>SELECT 'X' FROM TAB2 WHERE TAB1.A = TAB2.A AND TAB1.B = TAB2.B</strong> </h6>
+<ul>
+<li>서브쿼리: TAB2에서 TAB1과 **(A, B)**가 모두 같은 행을 찾습니다.</li>
+<li>조건을 만족하면 <strong>EXISTS</strong>는 참 → <strong>NOT EXISTS</strong>는 거짓 → 제외됨</li>
+<li>조건을 만족하지 않으면 <strong>EXISTS</strong>는 거짓 → <strong>NOT EXISTS</strong>는 참 → 포함됨</li>
+</ul>
+<h6 id="4️⃣-select-tab1a-tab1b">4️⃣ <strong>SELECT TAB1.A, TAB1.B</strong> </h6>
+<ul>
+<li>최종적으로 조건을 만족하는 TAB1의 행만 출력합니다.</li>
+<li>즉, TAB2에 없는 <strong>(A, B)</strong> 조합만 남습니다.</li>
+</ul>
+<h6 id="-핵심-요약-3">📊 핵심 요약 </h6>
+<table>
+<thead>
+<tr>
+<th>처리 단계</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FROM TAB1</strong></td>
+<td>기준 테이블 선택</td>
+</tr>
+<tr>
+<td><strong>WHERE NOT EXISTS</strong></td>
+<td>TAB2에 동일한 행이 없을 경우만 필터링</td>
+</tr>
+<tr>
+<td><strong>SELECT 'X' FROM TAB2 ...</strong></td>
+<td>존재 여부 확인용 서브쿼리</td>
+</tr>
+<tr>
+<td><strong>SELECT TAB1.A, TAB1.B</strong></td>
+<td>조건 만족하는 행 출력</td>
+</tr>
+</tbody>
+</table>
+<p><strong>보기 설명:</strong></p>
+<table>
+<thead>
+<tr>
+<th>보기 번호</th>
+<th>설명</th>
+<th>적절성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>조건이 잘못됨</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>②</td>
+<td>NOT IN은 NULL에 민감</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③</td>
+<td>INNER JOIN은 교집합</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④</td>
+<td>NOT EXISTS로 차집합 구현</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>🧠 <strong>기억법:</strong><br>
+EXCEPT = NOT EXISTS로 구현 가능</p>
+<p><strong>필요 암기카드:</strong></p>
+<ul>
+<li>🃏 카드 42: 서브쿼리 유형</li>
+<li>🃏 카드 28: EXISTS = 존재 확인</li>
+<li>🃏 카드 44: DML vs DDL</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+}
+</script>
+    
+    
+    
+  
+    </body></html>
