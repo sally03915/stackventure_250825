@@ -18,10 +18,10 @@
 
 | 트랙 번호 | 기술 스택 | 설명 | 링크 |
 |----------|-----------|------|------|
-| Track 01 | GitHub + Markdown + AI | 협업의 기본기 습득 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track01-github-ai) |
-| Track 02 | HTML + CSS + JS + jQuery + Bootstrap | 프론트엔드 핵심 기술 총정리 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track02-html-css-js) |
-| Track 03 | Java | 객체지향 프로그래밍 실습 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track03-java) |
-| Track 04 | Oracle + ERD | 데이터베이스 설계 및 관리 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track04-oracle-erd) |
+| ★Track 01 | GitHub + Markdown + AI | 협업의 기본기 습득 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track01-github-ai) |
+| ★Track 02 | HTML + CSS + JS + jQuery + Bootstrap | 프론트엔드 핵심 기술 총정리 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track02-html-css-js) |
+| ★Track 03 | Java | 객체지향 프로그래밍 실습 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track03-java) |
+| ★Track 04 | Oracle + ERD | 데이터베이스 설계 및 관리 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track04-oracle-erd) |
 | Track 05 | <span style="text-decoration: line-through; color: #999999;">Python + Django</span> | 백엔드 웹 서비스 구축 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track05-python-django) |
 | Track 06 | JSP | 동적 웹 페이지 개발 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track06-jsp) |
 | Track 07 | AI API | 챗봇 구현 및 API 활용 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track07-ai-api) |
