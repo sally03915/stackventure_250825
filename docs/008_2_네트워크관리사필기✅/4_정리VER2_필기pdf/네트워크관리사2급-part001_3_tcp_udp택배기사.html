@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 1 - IP 마법사와 주소 찾기</title>
+  <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* A4 인쇄용 설정 - 여백 최소화 */
+@page {
+  size: A4;
+  margin: 10mm 8mm;
+}
+
+/* 기본 설정 */
+body {
+  font-family: 'Jua', sans-serif, 'Segoe UI Emoji', 'Apple Color Emoji';
+  font-size: 0.85em;              /* 폰트 살짝 축소 */
+  line-height: 1.5;               /* 줄 간격 축소 */
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* 섹션별 페이지 분리 */
+.section {
+  margin:1em 0;
+  padding: 10mm 8mm;              /* 섹션 여백 축소 */
+  background-color: #fff;
+}
+
+/* 챕터 타이틀 박스 */
+.chapter-title {
+  background: #fce4ec;
+  padding: 16px;
+  border-left: 6px solid #b03060;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.chapter-title h2 {
+  font-size: 2.2em;
+  margin: 0;
+}
+
+.chapter-title p {
+  margin-top: 6px;
+  font-size: 1em;
+}
+
+/* 소제목 */
+.section h3 {
+  font-size: 1.2em;
+  margin: 20px 0 8px;
+  color: #6b4226;
+}
+
+/* 리스트 */
+ul {
+  line-height: 1.6;
+  font-size: 0.95em;
+  padding-left: 18px;
+  margin-bottom: 10px;
+}
+
+/* 표 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  page-break-inside: avoid;
+}
+
+th, td {
+  padding: 8px;
+  line-height: 1.4;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+thead {
+  background: #ffe4ec;
+  color: #b03060;
+}
+
+/* 카드 박스 */
+.card {
+  background: #fff3e0;
+  border: 1px solid #ffcc80;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 95%;
+  text-align: left;
+  page-break-inside: avoid;
+}
+
+/* 기출문제 박스 */
+.quiz {
+  background: #e8f5e9;
+  border-left: 5px solid #4caf50;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 95%;
+  text-align: left;
+  page-break-inside: avoid;
+}
+
+/* 카드/문제 간 구분선 (선택적) */
+.card:not(:first-child),
+.quiz:not(:first-child) {
+  border-top: 1px dashed #ddd;
+}
+
+/* 반응형 대응 (화면 보기용) */
+@media screen {
+  body {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .section {
+    padding: 32px 16px;
+  }
+
+  .card, .quiz {
+    margin: 14px auto;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <div class="chapter-title">
+      <h2>🚚 Chapter 3. TCP와 UDP 택배 기사</h2>
+      <p>데이터를 배달하는 기사들의 이야기</p>
+    </div>
+    <p style="line-height: 1.8; font-size: 1.1em; text-align: center;">
+      컴퓨터 왕국의 데이터는 택배 기사들이 배달해요.<br>
+      그중에서도 TCP 기사와 UDP 기사가 가장 유명하죠.
+    </p>
+
+    <h3>📌 핵심 개념 요약</h3>
+    <ul>
+      <li><strong>TCP 기사</strong>: 느리지만 꼼꼼하게 확인하며 배달</li>
+      <li><strong>UDP 기사</strong>: 빠르지만 확인 없이 던지고 감</li>
+      <li><strong>TCP 연결 방식</strong>: 3-Way Handshake</li>
+      <li><strong>포트 번호</strong>: 각 서비스의 문 번호 (예: HTTP 80, HTTPS 443 등)</li>
+      <li><strong>FTP</strong>: 파일 전송 기사</li>
+      <li><strong>SFTP</strong>: 보안 강화된 파일 전송 기사</li>
+      <li><strong>TFTP</strong>: 간단한 파일만 빠르게 보내는 기사</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>🃏 TCP/UDP 택배 기사 암기카드</h3>
+
+    <div class="card"><p><strong>🃏 카드 21</strong><br>앞면: TCP 연결 수립 절차는?<br>뒷면: 3-Way Handshake<br>설명: SYN → SYN+ACK → ACK 순서<br>🔍 암기 포인트: “TCP는 손잡고 시작한다”</p></div>
+    <div class="card"><p><strong>🃏 카드 22</strong><br>앞면: UDP는 연결형인가요, 비연결형인가요?<br>뒷면: 비연결형<br>설명: 빠르지만 신뢰성과 순서 보장 없음<br>🔍 암기 포인트: “UDP = 빠른 택배, 신뢰는 없음”</p></div>
+    <div class="card"><p><strong>🃏 카드 23</strong><br>앞면: TCP의 특징은?<br>뒷면: 연결형, 신뢰성 보장<br>설명: 오류 검출, 재전송, 순서 보장<br>🔍 암기 포인트: “TCP = 느려도 안전한 택배”</p></div>
+    <div class="card"><p><strong>🃏 카드 24</strong><br>앞면: FTP의 기본 포트 번호는?<br>뒷면: 20(데이터), 21(제어)<br>설명: 파일 전송 프로토콜<br>🔍 암기 포인트: “FTP = 20/21번, 파일 보내는 쌍둥이 포트”</p></div>
+    <div class="card"><p><strong>🃏 카드 25</strong><br>앞면: HTTP의 포트 번호는?<br>뒷면: 80번<br>설명: 웹 페이지 전송<br>🔍 암기 포인트: “HTTP = 80번, 웹의 기본 문”</p></div>
+    <div class="card"><p><strong>🃏 카드 26</strong><br>앞면: HTTPS의 포트 번호는?<br>뒷면: 443번<br>설명: 보안 웹 통신<br>🔍 암기 포인트: “HTTPS = 443번, 자물쇠 달린 웹”</p></div>
+    <div class="card"><p><strong>🃏 카드 27</strong><br>앞면: SMTP는 어떤 용도로 사용되나요?<br>뒷면: 이메일 전송<br>설명: 메일 서버 간 메일 전달<br>🔍 암기 포인트: “SMTP = 메일 보내기”</p></div>
+    <div class="card"><p><strong>🃏 카드 28</strong><br>앞면: POP3의 용도는?<br>뒷면: 이메일 수신<br>설명: 클라이언트가 서버에서 메일 다운로드<br>🔍 암기 포인트: “POP3 = 메일 꺼내오기”</p></div>
+    <div class="card"><p><strong>🃏 카드 29</strong><br>앞면: IMAP의 특징은?<br>뒷면: 서버에 메일 유지<br>설명: 여러 기기에서 메일 동기화 가능<br>🔍 암기 포인트: “IMAP = 메일 클라우드처럼 유지”</p></div>
+    <div class="card"><p><strong>🃏 카드 30</strong><br>앞면: SFTP는 어떤 프로토콜인가요?<br>뒷면: SSH 기반의 파일 전송 프로토콜<br>설명: FTP보다 보안성이 높음<br>🔍 암기 포인트: “SFTP = 보안 강화된 파일 택배”</p></div>
+    <div class="card"><p><strong>🃏 카드 31</strong><br>앞면: TFTP는 어떤 특징을 가지나요?<br>뒷면: 비연결형, UDP 기반<br>설명: 간단한 파일 전송, 보안 기능 없음<br>🔍 암기 포인트: “TFTP = 빠르지만 위험한 파일 택배”</p></div>
+  </div>
+
+  <div class="section">
+    <h3>📘 대표 기출 문제</h3>
+
+    <div class="quiz"><p><strong>🧪 문제 1</strong><br>TCP의 특징은?<br>① 연결 지향적, 신뢰성 보장 ② 비연결형, 빠름 ③ 포트 번호 없음 ④ 오류 검출 불가<br>✅ 정답: ①<br>💡 해설: TCP는 연결을 먼저 설정하고, 데이터가 정확히 도착하도록 보장해줘<br>🔍 암기 포인트: “TCP = 연결 + 신뢰”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 2</strong><br>UDP의 특징은?<br>① 연결 지향적 ② 느리지만 정확함 ③ 비연결형, 빠르지만 신뢰성 낮음 ④ 오류 검출 기능 있음<br>✅ 정답: ③<br>💡 해설: UDP는 연결 없이 빠르게 전송하지만, 데이터 손실 가능성이 있어<br>🔍 암기 포인트: “UDP = 빠름 + 위험”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 3</strong><br>TCP와 UDP의 공통점은?<br>① MAC 주소 사용 ② IP 주소 암호화 ③ 포트 번호 사용 ④ 연결 설정 방식 동일<br>✅ 정답: ③<br>💡 해설: TCP와 UDP 모두 포트 번호를 통해 응용 프로그램을 구분해<br>🔍 암기 포인트: “TCP/UDP = 포트 필수”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 4</strong><br>TCP가 사용하는 연결 설정 방식은?<br>① 핸드셰이크 ② 브로드캐스트 ③ ARP 요청 ④ DNS 질의<br>✅ 정답: ①<br>💡 해설: TCP는 3-way 핸드셰이크 방식으로 연결을 설정해<br>🔍 암기 포인트: “TCP = 3단계 악수”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 5</strong><br>UDP가 자주 사용되는 서비스는?<br>① 이메일 ② 웹 브라우징 ③ 실시간 스트리밍 ④ 파일 다운로드<br>✅ 정답: ③<br>💡 해설: UDP는 빠른 전송이 중요할 때 사용돼. 실시간 영상이나 음성에 적합해<br>🔍 암기 포인트: “UDP = 실시간용”</p></div>
+  </div>
+
+</body>
+</html>

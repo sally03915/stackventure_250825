@@ -418,6 +418,15 @@ SELECT NVL(COMM, 0), SAL + NVL(COMM, 0) FROM EMP;
 -- 조건 분기
 SELECT DECODE(JOB, 'MANAGER', SAL*1.1, SAL*1.03) FROM EMP;
 SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' END FROM EMP;
+
+NVL(NULL, '대체값') → '대체값' (NULL이면 대체값 반환)
+
+NVL2(NULL, 'A', 'B') → 'B' (NULL일 때 B, 아닐 때 A)
+
+DECODE(GRADE, 'A', '우수', 'B', '양호', 'C', '보통', '미정') → 조건에 따라 등급 반환
+
+CASE WHEN SCORE >= 90 THEN 'A' WHEN SCORE >= 80 THEN 'B' ELSE 'F' END → 점수에 따라 학점 반환
+
 </pre>
 
 ---

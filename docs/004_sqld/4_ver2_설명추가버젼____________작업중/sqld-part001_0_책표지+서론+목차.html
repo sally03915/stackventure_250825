@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>SQLD 자격시험 이론 필기 & 암기카드</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+    @page {
+      size: A4;
+      margin: 25mm 20mm;
+    }
+
+    html, body {
+      width: 210mm;
+      height: 297mm;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Jua', sans-serif, 'Segoe UI Emoji', 'Apple Color Emoji';
+      color: #222;
+      background-color: #ffffff;
+    }
+
+    .cover {
+      height: 100%;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 8%;
+      page-break-after: always;
+    }
+
+    .main-title {
+      font-size: 4.5em;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
+    }
+
+    .sub-title {
+      font-size: 1.8em;
+      color: #fff;
+      background: rgba(0,0,0,0.2);
+      padding: 10px 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .highlight-box {
+      background: #fff;
+      color: #333;
+      padding: 20px 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-size: 1.2em;
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    .highlight-box p {
+      margin: 8px 0;
+    }
+
+    .info {
+      margin-top: 30px;
+      font-size: 1em;
+      color: #eee;
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      padding: 25mm 20mm;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      page-break-after: always;
+      text-align: center;
+      color: #444;
+    }
+
+    .intro h2 {
+      font-size: 2.4em;
+      color: #2196f3;
+      margin-bottom: 30px;
+    }
+
+    .intro p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      white-space: pre-line;
+      max-width: 700px;
+    }
+
+    .section {
+      width: 210mm;
+      min-height: 267mm;
+      margin: 0 auto;
+      padding: 15mm 20mm;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      page-break-after: always;
+      text-align: center;
+      color: #333;
+    }
+
+    .section h2 {
+      font-size: 3em;
+      color: #1565c0;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .section table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.15em;
+      background: rgba(255,255,255,0.95);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .section th, .section td {
+      padding: 14px;
+      line-height: 1.6;
+      border-bottom: 1px solid #eee;
+    }
+
+    .section thead tr {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 표지 -->
+  <div class="cover">
+    <div class="main-title">SQLD 자격시험<br>이론 필기 & 암기카드</div>
+    <div class="sub-title">데이터 도시 탐험 · 3부작 스토리텔링 해설서</div>
+    <div class="highlight-box">
+      <p><strong>✅ 핵심 요약 + 암기카드 + 대표 기출 문제</strong></p>
+      <p><strong>✅ 모델링 · SQL · 트랜잭션 완전 정복</strong></p>
+      <p><strong>✅ 실무 연결 포인트까지 한 번에!</strong></p>
+    </div>
+    <div class="info">
+      <p><strong>저자:</strong> DBDBIG</p>
+      <p><strong>출판사:</strong> dbdbig books</p>
+      <p><strong>출판일:</strong> 2025년 8월 초판 발행</p>
+    </div>
+  </div>
+
+  <!-- 서문 -->
+  <div class="intro">
+    <h2>✨ 서문</h2>
+    <p>
+    데이터 도시에는 수많은 구역과 규칙이 존재합니다.  
+    이 책은 그 도시를 탐험하는 탐정단의 여정을 따라가며  
+    SQLD 시험에 꼭 필요한 개념을 암기카드와 이야기로 풀어냅니다.  
+    이제 여러분은 모델링부터 트랜잭션까지, 도시를 정복하게 될 것입니다!
+    </p>
+    <div style="font-size: 6em; margin: 40px 0;">🏙️</div>
+    <div style="font-size: 1.1em; color: #666; margin-top: 20px;">
+      “데이터는 단순한 정보가 아니라, 세상을 이해하는 또 하나의 지도입니다.”<br>
+      — 사장님
+    </div>
+  </div>
+
+  <!-- 목차 -->
+  <div class="section"   style="font-size: 0.95em;">
+    <h2>📖 SQLD 이론 + 암기카드 목차</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>NO</th>
+          <th>제목</th>
+          <th>카드 범위</th>
+          <th>기출 </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td>🏙️ Episode 1: 모델링 탐정단 — 데이터 구조와 정규화</td><td>카드 1~20</td><td>3문제</td></tr>
+        <tr><td>02</td><td>🧾 Episode 2: 정보 탐험대 — SQL 문법과 쿼리 전략</td><td>카드 21~45</td><td>5문제</td></tr>
+        <tr><td>03</td><td>🛡️ Episode 3: 시스템 수호국 — 트랜잭션과 무결성 관리</td><td>카드 46~69</td><td>10문제</td></tr>
+        <tr><td>04</td><td>📚 Episode 4: 노랭이 마스터존 — 실전 문제 & 쉬운 해설</td><td>카드 없음</td><td>각파트 기출문제</td></tr> 
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

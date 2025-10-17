@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 1 - IP 마법사와 주소 찾기</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* A4 인쇄용 설정 */
+@page {
+  size: A4;
+  margin: 10mm 8mm;
+}
+
+/* 기본 설정 */
+body {
+  font-family: 'Jua', sans-serif, 'Segoe UI Emoji', 'Apple Color Emoji';
+  font-size: 0.85em;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* 섹션별 페이지 분리 */
+.section {
+  margin: 1em 0;
+  padding: 10mm 8mm;
+  background-color: #fff;
+}
+
+/* 챕터 타이틀 박스 */
+.chapter-title {
+  background: #e3f2fd;
+  padding: 16px;
+  border-left: 6px solid #1565c0;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.chapter-title h2 {
+  font-size: 2.2em;
+  margin: 0;
+  color: #1565c0;
+}
+
+.chapter-title p {
+  margin-top: 6px;
+  font-size: 1em;
+  color: #1565c0;
+}
+
+/* 소제목 */
+.section h3 {
+  font-size: 1.2em;
+  margin: 20px 0 8px;
+  color: #1565c0;
+}
+
+/* 리스트 */
+ul {
+  line-height: 1.6;
+  font-size: 0.95em;
+  padding-left: 18px;
+  margin-bottom: 10px;
+}
+
+/* 표 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  page-break-inside: avoid;
+}
+
+th, td {
+  padding: 8px;
+  line-height: 1.4;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+thead {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+/* 카드 박스 (기존 톤 유지) */
+.card {
+  background: #fff3e0;
+  border: 1px solid #ffcc80;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 95%;
+  text-align: left;
+  page-break-inside: avoid;
+}
+
+/* 기출문제 박스 (기존 톤 유지) */
+.quiz {
+  background: #e8f5e9;
+  border-left: 5px solid #4caf50;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 95%;
+  text-align: left;
+  page-break-inside: avoid;
+}
+
+/* 카드/문제 간 구분선 */
+.card:not(:first-child),
+.quiz:not(:first-child) {
+  border-top: 1px dashed #ccc;
+}
+
+/* 반응형 대응 (화면 보기용) */
+@media screen {
+  body {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .section {
+    padding: 32px 16px;
+  }
+
+  .card, .quiz {
+    margin: 14px auto;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="section">
+  <div class="chapter-title">
+    <h2>🧾 Episode 2: 정보 탐험대 — SQL 쿼리의 여정</h2>
+    <p>도시 곳곳의 정보를 탐색하는 SQL 전문가들의 여정</p>
+  </div>
+  <p style="line-height: 1.8; font-size: 1.1em; text-align: center;">
+    정보 탐험대는 도시 곳곳에 숨겨진 정보를 찾아내는 전문가들이었어요.<br>
+    그들의 무기는 바로 <strong>SQL 쿼리</strong>!<br>
+    이들은 SELECT 주문서를 들고, WHERE 조건을 붙이고, JOIN 마법으로 연결하며,<br>
+    GROUP BY로 정보를 묶고, 윈도우 함수로 시간의 흐름을 분석했죠.
+  </p>
+</div>
+
+<div class="section">
+  <h3>🎯 왜 필요한가?</h3>
+  <p>SQL은 데이터베이스와 대화하는 언어예요.</p>
+  <ul>
+    <li>정보를 꺼내고, 수정하고, 삭제하고, 추가하는 모든 작업은 SQL로 이루어져요.</li>
+    <li>SQL을 잘 다루면, 데이터 도시의 <strong>모든 비밀을 자유롭게 탐험</strong>할 수 있어요.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h3>🔍 탐험대의 기술 요약</h3>
+  <table>
+    <thead>
+      <tr><th>기술</th><th>설명</th><th>예시</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>SELECT</td><td>원하는 정보 조회</td><td>“이름과 주소 알려줘!”</td></tr>
+      <tr><td>WHERE</td><td>조건 필터링</td><td>“서울에 사는 사람만 보여줘!”</td></tr>
+      <tr><td>JOIN</td><td>테이블 연결</td><td>“고객 정보와 주문 내역을 연결해줘!”</td></tr>
+      <tr><td>GROUP BY + HAVING</td><td>그룹화 + 조건</td><td>“지역별로 주문 수를 세고, 10건 이상인 곳만 보여줘!”</td></tr>
+      <tr><td>서브쿼리</td><td>쿼리 안의 쿼리</td><td>IN, EXISTS, NOT EXISTS</td></tr>
+      <tr><td>스칼라 서브쿼리</td><td>단일 값 반환</td><td>SELECT 이름, (SELECT 부서명 FROM 부서 ...)</td></tr>
+      <tr><td>윈도우 함수</td><td>행별 계산</td><td>ROW_NUMBER(), RANK(), DENSE_RANK()</td></tr>
+      <tr><td>OVER()</td><td>그룹 내 순서 지정</td><td>OVER(PARTITION BY … ORDER BY …)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h3>🧭 SQL 문장 구조 vs 실행 순서</h3>
+  <table>
+    <thead>
+      <tr><th>구분</th><th>순서</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>문장 구조</td><td>SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY</td></tr>
+      <tr><td>실행 순서</td><td>FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY</td></tr>
+    </tbody>
+  </table>
+  <p><strong>💡 암기 포인트:</strong> 실행은 FROM부터 시작!</p>
+</div>
+
+<div class="section">
+  <h3>🔗 JOIN 유형 구분</h3>
+  <table>
+    <thead>
+      <tr><th>JOIN 유형</th><th>설명</th><th>예시</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>INNER JOIN</td><td>공통된 값만 조회</td><td>고객과 주문이 모두 있는 경우</td></tr>
+      <tr><td>LEFT JOIN</td><td>왼쪽 테이블은 모두, 오른쪽은 조건 일치 시</td><td>고객은 모두, 주문이 없어도 표시</td></tr>
+      <tr><td>RIGHT JOIN</td><td>오른쪽 테이블은 모두</td><td>주문은 모두, 고객이 없어도 표시</td></tr>
+      <tr><td>FULL OUTER JOIN</td><td>양쪽 모두 표시</td><td>고객/주문 모두 표시, NULL 포함</td></tr>
+    </tbody>
+  </table>
+  <pre><code>SELECT *  
+FROM 고객  
+JOIN 주문 ON 고객.고객ID = 주문.고객ID;</code></pre>
+</div>
+
+<!-- 🧩 서브쿼리 유형별 구분 -->
+<div class="section">
+  <h3>🧩 서브쿼리 유형별 구분</h3>
+  <table>
+    <thead>
+      <tr><th>서브쿼리 유형</th><th>설명</th><th>예시</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>스칼라</td><td>단일 값 반환</td><td>SELECT 이름, (SELECT 부서명 ...)</td></tr>
+      <tr><td>인라인 뷰</td><td>FROM 절에 사용</td><td>SELECT * FROM (SELECT ...) AS T</td></tr>
+      <tr><td>다중행</td><td>여러 값 반환</td><td>WHERE 컬럼 IN (SELECT ...)</td></tr>
+      <tr><td>상관 서브쿼리</td><td>외부 쿼리와 연결</td><td>WHERE EXISTS (SELECT ... WHERE 외부.컬럼 = 내부.컬럼)</td></tr>
+    </tbody>
+  </table>
+  <p><strong>💡 암기 포인트:</strong> 스칼라 = 하나 / 인라인 = 테이블처럼 / 상관 = 외부 연결</p>
+</div>
+
+<!-- 🧠 윈도우 함수 실전 예시 -->
+<div class="section">
+  <h3>🧠 윈도우 함수 실전 예시</h3>
+  <pre><code>SELECT 이름, RANK() OVER(PARTITION BY 부서 ORDER BY 급여 DESC) AS 순위
+FROM 사원;</code></pre>
+  <table>
+    <thead>
+      <tr><th>비교 항목</th><th>GROUP BY</th><th>윈도우 함수</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>집계 대상</td><td>그룹 전체</td><td>각 행 기준</td></tr>
+      <tr><td>결과 행 수</td><td>그룹 수</td><td>원래 행 수 유지</td></tr>
+    </tbody>
+  </table>
+  <p><strong>💡 암기 포인트:</strong> 윈도우 함수 = 행별 분석 / GROUP BY = 묶어서 분석</p>
+</div>
+
+<!-- 🛠️ DML vs DDL 비교 -->
+<div class="section">
+  <h3>🛠️ DML vs DDL 비교</h3>
+  <table>
+    <thead>
+      <tr><th>구분</th><th>명령어</th><th>설명</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>DML</td><td>INSERT, UPDATE, DELETE</td><td>데이터 조작 (행 단위)</td></tr>
+      <tr><td>DDL</td><td>CREATE, ALTER, DROP</td><td>구조 변경 (테이블, 컬럼 등)</td></tr>
+    </tbody>
+  </table>
+  <p><strong>💡 암기 포인트:</strong> DML = 행 / DDL = 구조</p>
+</div>
+
+<!-- 📌 기억하기 쉬운 요약 정리 -->
+<div class="section">
+  <h3>📌 기억하기 쉬운 요약 정리</h3>
+  <ul>
+    <li><strong>SELECT</strong>: 꺼내기</li>
+    <li><strong>WHERE</strong>: 필터링</li>
+    <li><strong>JOIN</strong>: 연결</li>
+    <li><strong>GROUP BY</strong>: 묶기</li>
+    <li><strong>HAVING</strong>: 그룹 조건</li>
+    <li><strong>서브쿼리</strong>: 쿼리 안의 쿼리</li>
+    <li><strong>윈도우 함수</strong>: 행별 분석</li>
+    <li><strong>DML/DDL</strong>: 데이터 조작/구조 변경</li>
+    <li><strong>트랜잭션</strong>: 작업 묶음 관리</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h3>🃏 정보 탐험대 암기카드</h3>
+
+  <div class="card">
+    <p><strong>🃏 카드 21</strong><br>
+    앞면: SELECT 문의 역할은?<br>
+    뒷면: 원하는 정보 조회<br>
+    설명: 테이블에서 특정 컬럼을 꺼냄<br>
+    🔍 암기 포인트: “SELECT = 꺼내기”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 22</strong><br>
+    앞면: WHERE 절의 기능은?<br>
+    뒷면: 조건 필터링<br>
+    설명: 특정 조건에 맞는 행만 조회<br>
+    🔍 암기 포인트: “WHERE = 필터링”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 23</strong><br>
+    앞면: JOIN의 목적은?<br>
+    뒷면: 테이블 연결<br>
+    설명: 두 테이블의 관련 데이터를 합침<br>
+    🔍 암기 포인트: “JOIN = 연결”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 24</strong><br>
+    앞면: GROUP BY의 기능은?<br>
+    뒷면: 그룹화<br>
+    설명: 같은 값을 가진 행들을 묶음<br>
+    🔍 암기 포인트: “GROUP BY = 묶기”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 25</strong><br>
+    앞면: HAVING 절은 언제 사용하나요?<br>
+    뒷면: 그룹 조건 필터링<br>
+    설명: GROUP BY 이후 조건 지정<br>
+    🔍 암기 포인트: “HAVING = 그룹 필터”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 26</strong><br>
+    앞면: 서브쿼리란?<br>
+    뒷면: 쿼리 안의 쿼리<br>
+    설명: SELECT, WHERE, FROM 등에서 사용<br>
+    🔍 암기 포인트: “서브쿼리 = 쿼리 속 쿼리”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 27</strong><br>
+    앞면: 스칼라 서브쿼리란?<br>
+    뒷면: 단일 값 반환<br>
+    설명: SELECT 절에서 사용 가능<br>
+    🔍 암기 포인트: “스칼라 = 하나의 값”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 28</strong><br>
+    앞면: IN과 EXISTS의 차이는?<br>
+    뒷면: IN은 값 비교, EXISTS는 존재 여부 확인<br>
+    설명: EXISTS는 성능이 더 좋을 수 있음<br>
+    🔍 암기 포인트: “EXISTS = 존재 확인”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 29</strong><br>
+    앞면: 윈도우 함수란?<br>
+    뒷면: 행별 계산 함수<br>
+    설명: GROUP 없이도 집계 가능<br>
+    🔍 암기 포인트: “윈도우 함수 = 행별 분석”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 30</strong><br>
+    앞면: RANK와 DENSE_RANK의 차이는?<br>
+    뒷면: RANK는 건너뛰고, DENSE_RANK는 연속<br>
+    설명: 동점 처리 방식이 다름<br>
+    🔍 암기 포인트: “RANK = 건너뜀 / DENSE = 연속”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 31</strong><br>
+    앞면: ROW_NUMBER 함수의 역할은?<br>
+    뒷면: 행 번호 부여<br>
+    설명: 순서대로 번호 매김<br>
+    🔍 암기 포인트: “ROW_NUMBER = 번호 매기기”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 32</strong><br>
+    앞면: OVER 절의 기능은?<br>
+    뒷면: 윈도우 함수의 범위 지정<br>
+    설명: PARTITION BY, ORDER BY 포함<br>
+    🔍 암기 포인트: “OVER = 분석 범위”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 33</strong><br>
+    앞면: COUNT(*)는 무엇을 세나요?<br>
+    뒷면: 전체 행 수<br>
+    설명: NULL 포함<br>
+    🔍 암기 포인트: “COUNT(*) = 전체 행”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 34</strong><br>
+    앞면: COALESCE 함수의 역할은?<br>
+    뒷면: NULL 대체<br>
+    설명: NULL이면 지정한 값으로 대체<br>
+    🔍 암기 포인트: “COALESCE = NULL 처리”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 35</strong><br>
+    앞면: INSERT 문의 기능은?<br>
+    뒷면: 데이터 추가<br>
+    설명: 테이블에 새 행 삽입<br>
+    🔍 암기 포인트: “INSERT = 추가”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 36</strong><br>
+    앞면: UPDATE 문의 기능은?<br>
+    뒷면: 데이터 수정<br>
+    설명: 기존 행의 값을 변경<br>
+    🔍 암기 포인트: “UPDATE = 수정”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 37</strong><br>
+    앞면: DELETE 문의 기능은?<br>
+    뒷면: 데이터 삭제<br>
+    설명: 조건에 맞는 행 제거<br>
+    🔍 암기 포인트: “DELETE = 삭제”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 38</strong><br>
+    앞면: COMMIT의 역할은?<br>
+    뒷면: 변경 내용 저장<br>
+    설명: 트랜잭션 완료<br>
+    🔍 암기 포인트: “COMMIT = 저장”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 39</strong><br>
+    앞면: ROLLBACK의 역할은?<br>
+    뒷면: 변경 내용 취소<br>
+    설명: 트랜잭션 되돌리기<br>
+    🔍 암기 포인트: “ROLLBACK = 취소”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 40</strong><br>
+    앞면: DDL 명령어의 종류는?<br>
+    뒷면: CREATE, ALTER, DROP<br>
+    설명: 테이블 구조 변경<br>
+    🔍 암기 포인트: “DDL = 구조 변경”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 41</strong><br>
+    앞면: JOIN의 유형은?<br>
+    뒷면: INNER, LEFT, RIGHT, FULL<br>
+    설명: 테이블 연결 방식에 따라 결과가 달라짐<br>
+    🔍 암기 포인트: “INNER = 교집합 / LEFT = 왼쪽 우선 / FULL = 전체”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 42</strong><br>
+    앞면: 서브쿼리의 유형은?<br>
+    뒷면: 스칼라, 인라인 뷰, 상관 서브쿼리 등<br>
+    설명: 위치와 반환 방식에 따라 구분됨<br>
+    🔍 암기 포인트: “스칼라 = 하나 / 인라인 = 테이블처럼 / 상관 = 외부 연결”</p>
+  </div> 
+    <div class="card">
+    <p><strong>🃏 카드 43</strong><br>
+    앞면: 윈도우 함수 실전 예시<br>
+    뒷면: RANK() OVER(PARTITION BY … ORDER BY …)<br>
+    설명: 그룹 내 순위 계산<br>
+    🔍 암기 포인트: “PARTITION BY = 그룹 / ORDER BY = 정렬”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 44</strong><br>
+    앞면: DML과 DDL의 차이는?<br>
+    뒷면: DML은 행 조작, DDL은 구조 변경<br>
+    설명: INSERT/UPDATE vs CREATE/ALTER<br>
+    🔍 암기 포인트: “DML = 행 / DDL = 구조”</p>
+  </div>
+
+  <div class="card">
+    <p><strong>🃏 카드 45</strong><br>
+    앞면: 상관 서브쿼리란?<br>
+    뒷면: 외부 쿼리의 컬럼을 참조하는 서브쿼리<br>
+    설명: EXISTS 조건에서 자주 사용됨<br>
+    🔍 암기 포인트: “상관 = 외부 컬럼 참조”</p>
+  </div>
+</div>
+
+
+<div class="section">
+  <h3>📘 대표 기출 문제</h3>
+
+  <div class="quiz">
+    <p><strong>🧪 문제 1</strong><br>
+    다음 중 SELECT 문의 기능은?<br>
+    ① 테이블 삭제 ② 데이터 조회 ③ 데이터 수정 ④ 트랜잭션 저장<br>
+    ✅ <strong>정답:</strong> ②<br>
+    💡 <strong>해설:</strong> SELECT는 원하는 컬럼을 꺼내는 명령어예요.<br>
+    🔍 <strong>암기 포인트:</strong> “SELECT = 꺼내기”</p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>🧪 문제 2</strong><br>
+    GROUP BY와 함께 사용되는 조건 필터링 절은?<br>
+    ① WHERE ② HAVING ③ ORDER BY ④ FROM<br>
+    ✅ <strong>정답:</strong> ②<br>
+    💡 <strong>해설:</strong> HAVING은 GROUP BY 이후 그룹 조건을 필터링할 때 사용돼요.<br>
+    🔍 <strong>암기 포인트:</strong> “GROUP BY 이후 = HAVING”</p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>🧪 문제 3</strong><br>
+    윈도우 함수에서 순위를 건너뛰는 함수는?<br>
+    ① DENSE_RANK ② RANK ③ ROW_NUMBER ④ COUNT<br>
+    ✅ <strong>정답:</strong> ②<br>
+    💡 <strong>해설:</strong> RANK는 동점자가 있을 경우 순위를 건너뛰고 다음 순서로 넘어가요.<br>
+    🔍 <strong>암기 포인트:</strong> “RANK = 건너뜀”</p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>🧪 문제 4</strong><br>
+    다음 중 트랜잭션을 저장하는 명령은?<br>
+    ① ROLLBACK ② DELETE ③ COMMIT ④ SELECT<br>
+    ✅ <strong>정답:</strong> ③<br>
+    💡 <strong>해설:</strong> COMMIT은 트랜잭션을 완료하고 변경 내용을 저장하는 명령어예요.<br>
+    🔍 <strong>암기 포인트:</strong> “COMMIT = 저장”</p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>🧪 문제 5</strong><br>
+    서브쿼리에서 단일 값을 반환하는 유형은?<br>
+    ① 인라인 뷰 ② 스칼라 서브쿼리 ③ 다중행 서브쿼리 ④ 다중열 서브쿼리<br>
+    ✅ <strong>정답:</strong> ②<br>
+    💡 <strong>해설:</strong> 스칼라 서브쿼리는 SELECT 절에서 단일 값을 반환할 때 사용돼요.<br>
+    🔍 <strong>암기 포인트:</strong> “스칼라 = 하나의 값”</p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>🧪 문제 6</strong><br>
+    다음 중 상관 서브쿼리의 특징은?<br>
+    ① 외부 쿼리와 독립적으로 실행된다 ② 단일 값을 반환한다 ③ 외부 쿼리의 컬럼을 참조한다 ④ GROUP BY와 함께 사용된다<br>
+    ✅ <strong>정답:</strong> ③<br>
+    💡 <strong>해설:</strong> 상관 서브쿼리는 외부 쿼리의 컬럼을 내부 쿼리에서 참조하며 반복적으로 실행돼요.<br>
+    🔍 <strong>암기 포인트:</strong> “상관 = 외부 컬럼 참조”</p>
+  </div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 1 - IP 마법사와 주소 찾기</title>
+  <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* A4 인쇄용 설정 - 여백 최소화 */
+@page {
+  size: A4;
+  margin: 10mm 8mm;
+}
+
+/* 기본 설정 */
+body {
+  font-family: 'Jua', sans-serif, 'Segoe UI Emoji', 'Apple Color Emoji';
+  font-size: 0.85em;              /* 폰트 살짝 축소 */
+  line-height: 1.5;               /* 줄 간격 축소 */
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* 섹션별 페이지 분리 */
+.section {
+  margin:1em 0;
+  padding: 10mm 8mm;              /* 섹션 여백 축소 */
+  background-color: #fff;
+}
+
+/* 챕터 타이틀 박스 */
+.chapter-title {
+  background: #fce4ec;
+  padding: 16px;
+  border-left: 6px solid #b03060;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.chapter-title h2 {
+  font-size: 2.2em;
+  margin: 0;
+}
+
+.chapter-title p {
+  margin-top: 6px;
+  font-size: 1em;
+}
+
+/* 소제목 */
+.section h3 {
+  font-size: 1.2em;
+  margin: 20px 0 8px;
+  color: #6b4226;
+}
+
+/* 리스트 */
+ul {
+  line-height: 1.6;
+  font-size: 0.95em;
+  padding-left: 18px;
+  margin-bottom: 10px;
+}
+
+/* 표 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  page-break-inside: avoid;
+}
+
+th, td {
+  padding: 8px;
+  line-height: 1.4;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+thead {
+  background: #ffe4ec;
+  color: #b03060;
+}
+
+/* 카드 박스 */
+.card {
+  background: #fff3e0;
+  border: 1px solid #ffcc80;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 95%;
+  text-align: left;
+  page-break-inside: avoid;
+}
+
+/* 기출문제 박스 */
+.quiz {
+  background: #e8f5e9;
+  border-left: 5px solid #4caf50;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 95%;
+  text-align: left;
+  page-break-inside: avoid;
+}
+
+/* 카드/문제 간 구분선 (선택적) */
+.card:not(:first-child),
+.quiz:not(:first-child) {
+  border-top: 1px dashed #ddd;
+}
+
+/* 반응형 대응 (화면 보기용) */
+@media screen {
+  body {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .section {
+    padding: 32px 16px;
+  }
+
+  .card, .quiz {
+    margin: 14px auto;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <div class="chapter-title">
+      <h2>🔌 Chapter 12. 케이블 마을과 연결의 기술</h2>
+      <p>선 하나로 왕국을 이어주는 연결의 기술자들</p>
+    </div>
+    <p style="line-height: 1.8; font-size: 1.1em; text-align: center;">
+      컴퓨터 왕국의 마을들을 연결하려면 <strong>케이블 기술자</strong>들이 필요해요.<br>
+      이 기술자들은 다양한 케이블을 사용해서 마을과 마을을 이어주죠.
+    </p>
+
+    <h3>📌 핵심 개념 요약</h3>
+    <ul>
+      <li><strong>UTP 케이블</strong>: 가장 흔하게 쓰이는 비차폐 케이블</li>
+      <li><strong>STP 케이블</strong>: 외부 간섭을 막기 위한 차폐막 포함</li>
+      <li><strong>직결 케이블</strong>: 서로 다른 장비 연결용</li>
+      <li><strong>크로스 케이블</strong>: 같은 장비끼리 연결용</li>
+      <li><strong>568A/B</strong>: 케이블 색상 배열 방식</li>
+      <li><strong>CAT5e, CAT6</strong>: 속도와 대역폭에 따라 구분</li>
+      <li><strong>광케이블</strong>: 빛으로 데이터를 보내는 고속 도로</li>
+      <li><strong>RJ45 커넥터</strong>: 케이블 끝에 붙이는 연결 단자</li>
+    </ul>
+    <p style="margin-top: 1.5em; text-align: center;">🧵 케이블 마을은 연결의 기술자들이 활약하는 곳! 선 하나로 왕국이 이어져요!</p>
+  </div>
+
+  <div class="section">
+    <h3>🃏 케이블 마을 암기카드</h3>
+
+    <div class="card"><p><strong>🃏 카드 97</strong><br>앞면: UTP 케이블의 특징은?<br>뒷면: 비차폐, 저렴하고 설치 쉬움<br>설명: 일반적인 LAN 환경에서 사용<br>🔍 암기 포인트: “UTP = 흔한 케이블, 싸고 편함”</p></div>
+    <div class="card"><p><strong>🃏 카드 98</strong><br>앞면: STP 케이블의 특징은?<br>뒷면: 차폐막 있음, 외부 간섭에 강함<br>설명: 전자기 간섭이 많은 환경에 사용<br>🔍 암기 포인트: “STP = 방어막 있는 케이블”</p></div>
+    <div class="card"><p><strong>🃏 카드 99</strong><br>앞면: 직결 케이블은 어떤 장비끼리 연결할 때 사용하나요?<br>뒷면: 서로 다른 장비 (PC–허브, 허브–라우터 등)<br>설명: 송수신 선이 다르게 연결됨<br>🔍 암기 포인트: “직결 = 다른 장비 연결용”</p></div>
+    <div class="card"><p><strong>🃏 카드 100</strong><br>앞면: 크로스 케이블은 어떤 장비끼리 연결할 때 사용하나요?<br>뒷면: 같은 장비 (PC–PC, 허브–허브 등)<br>설명: 송수신 선이 교차됨<br>🔍 암기 포인트: “크로스 = 같은 장비 연결용”</p></div>
+    <div class="card"><p><strong>🃏 카드 101</strong><br>앞면: 568A와 568B는 무엇을 의미하나요?<br>뒷면: 케이블 색상 배열 방식<br>설명: RJ45 커넥터에 선을 꽂는 순서<br>🔍 암기 포인트: “568A/B = 선 색깔 순서”</p></div>
+    <div class="card"><p><strong>🃏 카드 102</strong><br>앞면: CAT5e와 CAT6의 차이는?<br>뒷면: 속도와 대역폭<br>설명: CAT6가 더 빠르고 간섭에 강함<br>🔍 암기 포인트: “CAT6 = 더 빠르고 강한 케이블”</p></div>
+    <div class="card"><p><strong>🃏 카드 103</strong><br>앞면: 광케이블의 특징은?<br>뒷면: 빛으로 데이터 전송<br>설명: 속도가 빠르고 거리 제한이 적음<br>🔍 암기 포인트: “광케이블 = 빛의 고속도로”</p></div>
+    <div class="card"><p><strong>🃏 카드 104</strong><br>앞면: RJ45 커넥터는 무엇인가요?<br>뒷면: LAN 케이블 연결 단자<br>설명: 8핀 구조, 이더넷에 사용<br>🔍 암기 포인트: “RJ45 = 케이블 끝 연결기”</p></div>
+  </div>
+
+  <div class="section">
+    <h3>📘 대표 기출 문제</h3>
+
+    <div class="quiz"><p><strong>🧪 문제 1</strong><br>UTP 케이블의 특징은?<br>① 차폐막 있음 ② 비차폐, 저렴하고 설치 쉬움 ③ 광섬유 기반 ④ 무선 연결 가능<br>✅ 정답: ②<br>💡 해설: UTP는 가장 흔한 케이블로, 설치가 쉽고 가격이 저렴해요<br>🔍 암기 포인트: “UTP = 흔한 케이블, 싸고 편함”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 2</strong><br>STP 케이블의 특징은?<br>① 비차폐 ② 차폐막 있음, 외부 간섭에 강함 ③ 무선 연결 ④ 광케이블 대체용<br>✅ 정답: ②<br>💡 해설: STP는 외부 간섭을 막기 위해 차폐막이 있는 케이블이에요<br>🔍 암기 포인트: “STP = 방어막 있는 케이블”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 3</strong><br>직결 케이블은 어떤 장비끼리 연결할 때 사용하나요?<br>① 같은 장비 ② 서로 다른 장비 ③ 무선 장비 ④ 광케이블 장비<br>✅ 정답: ②<br>💡 해설: 직결 케이블은 PC–허브, 허브–라우터처럼 다른 장비끼리 연결할 때 사용돼요<br>🔍 암기 포인트: “직결 = 다른 장비 연결용”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 4</strong><br>크로스 케이블은 어떤 장비끼리 연결할 때 사용하나요?<br>① 서로 다른 장비 ② 같은 장비 ③ 무선 장비 ④ 광케이블 장비<br>✅ 정답: ②<br>💡 해설: 크로스 케이블은 PC–PC, 허브–허브처럼 같은 장비끼리 연결할 때 사용돼요<br>🔍 암기 포인트: “크로스 = 같은 장비 연결용”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 5</strong><br>568A와 568B는 무엇을 의미하나요?<br>① 케이블 길이 ② 케이블 색상 배열 방식 ③ 케이블 종류 ④ 커넥터 핀 수<br>✅ 정답: ②<br>💡 해설: 568A/B는 RJ45 커넥터에 선을 꽂는 색상 배열 방식이에요<br>🔍 암기 포인트: “568A/B = 선 색깔 순서”</p></div>
+  </div>
+
+</body>
+</html>

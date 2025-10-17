@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 1 - IP 마법사와 주소 찾기</title>
+  <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* A4 인쇄용 설정 - 여백 최소화 */
+@page {
+  size: A4;
+  margin: 10mm 8mm;
+}
+
+/* 기본 설정 */
+body {
+  font-family: 'Jua', sans-serif, 'Segoe UI Emoji', 'Apple Color Emoji';
+  font-size: 0.85em;              /* 폰트 살짝 축소 */
+  line-height: 1.5;               /* 줄 간격 축소 */
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* 섹션별 페이지 분리 */
+.section {
+  margin:1em 0;
+  padding: 10mm 8mm;              /* 섹션 여백 축소 */
+  background-color: #fff;
+}
+
+/* 챕터 타이틀 박스 */
+.chapter-title {
+  background: #fce4ec;
+  padding: 16px;
+  border-left: 6px solid #b03060;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.chapter-title h2 {
+  font-size: 2.2em;
+  margin: 0;
+}
+
+.chapter-title p {
+  margin-top: 6px;
+  font-size: 1em;
+}
+
+/* 소제목 */
+.section h3 {
+  font-size: 1.2em;
+  margin: 20px 0 8px;
+  color: #6b4226;
+}
+
+/* 리스트 */
+ul {
+  line-height: 1.6;
+  font-size: 0.95em;
+  padding-left: 18px;
+  margin-bottom: 10px;
+}
+
+/* 표 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  page-break-inside: avoid;
+}
+
+th, td {
+  padding: 8px;
+  line-height: 1.4;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+thead {
+  background: #ffe4ec;
+  color: #b03060;
+}
+
+/* 카드 박스 */
+.card {
+  background: #fff3e0;
+  border: 1px solid #ffcc80;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 95%;
+  text-align: left;
+  page-break-inside: avoid;
+}
+
+/* 기출문제 박스 */
+.quiz {
+  background: #e8f5e9;
+  border-left: 5px solid #4caf50;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 95%;
+  text-align: left;
+  page-break-inside: avoid;
+}
+
+/* 카드/문제 간 구분선 (선택적) */
+.card:not(:first-child),
+.quiz:not(:first-child) {
+  border-top: 1px dashed #ddd;
+}
+
+/* 반응형 대응 (화면 보기용) */
+@media screen {
+  body {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .section {
+    padding: 32px 16px;
+  }
+
+  .card, .quiz {
+    margin: 14px auto;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <div class="chapter-title">
+      <h2>🧪 Chapter 13. 네트워크 실전 마법과 시험 준비</h2>
+      <p>이제 마법을 직접 써야 할 실전의 시간!</p>
+    </div>
+    <p style="line-height: 1.8; font-size: 1.1em; text-align: center;">
+      컴퓨터 왕국의 모든 마법과 기술을 익혔다면, 이제 실전에 나설 준비가 되었어요.<br>
+      실전에서는 마법을 직접 써야 하고, 장비를 연결하거나 문제를 해결해야 해요.
+    </p>
+
+    <h3>📌 핵심 개념 요약</h3>
+    <ul>
+      <li><strong>랜툴</strong>: RJ45 커넥터 연결, 선 배열 정확히 맞추기</li>
+      <li><strong>크로스/직결 케이블</strong>: 장비 종류에 따라 구분 연결</li>
+      <li><strong>IP 설정</strong>: IP 주소, 서브넷 마스크, 게이트웨이 입력</li>
+      <li><strong>라우터 설정</strong>: 명령어로 경로 설정</li>
+      <li><strong>핑 테스트</strong>: 연결 상태 확인</li>
+      <li><strong>트레이서트</strong>: 경로 추적</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>🃏 실전 마법 암기카드 (기술 중심)</h3>
+
+    <div class="card"><p><strong>🃏 카드 105</strong><br>앞면: 랜툴의 주요 용도는?<br>뒷면: RJ45 커넥터 연결<br>🔍 암기 포인트: “랜툴 = 케이블 마법 지팡이”</p></div>
+    <div class="card"><p><strong>🃏 카드 106</strong><br>앞면: 크로스 케이블은 어떤 장비끼리 연결할 때 사용하나요?<br>뒷면: 같은 장비<br>🔍 암기 포인트: “크로스 = 친구끼리 연결”</p></div>
+    <div class="card"><p><strong>🃏 카드 107</strong><br>앞면: 직결 케이블은 어떤 장비끼리 연결할 때 사용하나요?<br>뒷면: 서로 다른 장비<br>🔍 암기 포인트: “직결 = 다른 장비 연결”</p></div>
+    <div class="card"><p><strong>🃏 카드 108</strong><br>앞면: IP 주소 설정 시 필수로 입력해야 하는 정보는?<br>뒷면: IP 주소, 서브넷 마스크, 게이트웨이<br>🔍 암기 포인트: “IP 설정 = 주소 + 구역 + 출입문”</p></div>
+    <div class="card"><p><strong>🃏 카드 109</strong><br>앞면: 라우터 설정 시 사용하는 명령어는?<br>뒷면: enable, configure terminal, ip route 등<br>🔍 암기 포인트: “라우터 = 명령어로 길 만드는 마법”</p></div>
+    <div class="card"><p><strong>🃏 카드 110</strong><br>앞면: ping 명령어의 목적은?<br>뒷면: 연결 상태 확인<br>🔍 암기 포인트: “ping = 살아있나요?”</p></div>
+    <div class="card"><p><strong>🃏 카드 111</strong><br>앞면: tracert 명령어의 목적은?<br>뒷면: 경로 추적<br>🔍 암기 포인트: “tracert = 길 따라가기”</p></div>
+  </div>
+
+  <div class="section">
+    <h3>📘 대표 기출 문제</h3>
+
+    <div class="quiz"><p><strong>🧪 문제 1</strong><br>랜툴의 주요 용도는?<br>① IP 주소 설정 ② RJ45 커넥터 연결 ③ DNS 질의 ④ MAC 주소 변경<br>✅ 정답: ②<br>💡 해설: 랜툴은 케이블 끝에 RJ45 커넥터를 연결할 때 사용하는 도구예요<br>🔍 암기 포인트: “랜툴 = 케이블 마법 지팡이”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 2</strong><br>IP 주소 설정 시 필수로 입력해야 하는 정보가 아닌 것은?<br>① IP 주소 ② 서브넷 마스크 ③ 게이트웨이 ④ MAC 주소<br>✅ 정답: ④<br>💡 해설: IP 설정에는 MAC 주소가 포함되지 않아요<br>🔍 암기 포인트: “IP 설정 = 주소 + 구역 + 출입문”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 3</strong><br>라우터 설정 시 사용하는 명령어는?<br>① ping ② tracert ③ ip route ④ arp<br>✅ 정답: ③<br>💡 해설: 라우터에서 경로를 설정할 때는 ip route 명령어를 사용해요<br>🔍 암기 포인트: “라우터 = 길 만드는 명령어”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 4</strong><br>ping 명령어의 목적은?<br>① 경로 추적 ② 연결 상태 확인 ③ MAC 주소 변경 ④ 포트 번호 설정<br>✅ 정답: ②<br>💡 해설: ping은 대상 장비와 연결이 되는지 확인하는 명령어예요<br>🔍 암기 포인트: “ping = 살아있나요?”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 5</strong><br>tracert 명령어의 목적은?<br>① IP 주소 변경 ② MAC 주소 확인 ③ 경로 추적 ④ 포트 번호 설정<br>✅ 정답: ③<br>💡 해설: tracert는 목적지까지의 경로를 단계별로 보여주는 명령어예요<br>🔍 암기 포인트: “tracert = 길 따라가기”</p></div>
+  </div>
+
+  <div class="section">
+    <h3>📘 시험 정보 부록</h3>
+
+    <div class="card"><p><strong>🃏 카드 112</strong><br>앞면: 실기 시험에서 사용하는 에뮬레이터는?<br>뒷면: ICQA 공식 에뮬레이터<br>🔍 암기 포인트: “에뮬레이터 = 시험장 미리 체험”</p></div>
+    <div class="card"><p><strong>🃏 카드 113</strong><br>앞면: 실기 시험의 구성은?<br>뒷면: 작업형 + 서술형 + 선택형<br>🔍 암기 포인트: “실기 = 손 + 머리 + 판단력”</p></div>
+    <div class="card"><p><strong>🃏 카드 114</strong><br>앞면: RJ45 커넥터의 핀 수는?<br>뒷면: 8핀<br>🔍 암기 포인트: “RJ45 = 8개의 연결 점”</p></div>
+    <div class="card"><p><strong>🃏 카드 115</strong><br>앞면: 실기에서 가장 중요한 준비는?<br>뒷면: 기출문제 반복 학습<br>🔍 암기 포인트: “기출 = 합격의 지름길”</p></div>
+    <div class="card"><p><strong>🃏 카드 116</strong><br>앞면: 실기 시험 시간은?<br>뒷면: 총 80분<br>🔍 암기 포인트: “80분 = 집중력 싸움”</p></div>
+    <div class="card"><p><strong>🃏 카드 117</strong><br>앞면: 랜선 제작 시 필요한 도구는?<br>뒷면: 랜툴, RJ45, 케이블<br>🔍 암기 포인트: “랜선 제작 = 손기술의 시작”</p></div>
+    <div class="card"><p><strong>🃏 카드 118</strong><br>앞면: 라우터 설정 시 주의할 점은?<br>뒷면: 명령어 정확성, 인터페이스 활성화<br>🔍 암기 포인트: “라우터 설정 = 정확한 주문”</p></div>
+    <div class="card"><p><strong>🃏 카드 119</strong><br>앞면: 실기에서 가장 많이 나오는 명령어는?<br>뒷면: ip address, no shutdown, show ip route<br>🔍 암기 포인트: “명령어 3종 세트 = ip + no shut + show”</p></div>
+  </div>
+  
+  </body>
+</html>
