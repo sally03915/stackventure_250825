@@ -1,0 +1,28 @@
+
+41
+아님, CHR(10): ASCII 값
+줄바꿈을 의미)
+적절한 것은? (단, 이해를 돕기 위해 는 줄바꿈을 의미
+다음 중 아래와 같은 2건의 데이터 상황에서 SQL의 수행 결과로 가장
+・실제 저장값이
+TAB1
+1 2
+2) 3
+아래
+ROWNUM
+C1
+SELECT SUM(CC)
+1
+A
+FROM (
+↓
+A
+2
+B
+SELECT(LENGTH(C1) -
+LENGTH(REPLACE(C1,
+CHR(10))) + 1) CC
+FROM TAB1
+B
+↓
+B

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 1 - IP 마법사와 주소 찾기</title>
+  <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* A4 인쇄용 설정 - 여백 최소화 */
+@page {
+  size: A4;
+  margin: 10mm 8mm;
+}
+
+/* 기본 설정 */
+body {
+  font-family: 'Jua', sans-serif, 'Segoe UI Emoji', 'Apple Color Emoji';
+  font-size: 0.85em;              /* 폰트 살짝 축소 */
+  line-height: 1.5;               /* 줄 간격 축소 */
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* 섹션별 페이지 분리 */
+.section {
+  margin:1em 0;
+  padding: 10mm 8mm;              /* 섹션 여백 축소 */
+  background-color: #fff;
+}
+
+/* 챕터 타이틀 박스 */
+.chapter-title {
+  background: #fce4ec;
+  padding: 16px;
+  border-left: 6px solid #b03060;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.chapter-title h2 {
+  font-size: 2.2em;
+  margin: 0;
+}
+
+.chapter-title p {
+  margin-top: 6px;
+  font-size: 1em;
+}
+
+/* 소제목 */
+.section h3 {
+  font-size: 1.2em;
+  margin: 20px 0 8px;
+  color: #6b4226;
+}
+
+/* 리스트 */
+ul {
+  line-height: 1.6;
+  font-size: 0.95em;
+  padding-left: 18px;
+  margin-bottom: 10px;
+}
+
+/* 표 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  page-break-inside: avoid;
+}
+
+th, td {
+  padding: 8px;
+  line-height: 1.4;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+thead {
+  background: #ffe4ec;
+  color: #b03060;
+}
+
+/* 카드 박스 */
+.card {
+  background: #fff3e0;
+  border: 1px solid #ffcc80;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 95%;
+  text-align: left;
+  page-break-inside: avoid;
+}
+
+/* 기출문제 박스 */
+.quiz {
+  background: #e8f5e9;
+  border-left: 5px solid #4caf50;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 95%;
+  text-align: left;
+  page-break-inside: avoid;
+}
+
+/* 카드/문제 간 구분선 (선택적) */
+.card:not(:first-child),
+.quiz:not(:first-child) {
+  border-top: 1px dashed #ddd;
+}
+
+/* 반응형 대응 (화면 보기용) */
+@media screen {
+  body {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .section {
+    padding: 32px 16px;
+  }
+
+  .card, .quiz {
+    margin: 14px auto;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <div class="chapter-title">
+      <h2>🧚‍♀️ Chapter 2. DNS 요정과 이름 찾기</h2>
+      <p>주소를 찾아 떠나는 또 다른 여정</p>
+    </div>
+    <p style="line-height: 1.8; font-size: 1.1em; text-align: center;">
+      컴퓨터 왕국의 주민들은 숫자 주소를 외우기 어려워했어요.<br>
+      그래서 DNS 요정이 등장해 이름을 숫자로 바꿔주는 마법을 부렸죠.
+    </p>
+
+    <h3>📌 핵심 개념 요약</h3>
+    <ul>
+      <li><strong>DNS</strong>: 도메인 이름 ↔ IP 주소 변환</li>
+      <li><strong>정방향 조회</strong>: 이름 → IP 주소</li>
+      <li><strong>역방향 조회</strong>: IP 주소 → 이름</li>
+      <li><strong>DNS 포트 번호</strong>: 53번</li>
+      <li><strong>DHCP</strong>: 자동으로 주소를 배달해주는 시스템</li>
+      <li><strong>DHCP 메시지 순서</strong>: Discover → Offer → Request → ACK</li>
+      <li><strong>DHCP 포트 번호</strong>: 서버 67번 / 클라이언트 68번</li>
+      <li><strong>ARP</strong>: IP → MAC 주소 변환</li>
+      <li><strong>RARP</strong>: MAC → IP 주소 변환</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>🃏 DNS 요정 암기카드</h3>
+
+    <div class="card"><p><strong>🃏 카드 12</strong><br>앞면: DNS의 역할은?<br>뒷면: 도메인 이름 ↔ IP 주소 변환<br>설명: 사람이 기억하기 쉬운 이름 사용 가능<br>🔍 암기 포인트: “DNS = 인터넷 전화번호부”</p></div>
+    <div class="card"><p><strong>🃏 카드 13</strong><br>앞면: DNS에서 이름을 IP 주소로 바꾸는 작업은?<br>뒷면: 정방향 조회<br>설명: 도메인 이름 → IP 주소<br>🔍 암기 포인트: “정방향 = 이름 → 숫자”</p></div>
+    <div class="card"><p><strong>🃏 카드 14</strong><br>앞면: DNS에서 IP 주소를 이름으로 바꾸는 작업은?<br>뒷면: 역방향 조회<br>설명: IP 주소 → 도메인 이름<br>🔍 암기 포인트: “역방향 = 숫자 → 이름”</p></div>
+    <div class="card"><p><strong>🃏 카드 15</strong><br>앞면: DNS의 대표 포트 번호는?<br>뒷면: 53번<br>설명: UDP 기반으로 동작<br>🔍 암기 포인트: “DNS = 53번 UDP”</p></div>
+    <div class="card"><p><strong>🃏 카드 16</strong><br>앞면: DHCP의 주요 기능은?<br>뒷면: IP 주소 자동 할당<br>설명: 클라이언트가 네트워크에 접속 시 자동으로 주소 부여<br>🔍 암기 포인트: “DHCP = 자동 주소 배달부”</p></div>
+    <div class="card"><p><strong>🃏 카드 17</strong><br>앞면: DHCP 메시지 순서?<br>뒷면: Discover → Offer → Request → ACK<br>설명: 4단계 절차로 주소 할당<br>🔍 암기 포인트: “DORA 순서 기억! DHCP의 4단계”</p></div>
+    <div class="card"><p><strong>🃏 카드 18</strong><br>앞면: DHCP의 대표 포트 번호는?<br>뒷면: 67번(서버), 68번(클라이언트)<br>설명: UDP 기반<br>🔍 암기 포인트: “DHCP = 67/68번 UDP”</p></div>
+    <div class="card"><p><strong>🃏 카드 19</strong><br>앞면: ARP의 역할은?<br>뒷면: IP → MAC 주소 변환<br>설명: LAN에서 물리 주소 확인<br>🔍 암기 포인트: “ARP = IP 주소로 MAC 주소 찾기”</p></div>
+    <div class="card"><p><strong>🃏 카드 20</strong><br>앞면: RARP의 역할은?<br>뒷면: MAC → IP 주소 변환<br>설명: IP 주소가 없는 장비가 요청<br>🔍 암기 포인트: “RARP = MAC 주소로 IP 주소 찾기”</p></div>
+  </div>
+
+  <div class="section">
+    <h3>📘 대표 기출 문제</h3>
+
+    <div class="quiz"><p><strong>🧪 문제 1</strong><br>DNS의 기본 포트 번호는?<br>① 21번 ② 80번 ③ 53번 ④ 443번<br>✅ 정답: ③<br>💡 해설: DNS는 도메인 이름을 IP 주소로 바꿔주는 서비스야. 이때 사용하는 포트가 53번이야<br>🔍 암기 포인트: “DNS = 포트 53”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 2</strong><br>DNS의 역할은 무엇인가?<br>① IP 주소를 MAC 주소로 변환 ② 도메인 이름을 IP 주소로 변환 ③ IP 주소를 도메인으로 암호화 ④ MAC 주소를 도메인으로 연결<br>✅ 정답: ②<br>💡 해설: 우리가 웹사이트 주소를 입력하면, DNS가 그걸 숫자 주소(IP)로 바꿔줘<br>🔍 암기 포인트: “DNS = 이름 → 숫자”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 3</strong><br>DNS 서버가 응답하지 않을 때 발생하는 현상은?<br>① 인터넷 속도가 느려진다 ② IP 충돌이 발생한다 ③ 웹사이트 접속이 안 된다 ④ MAC 주소가 변경된다<br>✅ 정답: ③<br>💡 해설: DNS가 작동하지 않으면 도메인 이름을 IP로 바꿀 수 없어서 웹사이트 접속이 안 돼<br>🔍 암기 포인트: “DNS 죽으면 = 사이트 못 들어감”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 4</strong><br>DNS에서 A 레코드는 어떤 정보를 제공하는가?<br>① 도메인의 이메일 주소 ② 도메인의 IP 주소 ③ 도메인의 MAC 주소 ④ 도메인의 포트 번호<br>✅ 정답: ②<br>💡 해설: A 레코드는 도메인 이름에 대응되는 IPv4 주소를 알려줘<br>🔍 암기 포인트: “A = Address”</p></div>
+
+    <div class="quiz"><p><strong>🧪 문제 5</strong><br>DNS 캐시의 역할은?<br>① IP 주소를 암호화 ② MAC 주소를 저장 ③ 이전 조회 결과를 저장 ④ 포트 번호를 할당<br>✅ 정답: ③<br>💡 해설: DNS 캐시는 최근 조회한 도메인 정보를 저장해서 빠르게 응답할 수 있게 해줘<br>🔍 암기 포인트: “DNS 캐시 = 빠른 응답”</p></div>
+  </div>
+
+</body>
+
+</html>

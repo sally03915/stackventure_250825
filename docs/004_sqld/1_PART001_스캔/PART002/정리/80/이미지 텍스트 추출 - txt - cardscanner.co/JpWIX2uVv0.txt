@@ -1,0 +1,56 @@
+
+106
+같은 형식의 데이터를 추출하려고 할 때 올바른 SQL 문장은?
+아래의 데이터 모델에서 SQL을 이용하여 표(지역별 월별 이용량
+아래
+이용내역
+지역
+지역
+이용자ID
+이용일시
+지역명
+-sk
+이용량
+지역D(FX)
+[표: 지역별 월별 이용량]
+지역명
+서울
+서울
+2014.02
+서울
+월별합계
+경기 경기 경기 대전 대전
+2014.01
+2014.03
+2014.05
+이용원
+이용량
+2014.01
+1,000
+1,000
+2,000
+1,000
+2,000
+3,000
+1,500
+2014.06
+1,000
+대전
+월별합계
+2,500
+지역전체
+월별합계
+7,500
+1 SELECT (CASE GROUPING(B. 지역명) WHEN O THEN '지역전체
+ELSE B. 지역명 END) AS 지역명
+(CASE GROUPING(TO CHARIA 이용일시, YYYYMM))
+WHEN THEN '월별합계
+ELISE TO_CHARA 이용일시 'YYYYMM) END) AS 이용원
+SUMIA 이용) AS 이용량
+FROM 이용내역 A INNER JOIN 지역 B ON (A 지역ID=B. 지역D) GROUP BY ROLLUPB. 지역명, TO_CHARIA 이용일시, 'YYYYMM
+2 SELECT (CASE GROUPING(B, 지역ID) WHEN THEN '지역전체 ELSE MIN(B. 지역명) END) AS 지역명
+(CASE GROUPING(TO_CHAR(A. 이용일시, YYYYMM) WHEN 1 THEN '월별합계
+ELSE TO_CHAR(A. 이용일시. YYYYMM) END) AS 이용원
+,SUM(A. 이용량) AS 이용량
+FROM 이용내역 A INNER JOIN 지역 B ON (A 지역ID= B. 지역ID)
+GROUP BY ROLLUP(B. 지역ID, TO_CHAR(A. 이용일시, 'YYYYMM'))

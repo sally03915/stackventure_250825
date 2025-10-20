@@ -1,0 +1,38 @@
+
+1 SELECT A. 설비ID, B. 에너지코드, SUM(B. 사용량) AS 사용량합계 FROM 설비 A INNER JOIN 에너지사용량 B
+ON
+(A.ID = B.ID)
+GROUP BY CUBE ((A.HID), (B.E), (A, ID, B. 에너지코드))
+ORDER BY A. HID, B.;
+2 SELECT A. 설비ID, B. 에너지코드, SUM(B. 사용량) AS 사용량합계
+FROM 설비 A INNER JOIN 에너지사용량 B
+ON (A, HID = B.HID)
+GROUP BY CUBE (A.ID, B.)
+ORDER BY A. 설비ID, B. 에너지코드:
+3 SELECT A. 설비ID, B. 에너지코드, SUM(B. 사용량) AS 사용량합계
+FROM 설비 A INNER JOIN 에너지사용량 B
+ON
+(A.ID = B.ID)
+GROUP BY GROUPING SETS((A.HID), (B.),
+(A. 설비ID, B. 에너지코드),())
+ORDER BY A.ID, B.;
+4 SELECT A. 설비ID, B. 에너지코드, SUM(B. 사용량) AS 사용량합계
+FROM 설비 A INNER JOIN 에너지사용량 B
+ON
+(A.ID = B. HID)
+GROUP BY GROUPING SETS((A. HID), (B.),
+(A. 설비ID, B. 에너지코드))
+ORDER BY A. 설비ID, B. 에너지코드:
+2000
+1000
+1500
+4500
+POC
+과목 I
+SQL 기본 및 활용
+1000
+4500
+2500
+1500
+1000
+SQL 자격검정 실전문제 | 113

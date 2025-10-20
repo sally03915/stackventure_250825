@@ -1,0 +1,28 @@
+
+3 CREATE TABLE EMP
+(EMP_NO VARCHAR2(10) NOT NULL,
+EMP NM VARCHAR2(30) NOT NULL,
+DEPT_CODE VARCHAR2(4) DEFAULT '0000' NOT NULL,
+JOIN_DATE DATE NOT NULL,
+REGIST DATE DATE);
+ALTER TABLE EMP ADD CONSTRAINT EMP_PK PRIMARY KEY
+(EMP_NO):
+CREATE INDEX IDX EMP_01 ON EMP (JOIN_DATE); CREATE TABLE EMP
+(EMP_NO VARCHAR2(10) NOT NULL PRIMARY KEY, EMP_NM VARCHAR2(30) NOT NULL,
+DEPT CODE VARCHAR2(4) DEFAULT '0000' NOT NULL, JOIN DATE DATE NOT NULL,
+REGIST DATE DATE NULL);
+ALTER TABLE EMP ADD CONSTRAINT EMP_PK PRIMARY KEY (EMP_NO):
+CREATE INDEX IDX EMP_01 ON EMP (JOIN_DATE);
+13
+다음 중 아래와 같은 문장으로 '학생' 테이블을 생성한 후, 유효한 튜플 (Tuple)을 삽입하였다. SQL 1, SQL 2 문장의 실행 결과로 가장 적절한 것은?
+아래
+생성) create table 학생 (학번 char (8) primary key,
+장학금 integer):
+SQL1: select count(*) from
+SQL2: select count() from
+1 SQLL, SQL2 문장의 실행 결과는 다를 수 있으며, 그 이유는 장학금
+속성(Attribute)에 널(Null)값이 존재할 수 있기 때문이다.
+SQLL SQL2 문장의 실행 결과는 항상 다르다.
+3 SQL1, SQL2 문장의 실행 결과는 항상 같다.
+4 SQL1, SQL2 문장의 실행 결과는 다를 수 있으며, 그 이유는 학번
+속성(Attribute)에 널(Null) 값이 존재할 수 있기 때문이다.
