@@ -446,17 +446,11 @@ COMMIT;
 <!-- _class: aqua -->
 ##### Q001
 - DEPT 테이블을 이용해서 다음과 같이 작성하시오.
-1. DEPT테이블을 복사해서 DEPT_TEMP 테이블을 만드시오.
+1. as SELECT 를 이용하여  
+  DEPT테이블을 복사해서 DEPT_TEMP 테이블을 만드시오.
 <img src="img/chap10_001.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE TABLE DEPT_TEMP
-    AS SELECT * FROM DEPT;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -465,13 +459,7 @@ CREATE TABLE DEPT_TEMP
 <img src="img/chap10_002.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT * FROM DEPT_TEMP;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -481,15 +469,7 @@ SELECT * FROM DEPT_TEMP;
 <img src="img/chap10_003.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO DEPT_TEMP (DEPTNO, DNAME, LOC)
-VALUES (50, 'DATABASE', 'SEOUL');
-
-SELECT * FROM DEPT_TEMP;
-
-</pre>
+ 
 
 
 ---
@@ -500,16 +480,7 @@ SELECT * FROM DEPT_TEMP;
 2. 열지정없이 데이터 추가가 가능하다.
 <img src="img/chap10_004.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO DEPT_TEMP
-VALUES (60 , 'NETWORK', 'BUSAN');
-
-SELECT * FROM DEPT_TEMP;
-
-</pre>
+ 
 
 
 ---
@@ -521,15 +492,7 @@ SELECT * FROM DEPT_TEMP;
 <img src="img/chap10_005.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO DEPT_TEMP (DEPTNO, DNAME, LOC)
-VALUES (70 , 'WEB', NULL);
-
-SELECT * FROM DEPT_TEMP;
-
-</pre>
+ 
 
 
 ---
@@ -541,16 +504,7 @@ SELECT * FROM DEPT_TEMP;
 <img src="img/chap10_006.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO DEPT_TEMP (DEPTNO, DNAME , LOC)
-VALUES (80 , 'MOBILE', '');
-
-SELECT * FROM DEPT_TEMP;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -560,16 +514,7 @@ SELECT * FROM DEPT_TEMP;
 2. 열데이터를 넣지 않는 방식으로 데이터 입력이 가능하다.
 <img src="img/chap10_007.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO DEPT_TEMP (DEPTNO, LOC)
-VALUES (90 , 'INCHEON');
-
-SELECT * FROM DEPT_TEMP;
-
-</pre>
+ 
 
 
 ---
@@ -579,20 +524,7 @@ SELECT * FROM DEPT_TEMP;
 1. EMP테이블을 복사해 EMP_TEMP 테이블을 만드시오.
 2. 조건적 WHERE이 FALSE이므로 구조만 복사합니다.
 <img src="img/chap10_008.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE TABLE EMP_TEMP
-    AS SELECT *
-         FROM EMP
-        WHERE 1 <> 1;
-
-SELECT * FROM EMP_TEMP;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -602,16 +534,7 @@ SELECT * FROM EMP_TEMP;
 <img src="img/chap10_009.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO EMP_TEMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO)
-VALUES (9999, '홍길동', 'PRESIDENT', NULL, '2001/01/01', 5000, 1000, 10);
-
-SELECT * FROM EMP_TEMP;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -621,15 +544,7 @@ SELECT * FROM EMP_TEMP;
 <img src="img/chap10_010.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO EMP_TEMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO)
-VALUES (1111, '성춘향', 'MANAGER', 9999, '2001-01-05', 4000, NULL, 20);
-
-SELECT * FROM EMP_TEMP;
-
-</pre>
+ 
 
 
 ---
@@ -640,13 +555,7 @@ SELECT * FROM EMP_TEMP;
 <img src="img/chap10_011.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO EMP_TEMP (EMPNO, ENAME, JOB, MGR , HIREDATE, SAL , COMM, DEPTNO)
-VALUES (2111, '이순신', 'MANAGER', 9999, '07/01/2001', 4000, NULL, 20);
-
-</pre>
+ 
 
 
 ---
@@ -657,16 +566,7 @@ VALUES (2111, '이순신', 'MANAGER', 9999, '07/01/2001', 4000, NULL, 20);
 <img src="img/chap10_012.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO EMP_TEMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO)
-VALUES (2111, '이순신', 'MANAGER', 9999,
-        TO_DATE('07/01/2001', 'DD/MM/YYYY'), 4000, NULL, 20);
-
-SELECT * FROM EMP_TEMP;
-
-</pre>
+ 
 
 
 ---
@@ -677,15 +577,7 @@ SELECT * FROM EMP_TEMP;
 <img src="img/chap10_013.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO EMP_TEMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO)
-VALUES (3111, '심청이', 'MANAGER', 9999, SYSDATE, 4000, NULL, 30);
-
-SELECT * FROM EMP_TEMP;
-
-</pre>
+ 
 
 
 ---
@@ -697,19 +589,7 @@ SELECT * FROM EMP_TEMP;
 3. VALUES를 사용하지 않음! / 추가되는 열, 서브쿼리의 열의 개수,자료형 일치
 <img src="img/chap10_014.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO EMP_TEMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO)
-SELECT E.EMPNO, E.ENAME, E.JOB, E.MGR, E.HIREDATE, E.SAL, E.COMM, E.DEPTNO
-  FROM EMP E, SALGRADE S
- WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
-   AND S.GRADE = 1;
-
-SELECT * FROM EMP_TEMP;
-
-</pre>
+ 
 
 
 ---
@@ -720,15 +600,7 @@ SELECT * FROM EMP_TEMP;
 <img src="img/chap10_015.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE TABLE DEPT_TEMP2
-    AS SELECT * FROM DEPT;
-
-SELECT * FROM DEPT_TEMP2;
-
-</pre>
+ 
 
 
 ---
@@ -738,16 +610,7 @@ SELECT * FROM DEPT_TEMP2;
 1. LOC을 전보 'SEOUL' 로 업데이트 하시오.
 <img src="img/chap10_016.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-UPDATE DEPT_TEMP2
-   SET LOC = 'SEOUL';
-
-SELECT * FROM DEPT_TEMP2;
-
-</pre>
+ 
 
 
 ---
@@ -757,13 +620,7 @@ SELECT * FROM DEPT_TEMP2;
 1. ROLLBACK을 이용하여 테이블 내용을 이전상태로 되돌리시오.
 <img src="img/chap10_017.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-ROLLBACK;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -773,17 +630,7 @@ ROLLBACK;
 <img src="img/chap10_018.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-UPDATE DEPT_TEMP2
-   SET DNAME = 'DATABASE',
-         LOC = 'SEOUL'
- WHERE DEPTNO = 40;
-
-SELECT * FROM DEPT_TEMP2;
-
-</pre>
+ 
 
 
 ---
@@ -795,19 +642,7 @@ SELECT * FROM DEPT_TEMP2;
 <img src="img/chap10_019.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-UPDATE DEPT_TEMP2
-   SET (DNAME, LOC) = (SELECT DNAME, LOC
-                         FROM DEPT
-                        WHERE DEPTNO = 40)
- WHERE DEPTNO = 40;
-
-SELECT * FROM DEPT_TEMP2;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -818,20 +653,7 @@ SELECT * FROM DEPT_TEMP2;
 3. 열 하나하나를 수정하는 경우우
 <img src="img/chap10_020.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-UPDATE DEPT_TEMP2
-   SET DNAME = (SELECT DNAME
-                  FROM DEPT
-                 WHERE DEPTNO = 40),
-       LOC = (SELECT LOC
-                FROM DEPT
-               WHERE DEPTNO = 40)
- WHERE DEPTNO = 40;
-
-</pre>
+ 
 
 
 ---
@@ -843,19 +665,7 @@ UPDATE DEPT_TEMP2
 <img src="img/chap10_021.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-UPDATE DEPT_TEMP2
-   SET LOC = 'SEOUL'
- WHERE DEPTNO = (SELECT DEPTNO
-                   FROM DEPT_TEMP2
-                  WHERE DNAME='OPERATIONS');
-
-SELECT * FROM DEPT_TEMP2;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -864,15 +674,7 @@ SELECT * FROM DEPT_TEMP2;
 <img src="img/chap10_022.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE TABLE EMP_TEMP2
-    AS SELECT * FROM EMP;
-
-SELECT * FROM EMP_TEMP2;
-
-</pre>
+ 
 
 
 ---
@@ -883,15 +685,7 @@ SELECT * FROM EMP_TEMP2;
 <img src="img/chap10_023.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DELETE FROM EMP_TEMP2
- WHERE JOB = 'MANAGER';
-
-SELECT * FROM EMP_TEMP2;
-
-</pre>
+ 
 
 
 ---
@@ -905,19 +699,7 @@ SELECT * FROM EMP_TEMP2;
 <img src="img/chap10_024.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DELETE FROM EMP_TEMP2
- WHERE EMPNO IN (SELECT E.EMPNO
-                   FROM EMP_TEMP2 E, SALGRADE S
-                  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
-                    AND S.GRADE = 3
-                    AND DEPTNO = 30);
-
-SELECT * FROM EMP_TEMP2;
-
-</pre>
+ 
 
 
 ---
@@ -927,14 +709,7 @@ SELECT * FROM EMP_TEMP2;
 <img src="img/chap10_025.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DELETE FROM EMP_TEMP2;
-
-SELECT * FROM EMP_TEMP2;
-</pre>
-
+ 
 
 
 
@@ -953,22 +728,7 @@ SELECT * FROM EMP_TEMP2;
 <img src="img/chap10__EX_001.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE TABLE DEPT_TEST AS SELECT * FROM DEPT;
-
-INSERT INTO DEPT_TEST (DEPTNO, DNAME, LOC) VALUES (50, 'ORACLE', 'BUSAN');
-
-INSERT INTO DEPT_TEST (DEPTNO, DNAME, LOC) VALUES (60, 'SQL', 'ILSAN');
-
-INSERT INTO DEPT_TEST (DEPTNO, DNAME, LOC) VALUES (70, 'SELECT', 'INCHEON');
-
-INSERT INTO DEPT_TEST (DEPTNO, DNAME, LOC) VALUES (80, 'DML', 'BUNDANG');
-
-
-SELECT * FROM DEPT_TEST;
-</pre>
+ 
 
 
 ---
@@ -979,39 +739,7 @@ SELECT * FROM DEPT_TEST;
 2.  EMP_TEST 테이블에 다음과 같이 값이 추가하시오.
 <img src="img/chap10__EX_002.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-
-CREATE TABLE EMP_TEST AS SELECT * FROM EMP;
-
-INSERT INTO EMP_TEST
-VALUES(7201, 'TEST_USER1', 'MANAGER', 7788, TO_DATE('2016-01-02', 'YYYY-MM-DD'), 4500, NULL, 50);
-
-INSERT INTO EMP_TEST
-VALUES(7202, 'TEST_USER2', 'CLERK', 7201, TO_DATE('2016-02-21', 'YYYY-MM-DD'), 1800, NULL, 50);
-
-INSERT INTO EMP_TEST
-VALUES(7203, 'TEST_USER3', 'ANALYST', 7201, TO_DATE('2016-04-11', 'YYYY-MM-DD'), 3400, NULL, 60);
-
-INSERT INTO EMP_TEST
-VALUES(7204, 'TEST_USER4', 'SALESMAN', 7201, TO_DATE('2016-05-31', 'YYYY-MM-DD'), 2700, 300, 60);
-
-INSERT INTO EMP_TEST
-VALUES(7205, 'TEST_USER5', 'CLERK', 7201, TO_DATE('2016-07-20', 'YYYY-MM-DD'), 2600, NULL, 70);
-
-INSERT INTO EMP_TEST
-VALUES(7206, 'TEST_USER6', 'CLERK', 7201, TO_DATE('2016-09-08', 'YYYY-MM-DD'), 2600, NULL, 70);
-
-INSERT INTO EMP_TEST
-VALUES(7207, 'TEST_USER7', 'LECTURER', 7201, TO_DATE('2016-10-28', 'YYYY-MM-DD'), 2300, NULL, 80);
-
-INSERT INTO EMP_TEST
-VALUES(7208, 'TEST_USER8', 'STUDENT', 7201, TO_DATE('2018-03-09', 'YYYY-MM-DD'), 1200, NULL, 80);
-
-SELECT * FROM EMP_TEST;
-</pre>
+ 
 
 
 ---
@@ -1024,18 +752,7 @@ SELECT * FROM EMP_TEST;
 <!-- _class: aqua -->
 <img src="img/chap10__EX_003.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-UPDATE EMP_TEST
-   SET DEPTNO = 70
- WHERE SAL > (SELECT AVG(SAL)
-                FROM EMP_TEST
-               WHERE DEPTNO = 50);
-
-SELECT * FROM EMP_TEST;
-</pre>
+ 
 
 
 ---
@@ -1047,19 +764,7 @@ SELECT * FROM EMP_TEST;
 <!-- _class: aqua -->
 <img src="img/chap10__EX_004.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-UPDATE EMP_TEST
-   SET SAL = SAL*1.1,
-       DEPTNO = 80
- WHERE HIREDATE > (SELECT MIN(HIREDATE)
-                     FROM EMP_TEST
-                    WHERE DEPTNO = 60);
-
-SELECT * FROM EMP_TEST;
-</pre>
+ 
 
 
 ---
@@ -1071,19 +776,7 @@ SELECT * FROM EMP_TEST;
 <!-- _class: aqua -->
 <img src="img/chap10__EX_005.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DELETE FROM EMP_TEST
- WHERE EMPNO IN (SELECT E.EMPNO
-                   FROM EMP_TEST E, SALGRADE S
-                  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
-                    AND S.GRADE = 5);
-
-SELECT * FROM EMP_TEST;
-</pre>
-
+ 
 
 
 ---

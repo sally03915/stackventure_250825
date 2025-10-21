@@ -436,7 +436,7 @@ SELECT E.ENAME, D.DNAME
 <!-- _class: aqua -->
 ##### Q001
 - EMP, DEPT 테이블을 이용하여
-  FROM 절에 여러 테이블을 선언해해   다음과 같이 출력하시오
+  FROM 절에 여러 테이블을 선언해   다음과 같이 출력하시오
 - 모든테이블의 데이터가 다나옴. 56줄
 <img src="img/chap08_001.png" alt="" width="20%" />
 

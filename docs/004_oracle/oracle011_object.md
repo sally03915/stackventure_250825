@@ -451,27 +451,14 @@ CREATE TABLE EMP (
 - DICT을 이용하여 SCOTT계정에서 사용가능한 데이터 사전을 살펴보시오
 <img src="img/chap13_001.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT * FROM DICT;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q002
 - DICTIONARY을 이용하여 SCOTT계정에서 사용가능한 데이터 사전을 살펴보시오
 <img src="img/chap13_002.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT * FROM DICTIONARY;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -481,14 +468,7 @@ SELECT * FROM DICTIONARY;
 - SCOTT계정이 가지고 있는 테이블 이름 알고 싶을때 유용함.
 <img src="img/chap13_003.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT TABLE_NAME
-  FROM USER_TABLES;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -498,14 +478,7 @@ SELECT TABLE_NAME
 <img src="img/chap13_004.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT OWNER, TABLE_NAME
-  FROM ALL_TABLES;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q005
@@ -514,12 +487,7 @@ SELECT OWNER, TABLE_NAME
 <img src="img/chap13_005.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT * FROM DBA_TABLES;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -533,13 +501,7 @@ SELECT * FROM DBA_TABLES;
 <img src="img/chap13_006_2.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT * FROM DBA_TABLES;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q007
@@ -547,14 +509,7 @@ SELECT * FROM DBA_TABLES;
 <img src="img/chap13_007.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM DBA_USERS
- WHERE USERNAME = 'SCOTT';
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -564,13 +519,7 @@ SELECT *
 <img src="img/chap13_008.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM USER_INDEXES;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -578,29 +527,14 @@ SELECT *
 - (SCOTT계정) SCOTT계정이 소유한 인덱스 컬럼 정보 알아보기
 <img src="img/chap13_009.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM USER_IND_COLUMNS;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q010
 - EMP 테이블의 SAL열에 인덱스 생성하기
 <img src="img/chap13_010.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE INDEX IDX_EMP_SAL
-    ON EMP(SAL);
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -609,12 +543,7 @@ CREATE INDEX IDX_EMP_SAL
 <img src="img/chap13_011.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT * FROM USER_IND_COLUMNS;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -622,13 +551,7 @@ SELECT * FROM USER_IND_COLUMNS;
 - 인덱스 삭제하기기
 <img src="img/chap13_012.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DROP INDEX IDX_EMP_SAL;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -637,13 +560,7 @@ DROP INDEX IDX_EMP_SAL;
 <img src="img/chap13_013.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT * FROM USER_IND_COLUMNS;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q014
@@ -660,14 +577,7 @@ SELECT * FROM USER_IND_COLUMNS;
 <img src="img/chap13_014.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SQLPLUS SYSTEM/1234
-
-GRANT CREATE VIEW TO SCOTT;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -680,15 +590,7 @@ GRANT CREATE VIEW TO SCOTT;
 <!-- _class: aqua -->
 <img src="img/chap13_015.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE VIEW VW_EMP20
-    AS (SELECT EMPNO, ENAME, JOB, DEPTNO
-          FROM EMP
-         WHERE DEPTNO = 20);
-</pre>
+ 
 
 
 ---
@@ -697,15 +599,7 @@ CREATE VIEW VW_EMP20
 - VIEW가 잘 만들어 졌는지 USER_VIEWS에서서 조회하시오.
 <img src="img/chap13_016.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM USER_VIEWS;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q017
@@ -713,29 +607,14 @@ SELECT *
 <img src="img/chap13_017.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT VIEW_NAME, TEXT_LENGTH, TEXT
-  FROM USER_VIEWS;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q018
 - VW_EMP20 의 생성한 뷰를 조회하시오.
 <img src="img/chap13_018.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM VW_EMP20;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q019
@@ -743,12 +622,7 @@ SELECT *
 <img src="img/chap13_019.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DROP VIEW VW_EMP20;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -761,14 +635,7 @@ DROP VIEW VW_EMP20;
 <!-- _class: aqua -->
 <img src="img/chap13_020.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT ROWNUM, E.*
-  FROM EMP E;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -777,15 +644,7 @@ SELECT ROWNUM, E.*
 <img src="img/chap13_021.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT ROWNUM, E.*
-  FROM EMP E
-ORDER BY SAL DESC;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q022
@@ -793,16 +652,7 @@ ORDER BY SAL DESC;
 - EMP 테이블을 SAL열 기준 내림차순으로 정렬 및 ROWNUM의 열 데이터 번호를 이용하여 조회하시오.
 <img src="img/chap13_022.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT ROWNUM, E.*
-  FROM (SELECT *
-          FROM EMP E
-        ORDER BY SAL DESC) E;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -811,14 +661,7 @@ SELECT ROWNUM, E.*
 - EMP 테이블을 SAL열 기준 내림차순으로 정렬 및 ROWNUM의 열 데이터 번호를 이용하여 조회하시오.
 <img src="img/chap13_023.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-WITH E AS (SELECT * FROM EMP ORDER BY SAL DESC)
-SELECT ROWNUM, E.*
-  FROM E;
-</pre>
+ 
 
 
 ---
@@ -832,17 +675,7 @@ SELECT ROWNUM, E.*
 <!-- _class: aqua -->
 <img src="img/chap13_024.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT ROWNUM, E.*
-  FROM (SELECT *
-          FROM EMP E
-        ORDER BY SAL DESC) E
- WHERE ROWNUM <= 3;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -855,16 +688,7 @@ SELECT ROWNUM, E.*
 <!-- _class: aqua -->
 <img src="img/chap13_025.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-WITH E AS (SELECT * FROM EMP ORDER BY SAL DESC)
-SELECT ROWNUM, E.*
-  FROM E
- WHERE ROWNUM <= 3;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -872,16 +696,7 @@ SELECT ROWNUM, E.*
 - DEPT 테이블을 이용하여 테이블 열구성은 갖고 데이터가 없는  DEPT_SEQUENCE 테이블을 생성하시오.
 <img src="img/chap13_026.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE TABLE DEPT_SEQUENCE
-    AS SELECT *
-         FROM DEPT
-        WHERE 1 <> 1;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -890,33 +705,14 @@ CREATE TABLE DEPT_SEQUENCE
 <img src="img/chap13_027.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE SEQUENCE SEQ_DEPT_SEQUENCE
-   INCREMENT BY 10
-   START WITH 10
-   MAXVALUE 90
-   MINVALUE 0
-   NOCYCLE
-   CACHE 2;
-</pre>
-
-
----
+ 
 <!-- _class: aqua -->
 ##### Q028
 - 생성한 시퀀스 SEQ_DEPT_SEQUENCE 를 조회하시오.
 <img src="img/chap13_028.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM USER_SEQUENCES;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -925,15 +721,7 @@ SELECT *
 <img src="img/chap13_029.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO DEPT_SEQUENCE (DEPTNO, DNAME, LOC)
-VALUES (SEQ_DEPT_SEQUENCE.NEXTVAL, 'DATABASE', 'SEOUL');
-
-SELECT * FROM DEPT_SEQUENCE ORDER BY DEPTNO;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -941,15 +729,7 @@ SELECT * FROM DEPT_SEQUENCE ORDER BY DEPTNO;
 - 가장 마지막으로 생성한 시퀀스를 확인하시오.
 <img src="img/chap13_030.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT SEQ_DEPT_SEQUENCE.CURRVAL
-  FROM DUAL;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q031
@@ -957,15 +737,7 @@ SELECT SEQ_DEPT_SEQUENCE.CURRVAL
 <img src="img/chap13_031.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO DEPT_SEQUENCE (DEPTNO, DNAME, LOC)
-VALUES (SEQ_DEPT_SEQUENCE.NEXTVAL, 'DATABASE', 'SEOUL');
-
-SELECT * FROM DEPT_SEQUENCE ORDER BY DEPTNO;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -973,16 +745,7 @@ SELECT * FROM DEPT_SEQUENCE ORDER BY DEPTNO;
 - SEQ_DEPT_SEQUENCE 시퀀스를 최대값 99, 증가값을 3, CYCLE옵션을 주어 다음과 같이 수정하시오.
 <img src="img/chap13_032.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-ALTER SEQUENCE SEQ_DEPT_SEQUENCE
-   INCREMENT BY 3
-   MAXVALUE 99
-   CYCLE;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -991,13 +754,7 @@ ALTER SEQUENCE SEQ_DEPT_SEQUENCE
 <img src="img/chap13_033.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM USER_SEQUENCES;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -1006,15 +763,7 @@ SELECT *
 <img src="img/chap13_034.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO DEPT_SEQUENCE (DEPTNO, DNAME, LOC)
-VALUES (SEQ_DEPT_SEQUENCE.NEXTVAL, 'DATABASE', 'SEOUL');
-
-SELECT * FROM DEPT_SEQUENCE ORDER BY DEPTNO;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -1023,31 +772,14 @@ SELECT * FROM DEPT_SEQUENCE ORDER BY DEPTNO;
 <img src="img/chap13_035.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO DEPT_SEQUENCE (DEPTNO, DNAME, LOC)
-VALUES (SEQ_DEPT_SEQUENCE.NEXTVAL, 'DATABASE', 'SEOUL');
-
-SELECT * FROM DEPT_SEQUENCE ORDER BY DEPTNO;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q036
 - SEQ_DEPT_SEQUENCE 시퀀스 삭제후 확인하시오.
 <img src="img/chap13_036.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DROP SEQUENCE SEQ_DEPT_SEQUENCE;
-
-SELECT * FROM USER_SEQUENCES;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -1063,17 +795,7 @@ SELECT * FROM USER_SEQUENCES;
 <!-- _class: aqua -->
 <img src="img/chap13_037.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SQLPLUS SYSTEM/oracle
-
-GRANT CREATE SYNONYM TO SCOTT;
-
-GRANT CREATE PUBLIC SYNONYM TO SCOTT;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -1082,27 +804,14 @@ GRANT CREATE PUBLIC SYNONYM TO SCOTT;
 <img src="img/chap13_038.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE SYNONYM E
-   FOR EMP;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q039
 - E 테이블 전체 내용을 조회하시오.
 <img src="img/chap13_039.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT * FROM E;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -1111,13 +820,7 @@ SELECT * FROM E;
 <img src="img/chap13_040.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DROP SYNONYM E;
-</pre>
-
-
+ 
 
 
 
@@ -1139,24 +842,7 @@ DROP SYNONYM E;
 <img src="img/chap13__EX_001.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
---①
-CREATE TABLE EMPIDX
- AS SELECT *
-      FROM EMP;
-
---②
-CREATE INDEX IDX_EMPIDX_EMPNO
-    ON EMPIDX (EMPNO);
-
---③
-SELECT *
-  FROM USER_INDEXES
- WHERE INDEX_NAME = 'IDX_EMPIDX_EMPNO';
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -1171,16 +857,7 @@ SELECT *
 <img src="img/chap13__EX_002.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE OR REPLACE VIEW EMPIDX_OVER15K
-    AS (SELECT EMPNO, ENAME, JOB, DEPTNO,
-               SAL, NVL2(COMM, 'O', 'X') AS COMM
-          FROM EMPIDX
-         WHERE SAL > 1500);
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -1194,37 +871,7 @@ CREATE OR REPLACE VIEW EMPIDX_OVER15K
 <!-- _class: aqua -->
 <img src="img/chap13__EX_003.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
---①
-CREATE TABLE DEPTSEQ
-    AS SELECT *
-         FROM DEPT;
-
---②
-CREATE SEQUENCE SEQ_DEPTSEQ
-   INCREMENT BY 1
-   START WITH 1
-   MAXVALUE 99
-   MINVALUE 1
-   NOCYCLE NOCACHE;
-
---③
-INSERT INTO DEPTSEQ (DEPTNO, DNAME, LOC)
-VALUES (SEQ_DEPTSEQ.NEXTVAL, 'DATABASE', 'SEOUL');
-
-INSERT INTO DEPTSEQ (DEPTNO, DNAME, LOC)
-VALUES (SEQ_DEPTSEQ.NEXTVAL, 'WEB', 'BUSAN');
-
-INSERT INTO DEPTSEQ (DEPTNO, DNAME, LOC)
-VALUES (SEQ_DEPTSEQ.NEXTVAL, 'MOBILE', 'ILSAN');
-</pre>
-
-
----
-
+ 
 <!-- _class: aqua -->
 
 1. CREATE VIEW EMP_VIEW AS ... 는 어떤 객체를 생성하나요?  

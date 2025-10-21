@@ -439,16 +439,7 @@ CREATE TABLE TEST (ID NUMBER);
 <img src="img/chap11_001.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE TABLE DEPT_TCL
-    AS SELECT *
-         FROM DEPT;
-
-SELECT * FROM DEPT_TCL;
-
-</pre>
+ 
 
 
 ---
@@ -461,17 +452,12 @@ SELECT * FROM DEPT_TCL;
 
 ---
 <!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO DEPT_TCL VALUES(50, 'DATABASE', 'SEOUL');
+1.  DEPT_TCL 테이블에  50, 'DATABASE', 'SEOUL'  데이터 삽입
+2.  DEPTNO 가 40인 데이터의 LOC을 'BUSAN' 으로 수정
+3.  DNAME 이 'RESEARCH'인 데이터 삭제
+4.  전체 데이터 조회
 
-UPDATE DEPT_TCL SET LOC = 'BUSAN' WHERE DEPTNO = 40;
-
-DELETE FROM DEPT_TCL WHERE DNAME = 'RESEARCH';
-
-SELECT * FROM DEPT_TCL;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -481,15 +467,7 @@ SELECT * FROM DEPT_TCL;
 <img src="img/chap11_003.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-ROLLBACK;
-
-SELECT * FROM DEPT_TCL;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -499,22 +477,10 @@ SELECT * FROM DEPT_TCL;
 2. DEPTNO가 20인데이터의 LOC를 BUSAN으로 수정하시오.
 3. DEPTNO가 40인데이터를 삭제하시오.
 
-
 <img src="img/chap11_004.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO DEPT_TCL VALUES(50, 'NETWORK', 'SEOUL');
-
-UPDATE DEPT_TCL SET LOC = 'BUSAN' WHERE DEPTNO = 20;
-
-DELETE FROM DEPT_TCL WHERE DEPTNO = 40;
-
-SELECT * FROM DEPT_TCL;
-
-</pre>
+ 
 
 
 ---
@@ -526,12 +492,7 @@ SELECT * FROM DEPT_TCL;
 <img src="img/chap11_005.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-COMMIT;
-
-</pre>
+ 
 
 
 ---
@@ -542,16 +503,7 @@ COMMIT;
 <img src="img/chap11_006.png" alt="" width="80%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-1번
-SELECT * FROM DEPT_TCL;
-
-2번
-SELECT * FROM DEPT_TCL;
-
-</pre>
+ 
 
 
 ---
@@ -560,21 +512,7 @@ SELECT * FROM DEPT_TCL;
 - 한쪽 세션에서만 삭제
 <img src="img/chap11_007.png" alt="" width="80%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-1번
-DELETE FROM DEPT_TCL
- WHERE DEPTNO = 50;
-
-SELECT * FROM DEPT_TCL;
-
-2번
-SELECT * FROM DEPT_TCL;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -582,20 +520,7 @@ SELECT * FROM DEPT_TCL;
 - 세션반영후 확인
 <img src="img/chap11_008.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-1번
-COMMIT;
-
-SELECT * FROM DEPT_TCL;
-
-2번
-SELECT * FROM DEPT_TCL;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -604,17 +529,7 @@ SELECT * FROM DEPT_TCL;
 - 명령프롬프트 2개 실행가능
 <img src="img/chap11_009.png" alt="" width="70%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-1번
-SELECT * FROM DEPT_TCL;
-
-2번
-SELECT * FROM DEPT_TCL;
-
-</pre>
+ 
 
 
 ---
@@ -624,20 +539,7 @@ SELECT * FROM DEPT_TCL;
 <img src="img/chap11_010.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-1번
-UPDATE DEPT_TCL SET LOC='SEOUL'
- WHERE DEPTNO = 30;
-
-SELECT * FROM DEPT_TCL;
-
-2번
-SELECT * FROM DEPT_TCL;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -646,32 +548,14 @@ SELECT * FROM DEPT_TCL;
 <img src="img/chap11_011.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-
-2번
-UPDATE DEPT_TCL SET DNAME='DATABASE'
- WHERE DEPTNO = 30;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
 ##### Q012
 - 1번에서 마무리를 해야 LOCK이 풀림
 <img src="img/chap11_012.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-COMMIT;
-
-SELECT * FROM EMP_TEMP;
-
-</pre>
+ 
 
 
 ---
@@ -681,16 +565,7 @@ SELECT * FROM EMP_TEMP;
 - 데이터가 다른것을 알수 있다.
 <img src="img/chap11_013.png" alt="" width="80%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT * FROM DEPT_TCL;
-
-SELECT * FROM DEPT_TCL;
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -699,12 +574,7 @@ SELECT * FROM DEPT_TCL;
 <img src="img/chap11_014.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-COMMIT;
-
-</pre>
+ 
 
 
 ---
@@ -714,13 +584,7 @@ COMMIT;
 <img src="img/chap11_015.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT * FROM DEPT_TCL;
-</pre>
-
-
+ 
 
 
 
@@ -743,15 +607,7 @@ SELECT * FROM DEPT_TCL;
 
 현재 세션 A,B에는 조회한 DEPT테이블 30번부서의 DNAME, LOC열의 데이터 상태를 적으시오.
 
----
-<!-- _class: aqua -->
->ANSWER
-<pre class="codeblock">
-① 세션 A : DNAME은 DATABASE, LOC은 SEOUL /
-  세션 B : DNAME은 SALES, LOC은 CHICAGO
-</pre>
-
-
+ 
 
 ---
 <!-- _class: aqua -->
