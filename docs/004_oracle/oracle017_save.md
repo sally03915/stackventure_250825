@@ -452,6 +452,22 @@ END;
 <img src="img/chap19_001.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE OR REPLACE PROCEDURE pro_noparam
+IS
+   V_EMPNO NUMBER(4) := 7788;
+   V_ENAME VARCHAR2(10);
+BEGIN
+   V_ENAME := 'SCOTT';
+   DBMS_OUTPUT.PUT_LINE('V_EMPNO : ' || V_EMPNO);
+   DBMS_OUTPUT.PUT_LINE('V_ENAME : ' || V_ENAME);
+END;
+/
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -459,6 +475,14 @@ END;
 <img src="img/chap19_002.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SET SERVEROUTPUT ON;
+
+EXECUTE pro_noparam;
+
+</pre>
 
 
 ---
@@ -468,6 +492,15 @@ END;
 <img src="img/chap19_003.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+BEGIN
+   pro_noparam;
+END;
+/
+
+</pre>
 
 
 ---
@@ -475,6 +508,15 @@ END;
 ##### Q004  USER-SOURCE를 통해 프로시저를 확인하시오.
 <img src="img/chap19_004.png" alt="" width="90%" />
 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM USER_SOURCE
+ WHERE NAME = 'PRO_NOPARAM';
+
+</pre>
 
 
 ---
@@ -484,7 +526,14 @@ END;
 <img src="img/chap19_005.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT TEXT
+  FROM USER_SOURCE
+ WHERE NAME = 'PRO_NOPARAM';
 
+</pre>
 
 
 ---
@@ -493,6 +542,12 @@ END;
 <img src="img/chap19_006.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DROP PROCEDURE PRO_NOPARAM;
+
+</pre>
 
 
 ---
@@ -501,7 +556,27 @@ END;
 <img src="img/chap19_007.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE OR REPLACE PROCEDURE pro_param_in
+(
+   param1 IN NUMBER,
+   param2 NUMBER,
+   param3 NUMBER := 3,
+   param4 NUMBER DEFAULT 4
+)
+IS
 
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('param1 : ' || param1);
+   DBMS_OUTPUT.PUT_LINE('param2 : ' || param2);
+   DBMS_OUTPUT.PUT_LINE('param3 : ' || param3);
+   DBMS_OUTPUT.PUT_LINE('param4 : ' || param4);
+END;
+/
+
+</pre>
 
 
 ---
@@ -510,6 +585,12 @@ END;
 <img src="img/chap19_008.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+EXECUTE pro_param_in(1,2,9,8);
+
+</pre>
 
 
 ---
@@ -517,6 +598,13 @@ END;
 ##### Q009 기본값이 지정된 파라미터 입력을 제외하고 프로시저를 사용하시오.
 <img src="img/chap19_009.png" alt="" width="90%" />
 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+EXECUTE pro_param_in(1, 2);
+
+</pre>
 
 
 ---
@@ -539,6 +627,12 @@ EXECUTE pro_param_in(1);
 <img src="img/chap19_011.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+EXECUTE pro_param_in(param1 => 10, param2 => 20);
+
+</pre>
 
 
 ---
@@ -675,6 +769,14 @@ SHOW ERRORS;
 <img src="img/chap19_018.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM USER_ERRORS
+ WHERE NAME = 'PRO_ERR';
+
+</pre>
 
 
 ---
@@ -706,6 +808,18 @@ END func_aftertax;
 <img src="img/chap19_020.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   aftertax NUMBER;
+BEGIN
+   aftertax := func_aftertax(3000);
+   DBMS_OUTPUT.PUT_LINE('after-tax income : ' || aftertax);
+END;
+/
+
+</pre>
 
 
 ---
@@ -714,6 +828,14 @@ END func_aftertax;
 <img src="img/chap19_021.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT func_aftertax(3000)
+  FROM DUAL;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -721,6 +843,13 @@ END func_aftertax;
 <img src="img/chap19_022.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, SAL, func_aftertax(SAL) AS AFTERTAX
+  FROM EMP;
+
+</pre>
 
 
 ---
@@ -729,6 +858,12 @@ END func_aftertax;
 <img src="img/chap19_023.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DROP FUNCTION func_aftertax;
+
+</pre>
 
 
 ---
@@ -737,7 +872,19 @@ END func_aftertax;
 <img src="img/chap19_024.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE OR REPLACE PACKAGE pkg_example
+IS
+   spec_no NUMBER := 10;
+   FUNCTION func_aftertax(sal NUMBER) RETURN NUMBER;
+   PROCEDURE pro_emp(in_empno IN EMP.EMPNO%TYPE);
+   PROCEDURE pro_dept(in_deptno IN DEPT.DEPTNO%TYPE);
+END;
+/
 
+</pre>
 
 
 ---
@@ -748,9 +895,27 @@ END func_aftertax;
 
 ---
 <!-- _class: aqua -->
+<pre class="codeblock">
+SELECT TEXT
+  FROM USER_SOURCE
+ WHERE TYPE = 'PACKAGE'
+   AND NAME = 'PKG_EXAMPLE';
+
+</pre>
+
+
+---
+<!-- _class: aqua -->
 ##### Q026  DESC를 이용하여 패키지 명세를 확인하시오.
 <img src="img/chap19_026.png" alt="" width="90%" />
 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DESC pkg_example;
+
+</pre>
 
 
 ---
@@ -810,7 +975,17 @@ END;
 <img src="img/chap19_028.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE OR REPLACE PACKAGE pkg_overload
+IS
+   PROCEDURE pro_emp(in_empno IN EMP.EMPNO%TYPE);
+   PROCEDURE pro_emp(in_ename IN EMP.ENAME%TYPE);
+END;
+/
+
+</pre>
 
 
 ---
@@ -936,14 +1111,28 @@ END;
 ##### Q033  평일날짜로 EMP_TRG 테이블을 UPDTE 하시오.
 <img src="img/chap19_033.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+UPDATE emp_trg SET sal = 3500 WHERE empno = 7788;
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q034 주말날짜에 EMP_TRG테이블을 UPDATE 하시오.
 <img src="img/chap19_034.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+UPDATE emp_trg SET sal = 3500 WHERE empno = 7788;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -1023,7 +1212,14 @@ VALUES(9999, 'TestEmp', 'CLERK', 7788,
 ##### Q038  COMMIT 하시오.
 <img src="img/chap19_038.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+COMMIT;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -1031,14 +1227,29 @@ VALUES(9999, 'TestEmp', 'CLERK', 7788,
 <img src="img/chap19_039.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP_TRG;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
 ##### Q040  EMP_TRG_LOG 테이블의 INSERT를 기록을 확인하시오.
 <img src="img/chap19_040.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP_TRG_LOG;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -1046,14 +1257,32 @@ VALUES(9999, 'TestEmp', 'CLERK', 7788,
 <img src="img/chap19_041.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+UPDATE EMP_TRG
+   SET SAL = 1300
+ WHERE MGR = 7788;
+
+COMMIT;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
 ##### Q042  USER_TRIGGERS 로 트리거 정보를 조회하시오.
 <img src="img/chap19_042.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT TRIGGER_NAME, TRIGGER_TYPE, TRIGGERING_EVENT, TABLE_NAME, STATUS
+  FROM USER_TRIGGERS;
+</pre>
+
+
 
 
 
@@ -1074,7 +1303,39 @@ VALUES(9999, 'TestEmp', 'CLERK', 7788,
 <img src="img/chap19__EX_001.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+--①
+CREATE OR REPLACE PROCEDURE pro_dept_in
+(
+   inout_deptno IN OUT DEPT.DEPTNO%TYPE,
+   out_dname OUT DEPT.DNAME%TYPE,
+   out_loc OUT DEPT.LOC%TYPE
+)
+IS
+BEGIN
+   SELECT DEPTNO, DNAME, LOC INTO inout_deptno, out_dname, out_loc
+     FROM DEPT
+    WHERE DEPTNO = inout_deptno;
+END pro_dept_in;
+/
+
+--②
+DECLARE
+   v_deptno DEPT.DEPTNO%TYPE;
+   v_dname DEPT.DNAME%TYPE;
+   v_loc DEPT.LOC%TYPE;
+BEGIN
+   v_deptno := 10;
+   pro_dept_in(v_deptno, v_dname, v_loc);
+   DBMS_OUTPUT.PUT_LINE('부서번호 : ' || v_deptno);
+   DBMS_OUTPUT.PUT_LINE('부서명 : ' || v_dname);
+   DBMS_OUTPUT.PUT_LINE('지역 : ' || v_loc);
+END;
+/
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -1084,7 +1345,20 @@ VALUES(9999, 'TestEmp', 'CLERK', 7788,
 <img src="img/chap19__EX_002.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE OR REPLACE FUNCTION func_date_kor(
+   in_date IN DATE
+)
+RETURN VARCHAR2
+IS
+BEGIN
+   RETURN (TO_CHAR(in_date, 'YYYY"년"MM"월"DD"일"'));
+END func_date_kor;
+/
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -1110,7 +1384,47 @@ VALUES(9999, 'TestEmp', 'CLERK', 7788,
 <img src="img/chap19__EX_003.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+--①
+CREATE TABLE DEPT_TRG
+    AS SELECT * FROM DEPT;
+
+--②
+CREATE TABLE DEPT_TRG_LOG(
+   TABLENAME   VARCHAR2(10), -- DML이 수행된 테이블 이름
+   DML_TYPE    VARCHAR2(10), -- DML 명령어의 종류
+   DEPTNO      NUMBER(2),    -- DML 대상이 된 부서번호
+   USER_NAME   VARCHAR2(30), -- DML을 수행한 USER 이름
+   CHANGE_DATE DATE          -- DML 이 수행된 날짜
+);
+
+--③
+CREATE OR REPLACE TRIGGER trg_dept_log
+AFTER
+INSERT OR UPDATE OR DELETE ON DEPT_TRG
+FOR EACH ROW
+BEGIN
+   IF INSERTING THEN
+     INSERT INTO DEPT_TRG_LOG
+     VALUES ('DEPT_TRG', 'INSERT', :new.deptno,
+             SYS_CONTEXT('USERENV', 'SESSION_USER'), sysdate);
+
+   ELSIF UPDATING THEN
+     INSERT INTO DEPT_TRG_LOG
+     VALUES ('DEPT_TRG', 'UPDATE', :old.deptno,
+             SYS_CONTEXT('USERENV', 'SESSION_USER'), sysdate);
+
+   ELSIF DELETING THEN
+     INSERT INTO DEPT_TRG_LOG
+     VALUES ('DEPT_TRG', 'DELETE', :old.deptno,
+             SYS_CONTEXT('USERENV', 'SESSION_USER'), sysdate);
+   END IF;
+END;
+/
+</pre>
+
 ---
 
 <!-- _class: aqua -->

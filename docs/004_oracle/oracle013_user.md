@@ -436,22 +436,34 @@ GRANT manager_role TO SALLY;
 <!-- _class: aqua -->
 ##### Q001
 -  SCOTT계정으로 사용자 생성하시오.
--  유저명 ORCLSTUDY , 비밀번호  ORACLE
 -  권한이 없으므로  에러남.
 <img src="img/chap15_001.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE USER ORCLSTUDY
+IDENTIFIED BY ORACLE;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
 ##### Q002
 -  SYSTEM계정으로  사용자 생성하시오.
--  유저명 ORCLSTUDY , 비밀번호  ORACLE
 -  성공!
 <img src="img/chap15_002.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE USER ORCLSTUDY
+IDENTIFIED BY ORACLE;
+
+</pre>
 
 
 ---
@@ -464,7 +476,15 @@ GRANT manager_role TO SALLY;
 <!-- _class: aqua -->
 <img src="img/chap15_003.png" alt="" width="60%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+GRANT CREATE SESSION TO ORCLSTUDY;
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q004  
@@ -475,7 +495,14 @@ GRANT manager_role TO SALLY;
 <img src="img/chap15_004.png" alt="" width="60%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER USER ORCLSTUDY
+IDENTIFIED BY ORCL;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -483,7 +510,14 @@ GRANT manager_role TO SALLY;
 - ORCLSTUDY 사용자를 삭제하시오.
 <img src="img/chap15_005.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DROP USER ORCLSTUDY;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -491,7 +525,13 @@ GRANT manager_role TO SALLY;
 - ORCLSTUDY 사용자와 객체 모두를 삭제하시오.
 <img src="img/chap15_006.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DROP USER ORCLSTUDY CASCADE;
+
+</pre>
 
 
 ---
@@ -501,7 +541,15 @@ GRANT manager_role TO SALLY;
 - ORCLSTUDY 사용자, ORACLE 비밀번호로 생성하시오.
 <img src="img/chap15_007.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE USER ORCLSTUDY
+IDENTIFIED BY ORACLE;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -509,7 +557,14 @@ GRANT manager_role TO SALLY;
 - 사용자에게  RESOURCE(여러권한을 하나의 이름을 묶어 권한부여-공간사용가능능) ,  데이터베이스 접속권한과, 테이블 생성권한을 부여하시오.
 <img src="img/chap15_008.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+GRANT RESOURCE, CREATE SESSION, CREATE TABLE TO ORCLSTUDY;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -529,7 +584,22 @@ GRANT manager_role TO SALLY;
 <img src="img/chap15_009_2.png" alt="" width="60%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CONN SCOTT/tiger
+
+CREATE TABLE TEMP(
+   COL1 VARCHAR(20),
+   COL2 VARCHAR(20)
+);
+
+GRANT SELECT ON TEMP TO ORCLSTUDY;
+
+GRANT INSERT ON TEMP TO ORCLSTUDY;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -538,7 +608,13 @@ GRANT manager_role TO SALLY;
 <img src="img/chap15_010.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+GRANT SELECT, INSERT ON TEMP
+   TO ORCLSTUDY;
+
+</pre>
 
 
 ---
@@ -553,7 +629,19 @@ GRANT manager_role TO SALLY;
 <!-- _class: aqua -->
 <img src="img/chap15_011.png" alt="" width="60%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CONN ORCLSTUDY/ORACLE
+
+SELECT * FROM SCOTT.TEMP;
+
+INSERT INTO SCOTT.TEMP VALUES('TEXT', 'FROM ORCLSTUDY');
+
+SELECT * FROM SCOTT.TEMP;
+
+</pre>
 
 
 ---
@@ -562,7 +650,16 @@ GRANT manager_role TO SALLY;
 - ORCLSTUDY 에 부여된 TEMP 테이블 사용권한을 취소하시오.
 <img src="img/chap15_012.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CONN SCOTT/tiger
+
+REVOKE SELECT, INSERT ON TEMP FROM ORCLSTUDY;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -573,7 +670,16 @@ GRANT manager_role TO SALLY;
 <!-- _class: aqua -->
 <img src="img/chap15_013.png" alt="" width="60%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CONN ORCLSTUDY/ORACLE
+
+SELECT * FROM SCOTT.TEMP;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -582,7 +688,18 @@ GRANT manager_role TO SALLY;
 <img src="img/chap15_014.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CONN SYSTEM/oracle
+
+CREATE ROLE ROLESTUDY;
+
+GRANT CONNECT, RESOURCE, CREATE VIEW, CREATE SYNONYM
+   TO ROLESTUDY;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -590,7 +707,14 @@ GRANT manager_role TO SALLY;
 - ORCLSTUDY 사용자에게 RORSTUDY를 부여하시오.
 <img src="img/chap15_015.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+GRANT ROLESTUDY TO ORCLSTUDY;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -602,7 +726,15 @@ GRANT manager_role TO SALLY;
 <img src="img/chap15_016.png" alt="" width="60%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CONN ORCLSTUDY/ORACLE
+
+SELECT * FROM USER_SYS_PRIVS;
+
+SELECT * FROM USER_ROLE_PRIVS;
+</pre>
 
 
 
@@ -628,7 +760,16 @@ GRANT manager_role TO SALLY;
 ---
 <!-- _class: aqua -->
 
- 
+
+<pre class="codeblock">
+--①
+CREATE USER PREV_HW
+IDENTIFIED BY ORCL;
+
+--②
+GRANT CREATE SESSION TO PREV_HW;
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -639,7 +780,17 @@ GRANT manager_role TO SALLY;
 <img src="img/chap15__EX_002.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+GRANT SELECT ON  SCOTT.EMP TO PREV_HW;
+
+GRANT SELECT ON  SCOTT.DEPT TO PREV_HW;
+
+GRANT SELECT ON  SCOTT.SALGRADE TO PREV_HW;
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### EX003
@@ -649,7 +800,13 @@ GRANT manager_role TO SALLY;
 <img src="img/chap15__EX_003.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+REVOKE SELECT ON SALGRADE FROM PREV_HW;
+</pre>
+
+
 
 ---
 

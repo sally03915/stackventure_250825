@@ -462,7 +462,17 @@ END;
 <img src="img/chap16_001.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SET SERVEROUTPUT ON; -- 실행 결과를 화면에 출력
+
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Hello, PL/SQL!');
+END;
+/
+
+</pre>
 
 
 ---
@@ -478,7 +488,22 @@ END;
 
 <img src="img/chap16_002.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_EMPNO NUMBER(4) := 7788;
+   V_ENAME VARCHAR2(10);
+BEGIN
+   V_ENAME := 'SCOTT';
+   -- DBMS_OUTPUT.PUT_LINE('V_EMPNO : ' || V_EMPNO);
+   DBMS_OUTPUT.PUT_LINE('V_ENAME : ' || V_ENAME);
+END;
+/
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -488,7 +513,22 @@ END;
 <img src="img/chap16_003.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_EMPNO NUMBER(4) := 7788;
+   V_ENAME VARCHAR2(10);
+BEGIN
+   V_ENAME := 'SCOTT';
+/*
+   DBMS_OUTPUT.PUT_LINE('V_EMPNO : ' || V_EMPNO);
+   DBMS_OUTPUT.PUT_LINE('V_ENAME : ' || V_ENAME);
+*/
+END;
+/
+
+</pre>
 
 
 ---
@@ -503,7 +543,22 @@ END;
 3. 두 변수를 출력하시오.
 
 <img src="img/chap16_004.png" alt="" width="90%" />
- 
+
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_EMPNO NUMBER(4) := 7788;
+   V_ENAME VARCHAR2(10);
+BEGIN
+   V_ENAME := 'SCOTT';
+   DBMS_OUTPUT.PUT_LINE('V_EMPNO : ' || V_EMPNO);
+   DBMS_OUTPUT.PUT_LINE('V_ENAME : ' || V_ENAME);
+END;
+/
+
+</pre>
 
 
 ---
@@ -513,7 +568,19 @@ END;
 2. 상수를 출력하시오.
 
 <img src="img/chap16_005.png" alt="" width="90%" />
- 
+
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_TAX CONSTANT NUMBER(1) := 3;
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('V_TEX : ' || V_TAX);
+END;
+/
+
+</pre>
 
 
 ---
@@ -524,7 +591,18 @@ END;
 
 <img src="img/chap16_006.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_DEPTNO NUMBER(2) DEFAULT 10;
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('V_DEPTNO : ' || V_DEPTNO);
+END;
+/
+
+</pre>
 
 
 ---
@@ -535,7 +613,19 @@ END;
 
 <img src="img/chap16_007.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_DEPTNO NUMBER(2) NOT NULL := 10;
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('V_DEPTNO : ' || V_DEPTNO);
+END;
+/
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -547,7 +637,17 @@ END;
 <img src="img/chap16_008.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_DEPTNO NUMBER(2) NOT NULL DEFAULT 10;
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('V_DEPTNO : ' || V_DEPTNO);
+END;
+/
+
+</pre>
 
 
 ---
@@ -557,7 +657,18 @@ END;
 <img src="img/chap16_009.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_DEPTNO DEPT.DEPTNO%TYPE := 50;
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('V_DEPTNO : ' || V_DEPTNO);
+END;
+/
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -572,7 +683,23 @@ END;
 <img src="img/chap16_010.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_DEPT_ROW DEPT%ROWTYPE;
+BEGIN
+   SELECT DEPTNO, DNAME, LOC INTO V_DEPT_ROW
+     FROM DEPT
+    WHERE DEPTNO = 40;
+   DBMS_OUTPUT.PUT_LINE('DEPTNO : ' || V_DEPT_ROW.DEPTNO);
+   DBMS_OUTPUT.PUT_LINE('DNAME : ' || V_DEPT_ROW.DNAME);
+   DBMS_OUTPUT.PUT_LINE('LOC : ' || V_DEPT_ROW.LOC);
+END;
+/
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -582,7 +709,20 @@ END;
 <img src="img/chap16_011.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_NUMBER NUMBER := 13;
+BEGIN
+   IF MOD(V_NUMBER, 2) = 1 THEN
+      DBMS_OUTPUT.PUT_LINE('V_NUMBER는 홀수입니다!');
+   END IF;
+END;
+/
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -592,7 +732,20 @@ END;
 <img src="img/chap16_012.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_NUMBER NUMBER := 14;
+BEGIN
+   IF MOD(V_NUMBER, 2) = 1 THEN
+      DBMS_OUTPUT.PUT_LINE('V_NUMBER는 홀수입니다!');
+   END IF;
+END;
+/
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -601,7 +754,22 @@ END;
 2. 변수에 입력한 값이 짝수인지 홀수인지 알아보는 조건 제어문을 추가하시오.
 <img src="img/chap16_013.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_NUMBER NUMBER := 14;
+BEGIN
+   IF MOD(V_NUMBER, 2) = 1 THEN
+      DBMS_OUTPUT.PUT_LINE('V_NUMBER는 홀수입니다!');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('V_NUMBER는 짝수입니다!');
+   END IF;
+END;
+/
+
+</pre>
 
 
 ---
@@ -619,7 +787,28 @@ END;
 <img src="img/chap16_014.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_SCORE NUMBER := 87;
+BEGIN
+   IF V_SCORE >= 90 THEN
+      DBMS_OUTPUT.PUT_LINE('A학점');
+   ELSIF V_SCORE >= 80 THEN
+      DBMS_OUTPUT.PUT_LINE('B학점');
+   ELSIF V_SCORE >= 70 THEN
+      DBMS_OUTPUT.PUT_LINE('C학점');
+   ELSIF V_SCORE >= 60 THEN
+      DBMS_OUTPUT.PUT_LINE('D학점');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('F학점');
+   END IF;
+END;
+/
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -635,7 +824,24 @@ END;
 <img src="img/chap16_015.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_SCORE NUMBER := 87;
+BEGIN
+   CASE TRUNC(V_SCORE/10)
+      WHEN 10 THEN DBMS_OUTPUT.PUT_LINE('A학점');
+      WHEN 9 THEN DBMS_OUTPUT.PUT_LINE('A학점');
+      WHEN 8 THEN DBMS_OUTPUT.PUT_LINE('B학점');
+      WHEN 7 THEN DBMS_OUTPUT.PUT_LINE('C학점');
+      WHEN 6 THEN DBMS_OUTPUT.PUT_LINE('D학점');
+      ELSE DBMS_OUTPUT.PUT_LINE('F학점');
+   END CASE;
+END;
+/
+
+</pre>
 
 
 ---
@@ -651,7 +857,24 @@ END;
         - F학점
 <img src="img/chap16_016.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_SCORE NUMBER := 87;
+BEGIN
+   CASE
+      WHEN V_SCORE >= 90 THEN DBMS_OUTPUT.PUT_LINE('A학점');
+      WHEN V_SCORE >= 80 THEN DBMS_OUTPUT.PUT_LINE('B학점');
+      WHEN V_SCORE >= 70 THEN DBMS_OUTPUT.PUT_LINE('C학점');
+      WHEN V_SCORE >= 60 THEN DBMS_OUTPUT.PUT_LINE('D학점');
+      ELSE DBMS_OUTPUT.PUT_LINE('F학점');
+   END CASE;
+END;
+/
+
+</pre>
 
 
 ---
@@ -661,7 +884,22 @@ END;
 <img src="img/chap16_017.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_NUM NUMBER := 0;
+BEGIN
+   LOOP
+      DBMS_OUTPUT.PUT_LINE('현재 V_NUM : ' || V_NUM);
+      V_NUM := V_NUM + 1;
+      EXIT WHEN V_NUM > 4;
+   END LOOP;
+END;
+/
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -671,7 +909,20 @@ END;
 <img src="img/chap16_018.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_NUM NUMBER := 0;
+BEGIN
+   WHILE V_NUM < 5 LOOP
+      DBMS_OUTPUT.PUT_LINE('현재 V_NUM : ' || V_NUM);
+      V_NUM := V_NUM + 1;
+   END LOOP;
+END;
+/
+
+</pre>
 
 
 ---
@@ -681,7 +932,17 @@ END;
 <img src="img/chap16_019.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+BEGIN
+   FOR i IN 0..4 LOOP
+      DBMS_OUTPUT.PUT_LINE('현재 i의 값 : ' || i);
+   END LOOP;
+END;
+/
+
+</pre>
 
 
 ---
@@ -690,7 +951,18 @@ END;
 - FOR IN LOOG를 이용하여 4~0까지 출력하시오.
 <img src="img/chap16_020.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+BEGIN
+   FOR i IN REVERSE 0..4 LOOP
+      DBMS_OUTPUT.PUT_LINE('현재 i의 값 : ' || i);
+      END LOOP;
+END;
+/
+
+</pre>
 
 
 ---
@@ -699,7 +971,19 @@ END;
 - FOR IN LOOG안에 CONTINUE를 이용하여 0,2,4를 다음과 같이 출력하시오.
 <img src="img/chap16_021.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+BEGIN
+   FOR i IN 0..4 LOOP
+      CONTINUE WHEN MOD(i, 2) = 1;
+      DBMS_OUTPUT.PUT_LINE('현재 i의 값 : ' || i);
+   END LOOP;
+END;
+/
+</pre>
+
 
 
 
@@ -721,7 +1005,18 @@ END;
 <img src="img/chap16__EX_001.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+BEGIN
+   FOR i IN 1..10 LOOP
+      CONTINUE WHEN MOD(i, 2) = 0;
+      DBMS_OUTPUT.PUT_LINE('현재 i의 값 : ' || i);
+      END LOOP;
+END;
+/
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -733,7 +1028,23 @@ END;
 <img src="img/chap16__EX_002.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DECLARE
+   V_DEPTNO DEPT.DEPTNO%TYPE := 10;
+BEGIN
+   CASE V_DEPTNO
+      WHEN 10 THEN DBMS_OUTPUT.PUT_LINE('DNAME : ACCOUNTING');
+      WHEN 20 THEN DBMS_OUTPUT.PUT_LINE('DNAME : RESEARCH');
+      WHEN 30 THEN DBMS_OUTPUT.PUT_LINE('DNAME : SALES');
+      WHEN 40 THEN DBMS_OUTPUT.PUT_LINE('DNAME : OPERATIONS');
+      ELSE         DBMS_OUTPUT.PUT_LINE('DNAME : N/A');
+   END CASE;
+END;
+/
+</pre>
+
 
 
 

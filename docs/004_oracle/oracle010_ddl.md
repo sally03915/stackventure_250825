@@ -455,6 +455,22 @@ DROP TABLE EMP;
 <img src="img/chap12_001.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE EMP_DDL(
+   EMPNO      NUMBER(4),
+   ENAME      VARCHAR2(10),
+   JOB        VARCHAR2(9),
+   MGR        NUMBER(4),
+   HIREDATE   DATE,
+   SAL        NUMBER(7,2),
+   COMM       NUMBER(7,2),
+   DEPTNO     NUMBER(2)
+);
+
+DESC EMP_DDL;
+</pre>
 
 
 
@@ -465,6 +481,15 @@ DROP TABLE EMP;
 <img src="img/chap12_002.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE DEPT_DDL
+    AS SELECT * FROM DEPT;
+
+DESC DEPT_DDL;
+
+</pre>
 
 
 ---
@@ -474,6 +499,12 @@ DROP TABLE EMP;
 <img src="img/chap12_003.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT * FROM DEPT_DDL;
+
+</pre>
 
 
 ---
@@ -483,6 +514,17 @@ DROP TABLE EMP;
 <img src="img/chap12_004.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE EMP_DDL_30
+    AS SELECT *
+         FROM EMP
+        WHERE DEPTNO = 30;
+
+SELECT * FROM EMP_DDL_30;
+
+</pre>
 
 
 ---
@@ -492,7 +534,18 @@ DROP TABLE EMP;
 <img src="img/chap12_005.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE EMPDEPT_DDL
+    AS SELECT E.EMPNO, E.ENAME, E.JOB, E.MGR, E.HIREDATE,
+              E.SAL, E.COMM, D.DEPTNO, D.DNAME, D.LOC
+         FROM EMP E, DEPT D
+        WHERE 1 <> 1;
 
+SELECT * FROM EMPDEPT_DDL;
+
+</pre>
 
 
 ---
@@ -502,7 +555,15 @@ DROP TABLE EMP;
 <img src="img/chap12_006.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE EMP_ALTER
+    AS SELECT * FROM EMP;
 
+SELECT * FROM EMP_ALTER;
+
+</pre>
 
 
 ---
@@ -512,6 +573,16 @@ DROP TABLE EMP;
 <img src="img/chap12_007.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE EMP_ALTER
+  ADD HP VARCHAR2(20);
+
+SELECT * FROM EMP_ALTER;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -520,6 +591,15 @@ DROP TABLE EMP;
 <img src="img/chap12_008.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE EMP_ALTER
+RENAME COLUMN HP TO TEL;
+
+SELECT * FROM EMP_ALTER;
+
+</pre>
 
 
 ---
@@ -529,7 +609,15 @@ DROP TABLE EMP;
 <img src="img/chap12_009.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE EMP_ALTER
+MODIFY EMPNO NUMBER(5);
 
+DESC EMP_ALTER;
+
+</pre>
 
 
 ---
@@ -539,6 +627,15 @@ DROP TABLE EMP;
 <img src="img/chap12_010.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE EMP_ALTER
+ DROP COLUMN TEL;
+
+SELECT * FROM EMP_ALTER;
+
+</pre>
 
 
 ---
@@ -548,7 +645,12 @@ DROP TABLE EMP;
 <img src="img/chap12_011.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+RENAME EMP_ALTER TO EMP_RENAME;
 
+</pre>
 
 
 ---
@@ -558,6 +660,12 @@ DROP TABLE EMP;
 <img src="img/chap12_012.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DESC EMP_ALTER;
+
+</pre>
 
 
 ---
@@ -567,6 +675,13 @@ DROP TABLE EMP;
 <img src="img/chap12_013.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP_RENAME;
+
+</pre>
 
 
 ---
@@ -579,10 +694,25 @@ DROP TABLE EMP;
 
 ---
 <!-- _class: aqua -->
+<pre class="codeblock">
+TRUNCATE TABLE EMP_RENAME;
+
+</pre>
+
+
+---
+<!-- _class: aqua -->
 ##### Q015
 - DROP을 이용하여 TABLE을 삭제하시오.
 <img src="img/chap12_015.png" alt="" width="90%" />
 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DROP TABLE EMP_RENAME;
+
+</pre>
 
 
 ---
@@ -590,6 +720,13 @@ DROP TABLE EMP;
 ##### Q016
 - EMP_RENAME 테이블 구성을 살펴보시오.
 <img src="img/chap12_016.png" alt="" width="90%" />
+
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DESC EMP_RENAME;
+</pre>
 
 
 
@@ -608,6 +745,22 @@ DROP TABLE EMP;
 <img src="img/chap12__EX_001.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE EMP_DDL_TEST (
+     EMPNO    NUMBER(4),
+     ENAME    VARCHAR2(10),
+     JOB      VARCHAR2(9),
+     MGR      NUMBER(4),
+     HIREDATE DATE,
+     SAL      NUMBER(7, 2),
+     COMM     NUMBER(7, 2),
+     DEPTNO   NUMBER(2)
+);
+
+DESC EMP_DDL_TEST;
+</pre>
 
 
 ---
@@ -617,6 +770,14 @@ DROP TABLE EMP;
 <img src="img/chap12__EX_002.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE EMP_DDL_TEST
+  ADD AAA VARCHAR2(20);
+
+DESC EMP_DDL_TEST;
+</pre>
 
 
 ---
@@ -626,6 +787,14 @@ DROP TABLE EMP;
 <img src="img/chap12__EX_003.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE EMP_DDL_TEST
+MODIFY AAA VARCHAR2(30);
+
+DESC EMP_DDL_TEST;
+</pre>
 
 
 ---
@@ -635,7 +804,15 @@ DROP TABLE EMP;
 <img src="img/chap12__EX_004.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE EMP_DDL_TEST
+RENAME COLUMN AAA TO REMARK;
 
+
+DESC EMP_DDL_TEST;
+</pre>
 
 
 ---
@@ -645,6 +822,17 @@ DROP TABLE EMP;
 <img src="img/chap12__EX_005.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO EMP_DDL_TEST
+SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, NULL
+  FROM EMP;
+
+SELECT * FROM  EMP_DDL_TEST;
+
+</pre>
+
 
 
 ---
@@ -652,6 +840,14 @@ DROP TABLE EMP;
 ##### EX006
 - EMP_DDL_TEST 테이블을 삭제하시오.
 <img src="img/chap12__EX_006.png" alt="" width="90%" />
+
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DROP TABLE EMP_DDL_TEST;
+</pre>
+
 
 ---
 

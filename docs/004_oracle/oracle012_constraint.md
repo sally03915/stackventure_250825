@@ -458,7 +458,20 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 다음과 같이 테이블 생성시 NOT NULL을 설정하시오.
 <img src="img/chap14_001.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE TABLE_NOTNULL(
+   LOGIN_ID VARCHAR2(20) NOT NULL,
+   LOGIN_PWD VARCHAR2(20) NOT NULL,
+   TEL VARCHAR2(20)
+);
+
+DESC TABLE_NOTNULL;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -467,7 +480,15 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_002.png" alt="" width="80%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_NOTNULL (LOGIN_ID, LOGIN_PWD, TEL)
+VALUES ('TEST_ID_01', NULL, '010-1234-5678');
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q003
@@ -475,7 +496,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_003.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_NOTNULL (LOGIN_ID, LOGIN_PWD)
+VALUES ('TEST_ID_01', '1234');
+
+SELECT * FROM TABLE_NOTNULL;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -483,7 +513,17 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - NOT NULL 제약 조건이 지정된 열 데이터를 NULL 값으로 업데이트 하시오. (에러)
 <img src="img/chap14_004.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+UPDATE TABLE_NOTNULL
+   SET LOGIN_PWD = NULL
+ WHERE LOGIN_ID = 'TEST_ID_01';
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q005
@@ -491,7 +531,15 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_005.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+  FROM USER_CONSTRAINTS;
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q006
@@ -499,7 +547,20 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_006.png" alt="" width="80%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE TABLE_NOTNULL2(
+   LOGIN_ID VARCHAR2(20) CONSTRAINT TBLNN2_LGNID_NN NOT NULL,
+   LOGIN_PWD VARCHAR2(20) CONSTRAINT TBLNN2_LGNPW_NN NOT NULL,
+   TEL VARCHAR2(20)
+);
+
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+  FROM USER_CONSTRAINTS;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -509,7 +570,15 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_007.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE TABLE_NOTNULL
+MODIFY(TEL NOT NULL);
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q008
@@ -517,7 +586,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_008.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+UPDATE TABLE_NOTNULL
+   SET TEL = '010-1234-5678'
+ WHERE LOGIN_ID = 'TEST_ID_01';
+
+SELECT * FROM TABLE_NOTNULL;
+
+</pre>
 
 
 ---
@@ -526,7 +604,18 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - TEL 열에 NOT NULL을 추가하시오.
 <img src="img/chap14_009.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE TABLE_NOTNULL
+MODIFY(TEL NOT NULL);
+
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+  FROM USER_CONSTRAINTS;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -534,14 +623,33 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - TEL 열에 제약조건이름을 지정해서 추가하시오.
 <img src="img/chap14_010.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE TABLE_NOTNULL2
+MODIFY(TEL CONSTRAINT TBLNN_TEL_NN NOT NULL);
+
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+  FROM USER_CONSTRAINTS;
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q011
 - TABLE_NOTNULL2 테이블 열 구조를 확인하시오.
 <img src="img/chap14_011.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DESC TABLE_NOTNULL2;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -549,14 +657,37 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 이미 생성된 제약조건이름을 변경하시오.
 <img src="img/chap14_012.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE TABLE_NOTNULL2
+RENAME CONSTRAINT TBLNN_TEL_NN TO TBLNN2_TEL_NN;
+
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+  FROM USER_CONSTRAINTS;
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q013
 - TABLE_NOTNULL2 제약 조건을 삭제하시오.
 <img src="img/chap14_013.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE TABLE_NOTNULL2
+ DROP CONSTRAINT TBLNN2_TEL_NN;
+
+DESC TABLE_NOTNULL2;
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q014
@@ -564,7 +695,19 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_014.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE TABLE_UNIQUE(
+   LOGIN_ID VARCHAR2(20) UNIQUE,
+   LOGIN_PWD VARCHAR2(20) NOT NULL,
+   TEL VARCHAR2(20)
+);
+
+DESC TABLE_UNIQUE;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -572,7 +715,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - USER_CONSTRAINTS 데이터 사전에서 제약조건을 확인하시오.
 <img src="img/chap14_015.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+  FROM USER_CONSTRAINTS
+ WHERE TABLE_NAME = 'TABLE_UNIQUE';
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -580,7 +732,18 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - TABLE_UNIQUE 테이블에 다음과 같이 데이터를 삽입하시오.
 <img src="img/chap14_016.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_UNIQUE(LOGIN_ID, LOGIN_PWD, TEL)
+VALUES('TEST_ID_01', 'PWD01', '010-1234-5678');
+
+SELECT * FROM TABLE_UNIQUE;
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q017
@@ -588,7 +751,15 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_017.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_UNIQUE (LOGIN_ID, LOGIN_PWD, TEL)
+VALUES ('TEST_ID_01', 'PWD01', '010-1234-5678');
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q018
@@ -597,7 +768,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_018.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_UNIQUE(LOGIN_ID, LOGIN_PWD, TEL)
+VALUES('TEST_ID_02', 'PWD01', '010-1234-5678');
+
+SELECT * FROM TABLE_UNIQUE;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -607,7 +787,15 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_019.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_UNIQUE(LOGIN_ID, LOGIN_PWD, TEL)
+VALUES(NULL, 'PWD01', '010-2345-6789');
+
+SELECT * FROM TABLE_UNIQUE;
+
+</pre>
 
 
 ---
@@ -617,7 +805,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - LOGIN_ID 에 이미 존재하는 값을 지정하면 중복데이터가 발생하므로 에러발생
 <img src="img/chap14_020.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+UPDATE TABLE_UNIQUE
+   SET LOGIN_ID='TEST_ID_01'
+ WHERE LOGIN_ID IS NULL;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -626,7 +823,19 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 테이블을 생성할때  UNIQUE 제약 조건 설정하시오.
 <img src="img/chap14_021.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE TABLE_UNIQUE2(
+   LOGIN_ID VARCHAR2(20) CONSTRAINT TBLUNQ2_LGNID_UNQ UNIQUE,
+   LOGIN_PWD VARCHAR2(20) CONSTRAINT TBLUNQ2_LGNPW_NN NOT NULL,
+   TEL VARCHAR2(20)
+);
+
+DESC  TABLE_UNIQUE2;
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -634,7 +843,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 생성한 UNIQUE 제약 조건을 확인하시오.
 <img src="img/chap14_022.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+  FROM USER_CONSTRAINTS
+ WHERE TABLE_NAME LIKE 'TABLE_UNIQUE%';
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -644,7 +862,14 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_023.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE TABLE_UNIQUE
+MODIFY(TEL UNIQUE);
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -653,13 +878,32 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_024.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+UPDATE TABLE_UNIQUE
+   SET TEL = NULL;
+
+SELECT * FROM TABLE_UNIQUE;
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q025
 - TEL 값에 UNIQUE제약 조건 설정하시오.
 <img src="img/chap14_025.png" alt="" width="90%" />
- 
+
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE TABLE_UNIQUE
+MODIFY(TEL UNIQUE);
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -668,7 +912,18 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_026.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE TABLE_UNIQUE2
+MODIFY(TEL CONSTRAINT TBLUNQ_TEL_UNQ UNIQUE);
+
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+  FROM USER_CONSTRAINTS
+ WHERE TABLE_NAME LIKE 'TABLE_UNIQUE%';
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -677,7 +932,17 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_027.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE TABLE_UNIQUE2
+RENAME CONSTRAINT TBLUNQ_TEL_UNQ TO TBLUNQ2_TEL_UNQ;
+
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+  FROM USER_CONSTRAINTS
+ WHERE TABLE_NAME LIKE 'TABLE_UNIQUE%';
+
+</pre>
 
 
 ---
@@ -686,7 +951,19 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 -  다음과 같이 제약 조건을 삭제하시오.
 <img src="img/chap14_028.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+ALTER TABLE TABLE_UNIQUE2
+ DROP CONSTRAINT TBLUNQ2_TEL_UNQ;
+
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+  FROM USER_CONSTRAINTS
+ WHERE TABLE_NAME LIKE 'TABLE_UNIQUE%';
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -694,7 +971,20 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 다음과 같이 테이블을 생성할때 PRIMARY KEY를 설정하시오.
 <img src="img/chap14_029.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE TABLE_PK(
+   LOGIN_ID VARCHAR2(20) PRIMARY KEY,
+   LOGIN_PWD VARCHAR2(20) NOT NULL,
+   TEL VARCHAR2(20)
+);
+
+DESC TABLE_PK;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -702,7 +992,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 생성한 PRIMARY KEY를 확인하시오.
 <img src="img/chap14_030.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+  FROM USER_CONSTRAINTS
+ WHERE TABLE_NAME LIKE 'TABLE_PK%';
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -710,7 +1009,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 생성한 PRIMARY KEY를 통해 자동생성된 INDEX를 확인하시오.
 <img src="img/chap14_031.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT INDEX_NAME, TABLE_OWNER, TABLE_NAME
+  FROM USER_INDEXES
+ WHERE TABLE_NAME LIKE 'TABLE_PK%';
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -719,7 +1027,19 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_032.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE TABLE_PK2(
+   LOGIN_ID VARCHAR2(20) CONSTRAINT TBLPK2_LGNID_PK PRIMARY KEY,
+   LOGIN_PWD VARCHAR2(20) CONSTRAINT TBLPK2_LGNPW_NN NOT NULL,
+   TEL VARCHAR2(20)
+);
+
+DESC TABLE_PK2;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -727,7 +1047,17 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 다음과 같이 데이터를  입력하시오.
 <img src="img/chap14_033.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_PK(LOGIN_ID, LOGIN_PWD, TEL)
+VALUES('TEST_ID_01', 'PWD01', '010-1234-5678');
+
+SELECT * FROM TABLE_PK;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -736,7 +1066,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - PRIMARY KEY제약조건이 지정되어 있는 열은 중복을 허용하지 않음.
 <img src="img/chap14_034.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_PK(LOGIN_ID, LOGIN_PWD, TEL)
+VALUES('TEST_ID_01', 'PWD02', '010-2345-6789');
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q035
@@ -744,7 +1083,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - NULL값을 명시적으로 입력하시오.
 <img src="img/chap14_035.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_PK(LOGIN_ID, LOGIN_PWD, TEL)
+VALUES(NULL, 'PWD02', '010-2345-6789');
+
+</pre>
+
+
 ---
 <!-- _class: aqua -->
 ##### Q036
@@ -752,7 +1100,14 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - NULL값을 암시적으로  입력하시오.
 <img src="img/chap14_036.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_PK(LOGIN_PWD, TEL)
+VALUES('PWD02', '010-2345-6789');
+
+</pre>
 
 
 ---
@@ -762,7 +1117,14 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_037.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME, R_OWNER, R_CONSTRAINT_NAME
+  FROM USER_CONSTRAINTS
+ WHERE TABLE_NAME IN ('EMP', 'DEPT');
+
+</pre>
 
 
 ---
@@ -773,7 +1135,14 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 에러 : 부모키가 없음.
 <img src="img/chap14_038.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO)
+VALUES(9999, '홍길동', 'CLERK', '7788', TO_DATE('2017/04/30', 'YYYY/MM/DD'), 1200, NULL, 50);
+
+</pre>
 
 
 ---
@@ -783,7 +1152,19 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_039.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE DEPT_FK(
+   DEPTNO NUMBER(2) CONSTRAINT DEPTFK_DEPTNO_PK PRIMARY KEY,
+   DNAME VARCHAR2(14),
+   LOC VARCHAR2(13)
+);
+
+DESC DEPT_FK;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -792,7 +1173,24 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 외래키 설정
 <img src="img/chap14_040.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE EMP_FK(
+   EMPNO NUMBER(4) CONSTRAINT EMPFK_EMPNO_PK PRIMARY KEY,
+   ENAME VARCHAR2(10),
+   JOB VARCHAR2(9),
+   MGR NUMBER(4),
+   HIREDATE DATE,
+   SAL NUMBER(7,2),
+   COMM NUMBER(7,2),
+   DEPTNO NUMBER(2) CONSTRAINT EMPFK_DEPTNO_FK REFERENCES DEPT_FK (DEPTNO)
+);
+
+DESC EMP_FK;
+
+</pre>
 
 
 ---
@@ -804,7 +1202,15 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 부모데이터가 없음.
 <img src="img/chap14_041.png" alt="" width="80%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO EMP_FK
+VALUES(9999, 'TEST_NMAME', 'TEST_JOB', NULL, TO_DATE('2001/01/01', 'YYYY/MM/DD'),
+       3000, NULL, 10);
+
+</pre>
 
 
 ---
@@ -813,7 +1219,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - DEPT_FK테이블에 데이터를 삽입하시오.
 <img src="img/chap14_042.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO DEPT_FK
+VALUES(10, 'TEST_DNAME', 'TEST_LOC');
+
+SELECT * FROM DEPT_FK;
+
+</pre>
 
 
 ---
@@ -823,7 +1238,18 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 삽입가능
 - 부모테이블에 데이터 있음.
 <img src="img/chap14_043.png" alt="" width="90%" />
- 
+
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO EMP_FK
+VALUES(9999, 'TEST_NMAME', 'TEST_JOB', NULL, TO_DATE('2001/01/01', 'YYYY/MM/DD'),
+       3000, NULL, 10);
+
+SELECT * FROM EMP_FK;
+
+</pre>
 
 
 ---
@@ -836,7 +1262,14 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_044.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+DELETE FROM DEPT_FK
+ WHERE DEPTNO = 10;
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -845,7 +1278,19 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - LOGIN_PWD 는 3글자 초과만 저장가능
 <img src="img/chap14_045.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE TABLE_CHECK(
+   LOGIN_ID VARCHAR2(20) CONSTRAINT TBLCK_LOGINID_PK PRIMARY KEY,
+   LOGIN_PWD VARCHAR2(20) CONSTRAINT TBLCK_LOGINPW_CK CHECK (LENGTH(LOGIN_PWD) > 3),
+   TEL VARCHAR2(20)
+);
+
+DESC TABLE_CHECK;
+
+</pre>
 
 
 ---
@@ -854,7 +1299,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - CHECK 제약 조건에 맞지 않는 데이터를 삽입
 -  LOGIN_PWD 는 3글자 초과만 저장가능   123
 <img src="img/chap14_046.png" alt="" width="90%" />
- 
+
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_CHECK
+VALUES ('TEST_ID', '123', '010-1234-5678');
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -864,7 +1318,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - 성공!
 <img src="img/chap14_047.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_CHECK
+VALUES ('TEST_ID', '1234', '010-1234-5678');
+
+SELECT * FROM TABLE_CHECK;
+
+</pre>
 
 
 ---
@@ -873,7 +1336,16 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 - CHECK 제약 조건 확인하기.
 <img src="img/chap14_048.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+  FROM USER_CONSTRAINTS
+ WHERE TABLE_NAME LIKE 'TABLE_CHECK';
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -883,7 +1355,18 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_049.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+CREATE TABLE TABLE_DEFAULT(
+   LOGIN_ID VARCHAR2(20) CONSTRAINT TBLCK2_LOGINID_PK PRIMARY KEY,
+   LOGIN_PWD VARCHAR2(20) DEFAULT '1234',
+   TEL VARCHAR2(20)
+);
+
+DESC TABLE_DEFAULT;
+
+</pre>
 
 
 ---
@@ -894,7 +1377,17 @@ ALTER TABLE EMP DROP CONSTRAINT FK_DEPT;
 <img src="img/chap14_050.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+INSERT INTO TABLE_DEFAULT VALUES ('TEST_ID', NULL, '010-1234-5678');
+
+INSERT INTO TABLE_DEFAULT (LOGIN_ID, TEL) VALUES ('TEST_ID2', '010-1234-5678');
+
+SELECT * FROM TABLE_DEFAULT;
+</pre>
+
+
 
 
 

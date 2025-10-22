@@ -441,7 +441,14 @@ SELECT DNAME
 <img src="img/chap09_001.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT SAL
+  FROM EMP
+ WHERE ENAME = 'JONES';
 
+</pre>
 
 
 ---
@@ -452,6 +459,14 @@ SELECT DNAME
 <img src="img/chap09_002.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE SAL > 2975;
+
+</pre>
 
 
 ---
@@ -464,7 +479,17 @@ SELECT DNAME
 <img src="img/chap09_003.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE SAL > (
+SELECT SAL
+                FROM EMP
+               WHERE ENAME = 'JONES');
 
+</pre>
 
 
 ---
@@ -474,6 +499,18 @@ SELECT DNAME
 1. SCOTT보다 빨리 입사한 사원목록을   출력하시오.
 <img src="img/chap09_004.png" alt="" width="90%" />
 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE HIREDATE < (
+SELECT HIREDATE
+                     FROM EMP
+                    WHERE ENAME = 'SCOTT');
+
+</pre>
 
 
 ---
@@ -485,6 +522,18 @@ SELECT DNAME
 <img src="img/chap09_005.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT E.EMPNO, E.ENAME, E.JOB, E.SAL, D.DEPTNO, D.DNAME, D.LOC
+  FROM EMP E, DEPT D
+ WHERE E.DEPTNO = D.DEPTNO
+   AND E.DEPTNO = 20
+   AND E.SAL > (
+SELECT AVG(SAL)
+                  FROM EMP);
+
+</pre>
 
 
 ---
@@ -495,6 +544,15 @@ SELECT DNAME
 <img src="img/chap09_006.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE DEPTNO IN (20, 30);
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -504,7 +562,17 @@ SELECT DNAME
 <img src="img/chap09_007.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE SAL IN (
+SELECT MAX(SAL)
+                 FROM EMP
+               GROUP BY DEPTNO);
 
+</pre>
 
 
 ---
@@ -516,6 +584,14 @@ SELECT DNAME
 <img src="img/chap09_008.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT MAX(SAL)
+  FROM EMP
+GROUP BY DEPTNO;
+
+</pre>
 
 
 ---
@@ -526,6 +602,17 @@ SELECT DNAME
 <img src="img/chap09_009.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE SAL = ANY (
+SELECT MAX(SAL)
+                    FROM EMP
+                  GROUP BY DEPTNO);
+
+</pre>
 
 
 ---
@@ -537,6 +624,18 @@ SELECT DNAME
 <img src="img/chap09_010.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE SAL = SOME (
+SELECT MAX(SAL)
+                     FROM EMP
+                   GROUP BY DEPTNO);
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -546,6 +645,18 @@ SELECT DNAME
 <img src="img/chap09_011.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE SAL < ANY (
+SELECT SAL
+                    FROM EMP
+                   WHERE DEPTNO = 30)
+                  ORDER BY SAL, EMPNO;
+
+</pre>
 
 
 ---
@@ -556,6 +667,14 @@ SELECT DNAME
 <img src="img/chap09_012.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT SAL
+  FROM EMP
+ WHERE DEPTNO = 30;
+
+</pre>
 
 
 ---
@@ -566,6 +685,17 @@ SELECT DNAME
 <img src="img/chap09_013.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE SAL > ANY (
+SELECT SAL
+                    FROM EMP
+                   WHERE DEPTNO = 30);
+
+</pre>
 
 
 ---
@@ -576,7 +706,17 @@ SELECT DNAME
 <img src="img/chap09_014.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE SAL < ALL (
+SELECT SAL
+                    FROM EMP
+                   WHERE DEPTNO = 30);
 
+</pre>
 
 
 ---
@@ -587,7 +727,17 @@ SELECT DNAME
 <img src="img/chap09_015.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE SAL > ALL (
+SELECT SAL
+                    FROM EMP
+                   WHERE DEPTNO = 30);
 
+</pre>
 
 
 ---
@@ -599,6 +749,18 @@ SELECT DNAME
 <img src="img/chap09_016.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE EXISTS (
+SELECT DNAME
+                 FROM DEPT
+                WHERE DEPTNO = 10);
+
+</pre>
+
 
 ---
 <!-- _class: aqua -->
@@ -609,7 +771,17 @@ SELECT DNAME
 <img src="img/chap09_017.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE EXISTS (
+SELECT DNAME
+                 FROM DEPT
+                WHERE DEPTNO = 50);
 
+</pre>
 
 
 ---
@@ -620,6 +792,18 @@ SELECT DNAME
  부서별 최대급여를 받는 사원정보를 출력하시오.
 <img src="img/chap09_018.png" alt="" width="90%" />
 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE (DEPTNO, SAL) IN (
+SELECT DEPTNO, MAX(SAL)
+                           FROM EMP
+                         GROUP BY DEPTNO);
+
+</pre>
 
 
 ---
@@ -634,6 +818,17 @@ SELECT DNAME
 <img src="img/chap09_019.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT E10.EMPNO, E10.ENAME, E10.DEPTNO, D.DNAME, D.LOC
+  FROM (
+SELECT * FROM EMP WHERE DEPTNO = 10) E10,
+       (
+SELECT * FROM DEPT) D
+ WHERE E10.DEPTNO = D.DEPTNO;
+
+</pre>
 
 
 ---
@@ -644,6 +839,19 @@ SELECT DNAME
 <img src="img/chap09_020.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+WITH
+E10 AS (
+SELECT * FROM EMP WHERE DEPTNO = 10),
+D AS (
+SELECT * FROM DEPT)
+SELECT E10.EMPNO, E10.ENAME, E10.DEPTNO, D.DNAME, D.LOC
+  FROM E10, D
+ WHERE E10.DEPTNO = D.DEPTNO;
+
+</pre>
 
 
 ---
@@ -657,6 +865,22 @@ SELECT DNAME
 <!-- _class: aqua -->
 <img src="img/chap09_021.png" alt="" width="90%" />
 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, JOB, SAL,
+       (
+SELECT GRADE
+          FROM SALGRADE
+         WHERE E.SAL BETWEEN LOSAL AND HISAL) AS SALGRADE,
+       DEPTNO,
+      (
+SELECT DNAME
+         FROM DEPT
+        WHERE E.DEPTNO = DEPT.DEPTNO) AS DNAME
+FROM EMP E;
+</pre>
 
 
 
@@ -677,6 +901,18 @@ SELECT DNAME
 <img src="img/chap09__EX_001.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT E.JOB, E.EMPNO, E.ENAME, E.SAL, E.DEPTNO, D.DNAME
+  FROM EMP E, DEPT D
+ WHERE E.DEPTNO = D.DEPTNO
+   AND JOB = (
+SELECT JOB
+                FROM EMP
+               WHERE ENAME = 'ALLEN');
+
+</pre>
 
 
 ---
@@ -691,6 +927,19 @@ SELECT DNAME
 <img src="img/chap09__EX_002.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT E.EMPNO, E.ENAME, D.DNAME, E.HIREDATE, D.LOC, E.SAL, S.GRADE
+  FROM EMP E, DEPT D, SALGRADE S
+ WHERE E.DEPTNO = D.DEPTNO
+   AND E.SAL BETWEEN S.LOSAL AND S.HISAL
+   AND SAL > (
+SELECT AVG(SAL)
+                FROM EMP)
+ORDER BY E.SAL DESC, E.EMPNO;
+
+</pre>
 
 
 ---
@@ -702,6 +951,19 @@ SELECT DNAME
 <img src="img/chap09__EX_003.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT E.EMPNO, E.ENAME, E.JOB, E.DEPTNO, D.DNAME, D.LOC
+  FROM EMP E, DEPT D
+ WHERE E.DEPTNO = D.DEPTNO
+   AND E.DEPTNO = 10
+   AND JOB NOT IN (
+SELECT DISTINCT JOB
+                     FROM EMP
+                    WHERE DEPTNO = 30);
+
+</pre>
 
 
 ---
@@ -712,9 +974,20 @@ SELECT DNAME
 2. 다중행 함수 사용하지 않는 방법, 다중행 함수 사용하는 방법 2가지로 작성하시오.
 3. 사원번호를 기준으로 오름차순으로 정렬하시오.
  
-
-
-
+---
+<!-- _class: aqua -->
+- 다중행 함수 사용하지 않는 방법
+<pre class="codeblock">
+SELECT E.EMPNO, E.ENAME, E.SAL, S.GRADE
+  FROM EMP E, SALGRADE S
+ WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
+   AND SAL > (
+SELECT MAX(SAL)
+                FROM EMP
+               WHERE JOB = 'SALESMAN')
+ORDER BY E.EMPNO;
+</pre>
+ 
 ---
 <!-- _class: aqua -->
 - 다중행 함수 사용하는 방법
@@ -722,9 +995,23 @@ SELECT DNAME
 <img src="img/chap09__EX_004_2.png" alt="" width="90%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT E.EMPNO, E.ENAME, E.SAL, S.GRADE
+  FROM EMP E, SALGRADE S
+ WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
+   AND SAL > ALL (
+SELECT DISTINCT SAL
+                    FROM EMP
+                   WHERE JOB = 'SALESMAN')
+ORDER BY E.EMPNO;
+</pre>
+
 
 
 ---
+
 <!-- _class: aqua -->
 
 1. SAL > (SELECT AVG(SAL) FROM EMP) 은 어떤 의미인가요?  
