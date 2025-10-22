@@ -418,6 +418,15 @@ SELECT NVL(COMM, 0), SAL + NVL(COMM, 0) FROM EMP;
 -- 조건 분기
 SELECT DECODE(JOB, 'MANAGER', SAL*1.1, SAL*1.03) FROM EMP;
 SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' END FROM EMP;
+
+NVL(NULL, '대체값') → '대체값' (NULL이면 대체값 반환)
+
+NVL2(NULL, 'A', 'B') → 'B' (NULL일 때 B, 아닐 때 A)
+
+DECODE(GRADE, 'A', '우수', 'B', '양호', 'C', '보통', '미정') → 조건에 따라 등급 반환
+
+CASE WHEN SCORE >= 90 THEN 'A' WHEN SCORE >= 80 THEN 'B' ELSE 'F' END → 점수에 따라 학점 반환
+
 </pre>
 
 ---
@@ -451,6 +460,13 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_001.png" alt="" width="80%" />
 
 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT ENAME, UPPER(ENAME), LOWER(ENAME), INITCAP(ENAME)
+  FROM EMP;
+</pre>
+
 
 
 ---
@@ -460,7 +476,14 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_002.png" alt="" width="80%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE UPPER(ENAME) = UPPER('king');
+</pre>
+
 
 
 ---
@@ -474,7 +497,14 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_003.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE UPPER(ENAME) LIKE UPPER('%king%');
+</pre>
+
 
 
 ---
@@ -484,7 +514,13 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_004.png" alt="" width="80%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT ENAME, LENGTH(ENAME)
+  FROM EMP;
+</pre>
+
 
 
 ---
@@ -494,7 +530,14 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_005.png" alt="" width="80%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT ENAME, LENGTH(ENAME)
+  FROM EMP
+ WHERE LENGTH(ENAME) >= 5;
+</pre>
+
 
 
 ---
@@ -505,7 +548,13 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_006.png" alt="" width="80%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT LENGTH('한글'), LENGTHB('한글')
+  FROM DUAL;
+</pre>
+
 
 
 ---
@@ -516,7 +565,13 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_007.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT JOB, SUBSTR(JOB, 1, 2), SUBSTR(JOB, 3, 2), SUBSTR(JOB, 5)
+  FROM EMP;
+</pre>
+
 
 
 ---
@@ -527,7 +582,15 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_008.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT JOB,
+       SUBSTR(JOB, -LENGTH(JOB)),
+       SUBSTR(JOB, -LENGTH(JOB), 2),
+       SUBSTR(JOB, -3)
+  FROM EMP;
+</pre>
 
 
 
@@ -540,7 +603,15 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_009.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT INSTR('HELLO, ORACLE!', 'L') AS INSTR_1,
+       INSTR('HELLO, ORACLE!', 'L', 5) AS INSTR_2,
+       INSTR('HELLO, ORACLE!', 'L', 2, 2) AS INSTR_3
+  FROM DUAL;
+</pre>
+
 
 
 ---
@@ -550,7 +621,15 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_010.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE INSTR(ENAME, 'S') > 0;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -559,7 +638,14 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_011.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE ENAME LIKE '%S%'
+</pre>
+
 
 
 ---
@@ -568,7 +654,17 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 - REPLACE를 이용하여 연락처의 -을 공백으로, -을 뺀데이터로 조회하시오오
 <img src="img/chap06_012.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT '010-1234-5678' AS REPLACE_BEFORE,
+       REPLACE('010-1234-5678', '-', ' ') AS REPLACE_1,
+       REPLACE('010-1234-5678', '-') AS REPLACE_2
+  FROM DUAL;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -577,14 +673,35 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_013.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT 'Oracle',
+       LPAD('Oracle', 10, '#') AS LPAD_1,
+       RPAD('Oracle', 10, '*') AS RPAD_1,
+       LPAD('Oracle', 10) AS LPAD_2,
+       RPAD('Oracle', 10) AS RPAD_2
+  FROM DUAL;
+</pre>
+
+
+
 ---
 <!-- _class: aqua -->
 ##### Q014
 - RPAD를 이용하여 개인정보뒷자리 *로 출력하시오.
 <img src="img/chap06_014.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT RPAD('971225-', 14, '*') AS RPAD_JMNO,
+       RPAD('010-1234-', 13, '*') AS RPAD_PHONE
+  FROM DUAL;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -593,14 +710,36 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_015.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT CONCAT(EMPNO, ENAME),
+       CONCAT(EMPNO, CONCAT(' : ', ENAME))
+  FROM EMP
+ WHERE ENAME = 'SCOTT';
+</pre>
+
+
+
 ---
 <!-- _class: aqua -->
 ##### Q016  
 - TRIM을 이용하여  다음과 같이 공백을 제거하고 출력하시오.
 <img src="img/chap06_016.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT '[' || TRIM(' _ _Oracle_ _ ') || ']' AS TRIM,
+       '[' || TRIM(LEADING FROM ' _ _Oracle_ _ ') || ']' AS TRIM_LEADING,
+       '[' || TRIM(TRAILING FROM ' _ _Oracle_ _ ') || ']' AS TRIM_TRAILING,
+       '[' || TRIM(BOTH FROM ' _ _Oracle_ _ ') || ']' AS TRIM_BOTH
+  FROM DUAL;
+</pre>
+
+
+
 ---
 <!-- _class: aqua -->
 ##### Q017 
@@ -608,14 +747,37 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_017.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT '[' || TRIM('_' FROM '_ _Oracle_ _') || ']' AS TRIM,
+       '[' || TRIM(LEADING '_' FROM '_ _Oracle_ _') || ']' AS TRIM_LEADING,
+       '[' || TRIM(TRAILING '_' FROM '_ _Oracle_ _') || ']' AS TRIM_TRAILING,
+       '[' || TRIM(BOTH '_' FROM '_ _Oracle_ _') || ']' AS TRIM_BOTH
+  FROM DUAL;
+</pre>
+
+
+
 ---
 <!-- _class: aqua -->
 ##### Q018  
 - TRIM, LTRIM, RTRIM 사용하여 문자열 출력하기기
 <img src="img/chap06_018.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT '[' || TRIM(' _Oracle_ ') || ']' AS TRIM,
+       '[' || LTRIM(' _Oracle_ ') || ']' AS LTRIM,
+       '[' || LTRIM('<_Oracle_>', '_<') || ']' AS LTRIM_2,
+       '[' || RTRIM(' _Oracle_ ') || ']' AS RTRIM,
+       '[' || RTRIM('<_Oracle_>', '>_') || ']' AS RTRIM_2
+  FROM DUAL;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -623,7 +785,20 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 - ROUND를 이용하여 반올림 된 숫자 출력하기
 <img src="img/chap06_019.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT ROUND(1234.5678) AS ROUND,
+       ROUND(1234.5678, 0) AS ROUND_0,
+       ROUND(1234.5678, 1) AS ROUND_1,
+       ROUND(1234.5678, 2) AS ROUND_2,
+       ROUND(1234.5678, -1) AS ROUND_MINUS1,
+       ROUND(1234.5678, -2) AS ROUND_MINUS2
+  FROM DUAL;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -631,7 +806,20 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 - 특정위치에서 버리는 TRUNC 함수수
 <img src="img/chap06_020.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT TRUNC(1234.5678) AS TRUNC,
+       TRUNC(1234.5678, 0) AS TRUNC_0,
+       TRUNC(1234.5678, 1) AS TRUNC_1,
+       TRUNC(1234.5678, 2) AS TRUNC_2,
+       TRUNC(1234.5678, -1) AS TRUNC_MINUS1,
+       TRUNC(1234.5678, -2) AS TRUNC_MINUS2
+  FROM DUAL;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -641,7 +829,16 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_021.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT CEIL(3.14),
+       FLOOR(3.14),
+       CEIL(-3.14),
+       FLOOR(-3.14)
+  FROM DUAL;
+</pre>
+
 
 
 ---
@@ -650,7 +847,17 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 - MOD : 특정 숫자를 나누고 그  나머지  출력 
 <img src="img/chap06_022.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT MOD(15, 6),
+       MOD(10, 2),
+       MOD(11, 2)
+  FROM DUAL;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -660,7 +867,17 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_023.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT SYSDATE AS NOW,
+       SYSDATE-1 AS YESTERDAY,
+       SYSDATE+1 AS TOMORROW
+  FROM DUAL;
+</pre>
+
+
+
 ---
 <!-- _class: aqua -->
 ##### Q024
@@ -668,7 +885,15 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_024.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT SYSDATE,
+       ADD_MONTHS(SYSDATE, 3)
+  FROM DUAL;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -676,7 +901,15 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 - EMP 테이블에서 입사 10주년이 되는 사원들의 데이터를 출력하시오.
 <img src="img/chap06_025.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, HIREDATE,
+       ADD_MONTHS(HIREDATE, 120) AS WORK10YEAR
+  FROM EMP;
+</pre>
+
 
 
 ---
@@ -690,7 +923,16 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <!-- _class: aqua -->
 <img src="img/chap06_026.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, HIREDATE, SYSDATE
+  FROM EMP
+ WHERE ADD_MONTHS(HIREDATE, 504) > SYSDATE;
+
+</pre>
+
 
 
 ---
@@ -700,7 +942,16 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_027.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, HIREDATE, SYSDATE,
+       MONTHS_BETWEEN(HIREDATE, SYSDATE) AS MONTHS1,
+       MONTHS_BETWEEN(SYSDATE, HIREDATE) AS MONTHS2,
+       TRUNC(MONTHS_BETWEEN(SYSDATE, HIREDATE)) AS MONTHS3
+FROM EMP;
+</pre>
+
 
 
 ---
@@ -709,7 +960,16 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 - 돌아오는 요일에 해당하는 날짜와 달의 마지막 날짜를 자도으로 계산산
 <img src="img/chap06_028.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT SYSDATE,
+       NEXT_DAY(SYSDATE, '월요일'),
+       LAST_DAY(SYSDATE)
+  FROM DUAL;
+</pre>
+
 
 
 ---
@@ -719,7 +979,18 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_029.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT SYSDATE,
+       ROUND(SYSDATE, 'CC') AS FORMAT_CC,
+       ROUND(SYSDATE, 'YYYY') AS FORMAT_YYYY,
+       ROUND(SYSDATE, 'Q') AS FORMAT_Q,
+       ROUND(SYSDATE, 'DDD') AS FORMAT_DDD,
+       ROUND(SYSDATE, 'HH') AS FORMAT_HH
+  FROM DUAL;
+</pre>
+
 
 
 ---
@@ -729,7 +1000,17 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 <img src="img/chap06_030.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT SYSDATE,
+       TRUNC(SYSDATE, 'CC') AS FORMAT_CC,
+       TRUNC(SYSDATE, 'YYYY') AS FORMAT_YYYY,
+       TRUNC(SYSDATE, 'Q') AS FORMAT_Q,
+       TRUNC(SYSDATE, 'DDD') AS FORMAT_DDD,
+       TRUNC(SYSDATE, 'HH') AS FORMAT_HH
+  FROM DUAL;
+</pre>
 
 
 
@@ -739,20 +1020,31 @@ SELECT CASE WHEN COMM IS NULL THEN '해당사항 없음' ELSE '수당 있음' EN
 - 숫자와 문자열을 더하여 출력하시오
 <img src="img/chap06_031.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, EMPNO + '500'
+  FROM EMP
+ WHERE ENAME = 'SCOTT';
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
 ##### Q032
-- 문자열과 숫자를 더하여 출력하시오.  
-오류가 난다면 그이유를 적으시오.
+- 문자열과 숫자를 더하여 출력하시오. (에러발생!)
+<img src="img/chap06_032.png" alt="" width="90%" />
+
+
+---
+<!-- _class: aqua -->
 <pre class="codeblock">
 SELECT 'ABCD' + EMPNO, EMPNO
   FROM EMP
  WHERE ENAME = 'SCOTT';
 </pre>
-
-<img src="img/chap06_032.png" alt="" width="60%" />
 
 
 
@@ -762,7 +1054,15 @@ SELECT 'ABCD' + EMPNO, EMPNO
 - SYSDATE 날짜 형식지정하여  출력하시오.
 <img src="img/chap06_033.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT TO_CHAR(SYSDATE, 'YYYY/MM/DD HH24:MI:SS') AS 현재날짜시간
+  FROM DUAL;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -771,7 +1071,19 @@ SELECT 'ABCD' + EMPNO, EMPNO
 <img src="img/chap06_034.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT SYSDATE,
+       TO_CHAR(SYSDATE, 'MM') AS MM,
+       TO_CHAR(SYSDATE, 'MON') AS MON,
+       TO_CHAR(SYSDATE, 'MONTH') AS MONTH,
+       TO_CHAR(SYSDATE, 'DD') AS DD,
+       TO_CHAR(SYSDATE, 'DY') AS DY,
+       TO_CHAR(SYSDATE, 'DAY') AS DAY
+  FROM DUAL;
+</pre>
+
 
 
 ---
@@ -780,7 +1092,21 @@ SELECT 'ABCD' + EMPNO, EMPNO
 - 여러 언어로 날짜(월) 출력하시오
 <img src="img/chap06_035.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT SYSDATE,
+       TO_CHAR(SYSDATE, 'MM') AS MM,
+       TO_CHAR(SYSDATE, 'MON', 'NLS_DATE_LANGUAGE = KOREAN' ) AS MON_KOR,
+       TO_CHAR(SYSDATE, 'MON', 'NLS_DATE_LANGUAGE = JAPANESE') AS MON_JPN,
+       TO_CHAR(SYSDATE, 'MON', 'NLS_DATE_LANGUAGE = ENGLISH' ) AS MON_ENG,
+       TO_CHAR(SYSDATE, 'MONTH', 'NLS_DATE_LANGUAGE = KOREAN' ) AS MONTH_KOR,
+       TO_CHAR(SYSDATE, 'MONTH', 'NLS_DATE_LANGUAGE = JAPANESE') AS MONTH_JPN,
+       TO_CHAR(SYSDATE, 'MONTH', 'NLS_DATE_LANGUAGE = ENGLISH' ) AS MONTH_ENG
+  FROM DUAL;
+</pre>
+
 
 
 ---
@@ -790,14 +1116,40 @@ SELECT 'ABCD' + EMPNO, EMPNO
 <img src="img/chap06_036.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT SYSDATE,
+       TO_CHAR(SYSDATE, 'MM') AS MM,
+       TO_CHAR(SYSDATE, 'DD') AS DD,
+       TO_CHAR(SYSDATE, 'DY', 'NLS_DATE_LANGUAGE = KOREAN' ) AS DY_KOR,
+       TO_CHAR(SYSDATE, 'DY', 'NLS_DATE_LANGUAGE = JAPANESE') AS DY_JPN,
+       TO_CHAR(SYSDATE, 'DY', 'NLS_DATE_LANGUAGE = ENGLISH' ) AS DY_ENG,
+       TO_CHAR(SYSDATE, 'DAY', 'NLS_DATE_LANGUAGE = KOREAN' ) AS DAY_KOR,
+       TO_CHAR(SYSDATE, 'DAY', 'NLS_DATE_LANGUAGE = JAPANESE') AS DAY_JPN,
+       TO_CHAR(SYSDATE, 'DAY', 'NLS_DATE_LANGUAGE = ENGLISH' ) AS DAY_ENG
+  FROM DUAL;
+</pre>
+
+
+
 ---
 <!-- _class: aqua -->
 ##### Q037
 - SYSDATE 시간형식 지정하여 출력하시오.
 <img src="img/chap06_037.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT SYSDATE,
+       TO_CHAR(SYSDATE, 'HH24:MI:SS') AS HH24MISS,
+       TO_CHAR(SYSDATE, 'HH12:MI:SS AM') AS HHMISS_AM,
+       TO_CHAR(SYSDATE, 'HH:MI:SS P.M.') AS HHMISS_PM
+  FROM DUAL;
+</pre>
+
 
 
 ---
@@ -807,7 +1159,20 @@ SELECT 'ABCD' + EMPNO, EMPNO
 <img src="img/chap06_038.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT SAL,
+       TO_CHAR(SAL, '$999,999') AS SAL_$,
+       TO_CHAR(SAL, 'L999,999') AS SAL_L,
+       TO_CHAR(SAL, '999,999.00') AS SAL_1,
+       TO_CHAR(SAL, '000,999,999.00') AS SAL_2,
+       TO_CHAR(SAL, '000999999.99') AS SAL_3,
+       TO_CHAR(SAL, '999,999,00') AS SAL_4
+  FROM EMP;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -815,22 +1180,32 @@ SELECT 'ABCD' + EMPNO, EMPNO
 - 문자데이터와 숫자데이터를 연산하여 출력하시오.
 <img src="img/chap06_039.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT 1300 - '1500',
+      '1300' + 1500
+ FROM DUAL;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
 ##### Q040
-- 문자데이터끼지 연산하여 출력하시오 
-- 오류가 난다면 그이유를 적으시오.
+- 문자데이터끼지 연산하여 출력하시오 (에러)
+<img src="img/chap06_040.png" alt="" width="90%" />
+
+
+---
+<!-- _class: aqua -->
 <pre class="codeblock">
 SELECT '1,300' - '1,500'
   FROM DUAL;
 </pre>
 
-<img src="img/chap06_040.png" alt="" width="50%" />
 
-
- 
 
 ---
 <!-- _class: aqua -->
@@ -838,7 +1213,15 @@ SELECT '1,300' - '1,500'
 - TO_NUMBER 함수로 연산하여 출력하시오.
 <img src="img/chap06_041.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT TO_NUMBER('1,300', '999,999') - TO_NUMBER('1,500', '999,999')
+  FROM DUAL;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -846,7 +1229,15 @@ SELECT '1,300' - '1,500'
 -  TO_DATE를 이용하여 문자 데이터를 날짜 데이터로 변환하시오.
 <img src="img/chap06_042.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT TO_DATE('2018-07-14', 'YYYY-MM-DD') AS TODATE1,
+       TO_DATE('20180714', 'YYYY-MM-DD') AS TODATE2
+  FROM DUAL;
+</pre>
+
 
 
 ---
@@ -855,7 +1246,16 @@ SELECT '1,300' - '1,500'
 - EMP 테이블에서   1981년 6월 1일 이후에 입사한 사원정보를 출력하시오.
 <img src="img/chap06_043.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT *
+  FROM EMP
+ WHERE HIREDATE > TO_DATE('1981/06/01', 'YYYY/MM/DD');
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -864,7 +1264,18 @@ SELECT '1,300' - '1,500'
 <img src="img/chap06_044.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT TO_DATE('49/12/10', 'YY/MM/DD') AS YY_YEAR_49,
+       TO_DATE('49/12/10', 'RR/MM/DD') AS RR_YEAR_49,
+       TO_DATE('50/12/10', 'YY/MM/DD') AS YY_YEAR_50,
+       TO_DATE('50/12/10', 'RR/MM/DD') AS RR_YEAR_50,
+       TO_DATE('51/12/10', 'YY/MM/DD') AS YY_YEAR_51,
+       TO_DATE('51/12/10', 'RR/MM/DD') AS RR_YEAR_51
+  FROM DUAL;
+</pre>
+
 
 
 ---
@@ -873,7 +1284,17 @@ SELECT '1,300' - '1,500'
 - EMP테이블에서 NVL 함수를 사용하여 다음과 같이 출력하시오.
 <img src="img/chap06_045.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, SAL, COMM, SAL+COMM,
+       NVL(COMM, 0),
+       SAL+NVL(COMM, 0)
+  FROM EMP;
+</pre>
+
+
 
 ---
 <!-- _class: aqua -->
@@ -882,7 +1303,17 @@ SELECT '1,300' - '1,500'
 <img src="img/chap06_046.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, COMM,
+       NVL2(COMM, 'O', 'X'),
+       NVL2(COMM, SAL*12+COMM, SAL*12) AS ANNSAL
+  FROM EMP;
+</pre>
+
+
+
 ---
 <!-- _class: aqua -->
 ##### Q047
@@ -896,7 +1327,19 @@ SELECT '1,300' - '1,500'
 <!-- _class: aqua -->
 <img src="img/chap06_047.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, JOB, SAL,
+       DECODE(JOB,
+              'MANAGER' , SAL*1.1,
+              'SALESMAN', SAL*1.05,
+              'ANALYST' , SAL,
+              SAL*1.03) AS UPSAL
+  FROM EMP;
+</pre>
+
 
 
 ---
@@ -913,7 +1356,19 @@ SELECT '1,300' - '1,500'
 <img src="img/chap06_048.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, JOB, SAL,
+       CASE JOB
+          WHEN 'MANAGER' THEN SAL*1.1
+          WHEN 'SALESMAN' THEN SAL*1.05
+          WHEN 'ANALYST' THEN SAL
+          ELSE SAL*1.03
+       END AS UPSAL
+  FROM EMP;
+</pre>
+
 
 
 ---
@@ -925,7 +1380,18 @@ SELECT '1,300' - '1,500'
            0 초과시 초과한 수당을 출력력
 <img src="img/chap06_049.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, COMM,
+       CASE
+          WHEN COMM IS NULL THEN '해당사항 없음'
+          WHEN COMM = 0 THEN '수당없음'
+          WHEN COMM > 0 THEN '수당 : ' || COMM
+       END AS COMM_TEXT
+  FROM EMP;
+</pre>
 
 
 
@@ -952,7 +1418,20 @@ SELECT '1,300' - '1,500'
 <!-- _class: aqua -->
 <img src="img/chap06_EX_001.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO,
+       RPAD(SUBSTR(EMPNO, 1, 2), 4, '*') AS MASKING_EMPNO,
+       ENAME,
+       RPAD(SUBSTR(ENAME, 1, 1), LENGTH(ENAME), '*') AS MASKING_ENAME
+ FROM  EMP
+ WHERE LENGTH(ENAME) >= 5
+   AND LENGTH(ENAME) < 6;
+</pre>
+
+
 
 
 
@@ -971,7 +1450,15 @@ SELECT '1,300' - '1,500'
 <img src="img/chap06_EX_002.png" alt="" width="90%" />
 
 
- 
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, SAL,
+       TRUNC(SAL / 21.5, 2) AS DAY_PAY,
+       ROUND(SAL / 21.5 / 8, 1) AS TIME_PAY
+  FROM EMP;
+</pre>
+
 
 
 ---
@@ -987,7 +1474,16 @@ SELECT '1,300' - '1,500'
 <!-- _class: aqua -->
 <img src="img/chap06_EX_003.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, HIREDATE,
+       TO_CHAR(NEXT_DAY(ADD_MONTHS(HIREDATE, 3), '월요일'), 'YYYY-MM-DD') AS R_JOB,
+       NVL(TO_CHAR(COMM), 'N/A') AS COMM
+  FROM EMP;
+</pre>
+
 
 
 ---
@@ -1009,7 +1505,22 @@ SELECT '1,300' - '1,500'
 <!-- _class: aqua -->
 <img src="img/chap06_EX_004.png" alt="" width="90%" />
 
- 
+
+---
+<!-- _class: aqua -->
+<pre class="codeblock">
+SELECT EMPNO, ENAME, MGR,
+       CASE
+          WHEN MGR IS NULL THEN '0000'
+          WHEN SUBSTR(MGR, 1, 2) = '78' THEN '8888'
+          WHEN SUBSTR(MGR, 1, 2) = '77' THEN '7777'
+          WHEN SUBSTR(MGR, 1, 2) = '76' THEN '6666'
+          WHEN SUBSTR(MGR, 1, 2) = '75' THEN '5555'
+          ELSE TO_CHAR(MGR)
+       END AS CHG_MGR
+  FROM EMP;
+</pre>
+
 
 
 ---
