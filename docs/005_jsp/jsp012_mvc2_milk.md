@@ -277,7 +277,7 @@ style: |
 
 ---
 <!-- _class: aqua --> 
-<img src="./chapter1/001.png" alt="Setting" width="100%" />
+<img src="./chapter12/002.png" alt="MVC2-MILK" width="100%" />
 
 
 

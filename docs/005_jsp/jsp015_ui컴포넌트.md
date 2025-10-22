@@ -277,10 +277,75 @@ style: |
 
 ---
 <!-- _class: aqua --> 
-<img src="./chapter1/001.png" alt="Setting" width="100%" />
+<img src="./chapter15/002.png" alt="UI컴포넌트" width="100%" />
 
 
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/003.png" alt="UI컴포넌트" width="100%" />
 
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/004.png" alt="UI컴포넌트" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/005.png" alt="UI컴포넌트" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/006.png" alt="UI컴포넌트" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/007.png" alt="UI컴포넌트" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/008.png" alt="UI컴포넌트" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/009.png" alt="UI컴포넌트" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/010.png" alt="UI컴포넌트" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/011.png" alt="UI컴포넌트" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/012.png" alt="UI컴포넌트" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/013.png" alt="UI컴포넌트" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/014.png" alt="UI컴포넌트" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter15/015.png" alt="UI컴포넌트" width="100%" />
+
+
+ 
 
 ---
 

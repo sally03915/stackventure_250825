@@ -274,11 +274,378 @@ style: |
 </blockquote>
  
  
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/002.png" alt="EL+JSTL" width="100%" />
+
 
 ---
 <!-- _class: aqua --> 
-<img src="./chapter1/001.png" alt="Setting" width="100%" />
+<img src="./chapter14/003.png" alt="EL+JSTL" width="100%" />
 
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/004.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/005.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/006.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/007.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/008.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/009.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/010.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/011.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/012.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/013.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/014.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/015.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/016.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/017.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/018.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/019.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/020.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/021.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/022.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/023.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/024.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/025.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/026.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/027.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/028.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/029.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/030.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/031.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/032.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/033.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/034.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/035.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/036.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/037.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/038.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/039.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/040.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/041.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/042.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/043.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/044.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/045.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/046.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/047.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/048.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/049.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/050.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/051.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/052.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/053.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/054.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/055.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/056.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/057.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/058.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/059.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/060.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/061.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/062.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/063.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/064.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/065.png" alt="EL+JSTL" width="100%" />
+ 
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/066.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/067.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/068.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/069.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/070.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/071.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/072.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/073.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/074.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/075.png" alt="EL+JSTL" width="100%" />
+
+
+---
+<!-- _class: aqua --> 
+<img src="./chapter14/076.png" alt="EL+JSTL" width="100%" />
 
 
 
