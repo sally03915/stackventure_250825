@@ -444,11 +444,7 @@ SELECT * FROM EMP ORDER BY DEPTNO ASC, SAL DESC;
 <img src="img/chap04_001.png"  alt="select_basic"  style="width:40%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DESC EMP;
-</pre>
+
  
 
 ---
@@ -457,11 +453,6 @@ DESC EMP;
 <img src="img/chap04_002.png"  alt="select_basic"  style="width:40%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DESC DEPT;
-</pre>
  
 
 ---
@@ -469,12 +460,7 @@ DESC DEPT;
 ##### Q003  SALGRADE 테이블 구성을 살펴보시오
 <img src="img/chap04_003.png"  alt="select_basic"  style="width:40%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DESC SALGRADE;
-</pre>
+ 
 
  
 ---
@@ -483,12 +469,7 @@ DESC SALGRADE;
 <img src="./img/chap04_004.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT * FROM EMP;
-</pre>
-
+ 
  
 
 ---
@@ -497,12 +478,6 @@ SELECT * FROM EMP;
 <img src="./img/chap04_005.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT EMPNO, ENAME, DEPTNO
-  FROM EMP;
-</pre>
  
 
 ---
@@ -511,12 +486,6 @@ SELECT EMPNO, ENAME, DEPTNO
 <img src="./img/chap04_006.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT DISTINCT DEPTNO
-  FROM EMP;
-</pre>
  
 
 ---
@@ -524,13 +493,6 @@ SELECT DISTINCT DEPTNO
 ##### Q007  EMP 테이블의  JOB, DEPTNO열의 중복을 제거 조회하시오
 <img src="./img/chap04_007.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT DISTINCT JOB, DEPTNO
-  FROM EMP;
-</pre>
  
 
 ---
@@ -539,27 +501,13 @@ SELECT DISTINCT JOB, DEPTNO
 <img src="./img/chap04_008.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT ALL JOB, DEPTNO
-  FROM EMP;
-</pre>
-
+ 
  
 
 ---
 <!-- _class: aqua -->
 ##### Q009 EMP 테이블의열에에 연산식을 이용하여 '연간총수입'을 조회하시오.
 <img src="./img/chap04_009.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT ENAME, SAL, SAL*12+COMM, COMM
-  FROM EMP;
-</pre>
 
  
 
@@ -568,26 +516,12 @@ SELECT ENAME, SAL, SAL*12+COMM, COMM
 ##### Q010  EMP 테이블의 열열 더하기 연산식을이용하여 '연간총수입'을 조회하시오.
 <img src="./img/chap04_010.png" alt="" width="90%" />
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT ENAME, SAL, SAL+SAL+SAL+SAL+SAL+SAL+SAL+SAL+SAL+SAL+SAL+SAL+COMM, COMM
-  FROM EMP;
-</pre>
-
  
 
 ---
 <!-- _class: aqua -->
 ##### Q011  EMP 테이블의 열 별칭을 사용하여 '연간총수입'을 조회하시오.
 <img src="./img/chap04_011.png" alt="" width="90%" />
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT ENAME, SAL, SAL*12+COMM AS ANNSAL, COMM
-  FROM EMP;
-</pre>
  
 ---
 <!-- _class: aqua -->
@@ -595,28 +529,14 @@ SELECT ENAME, SAL, SAL*12+COMM AS ANNSAL, COMM
 <img src="./img/chap04_012.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
-ORDER BY SAL;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
 ##### Q013  EMP 테이블의 모든 열을 급여기준으로 내림차순순 정렬하시오.
 <img src="./img/chap04_013.png" alt="" width="90%" />
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
-ORDER BY SAL DESC;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -624,14 +544,7 @@ ORDER BY SAL DESC;
 ##### Q014  EMP 테이블의 모든 열을 전체열을 부서번호(오름차순)와 급여(내림차순)으로 정렬하시오.
 <img src="./img/chap04_014.png" alt="" width="90%" />
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
-ORDER BY DEPTNO ASC, SAL DESC;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -653,13 +566,7 @@ ORDER BY DEPTNO ASC, SAL DESC;
 ##### EX001.  EMP테이블의 JOB열 데이터를 중복없이 조회하시오.
 <img src="./img/chap04_EX_001.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua --> 
-<pre class="codeblock">
-SELECT DISTINCT JOB
-  FROM EMP;
-</pre>
+ 
 
 
 ---
@@ -682,21 +589,7 @@ SELECT DISTINCT JOB
 <img src="./img/chap04_EX_002.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua --> 
-<pre class="codeblock">
-SELECT EMPNO AS EMPLOYEE_NO,
-       ENAME AS EMPLOYEE_NAME,
-       JOB,
-       MGR AS MANAGER,
-       HIREDATE,
-       SAL AS SALARY,
-       COMM AS COMMISSION,
-       DEPTNO AS DEPARTMENT_NO
-  FROM EMP
-ORDER BY DEPTNO DESC, ENAME;
-</pre>
-
+ 
 
 
 

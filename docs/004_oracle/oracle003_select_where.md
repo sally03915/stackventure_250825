@@ -443,15 +443,7 @@ SELECT EMPNO, ENAME, SAL, DEPTNO FROM EMP WHERE DEPTNO = 10;
 ##### Q001 - EMP테이블의 모든 열을  조회하시오.
 
 <img src="img/chap05_001.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
-</pre>
-
+ 
 
 
 
@@ -460,16 +452,7 @@ SELECT *
 ##### Q002 EMP테이블에서 부서번호가 30인 데이터만 조회하시오.
 
 <img src="img/chap05_002.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE DEPTNO = 30;
-</pre>
-
+ 
 
 
 ---
@@ -478,15 +461,7 @@ SELECT *
 <img src="img/chap05_003.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE DEPTNO = 30
-   AND JOB = 'SALESMAN';
-</pre>
-
+ 
 
 
 ---
@@ -494,16 +469,7 @@ SELECT *
 ##### Q004  EMP테이블에서  OR를 이용하여 부서번호가 30이거나 JOB이 'CLERK' 인 데이터만 조회하시오.
 <img src="img/chap05_004.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE DEPTNO = 30
-    OR JOB = 'CLERK';
-</pre>
-
+ 
 
 
 ---
@@ -512,14 +478,7 @@ SELECT *
 <img src="img/chap05_005.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE SAL * 12 = 36000;
-</pre>
-
+ 
 
 
 ---
@@ -527,15 +486,7 @@ SELECT *
 ##### Q006 EMP테이블에서 SAL 열이 3000이상인 행을 조회하시오.
 <img src="img/chap05_006.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE SAL >= 3000;
-</pre>
-
+ 
 
 
 ---
@@ -543,15 +494,7 @@ SELECT *
 ##### Q007 EMP테이블에서  ENAME 열의 첫문자가 F와 같거나 뒤에 있는 행을 조회하시오.
 <img src="img/chap05_007.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE ENAME >= 'F';
-</pre>
-
+ 
 
 
 ---
@@ -559,30 +502,14 @@ SELECT *
 ##### Q008 EMP테이블에서  ENAME 열의 문자열이 첫문자 F, 두번째 문자 O, 세번째 문자 R, 네번째문자열이 Z 인 문자열보다 앞에 있는 행을 조회하시오.
 <img src="img/chap05_008.png" alt="" width="80%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE ENAME <= 'FORZ';
-</pre>
-
+ 
 
 
 ---
 <!-- _class: aqua -->
 ##### Q009 EMP테이블에서   != 를 이용하여 SAL열이 3000이 아닌 행을 조회하시오.
 <img src="img/chap05_009.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE SAL != 3000;
-</pre>
+ 
 
 
 
@@ -591,15 +518,7 @@ SELECT *
 ##### Q010 EMP테이블에서   <> 를 이용하여 SAL열이 3000이 아닌 행을 조회하시오.
 <img src="img/chap05_010.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE SAL <> 3000;
-</pre>
-
+ 
 
 
 ---
@@ -607,15 +526,7 @@ SELECT *
 ##### Q011 EMP테이블에서   ^= 를 이용하여 SAL열이 3000이 아닌 행을 조회하시오.
 <img src="img/chap05_011.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE SAL ^= 3000;
-</pre>
-
+ 
 
 
 ---
@@ -623,15 +534,7 @@ SELECT *
 ##### Q012 EMP테이블에서   NOT를를 이용하여 SAL열이 3000이 아닌 행을 조회하시오.
 <img src="img/chap05_012.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE NOT SAL = 3000;
-</pre>
-
+ 
 
 
 ---
@@ -639,17 +542,7 @@ SELECT *
 ##### Q013 EMP테이블에서   OR 를 이용하여 JOB 열이 'MANAGER' ,'SALESMAN' , 'CLERK' 중 하나라도 포함되는 행을 조회하시오.
 <img src="img/chap05_013.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE JOB = 'MANAGER'
-    OR JOB = 'SALESMAN'
-    OR JOB = 'CLERK';
-</pre>
-
+ 
 
 
 ---
@@ -657,16 +550,7 @@ SELECT *
 ##### Q014 EMP테이블에서   IN 를 이용하여 JOB 열이 'MANAGER' ,'SALESMAN' , 'CLERK' 중 하나라도 포함되는 행을 조회하시오.
 <img src="img/chap05_014.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE JOB IN ('MANAGER', 'SALESMAN', 'CLERK');
-</pre>
-
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -674,32 +558,14 @@ SELECT *
 <img src="img/chap05_015.png" alt="" width="80%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE JOB != 'MANAGER'
-   AND JOB <> 'SALESMAN'
-   AND JOB ^= 'CLERK';
-</pre>
-
-
+ 
 
 ---
 <!-- _class: aqua -->
 ##### Q016 EMP테이블에서  NOT  IN 를 이용하여 JOB 열이 'MANAGER' ,'SALESMAN' , 'CLERK' 중 하나라도 <u>포함되지않는</u> 행을 조회하시오.
 <img src="img/chap05_016.png" alt="" width="80%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE JOB NOT IN ('MANAGER', 'SALESMAN', 'CLERK');
-</pre>
-
+ 
 
 
 ---
@@ -708,79 +574,34 @@ SELECT *
 <img src="img/chap05_017.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE SAL >= 2000
-   AND SAL <= 3000;
-</pre>
-
-
+ 
 
 ---
 <!-- _class: aqua -->
 ##### Q018  EMP테이블에서  BETWEEN AND 를 이용하여 sal 열이 2000이상 3000이하인인 행을 조회하시오.
 <img src="img/chap05_018.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE SAL BETWEEN 2000 AND 3000;
-</pre>
-
-
+ 
 
 ---
 <!-- _class: aqua -->
 ##### Q019  EMP테이블에서 NOT BETWEEN AND 를 이용하여 sal 열이 2000이상 3000이하인 사이 이외의 행을 조회하시오.
 <img src="img/chap05_019.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE SAL NOT BETWEEN 2000 AND 3000;
-</pre>
-
+ 
 
 
 ---
 <!-- _class: aqua -->
 ##### Q020  EMP테이블에서 ENAME이 S로 시작하는 행을 조회하시오.
 <img src="img/chap05_020.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE ENAME LIKE 'S%';
-</pre>
-
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### Q021  EMP테이블에서 ENAME의 두번째 글자가 L인  행을 조회하시오.
 <img src="img/chap05_021.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE ENAME LIKE '_L%';
-</pre>
-
+ 
 
 
 ---
@@ -789,14 +610,7 @@ SELECT *
 <img src="img/chap05_022.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE ENAME LIKE '%AM%';
-</pre>
-
+ 
 
 
 ---
@@ -804,15 +618,7 @@ SELECT *
 ##### Q023  EMP테이블에서 ENAME에  AN이 포함되어 있지 않는 행을 조회하시오.
 <img src="img/chap05_023.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE ENAME NOT LIKE '%AM%';
-</pre>
-
+ 
 
 
 ---
@@ -820,15 +626,7 @@ SELECT *
 ##### Q024  EMP테이블에서 별칭을 사용하여 다음과 같이 '연간총수입' 행을 조회하시오.
 <img src="img/chap05_024.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT ENAME, SAL, SAL*12+COMM AS ANNSAL, COMM
-  FROM EMP;
-</pre>
-
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -843,16 +641,7 @@ SELECT ENAME, SAL, SAL*12+COMM AS ANNSAL, COMM
 <!-- _class: aqua -->
 <img src="img/chap05_025.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE COMM = NULL;
-</pre>
-
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -862,14 +651,7 @@ SELECT *
 <img src="img/chap05_026.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE COMM IS NULL;
-</pre>
-
+ 
 
 
 ---
@@ -878,15 +660,7 @@ SELECT *
 - MGR열이 NULL 이 아닌 행조회 
 <img src="img/chap05_027.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT *
-  FROM EMP
- WHERE MGR IS NOT NULL;
-</pre>
-
+ 
 
 
 ---
@@ -933,22 +707,7 @@ SELECT *
 <!-- _class: aqua -->
 ##### Q030   UNION을 이용하여 DEPTNO가 10이거나, 20인 데이터의  EMPNO, ENAME, SAL, DEPTNO 열을 조회하시오.
 <img src="img/chap05_030.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 10
-UNION
-
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 20;
-
-</pre>
-
+ 
 
 
 ---
@@ -957,40 +716,14 @@ SELECT EMPNO, ENAME, SAL, DEPTNO
 - 열의 갯수가 다를때
 <img src="img/chap05_031.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 10
-UNION
-SELECT EMPNO, ENAME, SAL
-  FROM EMP
- WHERE DEPTNO = 20;
-</pre>
-
-
+ 
 
 ---
 <!-- _class: aqua -->
 ##### Q032   에러가 나는 이유는?
 - 자료형이 다를때 
 <img src="img/chap05_032.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 10
-UNION
-SELECT ENAME, EMPNO, DEPTNO, SAL
-  FROM EMP
- WHERE DEPTNO = 20;
-</pre>
-
+ 
  
 ---
 <!-- _class: aqua -->
@@ -998,59 +731,21 @@ SELECT ENAME, EMPNO, DEPTNO, SAL
 - 출력 열개수와 자료형이 같으므로 동작가능!
 <img src="img/chap05_033.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 10
-UNION
-SELECT SAL, JOB, DEPTNO, SAL
-  FROM EMP
- WHERE DEPTNO = 20;
-</pre>
-
-
+ 
 
 ---
 <!-- _class: aqua -->
 ##### Q034  UNION과 UNION ALL의 차이는?
 <img src="img/chap05_034.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 10
-UNION
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 10;
-</pre>
-
+ 
 
 
 ---
 <!-- _class: aqua -->
 ##### Q035   UNION과 UNION ALL의 차이는?
 <img src="img/chap05_035.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 10
-UNION ALL
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 10;
-</pre>
-
+ 
 
 
 ---
@@ -1059,19 +754,7 @@ SELECT EMPNO, ENAME, SAL, DEPTNO
 - EMP테이블 전체행을 조회한 첫번째 SELECT문의 결과에서 10번부서에 있는 사원데이터를 제외한 결과값
 <img src="img/chap05_036.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
-MINUS
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 10;
-</pre>
-
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -1079,19 +762,7 @@ SELECT EMPNO, ENAME, SAL, DEPTNO
 - 두 SELECT 문의 결과값이 같은데이터만 출력
 <img src="img/chap05_037.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
-INTERSECT
-SELECT EMPNO, ENAME, SAL, DEPTNO
-  FROM EMP
- WHERE DEPTNO = 10;
-</pre>
-
-
+ 
 
 
 
