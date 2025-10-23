@@ -828,7 +828,6 @@ ORDER BY E1.EMPNO;
 ---
 <!-- _class: aqua -->
 ##### SQL-99 이전 방식
-
 <img src="img/chap08__EX_002.png" alt="" width="90%" />
 
 
@@ -838,7 +837,6 @@ ORDER BY E1.EMPNO;
 ---
 <!-- _class: aqua -->
 ##### SQL-99 방식
-
 <img src="img/chap08__EX_002.png" alt="" width="90%" />
 
  
