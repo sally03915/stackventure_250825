@@ -15,23 +15,23 @@
 ## 🧭 목차
 
 <br>
-
-| 트랙 번호 | 기술 스택 | 설명 | 링크 |
-|----------|-----------|------|------|
-| Track 01 | GitHub + Markdown + AI | 협업의 기본기 습득 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track01-github-ai) |
-| Track 02 | HTML + CSS + JS + jQuery + Bootstrap | 프론트엔드 핵심 기술 총정리 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track02-html-css-js) |
-| Track 03 | Java | 객체지향 프로그래밍 실습 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track03-java) |
-| Track 04 | MySQL + ERD | 데이터베이스 설계 및 관리 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track04-mysql-erd) |
-| Track 05 | Python + Django | 백엔드 웹 서비스 구축 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track05-python-django) |
-| Track 06 | JSP | 동적 웹 페이지 개발 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track06-jsp) |
-| Track 07 | AI API | 챗봇 구현 및 API 활용 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track07-ai-api) |
-| Track 08 | Docker | DevOps 환경 구성 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track08-docker) |
-| Track 09 | AWS | 클라우드 인프라 실습 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track09-aws) |
-| Track 10 | Spring + Security + JPA + Thymeleaf | 통합 웹 서비스 개발 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track10-spring-jpa) |
-| Track 11 | Node + React | 풀스택 SPA 구현 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track11-node-react) |
-| Track 12 | Spring + MyBatis + React | 통합 개발 실습 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track12-spring-mybatis-react) |
-| Track 13 | Spring + Flutter | 크로스 플랫폼 앱 개발 | [브랜치 보기](https://github.com/sally03915/stackventure_250825/tree/track13-spring-flutter) |
-
+| 챕터 | 내용 | 링크 |
+|------|------|------|
+| Chapter 1 | Jsp Setting |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp001_setting)|
+| Chapter 2 | Jsp Basic    |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp002_basic)|
+| Chapter 3 | Jsp STMT    |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp003_jdbc_stmt)|
+| Chapter 4 | Jsp MVC1-CRUD    |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp004_mvc1_crud)|
+| Chapter 5 | Jsp PSTMT    |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp005_jdbc_pstmt)|
+| Chapter 6 | Jsp MVC1-CRUD   |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp006_mvc1_crud)|
+| Chapter 7 | Jsp ACTION TAG   |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp007_actiontag)|
+| Chapter 8 | Jsp 내장객체1   |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp008_내장객체1)|
+| Chapter 9 | Jsp 내장객체2    |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp009_내장객체2)|
+| Chapter 10 | Jsp DBCP  |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp010_dbcp)|
+| Chapter 11 | Jsp SERVLET |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp011_servlet)|
+| Chapter 12 | Jsp MVC2 MILK   |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp012_mvc2_milk)|
+| Chapter 13 | Jsp MVC2 BOARD|  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp013_mvc2_board)|
+| Chapter 14 | Jsp EL+JSTL    |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp014_el+jstl)|
+| Chapter 15 | Jsp UI 컴포넌트    |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp015_ui컴포넌트)|
 <br>
 
 ---
