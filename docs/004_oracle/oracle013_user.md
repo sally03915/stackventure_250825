@@ -757,18 +757,7 @@ SELECT * FROM USER_ROLE_PRIVS;
 <img src="img/chap15__EX_001.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-
-
-<pre class="codeblock">
---①
-CREATE USER PREV_HW
-IDENTIFIED BY ORCL;
-
---②
-GRANT CREATE SESSION TO PREV_HW;
-</pre>
+ 
 
 
 ---
@@ -779,16 +768,7 @@ GRANT CREATE SESSION TO PREV_HW;
 
 <img src="img/chap15__EX_002.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-GRANT SELECT ON  SCOTT.EMP TO PREV_HW;
-
-GRANT SELECT ON  SCOTT.DEPT TO PREV_HW;
-
-GRANT SELECT ON  SCOTT.SALGRADE TO PREV_HW;
-</pre>
+ 
 
 
 ---
@@ -799,13 +779,7 @@ GRANT SELECT ON  SCOTT.SALGRADE TO PREV_HW;
 
 <img src="img/chap15__EX_003.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-REVOKE SELECT ON SALGRADE FROM PREV_HW;
-</pre>
-
+ 
 
 
 ---

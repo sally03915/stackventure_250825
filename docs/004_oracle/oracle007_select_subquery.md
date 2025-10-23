@@ -900,20 +900,7 @@ FROM EMP E;
 1. 전체 사원 중 ALLEN과 같은 직책(JOB)인 사원들의 사원정보, 부서정보를 다음과 같이 출력하시오.
 <img src="img/chap09__EX_001.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.JOB, E.EMPNO, E.ENAME, E.SAL, E.DEPTNO, D.DNAME
-  FROM EMP E, DEPT D
- WHERE E.DEPTNO = D.DEPTNO
-   AND JOB = (
-SELECT JOB
-                FROM EMP
-               WHERE ENAME = 'ALLEN');
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -926,20 +913,7 @@ SELECT JOB
 <!-- _class: aqua -->
 <img src="img/chap09__EX_002.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, D.DNAME, E.HIREDATE, D.LOC, E.SAL, S.GRADE
-  FROM EMP E, DEPT D, SALGRADE S
- WHERE E.DEPTNO = D.DEPTNO
-   AND E.SAL BETWEEN S.LOSAL AND S.HISAL
-   AND SAL > (
-SELECT AVG(SAL)
-                FROM EMP)
-ORDER BY E.SAL DESC, E.EMPNO;
-
-</pre>
+ 
 
 
 ---
@@ -951,19 +925,7 @@ ORDER BY E.SAL DESC, E.EMPNO;
 <img src="img/chap09__EX_003.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, E.JOB, E.DEPTNO, D.DNAME, D.LOC
-  FROM EMP E, DEPT D
- WHERE E.DEPTNO = D.DEPTNO
-   AND E.DEPTNO = 10
-   AND JOB NOT IN (
-SELECT DISTINCT JOB
-                     FROM EMP
-                    WHERE DEPTNO = 30);
-
-</pre>
+ 
 
 
 ---
@@ -974,19 +936,7 @@ SELECT DISTINCT JOB
 2. 다중행 함수 사용하지 않는 방법, 다중행 함수 사용하는 방법 2가지로 작성하시오.
 3. 사원번호를 기준으로 오름차순으로 정렬하시오.
  
----
-<!-- _class: aqua -->
-- 다중행 함수 사용하지 않는 방법
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, E.SAL, S.GRADE
-  FROM EMP E, SALGRADE S
- WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
-   AND SAL > (
-SELECT MAX(SAL)
-                FROM EMP
-               WHERE JOB = 'SALESMAN')
-ORDER BY E.EMPNO;
-</pre>
+ 
  
 ---
 <!-- _class: aqua -->
@@ -995,20 +945,7 @@ ORDER BY E.EMPNO;
 <img src="img/chap09__EX_004_2.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, E.SAL, S.GRADE
-  FROM EMP E, SALGRADE S
- WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
-   AND SAL > ALL (
-SELECT DISTINCT SAL
-                    FROM EMP
-                   WHERE JOB = 'SALESMAN')
-ORDER BY E.EMPNO;
-</pre>
-
-
+ 
 
 ---
 

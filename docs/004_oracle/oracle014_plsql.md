@@ -1005,18 +1005,7 @@ END;
 <img src="img/chap16__EX_001.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-BEGIN
-   FOR i IN 1..10 LOOP
-      CONTINUE WHEN MOD(i, 2) = 0;
-      DBMS_OUTPUT.PUT_LINE('현재 i의 값 : ' || i);
-      END LOOP;
-END;
-/
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -1027,24 +1016,7 @@ END;
 
 <img src="img/chap16__EX_002.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DECLARE
-   V_DEPTNO DEPT.DEPTNO%TYPE := 10;
-BEGIN
-   CASE V_DEPTNO
-      WHEN 10 THEN DBMS_OUTPUT.PUT_LINE('DNAME : ACCOUNTING');
-      WHEN 20 THEN DBMS_OUTPUT.PUT_LINE('DNAME : RESEARCH');
-      WHEN 30 THEN DBMS_OUTPUT.PUT_LINE('DNAME : SALES');
-      WHEN 40 THEN DBMS_OUTPUT.PUT_LINE('DNAME : OPERATIONS');
-      ELSE         DBMS_OUTPUT.PUT_LINE('DNAME : N/A');
-   END CASE;
-END;
-/
-</pre>
-
+ 
 
 
 

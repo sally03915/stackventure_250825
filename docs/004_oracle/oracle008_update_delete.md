@@ -952,23 +952,7 @@ SELECT * FROM EMP_TEMP2;
 2.  DEPT_TEST 테이블에 다음과 같이 값이 추가하시오.
 <img src="img/chap10__EX_001.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE TABLE DEPT_TEST AS SELECT * FROM DEPT;
-
-INSERT INTO DEPT_TEST (DEPTNO, DNAME, LOC) VALUES (50, 'ORACLE', 'BUSAN');
-
-INSERT INTO DEPT_TEST (DEPTNO, DNAME, LOC) VALUES (60, 'SQL', 'ILSAN');
-
-INSERT INTO DEPT_TEST (DEPTNO, DNAME, LOC) VALUES (70, 'SELECT', 'INCHEON');
-
-INSERT INTO DEPT_TEST (DEPTNO, DNAME, LOC) VALUES (80, 'DML', 'BUNDANG');
-
-
-SELECT * FROM DEPT_TEST;
-</pre>
+ 
 
 
 ---
@@ -1025,17 +1009,7 @@ SELECT * FROM EMP_TEST;
 <img src="img/chap10__EX_003.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-UPDATE EMP_TEST
-   SET DEPTNO = 70
- WHERE SAL > (SELECT AVG(SAL)
-                FROM EMP_TEST
-               WHERE DEPTNO = 50);
-
-SELECT * FROM EMP_TEST;
-</pre>
+ 
 
 
 ---
@@ -1048,18 +1022,7 @@ SELECT * FROM EMP_TEST;
 <img src="img/chap10__EX_004.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-UPDATE EMP_TEST
-   SET SAL = SAL*1.1,
-       DEPTNO = 80
- WHERE HIREDATE > (SELECT MIN(HIREDATE)
-                     FROM EMP_TEST
-                    WHERE DEPTNO = 60);
-
-SELECT * FROM EMP_TEST;
-</pre>
+ 
 
 
 ---
@@ -1072,18 +1035,7 @@ SELECT * FROM EMP_TEST;
 <img src="img/chap10__EX_005.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DELETE FROM EMP_TEST
- WHERE EMPNO IN (SELECT E.EMPNO
-                   FROM EMP_TEST E, SALGRADE S
-                  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
-                    AND S.GRADE = 5);
-
-SELECT * FROM EMP_TEST;
-</pre>
-
+ 
 
 
 ---

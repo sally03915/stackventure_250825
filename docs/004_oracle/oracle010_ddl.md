@@ -745,22 +745,7 @@ DESC EMP_RENAME;
 <img src="img/chap12__EX_001.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE TABLE EMP_DDL_TEST (
-     EMPNO    NUMBER(4),
-     ENAME    VARCHAR2(10),
-     JOB      VARCHAR2(9),
-     MGR      NUMBER(4),
-     HIREDATE DATE,
-     SAL      NUMBER(7, 2),
-     COMM     NUMBER(7, 2),
-     DEPTNO   NUMBER(2)
-);
-
-DESC EMP_DDL_TEST;
-</pre>
+ 
 
 
 ---
@@ -770,15 +755,7 @@ DESC EMP_DDL_TEST;
 <img src="img/chap12__EX_002.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-ALTER TABLE EMP_DDL_TEST
-  ADD AAA VARCHAR2(20);
-
-DESC EMP_DDL_TEST;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -787,16 +764,7 @@ DESC EMP_DDL_TEST;
 <img src="img/chap12__EX_003.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-ALTER TABLE EMP_DDL_TEST
-MODIFY AAA VARCHAR2(30);
-
-DESC EMP_DDL_TEST;
-</pre>
-
-
+ 
 ---
 <!-- _class: aqua -->
 ##### EX004
@@ -804,16 +772,7 @@ DESC EMP_DDL_TEST;
 <img src="img/chap12__EX_004.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-ALTER TABLE EMP_DDL_TEST
-RENAME COLUMN AAA TO REMARK;
-
-
-DESC EMP_DDL_TEST;
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -822,16 +781,7 @@ DESC EMP_DDL_TEST;
 <img src="img/chap12__EX_005.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-INSERT INTO EMP_DDL_TEST
-SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, NULL
-  FROM EMP;
-
-SELECT * FROM  EMP_DDL_TEST;
-
-</pre>
+ 
 
 
 
@@ -841,13 +791,7 @@ SELECT * FROM  EMP_DDL_TEST;
 - EMP_DDL_TEST 테이블을 삭제하시오.
 <img src="img/chap12__EX_006.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-DROP TABLE EMP_DDL_TEST;
-</pre>
-
+ 
 
 ---
 

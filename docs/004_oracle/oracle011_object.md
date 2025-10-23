@@ -1138,25 +1138,7 @@ DROP SYNONYM E;
 <!-- _class: aqua -->
 <img src="img/chap13__EX_001.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
---①
-CREATE TABLE EMPIDX
- AS SELECT *
-      FROM EMP;
-
---②
-CREATE INDEX IDX_EMPIDX_EMPNO
-    ON EMPIDX (EMPNO);
-
---③
-SELECT *
-  FROM USER_INDEXES
- WHERE INDEX_NAME = 'IDX_EMPIDX_EMPNO';
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -1170,16 +1152,7 @@ SELECT *
 <!-- _class: aqua -->
 <img src="img/chap13__EX_002.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-CREATE OR REPLACE VIEW EMPIDX_OVER15K
-    AS (SELECT EMPNO, ENAME, JOB, DEPTNO,
-               SAL, NVL2(COMM, 'O', 'X') AS COMM
-          FROM EMPIDX
-         WHERE SAL > 1500);
-</pre>
+ 
 
 
 ---
@@ -1194,33 +1167,7 @@ CREATE OR REPLACE VIEW EMPIDX_OVER15K
 <!-- _class: aqua -->
 <img src="img/chap13__EX_003.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
---①
-CREATE TABLE DEPTSEQ
-    AS SELECT *
-         FROM DEPT;
-
---②
-CREATE SEQUENCE SEQ_DEPTSEQ
-   INCREMENT BY 1
-   START WITH 1
-   MAXVALUE 99
-   MINVALUE 1
-   NOCYCLE NOCACHE;
-
---③
-INSERT INTO DEPTSEQ (DEPTNO, DNAME, LOC)
-VALUES (SEQ_DEPTSEQ.NEXTVAL, 'DATABASE', 'SEOUL');
-
-INSERT INTO DEPTSEQ (DEPTNO, DNAME, LOC)
-VALUES (SEQ_DEPTSEQ.NEXTVAL, 'WEB', 'BUSAN');
-
-INSERT INTO DEPTSEQ (DEPTNO, DNAME, LOC)
-VALUES (SEQ_DEPTSEQ.NEXTVAL, 'MOBILE', 'ILSAN');
-</pre>
+ 
 
 
 ---
