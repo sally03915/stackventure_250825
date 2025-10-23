@@ -15,6 +15,7 @@
 ## 🧭 목차
 
 <br>
+
 | 챕터 | 내용 | 링크 |
 |------|------|------|
 | Chapter 1 | Jsp Setting |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp001_setting)|
@@ -32,6 +33,7 @@
 | Chapter 13 | Jsp MVC2 BOARD|  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp013_mvc2_board)|
 | Chapter 14 | Jsp EL+JSTL    |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp014_el+jstl)|
 | Chapter 15 | Jsp UI 컴포넌트    |  [보기](https://sally03915.github.io/stackventure_250825/005_jsp/jsp015_ui컴포넌트)|
+
 <br>
 
 ---
