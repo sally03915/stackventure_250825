@@ -1268,8 +1268,7 @@ GROUP BY TO_CHAR(HIREDATE, 'YYYY'), DEPTNO;
 ---
 <!-- _class: aqua -->
 <pre class="codeblock">
-SELECT NVL2(COMM, 'O', 'X') AS EXIST_COMM,
-       COUNT(*) AS CNT
+SELECT NVL2(COMM, 'O', 'X') AS EXIST_COMM,  COUNT(*) AS CNT
   FROM EMP
 GROUP BY NVL2(COMM, 'O', 'X');
 </pre>
