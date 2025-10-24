@@ -943,8 +943,8 @@ FROM EMP E;
 ---
 <!-- _class: aqua -->
 - 다중행 함수 사용하는 방법
- 
-<img src="img/chap09__EX_004_2.png" alt="" width="90%" />
+
+<img src="img/chap09__EX_004.png" alt="" width="90%" />
 
 
  
