@@ -811,7 +811,7 @@ SELECT DEPTNO, MAX(SAL)
 ---
 <!-- _class: aqua -->
 ##### Q019
-- EMP 테이블에서 다음과 같이 출력하시오.
+- 인라인 뷰를 이용
 1. FROM 절에서 사용하는 인라인 뷰를 이용하여
    부서번호가 10인 사용자 정보와  부서정보를 가져와 
 2. EMPNO, ENAME, DEPTNO, DNAME, LOC 를 출력하시오.
@@ -836,8 +836,10 @@ SELECT * FROM DEPT) D
 ---
 <!-- _class: aqua -->
 ##### Q020
-- WITH
-- FROM 절에 명시하는 방식보다 몇십, 몇백줄의 규보가 되었을때 유용하게 사용됨.
+- WITH 이용
+- FROM 절에 명시하는 방식보다 몇십, 몇백줄의 규모가 되었을때 유용하게 사용됨.
+- emp 테이블에서 부서번호가 10인 사원정보 
+- dept 테이블의 모든정보
 <img src="img/chap09_020.png" alt="" width="90%" />
 
 
@@ -859,7 +861,7 @@ SELECT E10.EMPNO, E10.ENAME, E10.DEPTNO, D.DNAME, D.LOC
 ---
 <!-- _class: aqua -->
 ##### Q0021
-- 열에 명시하는 스칼라서브쿼리
+- 열에 명시하는 스칼라서브쿼리이용
 1. EMP 테이블의  EMPNO, ENAME, JOB, SAL
 2. EMP 테이블의 SAL을 이용하여 SALGRADE에서 등급(GRADE)을 구하고
 3. EMP 테이블의 DEPTNO를 이용하여 DEPTNO가 같은  부서명(DNAME)을 구하시오.
