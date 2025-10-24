@@ -745,8 +745,8 @@ SELECT SAL
 ---
 <!-- _class: aqua -->
 ##### Q016
--EMP 테이블에서 모든 행을 선택하되, 다음 조건을 만족하는 경우에만 출력한다:
-- DEPT 테이블에 DEPTNO = 10인 행이 하나라도 존재하는 경우 
+-EMP 테이블에서 모든 행을 선택하되, 다음 조건을 만족하는 경우에만 출력하시오.  EXISTS 이용
+- DEPT 테이블에 DEPTNO = 50인 행이 하나라도 존재하는 경우
 
 <img src="img/chap09_016.png" alt="" width="90%" />
 
@@ -767,7 +767,7 @@ SELECT DNAME
 ---
 <!-- _class: aqua -->
 ##### Q017
-- EMP 테이블에서 모든 행을 선택하되, 다음 조건을 만족하는 경우에만 출력한다:
+- EMP 테이블에서 모든 행을 선택하되, 다음 조건을 만족하는 경우에만 출력하시오.  EXISTS 이용
 - DEPT 테이블에 DEPTNO = 50인 행이 하나라도 존재하는 경우
 
 <img src="img/chap09_017.png" alt="" width="90%" />
