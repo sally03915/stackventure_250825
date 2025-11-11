@@ -743,14 +743,7 @@ SELECT * FROM DEPT_TCL;
 
 현재 세션 A,B에는 조회한 DEPT테이블 30번부서의 DNAME, LOC열의 데이터 상태를 적으시오.
 
----
-<!-- _class: aqua -->
->ANSWER
-<pre class="codeblock">
-① 세션 A : DNAME은 DATABASE, LOC은 SEOUL /
-  세션 B : DNAME은 SALES, LOC은 CHICAGO
-</pre>
-
+ 
 
 
 ---
@@ -767,11 +760,7 @@ SELECT * FROM DEPT_TCL;
 
 현재 세션 B에서 실행한 UPDATE 문 실행결과를 적으시오.
 
-<pre class="codeblock">
-② 세션 B의 UPDATE 명령이 실행된 후 대기상태(HANG)가 된다.
-세션 A의 트랜잭션이 아직 종료되지 않았기 때문이다.
-</pre>
-
+ 
 
 
 
@@ -790,11 +779,7 @@ SELECT * FROM DEPT_TCL;
 
 세션A에서 ROLLBACK명령어를 사용한 후 세션B에서 일어나는 변화를 적으시오.
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-③ 세션 A의 ROLLBACK 명령이 실행되자마자 세션 B의 UPDATE문이 수행된다. 세션 A의 트랜잭션에 의한 행 레벨 록이 끝났기 때문이다.
-</pre>
+ 
 
 
 
@@ -814,12 +799,7 @@ SELECT * FROM DEPT_TCL;
 
 세션A, B에서 조회한 DEPT테이블 30번 부서의 DNAME, LOC의 데이터 상태를 적으시오.
 
-<pre class="codeblock">
-④ 세션 A : DNAME은 SALES, LOC은 CHICAGO
-  세션 B : DNAME은 DATABASE, LOC은 SEOUL
-</pre>
-
-
+ 
 
 
 
@@ -839,11 +819,7 @@ SELECT * FROM DEPT_TCL;
 
 세션A, B에서 조회한 DEPT테이블 30번 부서의 DNAME, LOC의 데이터 상태를 적으시오.
 
-<pre class="codeblock">
-⑤ 세션 A : DNAME은 DATABASE, LOC은 SEOUL
-  세션 B : DNAME은 DATABASE, LOC은 SEOUL
-</pre>
-
+ 
 
 ---
 

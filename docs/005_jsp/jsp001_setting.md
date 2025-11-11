@@ -265,7 +265,7 @@ style: |
 
 <!-- 현재 챕터 강조 -->
 <div class="chapter-highlight">
-  📍 <strong>현재 위치:</strong> Chapter 2 · <em>JSP 페이지 구조와 지시자</em>
+  📍 <strong>현재 위치:</strong> Chapter 1 · <em>JSP SETTING</em>
 </div>
 
 <blockquote>

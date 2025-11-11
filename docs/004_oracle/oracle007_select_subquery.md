@@ -558,7 +558,7 @@ SELECT *
 <!-- _class: aqua -->
 ##### Q007
 - EMP 테이블에서 다음과 같이 출력하시오.
-1. 각 부서별 최고급여와 동일한 급열르 받는 사원정보를 출력하시오.
+1. 각 부서별 최고급여와 동일한 급여를 받는 사원정보를 출력하시오.
 <img src="img/chap09_007.png" alt="" width="90%" />
 
 
@@ -597,8 +597,9 @@ GROUP BY DEPTNO;
 ---
 <!-- _class: aqua -->
 ##### Q009
-- EMP 테이블에서 다음과 같이 출력하시오.
-1. ANY 연산자를 이용하여 다음과같이 출력해보시오
+-EMP 테이블에서 다음과 같이 출력하시오.
+1. ANY 연산자를 이용하여 다음과같이 출력해보시오  (각부서별 최대급여)
+2. IN 과 같은결과
 <img src="img/chap09_009.png" alt="" width="90%" />
 
 
@@ -618,8 +619,9 @@ SELECT MAX(SAL)
 ---
 <!-- _class: aqua -->
 ##### Q010
-- EMP 테이블에서 다음과 같이 출력하시오.
-1. ANY 연산자를 이용하여 다음과같이 출력해보시오
+-EMP 테이블에서 다음과 같이 출력하시오.
+1. SOME 연산자를 이용하여 다음과같이 출력해보시오  (각부서별 최대급여)
+2. IN 과 같은결과
 
 <img src="img/chap09_010.png" alt="" width="90%" />
 
@@ -743,9 +745,9 @@ SELECT SAL
 ---
 <!-- _class: aqua -->
 ##### Q016
-- EMP 테이블에서 다음과 같이 출력하시오.
-1. EXISTS - 서브쿼리에 결과 값이 하나이상 존재하면 조건식이 모두 TRUE, 아니면 FALSE 됨
-- 결과값이 모두 존재히기때문에 EMP 모든행이 출력됨.
+-EMP 테이블에서 모든 행을 선택하되, 다음 조건을 만족하는 경우에만 출력하시오.  EXISTS 이용
+- DEPT 테이블에 DEPTNO = 50인 행이 하나라도 존재하는 경우
+
 <img src="img/chap09_016.png" alt="" width="90%" />
 
 
@@ -765,9 +767,9 @@ SELECT DNAME
 ---
 <!-- _class: aqua -->
 ##### Q017
-- EMP 테이블에서 다음과 같이 출력하시오.
-1. EXISTS - 서브쿼리에 결과 값이 하나이상 존재하면 조건식이 모두 TRUE, 아니면 FALSE 됨
-- 결과값이 모두 존재하지 않기때문에 아무행도 출력안됨.
+- EMP 테이블에서 모든 행을 선택하되, 다음 조건을 만족하는 경우에만 출력하시오.  EXISTS 이용
+- DEPT 테이블에 DEPTNO = 50인 행이 하나라도 존재하는 경우
+
 <img src="img/chap09_017.png" alt="" width="90%" />
 
 
@@ -809,7 +811,7 @@ SELECT DEPTNO, MAX(SAL)
 ---
 <!-- _class: aqua -->
 ##### Q019
-- EMP 테이블에서 다음과 같이 출력하시오.
+- 인라인 뷰를 이용
 1. FROM 절에서 사용하는 인라인 뷰를 이용하여
    부서번호가 10인 사용자 정보와  부서정보를 가져와 
 2. EMPNO, ENAME, DEPTNO, DNAME, LOC 를 출력하시오.
@@ -834,8 +836,10 @@ SELECT * FROM DEPT) D
 ---
 <!-- _class: aqua -->
 ##### Q020
-- WITH
-- FROM 절에 명시하는 방식보다 몇십, 몇백줄의 규보가 되었을때 유용하게 사용됨.
+- WITH 이용
+- FROM 절에 명시하는 방식보다 몇십, 몇백줄의 규모가 되었을때 유용하게 사용됨.
+- emp 테이블에서 부서번호가 10인 사원정보 
+- dept 테이블의 모든정보
 <img src="img/chap09_020.png" alt="" width="90%" />
 
 
@@ -857,7 +861,7 @@ SELECT E10.EMPNO, E10.ENAME, E10.DEPTNO, D.DNAME, D.LOC
 ---
 <!-- _class: aqua -->
 ##### Q0021
-- 열에 명시하는 스칼라서브쿼리
+- 열에 명시하는 스칼라서브쿼리이용
 1. EMP 테이블의  EMPNO, ENAME, JOB, SAL
 2. EMP 테이블의 SAL을 이용하여 SALGRADE에서 등급(GRADE)을 구하고
 3. EMP 테이블의 DEPTNO를 이용하여 DEPTNO가 같은  부서명(DNAME)을 구하시오.
@@ -900,20 +904,7 @@ FROM EMP E;
 1. 전체 사원 중 ALLEN과 같은 직책(JOB)인 사원들의 사원정보, 부서정보를 다음과 같이 출력하시오.
 <img src="img/chap09__EX_001.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.JOB, E.EMPNO, E.ENAME, E.SAL, E.DEPTNO, D.DNAME
-  FROM EMP E, DEPT D
- WHERE E.DEPTNO = D.DEPTNO
-   AND JOB = (
-SELECT JOB
-                FROM EMP
-               WHERE ENAME = 'ALLEN');
-
-</pre>
-
+ 
 
 ---
 <!-- _class: aqua -->
@@ -926,20 +917,7 @@ SELECT JOB
 <!-- _class: aqua -->
 <img src="img/chap09__EX_002.png" alt="" width="90%" />
 
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, D.DNAME, E.HIREDATE, D.LOC, E.SAL, S.GRADE
-  FROM EMP E, DEPT D, SALGRADE S
- WHERE E.DEPTNO = D.DEPTNO
-   AND E.SAL BETWEEN S.LOSAL AND S.HISAL
-   AND SAL > (
-SELECT AVG(SAL)
-                FROM EMP)
-ORDER BY E.SAL DESC, E.EMPNO;
-
-</pre>
+ 
 
 
 ---
@@ -951,19 +929,7 @@ ORDER BY E.SAL DESC, E.EMPNO;
 <img src="img/chap09__EX_003.png" alt="" width="90%" />
 
 
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, E.JOB, E.DEPTNO, D.DNAME, D.LOC
-  FROM EMP E, DEPT D
- WHERE E.DEPTNO = D.DEPTNO
-   AND E.DEPTNO = 10
-   AND JOB NOT IN (
-SELECT DISTINCT JOB
-                     FROM EMP
-                    WHERE DEPTNO = 30);
-
-</pre>
+ 
 
 
 ---
@@ -974,41 +940,15 @@ SELECT DISTINCT JOB
 2. 다중행 함수 사용하지 않는 방법, 다중행 함수 사용하는 방법 2가지로 작성하시오.
 3. 사원번호를 기준으로 오름차순으로 정렬하시오.
  
----
-<!-- _class: aqua -->
-- 다중행 함수 사용하지 않는 방법
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, E.SAL, S.GRADE
-  FROM EMP E, SALGRADE S
- WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
-   AND SAL > (
-SELECT MAX(SAL)
-                FROM EMP
-               WHERE JOB = 'SALESMAN')
-ORDER BY E.EMPNO;
-</pre>
+ 
  
 ---
 <!-- _class: aqua -->
 - 다중행 함수 사용하는 방법
+<img src="img/chap09__EX_004.png" alt="" width="70%" />
+
+
  
-<img src="img/chap09__EX_004_2.png" alt="" width="90%" />
-
-
----
-<!-- _class: aqua -->
-<pre class="codeblock">
-SELECT E.EMPNO, E.ENAME, E.SAL, S.GRADE
-  FROM EMP E, SALGRADE S
- WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
-   AND SAL > ALL (
-SELECT DISTINCT SAL
-                    FROM EMP
-                   WHERE JOB = 'SALESMAN')
-ORDER BY E.EMPNO;
-</pre>
-
-
 
 ---
 

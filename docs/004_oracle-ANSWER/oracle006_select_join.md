@@ -722,7 +722,7 @@ ORDER BY E.DEPTNO, EMPNO;
 ---
 <!-- _class: aqua -->
 ##### Q014   표준문법 (LEFT OUTER JOIN )
-- EMP , DEPT 테이블 이용하여  다음과 같이 출력하시오
+- EMP테이블을 2번 이용하여 테이블 이용하여  다음과 같이 출력하시오
 
 1.  LEFT OUTER JOIN
   - 왼쪽 외부조인을 기준으로 NULL보장
@@ -745,7 +745,7 @@ ORDER BY E1.EMPNO;
 ---
 <!-- _class: aqua -->
 ##### Q015 표준문법 (RIGHT OUTER JOIN )
-- EMP , DEPT 테이블 이용하여  다음과 같이 출력하시오
+- EMP테이블을 2번 이용하여 테이블 이용하여  다음과 같이 출력하시오
 1.  RIGHT OUTER JOIN- 오른른쪽 외부조인을 기준으로 NULL보장
 
 <img src="img/chap08_015.png" alt="" width="70%" />
@@ -766,7 +766,7 @@ ORDER BY E1.EMPNO, MGR_EMPNO;
 ---
 <!-- _class: aqua -->
 ##### Q016 표준문법 (FULL OUTER JOIN )
-- EMP , DEPT 테이블 이용하여  다음과 같이 출력하시오
+- EMP테이블을 2번  이용하여  다음과 같이 출력하시오
 1.  FULL OUTER JOIN - 양쪽모두두 외부조인을 기준으로 NULL보장
 
 ---
